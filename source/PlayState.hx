@@ -58,7 +58,7 @@ import DialogueBoxPsych;
 #if sys
 import sys.FileSystem;
 #end
-
+import flixel.tweens.FlxTween.FlxTweenManager;
 using StringTools;
 
 class PlayState extends MusicBeatState
@@ -248,6 +248,7 @@ class PlayState extends MusicBeatState
 	// fuckles
 	public var fucklesDrain:Float = 0;
 	public var fucklesMode:Bool = false;
+	public var drainMisses:Float = 0; // EEE OOO EH OO EE AAAAAAAAA
 	// horizon
 	var fucklesBGPixel:FlxSprite;
 	var fucklesFGPixel:FlxSprite;
@@ -269,6 +270,10 @@ class PlayState extends MusicBeatState
 	var dadCamThing:Array<Int> = [0, 0];
 	var bfCamThing:Array<Int> = [0, 0];
 	var cameramove:Bool = FlxG.save.data.cammove;
+	//zoom bullshit
+	public var wowZoomin:Bool = false;
+	public var holyFuckStopZoomin:Bool = false;
+
 
 	override public function create()
 	{
@@ -954,10 +959,10 @@ class PlayState extends MusicBeatState
 								}
 							}
 						});
-					new FlxTimer().start(5, function(tmr:FlxTimer)
-						{
-							startCountdown();
-						});
+						new FlxTimer().start(0.5, function(tmr:FlxTimer)
+							{
+								startCountdown();
+							});
 				case 'our-horizon':
 					add(blackFuck);
 					startCircle.loadGraphic(Paths.image('openings/our_horizon_title_card', 'exe'));
@@ -991,10 +996,10 @@ class PlayState extends MusicBeatState
 								}
 							});
 						});
-					new FlxTimer().start(5, function(tmr:FlxTimer)
-						{
-							startCountdown();
-						});
+						new FlxTimer().start(0.5, function(tmr:FlxTimer)
+							{
+								startCountdown();
+							});
 
 				default:
 					startCountdown();
@@ -1730,16 +1735,6 @@ class PlayState extends MusicBeatState
 
 			var babyArrow:StrumNote = new StrumNote(ClientPrefs.middleScroll ? STRUM_X_MIDDLESCROLL : STRUM_X, strumLine.y, i, player);
 			babyArrow.downScroll = ClientPrefs.downScroll;
-			if (!isStoryMode && !skipArrowStartTween)
-			{
-				//babyArrow.y -= 10;
-				babyArrow.alpha = 0;
-				FlxTween.tween(babyArrow, {/*y: babyArrow.y + 10,*/ alpha: targetAlpha}, 1, {ease: FlxEase.circOut, startDelay: 0.5 + (0.2 * i)});
-			}
-			else
-			{
-				babyArrow.alpha = targetAlpha;
-			}
 
 			if (player == 1)
 			{
@@ -1827,6 +1822,16 @@ class PlayState extends MusicBeatState
 				timer.active = true;
 			}
 			paused = false;
+
+			FlxTween.globalManager.forEach(function(tween:FlxTween)
+				{
+					tween.active = true;
+				});
+				FlxTimer.globalManager.forEach(function(timer:FlxTimer)
+				{
+					timer.active = true;
+				});
+
 			callOnLuas('onResume', []);
 
 			#if desktop
@@ -1957,6 +1962,34 @@ class PlayState extends MusicBeatState
 		{
 			iconP1.swapOldIcon();
 		}*/
+		
+		var targetHP:Float = health;
+
+		if (fucklesMode)
+			{
+				fucklesDrain = 0.0005; // copied from exe 2.0 lol sorry
+				/*var reduceFactor:Float = combo / 150;
+				if(reduceFactor>1)reduceFactor=1;
+				reduceFactor = 1 - reduceFactor;
+				health -= (fucklesDrain * (elapsed/(1/120))) * reduceFactor * drainMisses;*/
+				if(drainMisses > 0)
+					health -= (fucklesDrain * (elapsed/(1/120))) * drainMisses;
+				else
+					drainMisses = 0;
+	
+			}
+		if(fucklesMode)
+			{
+				var newTarget:Float = FlxMath.lerp(health, targetHP, 0.1*(elapsed/(1/60)));
+				if(Math.abs(newTarget-targetHP)<.002)
+					{
+						newTarget=targetHP;
+		  			}
+		 		else
+					{
+						targetHP = newTarget;	
+					}
+			}
 
 		callOnLuas('onUpdate', [elapsed]);
 
@@ -1992,6 +2025,17 @@ class PlayState extends MusicBeatState
 
 		if (controls.PAUSE && startedCountdown && canPause)
 		{
+
+			FlxTween.globalManager.forEach(function(tween:FlxTween)
+				{
+					tween.active = false;
+				});
+
+				FlxTimer.globalManager.forEach(function(timer:FlxTimer)
+				{
+					timer.active = false;
+				});
+
 			var ret:Dynamic = callOnLuas('onPause', []);
 			if(ret != FunkinLua.Function_Stop) {
 				persistentUpdate = false;
@@ -2069,6 +2113,8 @@ class PlayState extends MusicBeatState
 					{
 						switch (curSong)
 						{
+							case 'my-horizon':
+								startSong();
 							default:
 								startSong();
 						}
@@ -2960,10 +3006,12 @@ class PlayState extends MusicBeatState
 				totalNotesHit += 0.75;
 				note.ratingMod = 0.75;
 				score = 200;
+				if(fucklesMode)drainMisses -= 1/100;
 				if(!note.ratingDisabled) goods++;
 			case "sick": // sick
 				totalNotesHit += 1;
 				note.ratingMod = 1;
+				if(fucklesMode)drainMisses++;
 				if(!note.ratingDisabled) sicks++;
 		}
 		note.rating = daRating;
@@ -3335,6 +3383,8 @@ class PlayState extends MusicBeatState
 			vocals.volume = 0;
 			doDeathCheck(true);
 		}
+		if(fucklesMode)
+			drainMisses++;
 
 		//For testing purposes
 		//trace(daNote.missHealth);
@@ -3638,6 +3688,50 @@ class PlayState extends MusicBeatState
 			resyncVocals();
 		}
 
+		if (SONG.song.toLowerCase() == 'my-horizon')
+			{
+				switch (curStep)
+				{
+					case 896:
+						FlxTween.tween(camHUD, {alpha: 0}, 2.2);
+					case 908:
+						dad.playAnim('transformation', true);
+						dad.specialAnim = true;
+						camZooming = false;
+					case 924:
+						FlxTween.tween(FlxG.camera, {zoom: FlxG.camera.zoom + 0.5}, 12, {ease: FlxEase.cubeInOut});
+						FlxTween.tween(whiteFuck, {alpha: 1}, 6, {ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween)
+							{
+								remove(fucklesFGPixel);
+								remove(fucklesBGPixel);
+								fucklesBGPixel.destroy();
+								fucklesFGPixel.destroy();
+								fucklesFuckedUpBg.visible = true;
+								fucklesFuckedUpFg.visible = true;
+							}
+						});
+					case 992:
+						literallyMyHorizon();
+					case 1120, 1248, 1376, 1632, 1888, 1952, 2048, 2054, 2060:
+						fucklesHealthRandomize();
+						camHUD.shake(0.005, 1);
+					case 1121, 1760:
+						wowZoomin = true;
+					case 1503, 2015:
+						wowZoomin = false;
+					case 1504, 2080:
+						holyFuckStopZoomin = true;
+					case 1759, 2336:
+						holyFuckStopZoomin = false;
+					case 2208, 2222, 2240, 2254, 2320, 2324, 2328:
+						fucklesFinale();
+						camHUD.shake(0.003, 1);
+					case 2337:
+						camZooming = false;
+				}
+			}
+	
+
 		if(curStep == lastStepHit) {
 			return;
 		}
@@ -3651,7 +3745,6 @@ class PlayState extends MusicBeatState
 	var lightningOffset:Int = 8;
 
 	var lastBeatHit:Int = -1;
-	var fucklesBeats:Bool = true;
 	
 	override function beatHit()
 	{
@@ -3695,6 +3788,18 @@ class PlayState extends MusicBeatState
 			camHUD.zoom += 0.03;
 		}
 
+		if (curBeat % 2 == 0 && wowZoomin)
+			{
+				FlxG.camera.zoom += 0.06;
+				camHUD.zoom += 0.08;
+			}
+	
+			if (curBeat % 1 == 0 && holyFuckStopZoomin)
+			{
+				FlxG.camera.zoom += 0.06;
+				camHUD.zoom += 0.08;
+			}
+
 		iconP1.scale.set(1.2, 1.2);
 		iconP2.scale.set(1.2, 1.2);
 
@@ -3718,7 +3823,7 @@ class PlayState extends MusicBeatState
 
 		switch (curStage)
 		{
-			case 'fuckles':
+			case 'horizon':
 				if (fucklesBeats)
 					{
 						fucklesEspioBg.animation.play('idle');
@@ -3744,6 +3849,79 @@ class PlayState extends MusicBeatState
 		setOnLuas('curBeat', curBeat); //DAWGG?????
 		callOnLuas('onBeatHit', []);
 	}
+
+	function literallyMyHorizon()
+		{
+			dad.specialAnim = false;
+			FlxG.camera.flash(FlxColor.BLACK, 1);
+			dadGroup.remove(dad);
+			var olddx = dad.x - 230;
+			var olddy = dad.y - 170;
+			dad = new Character(olddx, olddy, 'beast_chaotix');
+			iconP2.changeIcon(dad.healthIcon);
+			dadGroup.add(dad);
+			camZooming = true;
+			FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom}, 1.5, {ease: FlxEase.cubeInOut});
+			FlxTween.tween(camHUD, {alpha: 1}, 1.0);
+			fucklesBeats = false;
+			fucklesDeluxe();
+			FlxTween.tween(whiteFuck, {alpha: 0}, 1.5, {ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween)
+				{
+					remove(whiteFuck);
+					whiteFuck.destroy();
+				}
+			});
+			camHUD.zoom += 2;
+
+			//ee oo ee oo ay oo ay oo ee au ee ah
+		}
+
+		function fucklesDeluxe()
+			{
+				health = 2;
+				//songMisses = 0;
+				fucklesMode = true;
+		
+				timeBarBG.visible = false;
+				timeBar.visible = false;
+				timeTxt.visible = false;
+				scoreTxt.visible = false;
+		
+				opponentStrums.forEach(function(spr:FlxSprite)
+				{
+					spr.x += 10000;
+				});
+			}
+		
+			// ok might not do this lmao
+		
+			var fuckedMode:Bool = false;
+		
+			function fucklesFinale()
+			{
+				if (fucklesMode)
+					fuckedMode = true;
+				if (fuckedMode)
+				{
+					health -= 0.1;
+					if (health <= 0.01)
+					{
+						health = 0.01;
+						fuckedMode = false;
+					}
+				}
+				trace('dont die lol');
+			}
+		
+			function fucklesHealthRandomize()
+			{
+				if (fucklesMode)
+					health = FlxG.random.float(0.5, 2);
+				trace('fuck your health!');
+				// randomly sets health between max and 0.5,
+				// this im gonna use for stephits and basically
+				// have it go fucking insane in some parts and disable the drain and reenable when needed
+			}
 
 	public var closeLuas:Array<FunkinLua> = [];
 	public function callOnLuas(event:String, args:Array<Dynamic>):Dynamic {
