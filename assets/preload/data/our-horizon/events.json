@@ -1,0 +1,34 @@
+{
+	"song": {
+		"speed": 2.8,
+		"stage": "horizon",
+		"player1": "chaotix_bf",
+		"player2": "chaotix_faker",
+		"player3": null,
+		"events": [
+			[
+				95700.0386056989,
+				[
+					[
+						"Change Character",
+						"dad",
+						"chaotix"
+					],
+					[
+						"Change Character",
+						"bf",
+						"bf"
+					]
+				]
+			]
+		],
+		"notes": [],
+		"splashSkin": null,
+		"validScore": false,
+		"gfVersion": "chaotix_gf",
+		"bpm": 156,
+		"arrowSkin": null,
+		"needsVoices": true,
+		"song": "our-horizon"
+	}
+}

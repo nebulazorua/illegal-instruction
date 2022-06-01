@@ -1,59 +1,59 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "idle",
-			"indices": [],
-			"name": "Chaotix_IDLE"
+			"fps": 24,
+			"name": "Chaotix_IDLE",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				103,
 				7
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "Chaotix_LEFT"
+			"fps": 24,
+			"name": "Chaotix_LEFT",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				58,
 				-134
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "Chaotix_DOWN"
+			"fps": 24,
+			"name": "Chaotix_DOWN",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				158,
 				43
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "Chaotix_RIGHT"
+			"fps": 24,
+			"name": "Chaotix_RIGHT",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				110,
 				150
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUP",
-			"indices": [],
-			"name": "Chaotix_UP"
+			"fps": 24,
+			"name": "Chaotix_UP",
+			"indices": []
 		}
 	],
 	"no_antialiasing": false,
@@ -71,7 +71,7 @@
 	],
 	"camera_position": [
 		-200,
-		-230
+		-130
 	],
 	"sing_duration": 6.1,
 	"scale": 1.8

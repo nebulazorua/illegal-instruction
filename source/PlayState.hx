@@ -262,6 +262,13 @@ class PlayState extends MusicBeatState
 	var fucklesFuckedUpFg:FlxSprite;
 	var fucklesTheHealthHog:Array<Float>;
 	var whiteFuck:FlxSprite;
+	//horizon but real
+	var horizonBg:FlxSprite;
+	var horizonFloor:FlxSprite;
+	var horizonTrees:FlxSprite;
+	var horizonTrees2:FlxSprite;
+
+
 	// - healthbar based things for mechanic use (like my horizon lol)
 	var healthMultiplier:Float = 1; // fnf
 	var healthDrop:Float = 0;
@@ -273,7 +280,8 @@ class PlayState extends MusicBeatState
 	//zoom bullshit
 	public var wowZoomin:Bool = false;
 	public var holyFuckStopZoomin:Bool = false;
-
+	public var pleaseStopZoomin:Bool = false;
+	public var ohGodTheZooms:Bool = false;
 
 	override public function create()
 	{
@@ -523,6 +531,41 @@ class PlayState extends MusicBeatState
 				whiteFuck = new FlxSprite(-600, 0).makeGraphic(FlxG.width * 6, FlxG.height * 6, FlxColor.BLACK);
 				whiteFuck.alpha = 0;
 				add(whiteFuck);
+
+				if (SONG.song.toLowerCase() == 'our-horizon')
+					{
+						horizonBg = new FlxSprite(-500, 285);
+						horizonBg.loadGraphic(Paths.image('chaotix/starline', 'exe'));
+						horizonBg.scrollFactor.set(1, 1);
+						horizonBg.scale.set(1.1, 1.1);
+						horizonBg.antialiasing = true;
+						horizonBg.visible = false;
+						add(horizonBg);
+
+						horizonFloor = new FlxSprite(-500, 285);
+						horizonFloor.loadGraphic(Paths.image('chaotix/floor', 'exe'));
+						horizonFloor.scrollFactor.set(1, 1);
+						horizonFloor.scale.set(1.1, 1.1);
+						horizonFloor.antialiasing = true;
+						horizonFloor.visible = false;
+						add(horizonFloor);
+
+						horizonTrees = new FlxSprite(-400, 285);
+						horizonTrees.loadGraphic(Paths.image('chaotix/trees', 'exe'));
+						horizonTrees.scrollFactor.set(1, 1);
+						horizonTrees.scale.set(1.1, 1.1);
+						horizonTrees.antialiasing = true;
+						horizonTrees.visible = false;
+						add(horizonTrees);
+
+						horizonTrees2 = new FlxSprite(-500, 285);
+						horizonTrees2.loadGraphic(Paths.image('chaotix/trees2', 'exe'));
+						horizonTrees2.scrollFactor.set(1, 1);
+						horizonTrees2.scale.set(1.1, 1.1);
+						horizonTrees2.antialiasing = true;
+						horizonTrees2.visible = false;
+						add(horizonTrees2);
+					}
 
 
 			default: //lol
@@ -959,7 +1002,7 @@ class PlayState extends MusicBeatState
 								}
 							}
 						});
-						new FlxTimer().start(0.5, function(tmr:FlxTimer)
+						new FlxTimer().start(0.3, function(tmr:FlxTimer)
 							{
 								startCountdown();
 							});
@@ -996,7 +1039,7 @@ class PlayState extends MusicBeatState
 								}
 							});
 						});
-						new FlxTimer().start(0.5, function(tmr:FlxTimer)
+						new FlxTimer().start(0.3, function(tmr:FlxTimer)
 							{
 								startCountdown();
 							});
@@ -1983,13 +2026,15 @@ class PlayState extends MusicBeatState
 				var newTarget:Float = FlxMath.lerp(health, targetHP, 0.1*(elapsed/(1/60)));
 				if(Math.abs(newTarget-targetHP)<.002)
 					{
-						newTarget=targetHP;
+						newTarget = targetHP;
 		  			}
 		 		else
 					{
 						targetHP = newTarget;	
 					}
 			}
+
+			targetHP = health;
 
 		callOnLuas('onUpdate', [elapsed]);
 
@@ -2996,6 +3041,8 @@ class PlayState extends MusicBeatState
 				totalNotesHit += 0;
 				note.ratingMod = 0;
 				score = 50;
+				if(fucklesMode)
+					drainMisses++;
 				if(!note.ratingDisabled) shits++;
 			case "bad": // bad
 				totalNotesHit += 0.5;
@@ -3006,12 +3053,14 @@ class PlayState extends MusicBeatState
 				totalNotesHit += 0.75;
 				note.ratingMod = 0.75;
 				score = 200;
-				if(fucklesMode)drainMisses -= 1/100;
+				if(fucklesMode)
+					drainMisses -= 1/100;
 				if(!note.ratingDisabled) goods++;
 			case "sick": // sick
 				totalNotesHit += 1;
 				note.ratingMod = 1;
-				if(fucklesMode)drainMisses++;
+				if(fucklesMode)
+					drainMisses -= 1/50;
 				if(!note.ratingDisabled) sicks++;
 		}
 		note.rating = daRating;
@@ -3377,7 +3426,10 @@ class PlayState extends MusicBeatState
 		});
 		combo = 0;
 
-		health -= daNote.missHealth * healthLoss;
+		if (!fucklesMode)
+		{
+			health -= daNote.missHealth * healthLoss;
+		}
 		if(instakillOnMiss)
 		{
 			vocals.volume = 0;
@@ -3398,6 +3450,16 @@ class PlayState extends MusicBeatState
 		var char:Character = boyfriend;
 		if(daNote.gfNote) {
 			char = gf;
+		}
+
+		switch (daNote.noteType)
+		{
+			default:
+				if (!fucklesMode)
+					health -= daNote.missHealth;
+					songMisses++;
+				if(fucklesMode)
+					drainMisses++;
 		}
 
 		if(char != null && char.hasMissAnimations)
@@ -3432,8 +3494,11 @@ class PlayState extends MusicBeatState
 			combo = 0;
 
 			if(!practiceMode) songScore -= 10;
-			if(!endingSong) {
+			if(!endingSong) 
+			{
 				songMisses++;
+				if (fucklesMode)
+					drainMisses++;
 			}
 			totalPlayed++;
 			RecalculateRating();
@@ -3551,7 +3616,10 @@ class PlayState extends MusicBeatState
 				popUpScore(note);
 				if(combo > 9999) combo = 9999;
 			}
-			health += note.hitHealth * healthGain;
+			if (!fucklesMode)
+				{
+					health += note.hitHealth * healthGain;
+				}
 
 			if(!note.noAnimation) {
 				var daAlt = '';
@@ -3688,6 +3756,18 @@ class PlayState extends MusicBeatState
 			resyncVocals();
 		}
 
+		if (curStep % 2 == 0 && pleaseStopZoomin)
+			{
+				FlxG.camera.zoom += 0.04;
+				camHUD.zoom += 0.04;
+			}
+
+		if (curStep % 1 == 0 && ohGodTheZooms)
+			{
+				FlxG.camera.zoom += 0.02;
+				camHUD.zoom += 0.02;
+			}	
+
 		if (SONG.song.toLowerCase() == 'my-horizon')
 			{
 				switch (curStep)
@@ -3731,6 +3811,67 @@ class PlayState extends MusicBeatState
 				}
 			}
 	
+			if (SONG.song.toLowerCase() == 'our-horizon')
+				{
+					switch (curStep)
+					{
+						case 765:
+							FlxTween.tween(camHUD, {alpha: 0}, 1.2);
+							dad.playAnim('transformation', true);
+							dad.specialAnim = true;
+							camZooming = false;
+						case 800:
+							FlxTween.tween(whiteFuck, {alpha: 1}, 6, {ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween)
+								{
+									removeShit(1);
+								}
+							});
+							FlxTween.tween(FlxG.camera, {zoom: FlxG.camera.zoom + 0.5}, 12, {ease: FlxEase.cubeInOut});
+						case 912:
+							FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom}, 1.5, {ease: FlxEase.cubeInOut});
+							//FlxTween.tween(camHUD, {alpha: 1}, 1.0);
+							iconP2.changeIcon(dad.healthIcon);
+						case 920:
+							FlxTween.tween(dad, {alpha: 0}, 0.5, {ease: FlxEase.cubeInOut});
+							FlxTween.tween(boyfriend, {alpha: 0}, 0.5, {ease: FlxEase.cubeInOut});
+							FlxTween.tween(gf, {alpha: 0}, 0.5, {ease: FlxEase.cubeInOut});
+						case 927:
+							dad.specialAnim = false;
+						case 1000:
+							defaultCamZoom = 0.7;
+							dad.setPosition(200, 700);
+							boyfriend.setPosition(900, 950);
+							literallyOurHorizon();
+							removeShit(2);
+					}
+				}
+
+			if (SONG.song.toLowerCase() == 'found you')
+				{
+					switch (curStep)
+					{
+						case 416, 1184, 1696, 2720:
+							wowZoomin = true;
+						case 800, 1311, 1823, 2847:
+							wowZoomin = false;
+						case 928, 1312, 1824, 2336, 2848:
+							holyFuckStopZoomin = true;
+						case 1056, 1568, 2079, 2591, 3359:
+							holyFuckStopZoomin = false;
+						case 2080, 3361:
+							pleaseStopZoomin = true;
+						case 2335, 3871:	
+							pleaseStopZoomin = false;
+						case 2592:
+							iconP1.changeIcon(gf.healthIcon);
+						case 3360:
+							iconP1.changeIcon(boyfriend.healthIcon);
+						case 3782:
+							ohGodTheZooms = true;
+						case 4138:
+							ohGodTheZooms = false;	
+					}
+				}
 
 		if(curStep == lastStepHit) {
 			return;
@@ -3794,11 +3935,11 @@ class PlayState extends MusicBeatState
 				camHUD.zoom += 0.08;
 			}
 	
-			if (curBeat % 1 == 0 && holyFuckStopZoomin)
-			{
-				FlxG.camera.zoom += 0.06;
-				camHUD.zoom += 0.08;
-			}
+		if (curBeat % 1 == 0 && holyFuckStopZoomin)
+		{
+			FlxG.camera.zoom += 0.06;
+			camHUD.zoom += 0.08;
+		}
 
 		iconP1.scale.set(1.2, 1.2);
 		iconP2.scale.set(1.2, 1.2);
@@ -3865,16 +4006,65 @@ class PlayState extends MusicBeatState
 			FlxTween.tween(camHUD, {alpha: 1}, 1.0);
 			fucklesBeats = false;
 			fucklesDeluxe();
-			FlxTween.tween(whiteFuck, {alpha: 0}, 1.5, {ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween)
+			FlxTween.tween(whiteFuck, {alpha: 0}, 2, {ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween)
 				{
 					remove(whiteFuck);
 					whiteFuck.destroy();
 				}
 			});
+
 			camHUD.zoom += 2;
 
 			//ee oo ee oo ay oo ay oo ee au ee ah
 		}
+	function literallyOurHorizon()
+		{
+			isPixelStage = false;
+			camZooming = true;
+			FlxTween.tween(camHUD, {alpha: 1}, 0.5);
+			FlxTween.tween(dad, {alpha: 1}, 0.1, {ease: FlxEase.cubeInOut});
+			FlxTween.tween(boyfriend, {alpha: 1}, 0.1, {ease: FlxEase.cubeInOut});
+			FlxTween.tween(whiteFuck, {alpha: 0}, 1, {ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween)
+				{
+					remove(whiteFuck);
+					whiteFuck.destroy();
+				}
+			});
+
+			fucklesBGPixel.visible = false;
+			fucklesFGPixel.visible = false;
+			horizonBg.visible = true;
+			horizonFloor.visible = true;
+			horizonTrees.visible = true;
+			horizonTrees2.visible = true;
+			
+			opponentStrums.forEach(function(spr:FlxSprite)
+				{
+					spr.x += 10000;
+				});
+		}
+
+		function removeShit(fuck:Int)
+			{
+
+				switch(fuck)
+						{
+							case 1:
+								fucklesEspioBg.animation.stop();
+								fucklesMightyBg.animation.stop();
+								fucklesCharmyBg.animation.stop();
+								fucklesAmyBg.animation.stop();
+								fucklesKnuxBg.animation.stop();
+								fucklesVectorBg.animation.stop();
+							case 2:
+								fucklesEspioBg.visible = false;
+								fucklesMightyBg.visible = false;
+								fucklesCharmyBg.visible = false;
+								fucklesAmyBg.visible = false;
+								fucklesKnuxBg.visible = false;
+								fucklesVectorBg.visible = false;
+						}
+			}
 
 		function fucklesDeluxe()
 			{
@@ -3888,9 +4078,9 @@ class PlayState extends MusicBeatState
 				scoreTxt.visible = false;
 		
 				opponentStrums.forEach(function(spr:FlxSprite)
-				{
-					spr.x += 10000;
-				});
+					{
+						spr.x += 10000;
+					});
 			}
 		
 			// ok might not do this lmao
