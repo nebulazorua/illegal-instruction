@@ -3854,22 +3854,14 @@ class PlayState extends MusicBeatState
 							wowZoomin = true;
 						case 800, 1311, 1823, 2847:
 							wowZoomin = false;
-						case 928, 1312, 1824, 2336, 2848:
+						case 928, 1312, 1824, 2080, 3361, 2336, 2848, 3782:
 							holyFuckStopZoomin = true;
-						case 1056, 1568, 2079, 2591, 3359:
+						case 1056, 1568, 2079, 2335, 3871, 2591, 3359, 4138:
 							holyFuckStopZoomin = false;
-						case 2080, 3361:
-							pleaseStopZoomin = true;
-						case 2335, 3871:	
-							pleaseStopZoomin = false;
 						case 2592:
 							iconP1.changeIcon(gf.healthIcon);
 						case 3360:
-							iconP1.changeIcon(boyfriend.healthIcon);
-						case 3782:
-							ohGodTheZooms = true;
-						case 4138:
-							ohGodTheZooms = false;	
+							iconP1.changeIcon('duo');
 					}
 				}
 
