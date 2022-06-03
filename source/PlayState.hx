@@ -267,8 +267,8 @@ class PlayState extends MusicBeatState
 	var horizonFloor:FlxSprite;
 	var horizonTrees:FlxSprite;
 	var horizonTrees2:FlxSprite;
-
-
+	// aughhhhhhhhhhhhhhhh
+	var hellBg:FlxSprite;
 	// - healthbar based things for mechanic use (like my horizon lol)
 	var healthMultiplier:Float = 1; // fnf
 	var healthDrop:Float = 0;
@@ -567,6 +567,18 @@ class PlayState extends MusicBeatState
 						add(horizonTrees2);
 					}
 
+			case 'chotix':
+				{
+					defaultCamZoom = 0.8;
+
+					hellBg = new FlxSprite(-750, 0);
+					hellBg.loadGraphic(Paths.image('chaotix/hell', 'exe'));
+					hellBg.scrollFactor.set(1, 1);
+					hellBg.scale.set(1.2, 1.2);
+					hellBg.antialiasing = false;
+					add(hellBg);
+				}
+
 
 			default: //lol
 				var bg:BGSprite = new BGSprite('stageback', -600, -200, 0.9, 0.9);
@@ -713,6 +725,9 @@ class PlayState extends MusicBeatState
 				gf.y += 575;
 				dad.x -= 90;
 				dad.y += 70;
+			case 'chotix':
+				gf.visible = false;
+				dad.setPosition(-500, 350);
 		}
 
 		var file:String = Paths.json(songName + '/dialogue'); //Checks for json/Psych Engine dialogue
