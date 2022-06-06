@@ -2164,7 +2164,7 @@ class PlayState extends MusicBeatState
 				}
 			}
 			if(focus.animation.curAnim!=null){
-				var name = focus.animation.curAnim.name.toLowerCase();
+				var name = focus.animation.curAnim.name;
 				if(name.startsWith("singLEFT"))
 					offX = -20;
 				else if(name.startsWith("singRIGHT"))
