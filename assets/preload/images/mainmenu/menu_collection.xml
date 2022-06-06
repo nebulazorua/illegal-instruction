@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="menu_collection.png">
+	<!-- Created with Adobe Animate version 21.0.7.42652 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="collection basic instance 10000" x="10" y="10" width="413" height="170"/>
+	<SubTexture name="collection white instance 10000" x="423" y="10" width="413" height="169"/>
+	<SubTexture name="collection-locked instance 10000" x="10" y="180" width="413" height="169"/>
+</TextureAtlas>
