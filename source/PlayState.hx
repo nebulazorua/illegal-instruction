@@ -2175,6 +2175,7 @@ class PlayState extends MusicBeatState
 				else if(name.startsWith("singDOWN"))
 					offY = 20;
 			}
+
 			camFollowPos.setPosition(FlxMath.lerp(camFollowPos.x, camFollow.x + offX, lerpVal), FlxMath.lerp(camFollowPos.y, camFollow.y + offY, lerpVal));
 			if(!startingSong && !endingSong && boyfriend.animation.curAnim.name.startsWith('idle')) {
 				boyfriendIdleTime += elapsed;
@@ -2362,7 +2363,25 @@ class PlayState extends MusicBeatState
 
 		if (camZooming)
 		{
-			FlxG.camera.zoom = FlxMath.lerp(defaultCamZoom, FlxG.camera.zoom, CoolUtil.boundTo(1 - (elapsed * 3.125), 0, 1));
+			var focus:Character = boyfriend;
+			var curSection:Int = Math.floor(curStep / 16);
+			if(SONG.notes[curSection]!=null){
+				if (gf != null && SONG.notes[curSection].gfSection)
+				{
+					focus = gf;
+				}else if (!SONG.notes[curSection].mustHitSection)
+				{
+					focus = dad;
+				}
+			}
+
+			switch (focus.curCharacter)
+			{
+				case "beast_chaotix":
+					FlxG.camera.zoom = FlxMath.lerp(1.2, FlxG.camera.zoom, CoolUtil.boundTo(1 - (elapsed * 3.125), 0, 1));
+				default:
+					FlxG.camera.zoom = FlxMath.lerp(defaultCamZoom, FlxG.camera.zoom, CoolUtil.boundTo(1 - (elapsed * 3.125), 0, 1));
+			}
 			camHUD.zoom = FlxMath.lerp(1, camHUD.zoom, CoolUtil.boundTo(1 - (elapsed * 3.125), 0, 1));
 		}
 
@@ -2881,11 +2900,10 @@ class PlayState extends MusicBeatState
 			switch (dad.curCharacter)
 			{
 				case "beast_chaotix":
-					FlxG.camera.zoom = FlxMath.lerp(1.2, FlxG.camera.zoom, CoolUtil.boundTo(1 - (elapsed * 3.125), 0, 1));
 					camFollow.x -= 30;
 					camFollow.y -= 50;
 				default:
-					FlxG.camera.zoom = FlxMath.lerp(defaultCamZoom, FlxG.camera.zoom, CoolUtil.boundTo(1 - (elapsed * 3.125), 0, 1));
+
 			}
 		}
 		else
@@ -2897,7 +2915,7 @@ class PlayState extends MusicBeatState
 			switch (boyfriend.curCharacter)
 			{
 				default:
-					FlxG.camera.zoom = FlxMath.lerp(defaultCamZoom, FlxG.camera.zoom, CoolUtil.boundTo(1 - (elapsed * 3.125), 0, 1));
+
 			}
 
 			if (Paths.formatToSongPath(SONG.song) == 'tutorial' && cameraTwn == null && FlxG.camera.zoom != 1)
