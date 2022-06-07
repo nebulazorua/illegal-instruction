@@ -58,7 +58,7 @@ import DialogueBoxPsych;
 #if sys
 import sys.FileSystem;
 #end
-import ChaotixNumber.ChaotixNumberDisplay;
+import SonicNumber.SonicNumberDisplay;
 import flixel.tweens.FlxTween.FlxTweenManager;
 using StringTools;
 
@@ -247,12 +247,16 @@ class PlayState extends MusicBeatState
 
 	var fcLabel:FlxSprite;
 	var ringsLabel:FlxSprite;
-	var hudDisplays:Map<String, ChaotixNumberDisplay> = [];
-
+	var hudDisplays:Map<String, SonicNumberDisplay> = [];
+	var hudStyle:Map<String, String> = [
+		"my-horizon" => "chaotix",
+		"our-horizon" => "chaotix",
+		"long sky" => "chotix"
+	];
 	// for the time counter
-	var hudMinute:ChaotixNumber;
-	var hudSeconds:ChaotixNumberDisplay;
-	var hudMS:ChaotixNumberDisplay;
+	var hudMinute:SonicNumber;
+	var hudSeconds:SonicNumberDisplay;
+	var hudMS:SonicNumberDisplay;
 	//intro stuff
 	var startCircle:FlxSprite;
 	var startText:FlxSprite;
@@ -937,112 +941,139 @@ class PlayState extends MusicBeatState
 			botplayTxt.y = timeBarBG.y - 78;
 		}
 
-		// create the custom Chaotix hud
-		chaotixHUD = new FlxSpriteGroup(33, 0);
-		var labels:Array<String> = [
-			"score",
-			"time",
-			"misses"
-		];
-
-		for(i in 0...labels.length){
-			var name = labels[i];
-			var y = 48 * (i+1);
-			var label = new FlxSprite(0, y);
-			switch(name){
-				case 'rings':
-					label.loadGraphic(Paths.image('chaotixUI/$name'), true, 83, 12);
-					label.animation.add("blink", [0, 1], 2);
-					label.animation.add("static", [0], 0);
-				case 'fullcombo':
-					label.loadGraphic(Paths.image('chaotixUI/$name'), true, 83, 12);
-					label.animation.add("blink", [0, 1], 2);
-				default:
-					label.loadGraphic(Paths.image('chaotixUI/$name'));
+		// create the custom hud
+		trace(curSong.toLowerCase());
+		if(hudStyle.exists(curSong.toLowerCase())){
+			sonicHUD = new FlxSpriteGroup(33, 0);
+			var labels:Array<String> = [
+				"score",
+				"time",
+				"misses"
+			];
+			var scale:Float = 3;
+			var style:String = hudStyle.get(curSong.toLowerCase());
+			switch(style){
+				case 'chotix':
+					scale = 0.75;
 			}
 
-			label.setGraphicSize(Std.int(label.width * 3));
-			label.updateHitbox();
-			label.antialiasing=false;
-			label.scrollFactor.set();
-			chaotixHUD.add(label);
-			var hasDisplay:Bool = false;
-			var displayCount:Int = 0;
-			var displayX:Float = 150;
-			var dispVar:String = '';
-			switch(name){
-				case 'rings':
-					hasDisplay = true;
-					displayCount = 3;
-					displayX = 174;
-					label.animation.play("blink", true);
-					ringsLabel = label;
-				case 'score':
-					hasDisplay = true;
-					displayCount = 7;
-					dispVar = 'songScore';
-				case 'fullcombo':
-					hasDisplay = false;
-					//fcLabel = label;
-					label.animation.play("blink", true);
-				case 'fc':
-					hasDisplay = false;
-					fcLabel = label;
-					label.animation.play("SFC", true);
-				case 'time':
-					hasDisplay = false;
-					hudMinute = new ChaotixNumber(150, y + 3, '0');
-					hudMinute.setGraphicSize(Std.int(hudMinute.width * 3));
-					hudMinute.updateHitbox();
+			for(i in 0...labels.length){
+				var name = labels[i];
+				var y = 48 * (i+1);
+				var label = new FlxSprite(0, y);
+				switch(name){
+					case 'rings':
+						label.loadGraphic(Paths.image('sonicUI/$style/$name'), true, 83, 12);
+						label.animation.add("blink", [0, 1], 2);
+						label.animation.add("static", [0], 0);
+					case 'fullcombo':
+						label.loadGraphic(Paths.image('sonicUI/$style/$name'), true, 83, 12);
+						label.animation.add("blink", [0, 1], 2);
+					default:
+						label.loadGraphic(Paths.image('sonicUI/$style/$name'));
+				}
 
-					hudSeconds = new ChaotixNumberDisplay(198, y + 3, 2, 3, 0);
-					hudMS = new ChaotixNumberDisplay(270, y + 3, 2, 3, 0);
+				label.setGraphicSize(Std.int(label.width * scale));
+				label.updateHitbox();
+				label.antialiasing=false;
+				label.scrollFactor.set();
+				sonicHUD.add(label);
+				var hasDisplay:Bool = false;
+				var displayCount:Int = 0;
+				var displayX:Float = 150;
+				var dispVar:String = '';
+				switch(name){
+					case 'rings':
+						hasDisplay = true;
+						displayCount = 3;
+						displayX = 174;
+						label.animation.play("blink", true);
+						ringsLabel = label;
+					case 'score':
+						hasDisplay = true;
+						displayCount = 7;
+						dispVar = 'songScore';
+					case 'fullcombo':
+						hasDisplay = false;
+						//fcLabel = label;
+						label.animation.play("blink", true);
+					case 'fc':
+						hasDisplay = false;
+						fcLabel = label;
+						label.animation.play("SFC", true);
+					case 'time':
+						hasDisplay = false;
+						hudMinute = new SonicNumber(150, y + (3 * scale), '0', style);
+						hudMinute.setGraphicSize(Std.int(hudMinute.width * scale));
+						hudMinute.updateHitbox();
 
-					hudSeconds.blankCharacter = '0';
-					hudMS.blankCharacter = '0';
+						hudSeconds = new SonicNumberDisplay(198, y + (3 * scale), 2, scale, 0, style);
+						hudMS = new SonicNumberDisplay(270, y + (3 * scale), 2, scale, 0, style);
+						if(style=='chotix'){
+							hudSeconds.x = 270;
+							hudMS.x = 198;
+							hudSeconds.blankCharacter = 'sex';
+							hudMS.blankCharacter = 'sex';
+						}else{
+							hudSeconds.blankCharacter = '0';
+							hudMS.blankCharacter = '0';
+						}
 
-					var singleQuote = new FlxSprite(171, y).loadGraphic(Paths.image('chaotixUI/colon'));
-					singleQuote.setGraphicSize(Std.int(singleQuote.width * 3));
-					singleQuote.updateHitbox();
-					singleQuote.antialiasing=false;
-					var doubleQuote = new FlxSprite(243, y).loadGraphic(Paths.image('chaotixUI/quote'));
-					doubleQuote.setGraphicSize(Std.int(doubleQuote.width * 3));
-					doubleQuote.updateHitbox();
-					doubleQuote.antialiasing=false;
 
-					singleQuote.x = 171;
-					doubleQuote.x = 243;
-					singleQuote.y = y;
-					doubleQuote.y = y;
 
-					chaotixHUD.add(singleQuote);
-					chaotixHUD.add(doubleQuote);
-					chaotixHUD.add(hudMinute);
-					chaotixHUD.add(hudSeconds);
-					chaotixHUD.add(hudMS);
-				case 'misses':
-					hasDisplay = true;
-					displayCount = 3;
-					displayX = 174;
-					dispVar = 'songMisses';
-					fcLabel = new FlxSprite(174 + ((8 * 3) * (displayCount+1)), y);
-					fcLabel.loadGraphic(Paths.image('chaotixUI/fc'), true, 33, 14);
-					fcLabel.animation.add("SFC", [0, 4], 0);
-					fcLabel.animation.add("GFC", [1, 5], 0);
-					fcLabel.animation.add("FC", [2, 6], 0);
-					fcLabel.animation.add("SDCB", [3, 7], 0);
-					fcLabel.setGraphicSize(Std.int(fcLabel.width * 3));
-					fcLabel.updateHitbox();
-					fcLabel.antialiasing=false;
-					fcLabel.scrollFactor.set();
-					fcLabel.animation.play("SFC", true);
-					chaotixHUD.add(fcLabel);
+						var singleQuote = new FlxSprite(171, y).loadGraphic(Paths.image('sonicUI/$style/colon'));
+						singleQuote.setGraphicSize(Std.int(singleQuote.width * scale));
+						singleQuote.updateHitbox();
+						singleQuote.antialiasing=false;
+						var doubleQuote = new FlxSprite(243, y).loadGraphic(Paths.image('sonicUI/$style/quote'));
+						doubleQuote.setGraphicSize(Std.int(doubleQuote.width * scale));
+						doubleQuote.updateHitbox();
+						doubleQuote.antialiasing=false;
+
+						singleQuote.x = 171;
+						doubleQuote.x = 243;
+						singleQuote.y = y;
+						doubleQuote.y = y;
+
+						sonicHUD.add(singleQuote);
+						sonicHUD.add(doubleQuote);
+						sonicHUD.add(hudMinute);
+						sonicHUD.add(hudSeconds);
+						sonicHUD.add(hudMS);
+					case 'misses':
+						hasDisplay = true;
+						displayCount = 3;
+						displayX = 174;
+						dispVar = 'songMisses';
+						fcLabel = new FlxSprite(174 + ((8 * 3) * (displayCount+1)), y);
+						fcLabel.loadGraphic(Paths.image('sonicUI/$style/fc'));
+						fcLabel.loadGraphic(Paths.image('sonicUI/$style/fc'), true, Std.int(fcLabel.width/4), Std.int(fcLabel.height/2));
+						fcLabel.animation.add("SFC", [0, 4], 0);
+						fcLabel.animation.add("GFC", [1, 5], 0);
+						fcLabel.animation.add("FC", [2, 6], 0);
+						fcLabel.animation.add("SDCB", [3, 7], 0);
+						fcLabel.setGraphicSize(Std.int(fcLabel.width * scale));
+						fcLabel.updateHitbox();
+						fcLabel.antialiasing=false;
+						fcLabel.scrollFactor.set();
+						fcLabel.animation.play("SFC", true);
+						sonicHUD.add(fcLabel);
+				}
+				if(hasDisplay){
+					var dis:SonicNumberDisplay = new SonicNumberDisplay(displayX, y + (3 * scale), displayCount, scale, 0, style, this, dispVar);
+					hudDisplays.set(name, dis);
+					sonicHUD.add(dis);
+				}
 			}
-			if(hasDisplay){
-				var dis:ChaotixNumberDisplay = new ChaotixNumberDisplay(displayX, y + 3, displayCount, 3, 0, this, dispVar);
-				hudDisplays.set(name, dis);
-				chaotixHUD.add(dis);
+
+
+			add(sonicHUD);
+
+			if(!ClientPrefs.downScroll){
+				for(member in sonicHUD.members)
+					member.y = (FlxG.height-member.height-member.y);
 			}
+			sonicHUD.cameras = [camHUD];
 		}
 
 		if (SONG.song.toLowerCase() == 'our-horizon' || SONG.song.toLowerCase() == 'my-horizon') 
@@ -2360,25 +2391,27 @@ class PlayState extends MusicBeatState
 					if(ClientPrefs.timeBarType != 'Song Name')
 						timeTxt.text = FlxStringUtil.formatTime(secondsTotal, false);
 
-					var curMS:Float = Math.floor(curTime);
-					var curSex:Int = Math.floor(curMS / 1000);
-					if (curSex < 0)
-						curSex = 0;
+					if(sonicHUD!=null){
+						var curMS:Float = Math.floor(curTime);
+						var curSex:Int = Math.floor(curMS / 1000);
+						if (curSex < 0)
+							curSex = 0;
 
-					var curMins = Math.floor(curSex / 60);
-					curMS%=1000;
-					curSex%=60;
+						var curMins = Math.floor(curSex / 60);
+						curMS%=1000;
+						curSex%=60;
 
-					curMS = Math.round(curMS/10);
-					var stringMins = Std.string(curMins).split("");
-					if(curMins > 9){
-						hudMinute.number = '9';
-						hudSeconds.displayed = 59;
-						hudMS.displayed = 99;
-					}else{
-						hudMinute.number = stringMins[0];
-						hudSeconds.displayed = curSex;
-						hudMS.displayed = Std.int(curMS);
+						curMS = Math.round(curMS/10);
+						var stringMins = Std.string(curMins).split("");
+						if(curMins > 9){
+							hudMinute.number = '9';
+							hudSeconds.displayed = 59;
+							hudMS.displayed = 99;
+						}else{
+							hudMinute.number = stringMins[0];
+							hudSeconds.displayed = curSex;
+							hudMS.displayed = Std.int(curMS);
+						}
 					}
 
 
@@ -4072,11 +4105,13 @@ class PlayState extends MusicBeatState
 	{
 		super.beatHit();
 
-		if(fcLabel.animation.curAnim !=null){
-			var frame = fcLabel.animation.curAnim.curFrame;
-			frame += 1;
-			frame %= 2;
-			fcLabel.animation.curAnim.curFrame = frame;
+		if(fcLabel!=null){
+			if(fcLabel.animation.curAnim !=null){
+				var frame = fcLabel.animation.curAnim.curFrame;
+				frame += 1;
+				frame %= 2;
+				fcLabel.animation.curAnim.curFrame = frame;
+			}
 		}
 
 		if(lastBeatHit >= curBeat) {
@@ -4387,16 +4422,18 @@ class PlayState extends MusicBeatState
 			if (songMisses > 0 && songMisses < 10) ratingFC = "SDCB";
 			else if (songMisses >= 10) ratingFC = "Clear";
 
-			if(fcLabel.animation.curAnim!=null){
-				if(fcLabel.animation.getByName(ratingFC)!=null && fcLabel.animation.curAnim.name!=ratingFC){
-					var frame = fcLabel.animation.curAnim.curFrame;
+			if(fcLabel!=null){
+				if(fcLabel.animation.curAnim!=null){
+					if(fcLabel.animation.getByName(ratingFC)!=null && fcLabel.animation.curAnim.name!=ratingFC){
+						var frame = fcLabel.animation.curAnim.curFrame;
+						fcLabel.animation.play(ratingFC,true);
+						fcLabel.animation.curAnim.curFrame = frame;
+					}
+				}else if(fcLabel.animation.getByName(ratingFC)!=null){
 					fcLabel.animation.play(ratingFC,true);
-					fcLabel.animation.curAnim.curFrame = frame;
 				}
-			}else if(fcLabel.animation.getByName(ratingFC)!=null){
-				fcLabel.animation.play(ratingFC,true);
+				fcLabel.visible=songMisses<10;
 			}
-			fcLabel.visible=songMisses<10;
 		}
 		setOnLuas('rating', ratingPercent);
 		setOnLuas('ratingName', ratingName);
