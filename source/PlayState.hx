@@ -242,6 +242,7 @@ class PlayState extends MusicBeatState
 
 	// HUD
 	// TODO: diff HUD designs
+	var isPixelHUD:Bool = false;
 	var chaotixHUD:FlxSpriteGroup;
 
 	var fcLabel:FlxSprite;
@@ -449,6 +450,7 @@ class PlayState extends MusicBeatState
 
 				defaultCamZoom = 0.87;
 				isPixelStage = true;
+				isPixelHUD = true;
 
 				fucklesBGPixel = new FlxSprite(-1450, -725);
 				fucklesBGPixel.loadGraphic(Paths.image('chaotix/horizonsky', 'exe'));
@@ -740,6 +742,8 @@ class PlayState extends MusicBeatState
 				gf.y += 575;
 				dad.x -= 90;
 				dad.y += 70;
+			case 'founded':
+				dad.x -= 500;
 			case 'chotix':
 				gf.visible = false;
 				dad.setPosition(-500, 350);
@@ -918,7 +922,10 @@ class PlayState extends MusicBeatState
 		scoreTxt.scrollFactor.set();
 		scoreTxt.borderSize = 1.25;
 		scoreTxt.visible = !ClientPrefs.hideHud;
-		add(scoreTxt);
+		if (!isPixelHUD)
+			{
+				add(scoreTxt);
+			}
 
 		botplayTxt = new FlxText(400, timeBarBG.y + 55, FlxG.width - 800, "BOTPLAY", 32);
 		botplayTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -1038,8 +1045,11 @@ class PlayState extends MusicBeatState
 			}
 		}
 
-
-		add(chaotixHUD);
+		if (SONG.song.toLowerCase() == 'our-horizon' || SONG.song.toLowerCase() == 'my-horizon') 
+		{
+			add(chaotixHUD);
+		}
+		
 
 		if(!ClientPrefs.downScroll){
 			for(member in chaotixHUD.members)
@@ -1190,7 +1200,15 @@ class PlayState extends MusicBeatState
 							{
 								startCountdown();
 							});
-
+				case 'found-you':
+					snapCamFollowToPos(700, 400);
+					new FlxTimer().start(0, function(tmr:FlxTimer)
+						{
+							FlxG.camera.focusOn(camFollowPos.getPosition());
+						});
+					camHUD.visible = false;
+					startCountdown();
+				
 				default:
 					startCountdown();
 			}
@@ -1469,6 +1487,18 @@ class PlayState extends MusicBeatState
 				setOnLuas('defaultOpponentStrumY' + i, opponentStrums.members[i].y);
 				//if(ClientPrefs.middleScroll) opponentStrums.members[i].visible = false;
 			}
+
+			if (isPixelHUD)
+				{
+					healthBar.x += 150;
+					iconP1.x += 150;
+					iconP2.x += 150;
+					healthBarBG.x += 150;
+				}
+			else
+				{
+					//lol
+				}
 
 			startedCountdown = true;
 			Conductor.songPosition = 0;
@@ -3993,6 +4023,22 @@ class PlayState extends MusicBeatState
 				{
 					switch (curStep)
 					{
+						case 1, 25, 48, 56:
+							FlxG.camera.zoom += 0.15;
+						case 64, 72:
+							FlxG.camera.zoom += 0.05;
+						case 76:
+							FlxTween.tween(FlxG.camera, {zoom: FlxG.camera.zoom + 0.3}, 2, {ease: FlxEase.cubeInOut});
+						case 93:
+							camGame.shake(0.01, 1);
+							FlxTween.tween(dad, {x: 100}, 0.5, {ease: FlxEase.quadOut});
+						case 113:
+							FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom}, 0.35, {ease: FlxEase.quadOut});
+						case 160:
+							FlxG.camera.focusOn(dad.getPosition());
+							camHUD.visible = true;
+							camHUD.zoom += 2;
+							FlxTween.tween(camHUD, {alpha: 1}, 1);
 						case 416, 1184, 1696, 2720:
 							wowZoomin = true;
 						case 800, 1311, 1823, 2847:
