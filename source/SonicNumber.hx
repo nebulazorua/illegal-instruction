@@ -4,22 +4,37 @@ import flixel.FlxSprite;
 import flixel.group.FlxSpriteGroup;
 using StringTools;
 
-class ChaotixNumber extends FlxSprite {
+class SonicNumber extends FlxSprite {
   public var number(default, set):String = '0';
+  public var style(default, set):String = '';
   public var blinking(default, set):Bool = false;
 
-  public function new(x:Float, y:Float, initialValue:String = '0'){
-    super(x,y);
-    loadGraphic(Paths.image('chaotixUI/numbers'), true, 7, 13);
+  public function set_style(val:String){
     var numbers = ["0","1","2","3","4","5","6","7","8","9","-"];
+    switch(val){
+      case 'chotix':
+        numbers = ["0","1","2","3","4","5","6","7","8","9","-","sex"];
+      default:
+    }
+
+    loadGraphic(Paths.image('sonicUI/${val}/numbers'));
+    updateHitbox();
+    trace(width, numbers.length, width / numbers.length);
+    loadGraphic(Paths.image('sonicUI/${val}/numbers'), true, Std.int(width/numbers.length), Std.int(height/2));
 
     for(idx in 0...numbers.length){
       var anim = numbers[idx];
       animation.add(anim,[idx],0,false);
       animation.add('${anim}blink',[idx, idx + numbers.length],2);
     }
+    return style = val;
+  }
 
-    antialiasing=false;
+  public function new(x:Float, y:Float, initialValue:String = '0', ?initialStyle:String='chaotix'){
+    super(x,y);
+    style = initialStyle;
+
+    antialiasing = false;
     number = initialValue;
   }
 
@@ -29,7 +44,6 @@ class ChaotixNumber extends FlxSprite {
 
     if(blinking && animation.getByName(val + "blink")!=null)
       val += "blink";
-
 
     animation.play(val,true);
     return number=val;
@@ -48,7 +62,7 @@ class ChaotixNumber extends FlxSprite {
 
 
 
-class ChaotixNumberDisplay extends FlxSpriteGroup {
+class SonicNumberDisplay extends FlxSpriteGroup {
   public var blankCharacter:String = ''; // What to use for a blank space
   // so if this is '0', if you display 350 with a count of 7, it'll show 0000350
   // note that if its not a number or - it will default to nothing
@@ -67,19 +81,32 @@ class ChaotixNumberDisplay extends FlxSpriteGroup {
 
   public var blinking(default, set):Bool = false;
 
+  public var style(default, set):String  = '';
+
+  function set_style(val:String){
+    for(i in 0...members.length){
+      var spr = members[i];
+      var num:SonicNumber = cast spr;
+      num.style = val;
+    }
+    return style=val;
+  }
+
   function set_blinking(val:Bool){
     for(spr in members){
-      var num:ChaotixNumber = cast spr;
+      var num:SonicNumber = cast spr;
       num.blinking = val;
     }
     return blinking=val;
   }
 
-  public function new(x:Float, y:Float, count:Int=3, scale:Float = 1, ?initialValue:Int=0, ?parentRef:Dynamic, variable:String = ''){
+  public function new(x:Float, y:Float, count:Int=3, scale:Float = 1, initialValue:Int=0, initialStyle:String = 'chaotix', ?parentRef:Dynamic, variable:String = ''){
     super(x, y);
+    style = initialStyle;
     for(i in 0...count){
-      var offset:Float = (8 * scale) * i;
-      var number:ChaotixNumber = new ChaotixNumber(offset, 0, '0');
+      var number:SonicNumber = new SonicNumber(0, 0, '0', initialStyle);
+      var offset:Float = ((8 * (number.frameWidth / 7)) * scale) * i;
+      number.x = offset;
       number.setGraphicSize(Std.int(number.width * scale));
       number.updateHitbox();
       add(number);
@@ -127,10 +154,19 @@ class ChaotixNumberDisplay extends FlxSpriteGroup {
 
     }
 
+    if(style == 'chotix'){
+      if(Std.string(newNumber).contains("69")){
+        seperated=[];
+        for(i in 0...members.length)
+          seperated.push('sex');
+      }
+    }
+
+
     for(idx in 0...seperated.length){
       var raw = seperated[idx];
       var val = Std.parseInt(raw);
-      var member:ChaotixNumber = cast members[idx];
+      var member:SonicNumber = cast members[idx];
       if(Math.isNaN(val) && raw!='-')raw = '';
       if(raw!='' || idx==members.length-1 && atleastShowZero){
         member.number = raw;
@@ -146,7 +182,6 @@ class ChaotixNumberDisplay extends FlxSpriteGroup {
     if(parent!=null){
       if(Reflect.getProperty(parent, parentVariable) != displayed)
         updateFromParent();
-
     }
     super.update(elapsed);
   }
