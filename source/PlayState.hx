@@ -302,6 +302,10 @@ class PlayState extends MusicBeatState
 	public var holyFuckStopZoomin:Bool = false;
 	public var pleaseStopZoomin:Bool = false;
 	public var ohGodTheZooms:Bool = false;
+	// normal shit
+	private var metalTrail:FlxTrail;
+	private var amyTrail:FlxTrail;
+	private var normalTrail:FlxTrail;
 
 	override public function create()
 	{
@@ -598,6 +602,33 @@ class PlayState extends MusicBeatState
 					hellBg.scale.set(1.2, 1.2);
 					hellBg.antialiasing = false;
 					add(hellBg);
+				}
+
+			case 'founded':
+				isPixelHUD = false;
+
+				var bg:BGSprite = new BGSprite('stageback', -600, -200, 0.9, 0.9);
+				add(bg);
+
+				var stageFront:BGSprite = new BGSprite('stagefront', -650, 600, 0.9, 0.9);
+				stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
+				stageFront.updateHitbox();
+				add(stageFront);
+				if(!ClientPrefs.lowQuality) {
+					var stageLight:BGSprite = new BGSprite('stage_light', -125, -100, 0.9, 0.9);
+					stageLight.setGraphicSize(Std.int(stageLight.width * 1.1));
+					stageLight.updateHitbox();
+					add(stageLight);
+					var stageLight:BGSprite = new BGSprite('stage_light', 1225, -100, 0.9, 0.9);
+					stageLight.setGraphicSize(Std.int(stageLight.width * 1.1));
+					stageLight.updateHitbox();
+					stageLight.flipX = true;
+					add(stageLight);
+
+					var stageCurtains:BGSprite = new BGSprite('stagecurtains', -500, -300, 1.3, 1.3);
+					stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
+					stageCurtains.updateHitbox();
+					add(stageCurtains);
 				}
 
 
@@ -1066,7 +1097,6 @@ class PlayState extends MusicBeatState
 				}
 			}
 
-
 			add(chaotixHUD);
 
 			if(!ClientPrefs.downScroll){
@@ -1076,18 +1106,11 @@ class PlayState extends MusicBeatState
 			chaotixHUD.cameras = [camHUD];
 		}
 
-		if (SONG.song.toLowerCase() == 'our-horizon' || SONG.song.toLowerCase() == 'my-horizon') 
+		/*if (SONG.song.toLowerCase() == 'our-horizon' || SONG.song.toLowerCase() == 'my-horizon') 
 		{
 			add(chaotixHUD);
-		}
-		
+		}*/
 
-		if(!ClientPrefs.downScroll){
-			for(member in chaotixHUD.members)
-				member.y = (FlxG.height-member.height-member.y);
-		}
-
-		chaotixHUD.cameras = [camHUD];
 		strumLineNotes.cameras = [camHUD];
 		grpNoteSplashes.cameras = [camHUD];
 		notes.cameras = [camHUD];
@@ -4084,6 +4107,23 @@ class PlayState extends MusicBeatState
 							iconP1.changeIcon(gf.healthIcon);
 						case 3360:
 							iconP1.changeIcon('duo');
+
+						// shit for da uhhhhhhhhhhhhhhhhhhhhhhhh trails
+						case 2081, 2719, 2848:
+							chaotixGlass(1);
+						case 2816, 2976:
+							revivedIsPissed(1);
+						case 2145:
+							chaotixGlass(2);
+						case 2334:
+							revivedIsPissed(1);
+							revivedIsPissed(2);
+						case 3362:
+							chaotixGlass(1);
+							chaotixGlass(2);
+						case 4135:
+							revivedIsPissed(1);
+							revivedIsPissed(2);
 					}
 				}
 
@@ -4214,6 +4254,37 @@ class PlayState extends MusicBeatState
 		callOnLuas('onBeatHit', []);
 	}
 
+	function chaotixGlass(ass:Int)
+		{
+			switch (ass)
+				{
+					case 1:
+						normalTrail = new FlxTrail(dad, null, 2, 12, 0.20, 0.05);
+						add(normalTrail);
+					case 2:
+						metalTrail = new FlxTrail(boyfriend, null, 2, 12, 0.20, 0.05);
+						add(metalTrail);
+					case 3:
+						amyTrail = new FlxTrail(gf, null, 2, 12, 0.20, 0.05);
+						add(amyTrail);
+				}
+		}
+
+	function revivedIsPissed(ass:Int)
+		{
+			{
+				switch (ass)
+					{
+						case 1:
+							remove(normalTrail);
+						case 2:
+							remove(metalTrail);
+						case 3:
+							remove(amyTrail);
+					}
+			}
+		}
+		
 	function literallyMyHorizon()
 		{
 			dad.specialAnim = false;
