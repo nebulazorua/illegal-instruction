@@ -31,6 +31,7 @@ class MainMenuState extends MusicBeatState
 	var menuItems:FlxTypedGroup<FlxSprite>;
 	private var camGame:FlxCamera;
 	private var camAchievement:FlxCamera;
+	public static var firstStart:Bool = true;
 	
 	var optionShit:Array<String> = [
 		'story_mode',
@@ -123,16 +124,18 @@ class MainMenuState extends MusicBeatState
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
 
-		var scale:Float = 1;
+		var scale:Float = 1.5;
 		/*if(optionShit.length > 6) {
 			scale = 6 / optionShit.length;
 		}*/
+
+		//(i * 200)  + offset2
 
 		for (i in 0...optionShit.length)
 		{
 			var offset:Float = 108 - (Math.max(optionShit.length, 4) - 4) * 150;
 			var offset2:Float = 108 - (Math.max(optionShit.length, 4) - 4) * 80;
-			var menuItem:FlxSprite = new FlxSprite((i * 200)  + offset2, (i * 200)  + offset);
+			var menuItem:FlxSprite = new FlxSprite(-300, (i * 200)  + offset);
 			menuItem.scale.x = scale;
 			menuItem.scale.y = scale;
 			menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[i]);
@@ -140,14 +143,43 @@ class MainMenuState extends MusicBeatState
 			menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
 			menuItem.animation.play('idle');
 			menuItem.ID = i;
-			//menuItem.screenCenter(Y);
+			menuItem.screenCenter(X);
 			menuItems.add(menuItem);
 			var scr:Float = (optionShit.length - 3) * 0.135;
 			if(optionShit.length < 3) scr = 0;
 			menuItem.scrollFactor.set(0, scr);
 			menuItem.antialiasing = ClientPrefs.globalAntialiasing;
 			//menuItem.setGraphicSize(Std.int(menuItem.width * 0.58));
+			menuItem.y += -200;
 			menuItem.updateHitbox();
+
+			switch (i)
+			{
+			    case 0:
+					menuItem.x = -300;
+					menuItem.y = 0;
+					menuItem.scrollFactor.set(1, 1);
+				case 1:
+					menuItem.x = 0;
+					menuItem.y = 0;
+					menuItem.scrollFactor.set(1, 1);
+				case 2:
+					menuItem.x = 300;
+					menuItem.y = 0;
+					menuItem.scrollFactor.set(1, 1);
+				case 3:
+					menuItem.x = 600;
+					menuItem.y = 0;
+					menuItem.scrollFactor.set(1, 1);
+				case 4:
+					menuItem.x = 900;
+					menuItem.y = 0;
+					menuItem.scrollFactor.set(1, 1);
+			}
+				menuItem.x = 300 + (i * 250);
+				menuItem.y = 60 + (i * 250);
+
+			
 		}
 
 		FlxG.camera.follow(camFollowPos, null, 1);
@@ -277,9 +309,10 @@ class MainMenuState extends MusicBeatState
 				if(menuItems.length > 4) {
 					add = menuItems.length * 8;
 				}
-				camFollow.setPosition(spr.getGraphicMidpoint().x, spr.getGraphicMidpoint().y - add);
+				camFollow.setPosition(spr.getGraphicMidpoint().x, spr.getGraphicMidpoint().y);
 				spr.centerOffsets();
 			}
+			
 		});
 	}
 }

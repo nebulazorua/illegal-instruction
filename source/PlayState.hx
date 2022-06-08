@@ -944,7 +944,7 @@ class PlayState extends MusicBeatState
 		// create the custom hud
 		trace(curSong.toLowerCase());
 		if(hudStyle.exists(curSong.toLowerCase())){
-			sonicHUD = new FlxSpriteGroup(33, 0);
+			chaotixHUD = new FlxSpriteGroup(33, 0);
 			var labels:Array<String> = [
 				"score",
 				"time",
@@ -977,7 +977,7 @@ class PlayState extends MusicBeatState
 				label.updateHitbox();
 				label.antialiasing=false;
 				label.scrollFactor.set();
-				sonicHUD.add(label);
+				chaotixHUD.add(label);
 				var hasDisplay:Bool = false;
 				var displayCount:Int = 0;
 				var displayX:Float = 150;
@@ -1035,11 +1035,11 @@ class PlayState extends MusicBeatState
 						singleQuote.y = y;
 						doubleQuote.y = y;
 
-						sonicHUD.add(singleQuote);
-						sonicHUD.add(doubleQuote);
-						sonicHUD.add(hudMinute);
-						sonicHUD.add(hudSeconds);
-						sonicHUD.add(hudMS);
+						chaotixHUD.add(singleQuote);
+						chaotixHUD.add(doubleQuote);
+						chaotixHUD.add(hudMinute);
+						chaotixHUD.add(hudSeconds);
+						chaotixHUD.add(hudMS);
 					case 'misses':
 						hasDisplay = true;
 						displayCount = 3;
@@ -1057,23 +1057,23 @@ class PlayState extends MusicBeatState
 						fcLabel.antialiasing=false;
 						fcLabel.scrollFactor.set();
 						fcLabel.animation.play("SFC", true);
-						sonicHUD.add(fcLabel);
+						chaotixHUD.add(fcLabel);
 				}
 				if(hasDisplay){
 					var dis:SonicNumberDisplay = new SonicNumberDisplay(displayX, y + (3 * scale), displayCount, scale, 0, style, this, dispVar);
 					hudDisplays.set(name, dis);
-					sonicHUD.add(dis);
+					chaotixHUD.add(dis);
 				}
 			}
 
 
-			add(sonicHUD);
+			add(chaotixHUD);
 
 			if(!ClientPrefs.downScroll){
-				for(member in sonicHUD.members)
+				for(member in chaotixHUD.members)
 					member.y = (FlxG.height-member.height-member.y);
 			}
-			sonicHUD.cameras = [camHUD];
+			chaotixHUD.cameras = [camHUD];
 		}
 
 		if (SONG.song.toLowerCase() == 'our-horizon' || SONG.song.toLowerCase() == 'my-horizon') 
@@ -2391,7 +2391,7 @@ class PlayState extends MusicBeatState
 					if(ClientPrefs.timeBarType != 'Song Name')
 						timeTxt.text = FlxStringUtil.formatTime(secondsTotal, false);
 
-					if(sonicHUD!=null){
+					if(chaotixHUD!=null){
 						var curMS:Float = Math.floor(curTime);
 						var curSex:Int = Math.floor(curMS / 1000);
 						if (curSex < 0)
