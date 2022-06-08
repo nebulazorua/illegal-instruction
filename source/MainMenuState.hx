@@ -115,7 +115,6 @@ class MainMenuState extends MusicBeatState
 		arrowTwo.x += 500;
 		arrowTwo.y += 175;
 
-
 		camFollow = new FlxObject(0, 0, 1, 1);
 		camFollowPos = new FlxObject(0, 0, 1, 1);
 		add(camFollow);
@@ -124,18 +123,19 @@ class MainMenuState extends MusicBeatState
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
 
-		var scale:Float = 1.5;
+		var scale:Float = 1.75;
 		/*if(optionShit.length > 6) {
 			scale = 6 / optionShit.length;
 		}*/
 
 		//(i * 200)  + offset2
+		//offset2, (i * 200)  + offset
 
 		for (i in 0...optionShit.length)
 		{
 			var offset:Float = 108 - (Math.max(optionShit.length, 4) - 4) * 150;
 			var offset2:Float = 108 - (Math.max(optionShit.length, 4) - 4) * 80;
-			var menuItem:FlxSprite = new FlxSprite(-300, (i * 200)  + offset);
+			var menuItem:FlxSprite = new FlxSprite(0, (i * 140)  + offset);
 			menuItem.scale.x = scale;
 			menuItem.scale.y = scale;
 			menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[i]);
@@ -145,42 +145,46 @@ class MainMenuState extends MusicBeatState
 			menuItem.ID = i;
 			menuItem.screenCenter(X);
 			menuItems.add(menuItem);
-			var scr:Float = (optionShit.length - 3) * 0.135;
-			if(optionShit.length < 3) scr = 0;
-			menuItem.scrollFactor.set(0, scr);
+			var scr:Float = (optionShit.length - 4) * 0.135;
+			if(optionShit.length < 6) scr = 0;
+			menuItem.scrollFactor.set(0, 0);
 			menuItem.antialiasing = ClientPrefs.globalAntialiasing;
 			//menuItem.setGraphicSize(Std.int(menuItem.width * 0.58));
-			menuItem.y += -200;
+			
 			menuItem.updateHitbox();
-
 			switch (i)
 			{
 			    case 0:
-					menuItem.x = -300;
+					menuItem.x = -500;
 					menuItem.y = 0;
 					menuItem.scrollFactor.set(1, 1);
 				case 1:
-					menuItem.x = 0;
+					menuItem.x = -200;
 					menuItem.y = 0;
 					menuItem.scrollFactor.set(1, 1);
 				case 2:
-					menuItem.x = 300;
+					menuItem.x = 100;
 					menuItem.y = 0;
 					menuItem.scrollFactor.set(1, 1);
 				case 3:
-					menuItem.x = 600;
+					menuItem.x = 400;
 					menuItem.y = 0;
 					menuItem.scrollFactor.set(1, 1);
 				case 4:
-					menuItem.x = 900;
+					menuItem.x = 700;
 					menuItem.y = 0;
 					menuItem.scrollFactor.set(1, 1);
 			}
-				menuItem.x = 300 + (i * 250);
-				menuItem.y = 60 + (i * 250);
+				//menuItem.x = -300 + (i * 250);
+				menuItem.y = 300 + (i * 500);
 
-			
 		}
+
+		menuItems.forEach(function(spr:FlxSprite)
+		{
+			spr.x -= 600;
+			spr.y -= 100;
+		});
 
 		FlxG.camera.follow(camFollowPos, null, 1);
 
