@@ -11,6 +11,7 @@ import flixel.addons.transition.FlxTransitionableState;
 import flixel.effects.FlxFlicker;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.group.FlxGroup.FlxTypedGroup;
+import flixel.group.FlxSpriteGroup;
 import flixel.text.FlxText;
 import flixel.math.FlxMath;
 import flixel.tweens.FlxEase;
@@ -28,7 +29,7 @@ class MainMenuState extends MusicBeatState
 	public static var psychEngineVersion:String = '0.5.2h'; //This is also used for Discord RPC
 	public static var curSelected:Int = 0;
 
-	var menuItems:FlxTypedGroup<FlxSprite>;
+	var menuItems:FlxSpriteGroup;
 	private var camGame:FlxCamera;
 	private var camAchievement:FlxCamera;
 	public static var firstStart:Bool = true;
@@ -120,16 +121,13 @@ class MainMenuState extends MusicBeatState
 		add(camFollow);
 		add(camFollowPos);
 
-		menuItems = new FlxTypedGroup<FlxSprite>();
+		menuItems = new FlxSpriteGroup();
 		add(menuItems);
 
 		var scale:Float = 1.75;
 		/*if(optionShit.length > 6) {
 			scale = 6 / optionShit.length;
 		}*/
-
-		//(i * 200)  + offset2
-		//offset2, (i * 200)  + offset
 
 		for (i in 0...optionShit.length)
 		{
@@ -143,15 +141,13 @@ class MainMenuState extends MusicBeatState
 			menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
 			menuItem.animation.play('idle');
 			menuItem.ID = i;
-			menuItem.screenCenter(X);
+			menuItem.updateHitbox();
 			menuItems.add(menuItem);
 			var scr:Float = (optionShit.length - 4) * 0.135;
 			if(optionShit.length < 6) scr = 0;
-			menuItem.scrollFactor.set(0, 0);
+			menuItem.scrollFactor.set(0, scr);
 			menuItem.antialiasing = ClientPrefs.globalAntialiasing;
 			//menuItem.setGraphicSize(Std.int(menuItem.width * 0.58));
-			
-			menuItem.updateHitbox();
 			switch (i)
 			{
 			    case 0:
@@ -175,16 +171,9 @@ class MainMenuState extends MusicBeatState
 					menuItem.y = 0;
 					menuItem.scrollFactor.set(1, 1);
 			}
-				//menuItem.x = -300 + (i * 250);
-				menuItem.y = 300 + (i * 500);
+				menuItem.y = 300 + (i * 350);
 
 		}
-
-		menuItems.forEach(function(spr:FlxSprite)
-		{
-			spr.x -= 600;
-			spr.y -= 100;
-		});
 
 		FlxG.camera.follow(camFollowPos, null, 1);
 
@@ -313,7 +302,7 @@ class MainMenuState extends MusicBeatState
 				if(menuItems.length > 4) {
 					add = menuItems.length * 8;
 				}
-				camFollow.setPosition(spr.getGraphicMidpoint().x, spr.getGraphicMidpoint().y);
+				camFollow.setPosition(spr.getGraphicMidpoint().x + 150, spr.getGraphicMidpoint().y + 70);
 				spr.centerOffsets();
 			}
 			
