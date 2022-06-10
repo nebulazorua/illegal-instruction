@@ -14,6 +14,7 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.group.FlxSpriteGroup;
 import flixel.text.FlxText;
 import flixel.math.FlxMath;
+import flixel.util.FlxTimer;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
@@ -139,7 +140,16 @@ class MainMenuState extends MusicBeatState
 			menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[i]);
 			menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
 			menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
-			menuItem.animation.play('idle');
+			if (!ClientPrefs.beatDuke && optionShit[i] == 'collection') {
+				//menuItem.color = FlxColor.fromHSL(menuItem.color.hue, menuItem.color.saturation, 0.2, 1);
+				menuItem.animation.play('lock');
+				menuItem.animation.addByPrefix('idle', optionShit[i] + " locked", 24);
+			}
+			else
+			{
+				menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
+				menuItem.animation.play('idle');
+			}
 			menuItem.ID = i;
 			menuItem.updateHitbox();
 			menuItems.add(menuItem);
@@ -193,6 +203,7 @@ class MainMenuState extends MusicBeatState
 	}
 
 	var selectedSomethin:Bool = false;
+	var cooldownLol:Bool = false;
 
 	override function update(elapsed:Float)
 	{
@@ -228,48 +239,73 @@ class MainMenuState extends MusicBeatState
 			if (controls.ACCEPT)
 			{
 				
-			selectedSomethin = true;
-			FlxG.sound.play(Paths.sound('confirmMenu'));
-
-			menuItems.forEach(function(spr:FlxSprite)
-			{
-				if (curSelected != spr.ID)
-				{
-					FlxTween.tween(spr, {alpha: 0}, 0.4, {
-						ease: FlxEase.quadOut,
-						onComplete: function(twn:FlxTween)
-						{
-							spr.kill();
-						}
-					});
-				}
-				else
-				{
-					var daChoice:String = optionShit[curSelected];
-
-					switch (daChoice)
+				if (!ClientPrefs.beatDuke && optionShit[curSelected] == 'collection')
 					{
-						case 'story_mode':
-							MusicBeatState.switchState(new StoryMenuState());
-						case 'freeplay':
-							MusicBeatState.switchState(new FreeplayState());
-						case 'collection':
-							MusicBeatState.switchState(new FreeplayState());
-						case 'credits':
-							MusicBeatState.switchState(new CreditsState());
-						case 'options':
-							LoadingState.loadAndSwitchState(new options.OptionsState());
+						selectedSomethin = false;
+						cooldownLol = true;
+						FlxG.sound.play(Paths.sound('nope'));
+						new FlxTimer().start(1.5, function(tmr:FlxTimer)
+							{
+								cooldownLol = false;
+							});
 					}
-				}
-			});
+				else
+					{
+						menuItems.forEach(function(spr:FlxSprite)
+							{
+							
+								selectedSomethin = true;
+								FlxG.sound.play(Paths.sound('confirmMenu'));
+								if (curSelected != spr.ID)
+								{
+									FlxTween.tween(spr, {alpha: 0}, 0.4, {
+										ease: FlxEase.quadOut,
+										onComplete: function(twn:FlxTween)
+										{
+											spr.kill();
+										}
+									});
+								}
+								else
+								{
+									FlxFlicker.flicker(spr, 1, 0.06, false, false, function(flick:FlxFlicker)
+									{
+										var daChoice:String = optionShit[curSelected];
+									
+										switch (daChoice)
+										{
+											case 'story_mode':
+												MusicBeatState.switchState(new StoryMenuState());
+											case 'freeplay':
+												MusicBeatState.switchState(new FreeplayState());
+											case 'collection':
+												MusicBeatState.switchState(new FreeplayState());
+											case 'credits':
+												MusicBeatState.switchState(new CreditsState());
+											case 'options':
+												LoadingState.loadAndSwitchState(new options.OptionsState());
+										}
+									});
+								}
+							});
+					}
+				
 		
 			}
 			#if desktop
+			if (FlxG.keys.justPressed.EIGHT)
+				{
+					FlxG.save.data.beatduke = true;
+					FlxG.save.data.beatchaotix = true;
+					FlxG.save.data.beatnormal = true;
+				}
 			else if (FlxG.keys.anyJustPressed(debugKeys))
 			{
 				selectedSomethin = true;
 				MusicBeatState.switchState(new MasterEditorMenu());
 			}
+			
+
 			#end
 		}
 
@@ -292,11 +328,22 @@ class MainMenuState extends MusicBeatState
 
 		menuItems.forEach(function(spr:FlxSprite)
 		{
+			var daChoice:String = optionShit[curSelected];
+			if(!ClientPrefs.beatDuke && daChoice == 'collection')
+				{
+					spr.animation.play('lock');
+				}
+
 			spr.animation.play('idle');
 			spr.updateHitbox();
 
 			if (spr.ID == curSelected)
 			{
+				if(!ClientPrefs.beatDuke && daChoice == 'collection')
+					{
+						spr.animation.play('lock');
+					}
+				else
 				spr.animation.play('selected');
 				var add:Float = 0;
 				if(menuItems.length > 4) {

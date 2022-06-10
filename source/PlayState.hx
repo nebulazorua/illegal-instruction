@@ -306,6 +306,7 @@ class PlayState extends MusicBeatState
 	private var metalTrail:FlxTrail;
 	private var amyTrail:FlxTrail;
 	private var normalTrail:FlxTrail;
+	var soulGlassTime:Bool = false;
 
 	override public function create()
 	{
@@ -594,6 +595,7 @@ class PlayState extends MusicBeatState
 
 			case 'chotix':
 				{
+					isPixelHUD = true;
 					defaultCamZoom = 0.8;
 
 					hellBg = new FlxSprite(-750, 0);
@@ -3782,6 +3784,19 @@ class PlayState extends MusicBeatState
 				char.playAnim(animToPlay, true);
 				char.holdTimer = 0;
 			}
+
+			switch (SONG.player2)
+			{
+				case 'Normal':
+					if (soulGlassTime)
+						{
+							health -= 0.018;	
+								if (health <= 0.01)
+								{
+									health = 0.01;
+								}
+						}
+			}
 		}
 
 		if (SONG.needsVoices)
@@ -3793,6 +3808,8 @@ class PlayState extends MusicBeatState
 		}
 		StrumPlayAnim(true, Std.int(Math.abs(note.noteData)) % 4, time);
 		note.hitByOpponent = true;
+
+
 
 		callOnLuas('opponentNoteHit', [notes.members.indexOf(note), Math.abs(note.noteData), note.noteType, note.isSustainNote]);
 
@@ -4066,6 +4083,7 @@ class PlayState extends MusicBeatState
 							FlxTween.tween(gf, {alpha: 0}, 0.5, {ease: FlxEase.cubeInOut});
 						case 927:
 							dad.specialAnim = false;
+							FlxG.camera.zoom += 2;
 						case 1000:
 							defaultCamZoom = 0.7;
 							dad.setPosition(200, 700);
@@ -4194,14 +4212,14 @@ class PlayState extends MusicBeatState
 
 		if (curBeat % 2 == 0 && wowZoomin)
 			{
-				FlxG.camera.zoom += 0.06;
-				camHUD.zoom += 0.08;
+				FlxG.camera.zoom += 0.04;
+				camHUD.zoom += 0.06;
 			}
 
 		if (curBeat % 1 == 0 && holyFuckStopZoomin)
 		{
-			FlxG.camera.zoom += 0.06;
-			camHUD.zoom += 0.08;
+			FlxG.camera.zoom += 0.04;
+			camHUD.zoom += 0.06;
 		}
 
 		iconP1.scale.set(1.2, 1.2);
@@ -4261,6 +4279,7 @@ class PlayState extends MusicBeatState
 					case 1:
 						normalTrail = new FlxTrail(dad, null, 2, 12, 0.20, 0.05);
 						add(normalTrail);
+						soulGlassTime = true;
 					case 2:
 						metalTrail = new FlxTrail(boyfriend, null, 2, 12, 0.20, 0.05);
 						add(metalTrail);
@@ -4276,6 +4295,7 @@ class PlayState extends MusicBeatState
 				switch (ass)
 					{
 						case 1:
+							soulGlassTime = false;
 							remove(normalTrail);
 						case 2:
 							remove(metalTrail);
@@ -4315,6 +4335,7 @@ class PlayState extends MusicBeatState
 		{
 			isPixelStage = false;
 			camZooming = true;
+			FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom}, 0.35, {ease: FlxEase.quadOut});
 			FlxTween.tween(camHUD, {alpha: 1}, 0.5);
 			FlxTween.tween(dad, {alpha: 1}, 0.1, {ease: FlxEase.cubeInOut});
 			FlxTween.tween(boyfriend, {alpha: 1}, 0.1, {ease: FlxEase.cubeInOut});
