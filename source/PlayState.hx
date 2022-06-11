@@ -4085,6 +4085,7 @@ class PlayState extends MusicBeatState
 							dad.specialAnim = false;
 							FlxG.camera.zoom += 2;
 						case 1000:
+							snapCamFollowToPos(700, 900);
 							defaultCamZoom = 0.7;
 							dad.setPosition(200, 700);
 							boyfriend.setPosition(900, 950);
