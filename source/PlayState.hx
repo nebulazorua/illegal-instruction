@@ -307,6 +307,13 @@ class PlayState extends MusicBeatState
 	private var amyTrail:FlxTrail;
 	private var normalTrail:FlxTrail;
 	var soulGlassTime:Bool = false;
+	//curse shit (just admit it!!!!)
+	var curseStatic:FlxSprite;
+	var hexTimer:Float = 0;
+	var hexes:Float = 0;
+	var fucklesSetHealth:Float = 0;
+	var barbedWires:FlxTypedGroup<WireSprite>;
+	var wireVignette:FlxSprite;
 
 	override public function create()
 	{
@@ -632,6 +639,19 @@ class PlayState extends MusicBeatState
 					stageCurtains.updateHitbox();
 					add(stageCurtains);
 				}
+
+				case 'curse':
+					//THE CURSE OF X SEETHES AND MALDS
+					curseStatic = new FlxSprite(0, 0);
+					curseStatic.frames = Paths.getSparrowAtlas('curse/staticCurse');
+					curseStatic.animation.addByPrefix('stat', "menuSTATICNEW instance 1", 24, true);
+					curseStatic.animation.play('stat');
+					curseStatic.alpha = 0.5;
+					curseStatic.screenCenter();
+					curseStatic.scale.x = 2;
+					curseStatic.scale.y = 2;
+					curseStatic.visible = false;
+					add(curseStatic);
 
 
 			default: //lol
@@ -4144,6 +4164,29 @@ class PlayState extends MusicBeatState
 							revivedIsPissed(1);
 							revivedIsPissed(2);
 					}
+				}
+			if (SONG.song.toLowerCase() == 'malediction')
+				{
+					switch (curStep)
+						{
+							case 528, 725:
+								FlxTween.tween(camHUD, {alpha: 0.5}, 0.3,{ease: FlxEase.cubeInOut});
+							case 558, 735:
+								FlxTween.tween(camHUD, {alpha: 1}, 0.3,{ease: FlxEase.cubeInOut});
+							case 736:
+								FlxG.camera.flash(FlxColor.PURPLE, 0.5);
+								if(curseStatic!=null)curseStatic.visible = true;
+							case 991:
+								if(curseStatic!=null){
+									FlxTween.tween(curseStatic, {alpha: 0}, 1, {ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween)
+										{
+											curseStatic.visible=false;
+										}
+									});
+								}
+							case 1184:
+								FlxTween.tween(camHUD, {alpha: 0}, 1,{ease: FlxEase.cubeInOut});
+						}
 				}
 
 		if(curStep == lastStepHit) {
