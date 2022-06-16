@@ -82,6 +82,8 @@ class Note extends FlxSprite
 
 	public var hitsoundDisabled:Bool = false;
 
+	public var hitbox:Float = Conductor.safeZoneOffset;
+
 	private function set_texture(value:String):String {
 		if(texture != value) {
 			reloadNote('', value);
@@ -95,7 +97,7 @@ class Note extends FlxSprite
 		colorSwap.hue = ClientPrefs.arrowHSV[noteData % 4][0] / 360;
 		colorSwap.saturation = ClientPrefs.arrowHSV[noteData % 4][1] / 100;
 		colorSwap.brightness = ClientPrefs.arrowHSV[noteData % 4][2] / 100;
-
+		hitbox = Conductor.safeZoneOffset;
 		if(noteData > -1 && noteType != value) {
 			switch(value) {
 				case 'Hurt Note':
@@ -113,6 +115,13 @@ class Note extends FlxSprite
 					hitCausesMiss = true;
 				case 'No Animation':
 					noAnimation = true;
+				case 'Hex Note':
+					missHealth=0;
+					reloadNote("HEX");
+					hitbox*=0.55;
+					ignoreNote=true;
+					hitCausesMiss=true;
+					noteSplashDisabled=true;
 				case 'GF Sing':
 					gfNote = true;
 			}
