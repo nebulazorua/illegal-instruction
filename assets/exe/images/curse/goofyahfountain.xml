@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="goofyahfountain.png">
+	<!-- Created with Adobe Animate version 21.0.0.35450 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="fountainlol0000" x="11" y="11" width="721" height="556"/>
+	<SubTexture name="fountainlol0001" x="11" y="11" width="721" height="556"/>
+	<SubTexture name="fountainlol0002" x="753" y="11" width="721" height="556"/>
+	<SubTexture name="fountainlol0003" x="753" y="11" width="721" height="556"/>
+	<SubTexture name="fountainlol0004" x="753" y="11" width="721" height="556"/>
+	<SubTexture name="fountainlol0005" x="753" y="11" width="721" height="556"/>
+	<SubTexture name="fountainlol0006" x="753" y="11" width="721" height="556"/>
+	<SubTexture name="fountainlol0007" x="753" y="11" width="721" height="556"/>
+	<SubTexture name="fountainlol0008" x="753" y="11" width="721" height="556"/>
+	<SubTexture name="fountainlol0009" x="753" y="11" width="721" height="556"/>
+</TextureAtlas>

@@ -1,7 +1,38 @@
 {
 	"song": {
 		"player1": "bf",
-		"events": [],
+		"events": [
+			[
+				90000,
+				[
+					[
+						"Change Character",
+						"dad",
+						"curse_pissbaby"
+					]
+				]
+			],
+			[
+				122000,
+				[
+					[
+						"Change Character",
+						"dad",
+						"curse_happy"
+					]
+				]
+			],
+			[
+				155333.333333333,
+				[
+					[
+						"Play Animation",
+						"singUP",
+						"bf"
+					]
+				]
+			]
+		],
 		"gfVersion": "gf",
 		"notes": [
 			{
@@ -2672,28 +2703,13 @@
 						66000,
 						6,
 						250
-					],
-					[
-						67000,
-						-1,
-						"Lyrics",
-						"Something's wrong",
-						"2"
 					]
 				],
 				"lengthInSteps": 16,
 				"mustHitSection": false
 			},
 			{
-				"sectionNotes": [
-					[
-						68500,
-						-1,
-						"Lyrics",
-						"And you won't hide it from me",
-						"2"
-					]
-				],
+				"sectionNotes": [],
 				"lengthInSteps": 16,
 				"mustHitSection": false
 			},
@@ -2743,13 +2759,6 @@
 						71750,
 						3,
 						0
-					],
-					[
-						70000,
-						-1,
-						"Lyrics",
-						"",
-						"0"
 					]
 				],
 				"lengthInSteps": 16,
@@ -3432,27 +3441,6 @@
 						88437.5,
 						0,
 						0
-					],
-					[
-						89875,
-						-1,
-						"Change Character",
-						"dad",
-						"curse_pissbaby"
-					],
-					[
-						89000,
-						-1,
-						"Lyrics",
-						"Just.",
-						"1"
-					],
-					[
-						89250,
-						-1,
-						"Lyrics",
-						"ADMIT IT!--0xFFFF00FF",
-						"1.5"
 					]
 				],
 				"lengthInSteps": 16,
@@ -3581,31 +3569,6 @@
 						91750,
 						7,
 						0
-					],
-					[
-						90125,
-						6,
-						0,
-						"Hex Note"
-					],
-					[
-						90875,
-						6,
-						0,
-						"Hex Note"
-					],
-					[
-						91875,
-						5,
-						0,
-						"Hex Note"
-					],
-					[
-						90000,
-						-1,
-						"Lyrics",
-						"",
-						"0"
 					]
 				],
 				"lengthInSteps": 16,
@@ -3722,24 +3685,6 @@
 						93750,
 						4,
 						0
-					],
-					[
-						92875,
-						5,
-						0,
-						"Hex Note"
-					],
-					[
-						93625,
-						5,
-						0,
-						"Hex Note"
-					],
-					[
-						93500,
-						6,
-						0,
-						"Hex Note"
 					]
 				],
 				"lengthInSteps": 16,
@@ -3886,18 +3831,6 @@
 						95750,
 						6,
 						0
-					],
-					[
-						94375,
-						3,
-						0,
-						"Hex Note"
-					],
-					[
-						95125,
-						3,
-						0,
-						"Hex Note"
 					]
 				],
 				"lengthInSteps": 16,
@@ -4049,18 +3982,6 @@
 						97500,
 						5,
 						375
-					],
-					[
-						97000,
-						2,
-						0,
-						"Hex Note"
-					],
-					[
-						96125,
-						2,
-						0,
-						"Hex Note"
 					]
 				],
 				"lengthInSteps": 16,
@@ -4199,24 +4120,6 @@
 						99750,
 						4,
 						0
-					],
-					[
-						98625,
-						5,
-						0,
-						"Hex Note"
-					],
-					[
-						99625,
-						5,
-						0,
-						"Hex Note"
-					],
-					[
-						99125,
-						4,
-						0,
-						"Hex Note"
 					]
 				],
 				"altAnim": false,
@@ -4348,18 +4251,6 @@
 						100000,
 						5,
 						0
-					],
-					[
-						101125,
-						6,
-						0,
-						"Hex Note"
-					],
-					[
-						101625,
-						5,
-						0,
-						"Hex Note"
 					]
 				],
 				"altAnim": false,
@@ -4551,18 +4442,6 @@
 						102625,
 						7,
 						0
-					],
-					[
-						103000,
-						3,
-						0,
-						"Hex Note"
-					],
-					[
-						103875,
-						1,
-						0,
-						"Hex Note"
 					]
 				],
 				"altAnim": false,
@@ -4749,18 +4628,6 @@
 						105500,
 						6,
 						312.5
-					],
-					[
-						105250,
-						0,
-						0,
-						"Hex Note"
-					],
-					[
-						105875,
-						3,
-						0,
-						"Hex Note"
 					]
 				],
 				"altAnim": false,
@@ -4890,30 +4757,6 @@
 						107375,
 						1,
 						0
-					],
-					[
-						107500,
-						3,
-						0,
-						"Hex Note"
-					],
-					[
-						106500,
-						2,
-						0,
-						"Hex Note"
-					],
-					[
-						107000,
-						3,
-						0,
-						"Hex Note"
-					],
-					[
-						107750,
-						3,
-						0,
-						"Hex Note"
 					]
 				],
 				"typeOfSection": 0,
@@ -5045,18 +4888,6 @@
 						109875,
 						0,
 						0
-					],
-					[
-						108500,
-						0,
-						0,
-						"Hex Note"
-					],
-					[
-						109125,
-						2,
-						0,
-						"Hex Note"
 					]
 				],
 				"typeOfSection": 0,
@@ -5389,12 +5220,6 @@
 						113500,
 						6,
 						375
-					],
-					[
-						113500,
-						4,
-						0,
-						"Hex Note"
 					]
 				],
 				"typeOfSection": 0,
@@ -5536,18 +5361,6 @@
 						115750,
 						7,
 						0
-					],
-					[
-						115375,
-						3,
-						0,
-						"Hex Note"
-					],
-					[
-						115000,
-						1,
-						0,
-						"Hex Note"
 					]
 				],
 				"typeOfSection": 0,
@@ -5684,12 +5497,6 @@
 						117750,
 						5,
 						0
-					],
-					[
-						116625,
-						3,
-						0,
-						"Hex Note"
 					]
 				],
 				"typeOfSection": 0,
@@ -5881,18 +5688,6 @@
 						119750,
 						6,
 						125
-					],
-					[
-						118125,
-						6,
-						0,
-						"Hex Note"
-					],
-					[
-						119750,
-						7,
-						0,
-						"Hex Note"
 					]
 				],
 				"typeOfSection": 0,
@@ -6074,18 +5869,6 @@
 						121500,
 						7,
 						375
-					],
-					[
-						121375,
-						4,
-						0,
-						"Hex Note"
-					],
-					[
-						121000,
-						6,
-						0,
-						"Hex Note"
 					]
 				],
 				"typeOfSection": 0,
@@ -6217,13 +6000,6 @@
 						123875,
 						4,
 						0
-					],
-					[
-						122000,
-						-1,
-						"Change Character",
-						"dad",
-						"curse_happy"
 					]
 				],
 				"typeOfSection": 0,
@@ -7639,15 +7415,7 @@
 			{
 				"lengthInSteps": 16,
 				"typeOfSection": 0,
-				"sectionNotes": [
-					[
-						148750,
-						-1,
-						"Lyrics",
-						"Things are..",
-						"3"
-					]
-				],
+				"sectionNotes": [],
 				"altAnim": false,
 				"gfSection": false,
 				"bpm": 120,
@@ -7657,22 +7425,7 @@
 			{
 				"lengthInSteps": 16,
 				"typeOfSection": 0,
-				"sectionNotes": [
-					[
-						150250,
-						-1,
-						"Lyrics",
-						"Okay?",
-						"3"
-					],
-					[
-						151875,
-						-1,
-						"Lyrics",
-						"Then..",
-						"3"
-					]
-				],
+				"sectionNotes": [],
 				"altAnim": false,
 				"gfSection": false,
 				"bpm": 120,
@@ -7682,22 +7435,7 @@
 			{
 				"lengthInSteps": 16,
 				"typeOfSection": 0,
-				"sectionNotes": [
-					[
-						152875,
-						-1,
-						"Lyrics",
-						"Can we..",
-						"3"
-					],
-					[
-						153875,
-						-1,
-						"Lyrics",
-						"Try again?",
-						"3"
-					]
-				],
+				"sectionNotes": [],
 				"altAnim": false,
 				"gfSection": false,
 				"bpm": 120,
@@ -7717,22 +7455,7 @@
 			{
 				"lengthInSteps": 16,
 				"typeOfSection": 0,
-				"sectionNotes": [
-					[
-						155333.333333333,
-						-1,
-						"Hey!",
-						"bf",
-						"1"
-					],
-					[
-						155337.239583333,
-						-1,
-						"Lyrics",
-						"",
-						"0"
-					]
-				],
+				"sectionNotes": [],
 				"altAnim": false,
 				"gfSection": false,
 				"bpm": 160,
@@ -7780,116 +7503,6 @@
 				"bpm": 120
 			},
 			{
-				"lengthInSteps": 16,
-				"typeOfSection": 0,
-				"sectionNotes": [],
-				"altAnim": false,
-				"gfSection": false,
-				"bpm": 120,
-				"changeBPM": false,
-				"mustHitSection": true
-			},
-			{
-				"lengthInSteps": 16,
-				"typeOfSection": 0,
-				"sectionNotes": [],
-				"altAnim": false,
-				"gfSection": false,
-				"bpm": 120,
-				"changeBPM": false,
-				"mustHitSection": true
-			},
-			{
-				"sectionNotes": [],
-				"typeOfSection": 0,
-				"lengthInSteps": 16,
-				"gfSection": false,
-				"altAnim": false,
-				"mustHitSection": true,
-				"changeBPM": false,
-				"bpm": 120
-			},
-			{
-				"sectionNotes": [],
-				"typeOfSection": 0,
-				"lengthInSteps": 16,
-				"gfSection": false,
-				"altAnim": false,
-				"mustHitSection": true,
-				"changeBPM": false,
-				"bpm": 120
-			},
-			{
-				"sectionNotes": [],
-				"typeOfSection": 0,
-				"lengthInSteps": 16,
-				"gfSection": false,
-				"altAnim": false,
-				"mustHitSection": true,
-				"changeBPM": false,
-				"bpm": 120
-			},
-			{
-				"lengthInSteps": 16,
-				"typeOfSection": 0,
-				"sectionNotes": [],
-				"altAnim": false,
-				"gfSection": false,
-				"bpm": 120,
-				"changeBPM": false,
-				"mustHitSection": true
-			},
-			{
-				"sectionNotes": [],
-				"typeOfSection": 0,
-				"lengthInSteps": 16,
-				"gfSection": false,
-				"altAnim": false,
-				"mustHitSection": true,
-				"changeBPM": false,
-				"bpm": 120
-			},
-			{
-				"lengthInSteps": 16,
-				"typeOfSection": 0,
-				"sectionNotes": [],
-				"altAnim": false,
-				"gfSection": false,
-				"bpm": 120,
-				"changeBPM": false,
-				"mustHitSection": true
-			},
-			{
-				"lengthInSteps": 16,
-				"typeOfSection": 0,
-				"sectionNotes": [],
-				"altAnim": false,
-				"gfSection": false,
-				"bpm": 120,
-				"changeBPM": false,
-				"mustHitSection": true
-			},
-			{
-				"lengthInSteps": 16,
-				"typeOfSection": 0,
-				"sectionNotes": [],
-				"altAnim": false,
-				"gfSection": false,
-				"bpm": 120,
-				"changeBPM": false,
-				"mustHitSection": true
-			},
-			{
-				"sectionNotes": [],
-				"typeOfSection": 0,
-				"lengthInSteps": 16,
-				"gfSection": false,
-				"altAnim": false,
-				"mustHitSection": true,
-				"changeBPM": false,
-				"bpm": 120
-			},
-			{
 				"gfSection": false,
 				"lengthInSteps": 16,
 				"altAnim": false,
@@ -7911,7 +7524,7 @@
 			}
 		],
 		"player2": "curse_nervous",
-		"player3": "gf",
+		"player3": null,
 		"song": "Malediction",
 		"stage": "curse",
 		"arrowSkin": "",
