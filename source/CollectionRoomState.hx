@@ -34,8 +34,11 @@ class CollectionRoomState extends MusicBeatState
     private static var curSelected:Int = 0;
     override function create()
         {
-            FlxTransitionableState.skipNextTransIn = true;
-            FlxTransitionableState.skipNextTransOut = true;
+            FlxG.sound.playMusic(Paths.music('Collection_menu'), 0);
+            FlxG.sound.music.fadeIn(4, 0, 0.7);
+            
+            transIn = FlxTransitionableState.defaultTransIn;
+            transOut = FlxTransitionableState.defaultTransOut;
             //IM SO GOOD AT CODING HOLY FUCKLES
 
             bgShits = new FlxTypedGroup<FlxSprite>();
@@ -57,28 +60,32 @@ class CollectionRoomState extends MusicBeatState
 
             characterShit = new FlxSprite(0, 0).loadGraphic(Paths.image('collection/characters/' + characterList[curSelected]));
             characterShit.antialiasing = ClientPrefs.globalAntialiasing;
+            characterShit.screenCenter();
             add(characterShit);
 
             descShit = new FlxSprite(0, 0).loadGraphic(Paths.image('collection/desc/' + characterList[curSelected]));
             descShit.antialiasing = ClientPrefs.globalAntialiasing;
+            descShit.screenCenter();
+            descShit.x += 350;
             add(descShit);
 
-            characterShit.x += 400;
-            FlxTween.tween(characterShit, {x: characterShit.x - 400}, 1.5, {
-                ease: FlxEase.cubeOut,
-                onComplete: function(twn:FlxTween)
-                    {
-                        disableInput = false;
-                    }
-                });
-
+            
             fixTheFunny();
+
+            characterShit.alpha = 0;
+            FlxTween.tween(characterShit, {alpha: 1}, 1, {ease: FlxEase.cubeOut});
+
+            new FlxTimer().start(1, function(tmr:FlxTimer)
+                {
+                   disableInput = false;
+                }); 
 
             super.create();
         }
 
     var movedBack:Bool = false;
     var hitEnter:Bool = false;
+
 
     override function update(elapsed:Float)
         {
@@ -128,16 +135,16 @@ class CollectionRoomState extends MusicBeatState
 
     function doTheFunnyThing(spr:FlxSprite)
         {
-            spr.x -= 100;
-		    spr.alpha = 0;
-            FlxTween.tween(spr, {x: spr.x + 100, alpha: 1}, 0.2, {
+            spr.alpha = 0;
+            FlxTween.tween(spr, {alpha: 1}, 0.2, {
                 ease: FlxEase.cubeOut,
                 onComplete: function(twn:FlxTween)
                     {
                         disableInput = false;
                     }
                 });
- 
+            
+            //god i LOVE TWEENS!!!
         }
 
     function changeCharacter(change:Int = 0)
@@ -163,29 +170,30 @@ class CollectionRoomState extends MusicBeatState
             switch (characterList[curSelected])
             {
                 case 'duke':
-                    characterShit.x = 30;
-                    characterShit.y = 50;
-                    characterShit.scale.x = 0.9;
-                    characterShit.scale.y = 0.9;
+                    characterShit.x = 150;
+                    characterShit.y = 150;
                 case 'chaotix':
-                    characterShit.x = 30;
-                    characterShit.y = 50;
+                    characterShit.x = 200;
+                    characterShit.y = 180;
                 case 'chotix':
-                    characterShit.x = 30;
-                    characterShit.y = 50;
-                    characterShit.scale.x = 1.2;
-                    characterShit.scale.y = 1.2;
+                    characterShit.x = 150;
+                    characterShit.y = 300;
                 case 'normalcd':
                     characterShit.x = -600;
                     characterShit.y = -550; 
-                    characterShit.scale.x = 0.3;
-                    characterShit.scale.y = 0.3;
                 case 'curse':
-                    characterShit.x = 30;
-                    characterShit.y = 50;
-                    characterShit.scale.x = 1.2;
-                    characterShit.scale.y = 1.2;
+                    characterShit.x = -120;
+                    characterShit.y = -600;
             }
+
+            if (characterList[curSelected] == 'normalcd' || characterList[curSelected] == 'curse')
+                {
+                     characterShit.setGraphicSize(Std.int(characterShit.width * 0.3));
+                }
+            else
+                {
+                    characterShit.setGraphicSize(Std.int(characterShit.width * 1));
+               }
         }
 
 }

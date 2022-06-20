@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="knuckles bopper.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="knuckles bopper instance 10000" x="17" y="17" width="1033" height="721" frameX="-21" frameY="-15" frameWidth="1055" frameHeight="741"/>
+	<SubTexture name="knuckles bopper instance 10001" x="17" y="17" width="1033" height="721" frameX="-21" frameY="-15" frameWidth="1055" frameHeight="741"/>
+	<SubTexture name="knuckles bopper instance 10002" x="1087" y="17" width="1036" height="730" frameX="-19" frameY="-11" frameWidth="1055" frameHeight="741"/>
+	<SubTexture name="knuckles bopper instance 10003" x="1087" y="17" width="1036" height="730" frameX="-19" frameY="-11" frameWidth="1055" frameHeight="741"/>
+	<SubTexture name="knuckles bopper instance 10004" x="2160" y="17" width="1031" height="715" frameX="-4" frameY="-1" frameWidth="1055" frameHeight="741"/>
+	<SubTexture name="knuckles bopper instance 10005" x="2160" y="17" width="1031" height="715" frameX="-4" frameY="-1" frameWidth="1055" frameHeight="741"/>
+	<SubTexture name="knuckles bopper instance 10006" x="17" y="784" width="1029" height="706" frameX="0" frameY="0" frameWidth="1055" frameHeight="741"/>
+	<SubTexture name="knuckles bopper instance 10007" x="17" y="784" width="1029" height="706" frameX="0" frameY="0" frameWidth="1055" frameHeight="741"/>
+	<SubTexture name="knuckles bopper instance 10008" x="1083" y="784" width="1027" height="704" frameX="0" frameY="0" frameWidth="1055" frameHeight="741"/>
+	<SubTexture name="knuckles bopper instance 10009" x="1083" y="784" width="1027" height="704" frameX="0" frameY="0" frameWidth="1055" frameHeight="741"/>
+	<SubTexture name="knuckles bopper instance 10010" x="1083" y="784" width="1027" height="704" frameX="0" frameY="0" frameWidth="1055" frameHeight="741"/>
+	<SubTexture name="knuckles bopper instance 10011" x="1083" y="784" width="1027" height="704" frameX="0" frameY="0" frameWidth="1055" frameHeight="741"/>
+	<SubTexture name="knuckles bopper instance 10012" x="1083" y="784" width="1027" height="704" frameX="0" frameY="0" frameWidth="1055" frameHeight="741"/>
+	<SubTexture name="knuckles bopper instance 10013" x="1083" y="784" width="1027" height="704" frameX="0" frameY="0" frameWidth="1055" frameHeight="741"/>
+</TextureAtlas>

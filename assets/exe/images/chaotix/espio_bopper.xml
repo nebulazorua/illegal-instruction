@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="espio bopper.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="espio bopper instance 10000" x="17" y="17" width="595" height="981" frameX="0" frameY="-9" frameWidth="595" frameHeight="990"/>
+	<SubTexture name="espio bopper instance 10001" x="17" y="17" width="595" height="981" frameX="0" frameY="-9" frameWidth="595" frameHeight="990"/>
+	<SubTexture name="espio bopper instance 10002" x="649" y="17" width="583" height="990" frameX="-6" frameY="0" frameWidth="595" frameHeight="990"/>
+	<SubTexture name="espio bopper instance 10003" x="649" y="17" width="583" height="990" frameX="-6" frameY="0" frameWidth="595" frameHeight="990"/>
+	<SubTexture name="espio bopper instance 10004" x="1269" y="17" width="578" height="988" frameX="-8" frameY="-2" frameWidth="595" frameHeight="990"/>
+	<SubTexture name="espio bopper instance 10005" x="1269" y="17" width="578" height="988" frameX="-8" frameY="-2" frameWidth="595" frameHeight="990"/>
+	<SubTexture name="espio bopper instance 10006" x="1884" y="17" width="578" height="987" frameX="-8" frameY="-3" frameWidth="595" frameHeight="990"/>
+	<SubTexture name="espio bopper instance 10007" x="1884" y="17" width="578" height="987" frameX="-8" frameY="-3" frameWidth="595" frameHeight="990"/>
+	<SubTexture name="espio bopper instance 10008" x="2499" y="17" width="578" height="986" frameX="-8" frameY="-4" frameWidth="595" frameHeight="990"/>
+	<SubTexture name="espio bopper instance 10009" x="2499" y="17" width="578" height="986" frameX="-8" frameY="-4" frameWidth="595" frameHeight="990"/>
+	<SubTexture name="espio bopper instance 10010" x="2499" y="17" width="578" height="986" frameX="-8" frameY="-4" frameWidth="595" frameHeight="990"/>
+	<SubTexture name="espio bopper instance 10011" x="2499" y="17" width="578" height="986" frameX="-8" frameY="-4" frameWidth="595" frameHeight="990"/>
+	<SubTexture name="espio bopper instance 10012" x="2499" y="17" width="578" height="986" frameX="-8" frameY="-4" frameWidth="595" frameHeight="990"/>
+	<SubTexture name="espio bopper instance 10013" x="2499" y="17" width="578" height="986" frameX="-8" frameY="-4" frameWidth="595" frameHeight="990"/>
+</TextureAtlas>

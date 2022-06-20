@@ -268,6 +268,13 @@ class PlayState extends MusicBeatState
 	public var fucklesMode:Bool = false;
 	public var drainMisses:Float = 0; // EEE OOO EH OO EE AAAAAAAAA
 	// glad my comment above stayed lmao -neb
+	//duke shit
+	//entrance (ee oo ayy eh)
+	var entranceBG:FlxSprite;
+	var entranceTowers:FlxSprite;
+	var entranceClock:FlxSprite;
+	var entranceFloor:FlxSprite;
+	var entrancePointers:FlxSprite;
 
 	// horizon
 	var fucklesBGPixel:FlxSprite;
@@ -287,6 +294,12 @@ class PlayState extends MusicBeatState
 	var horizonFloor:FlxSprite;
 	var horizonTrees:FlxSprite;
 	var horizonTrees2:FlxSprite;
+	
+	var horizonAmy:FlxSprite;
+	var horizonKnuckles:FlxSprite;
+	var horizonEspio:FlxSprite;
+	var horizonCharmy:FlxSprite;
+	var hoirzonVector:FlxSprite;
 	// aughhhhhhhhhhhhhhhh
 	var hellBg:FlxSprite;
 	// - healthbar based things for mechanic use (like my horizon lol)
@@ -463,6 +476,46 @@ class PlayState extends MusicBeatState
 
 		switch (curStage)
 		{
+			case 'entrance':
+
+				defaultCamZoom = 0.75;
+				isPixelHUD = false;
+
+				entranceBG = new FlxSprite(-300, -300);
+				entranceBG.loadGraphic(Paths.image('entrance/bg', 'exe'));
+				entranceBG.scrollFactor.set(0.9, 1);
+				entranceBG.scale.set(1.2, 1.2);
+				entranceBG.antialiasing = true;
+				add(entranceBG);
+
+				entranceTowers = new FlxSprite(-350, 0);
+				entranceTowers.loadGraphic(Paths.image('entrance/towers', 'exe'));
+				entranceTowers.scrollFactor.set(1.05, 1);
+				entranceTowers.scale.set(1.2, 1.2);
+				entranceTowers.antialiasing = true;
+				add(entranceTowers);
+
+				entranceClock = new FlxSprite(-350, -50);
+				entranceClock.loadGraphic(Paths.image('entrance/clock', 'exe'));
+				entranceClock.scrollFactor.set(1, 1);
+				entranceClock.scale.set(1.2, 1.2);
+				entranceClock.antialiasing = true;
+				add(entranceClock);
+
+				entranceFloor = new FlxSprite(-325, -50);
+				entranceFloor.loadGraphic(Paths.image('entrance/floor', 'exe'));
+				entranceFloor.scrollFactor.set(1, 1);
+				entranceFloor.scale.set(1.2, 1.2);
+				entranceFloor.antialiasing = true;
+				add(entranceFloor);
+
+				entrancePointers = new FlxSprite(-300, -50);
+				entrancePointers.loadGraphic(Paths.image('entrance/pointers', 'exe'));
+				entrancePointers.scrollFactor.set(1.1, 1);
+				entrancePointers.scale.set(1.2, 1.2);
+				entrancePointers.antialiasing = true;
+				add(entrancePointers);
+
 			case 'horizon':
 
 				GameOverSubstate.deathSoundName = 'chaotix-death';
@@ -589,6 +642,15 @@ class PlayState extends MusicBeatState
 						horizonFloor.visible = false;
 						add(horizonFloor);
 
+						horizonEspio = new FlxSprite(-300, 400);
+						horizonEspio.frames = Paths.getSparrowAtlas('chaotix/espio_bopper', 'exe');
+						horizonEspio.animation.addByPrefix('idle', 'espio bopper instance 1', 24);
+						horizonEspio.scrollFactor.set(1, 1);
+						horizonEspio.setGraphicSize(Std.int(horizonEspio.width * 0.5));
+						horizonEspio.antialiasing = true;
+						horizonEspio.visible = false;
+						add(horizonEspio);
+
 						horizonTrees = new FlxSprite(-400, 285);
 						horizonTrees.loadGraphic(Paths.image('chaotix/trees', 'exe'));
 						horizonTrees.scrollFactor.set(1, 1);
@@ -597,6 +659,15 @@ class PlayState extends MusicBeatState
 						horizonTrees.visible = false;
 						add(horizonTrees);
 
+						horizonAmy = new FlxSprite(800, 400);
+						horizonAmy.frames = Paths.getSparrowAtlas('chaotix/amy_bopper', 'exe');
+						horizonAmy.animation.addByPrefix('idle', 'amy bopper instance 1', 24);
+						horizonAmy.scrollFactor.set(1, 1);
+						horizonAmy.setGraphicSize(Std.int(horizonAmy.width * 0.5));
+						horizonAmy.antialiasing = true;
+						horizonAmy.visible = false;
+						add(horizonAmy);
+
 						horizonTrees2 = new FlxSprite(-500, 285);
 						horizonTrees2.loadGraphic(Paths.image('chaotix/trees2', 'exe'));
 						horizonTrees2.scrollFactor.set(1, 1);
@@ -604,6 +675,15 @@ class PlayState extends MusicBeatState
 						horizonTrees2.antialiasing = true;
 						horizonTrees2.visible = false;
 						add(horizonTrees2);
+
+						horizonKnuckles = new FlxSprite(-750, 780);
+						horizonKnuckles.frames = Paths.getSparrowAtlas('chaotix/knuckles_bopper', 'exe');
+						horizonKnuckles.animation.addByPrefix('idle', 'knuckles bopper instance 1', 24);
+						horizonKnuckles.scrollFactor.set(0.9, 0.75);
+						horizonKnuckles.setGraphicSize(Std.int(horizonKnuckles.width * 0.85));
+						horizonKnuckles.antialiasing = true;
+						horizonKnuckles.visible = false;
+						
 					}
 
 			case 'chotix':
@@ -648,6 +728,8 @@ class PlayState extends MusicBeatState
 
 				case 'curse':
 					//THE CURSE OF X SEETHES AND MALDS
+
+					isPixelHUD = false;
 					defaultCamZoom = 0.60;
 
 					curseSky = new FlxSprite(-300, -150);
@@ -840,12 +922,18 @@ class PlayState extends MusicBeatState
 
 		switch(curStage)
 		{
+			case 'entrance':
+				gfGroup.visible = false;
 			case 'horizon':
 				boyfriend.y += 68;
 				gf.x += 375;
 				gf.y += 575;
 				dad.x -= 90;
 				dad.y += 70;
+				if (SONG.song.toLowerCase() == 'our-horizon')
+					{
+						add(horizonKnuckles);
+					}
 			case 'founded':
 				dad.x -= 500;
 			case 'chotix':
@@ -892,7 +980,7 @@ class PlayState extends MusicBeatState
 		timeBarBG.color = FlxColor.BLACK;
 		timeBarBG.xAdd = -4;
 		timeBarBG.yAdd = -4;
-		add(timeBarBG);
+		
 
 		timeBar = new FlxBar(timeBarBG.x + 4, timeBarBG.y + 4, LEFT_TO_RIGHT, Std.int(timeBarBG.width - 8), Std.int(timeBarBG.height - 8), this,
 			'songPercent', 0, 1);
@@ -901,9 +989,16 @@ class PlayState extends MusicBeatState
 		timeBar.numDivisions = 800; //How much lag this causes?? Should i tone it down to idk, 400 or 200?
 		timeBar.alpha = 0;
 		timeBar.visible = showTime;
-		add(timeBar);
-		add(timeTxt);
+
+		if (!isPixelHUD)
+			{
+				add(timeBarBG);
+				add(timeBar);
+				add(timeTxt);
+			}
+
 		timeBarBG.sprTracker = timeBar;
+
 
 		strumLineNotes = new FlxTypedGroup<StrumNote>();
 		add(strumLineNotes);
@@ -4187,6 +4282,34 @@ class PlayState extends MusicBeatState
 				camHUD.zoom += 0.02;
 			}
 
+			if (SONG.song.toLowerCase() == 'breakout')
+				{
+					switch (curStep)
+					{
+						case 384:
+							wowZoomin = true;
+						case 512:
+							wowZoomin = false;
+						case 522:
+							FlxTween.tween(camHUD, {alpha: 0}, 1.3, {ease: FlxEase.cubeInOut});
+							FlxTween.tween(FlxG.camera, {zoom: FlxG.camera.zoom + 0.25}, 4, {ease: FlxEase.cubeInOut});
+						case 576:
+							FlxTween.tween(camHUD, {alpha: 1}, 0.5, {ease: FlxEase.cubeInOut});
+							camHUD.zoom += 2;
+							holyFuckStopZoomin = true;
+							camZooming = true;
+						case 832:
+							holyFuckStopZoomin = false;
+							FlxTween.tween(camHUD, {alpha: 0.5}, 0.5, {ease: FlxEase.cubeInOut});
+						case 928:
+							FlxTween.tween(camHUD, {alpha: 1}, 0.5, {ease: FlxEase.cubeInOut});
+							holyFuckStopZoomin = true;
+						case 1216:
+							holyFuckStopZoomin = false;
+							FlxTween.tween(camHUD, {alpha: 0}, 3, {ease: FlxEase.cubeInOut});
+					}
+				}
+
 		if (SONG.song.toLowerCase() == 'my-horizon')
 			{
 				switch (curStep)
@@ -4462,6 +4585,12 @@ class PlayState extends MusicBeatState
 						fucklesKnuxBg.animation.play('fear');
 						fucklesVectorBg.animation.play('fear');
 					}
+				if (SONG.song.toLowerCase() == 'our-horizon')
+					{
+						horizonAmy.animation.play('idle');
+						horizonEspio.animation.play('idle');
+						horizonKnuckles.animation.play('idle');
+					}
 		}
 
 		lastBeatHit = curBeat;
@@ -4541,6 +4670,7 @@ class PlayState extends MusicBeatState
 				{
 					remove(whiteFuck);
 					whiteFuck.destroy();
+					GameOverSubstate.characterName = 'bf-holding-gf-dead';
 				}
 			});
 
@@ -4550,6 +4680,10 @@ class PlayState extends MusicBeatState
 			horizonFloor.visible = true;
 			horizonTrees.visible = true;
 			horizonTrees2.visible = true;
+
+			horizonEspio.visible = true;
+			horizonAmy.visible = true;
+			horizonKnuckles.visible = true;
 
 			opponentStrums.forEach(function(spr:FlxSprite)
 				{
