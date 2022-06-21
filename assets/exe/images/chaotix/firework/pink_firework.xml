@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="pink firework.png">
+	<!-- Created with Adobe Animate version 21.0.0.35450 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="red firework0000" x="0" y="0" width="12" height="15" frameX="-277" frameY="-580" frameWidth="611" frameHeight="595"/>
+	<SubTexture name="red firework0001" x="12" y="0" width="11" height="117" frameX="-277" frameY="-462" frameWidth="611" frameHeight="595"/>
+	<SubTexture name="red firework0002" x="23" y="0" width="8" height="45" frameX="-277" frameY="-346" frameWidth="611" frameHeight="595"/>
+	<SubTexture name="red firework0003" x="31" y="0" width="11" height="12" frameX="-275" frameY="-314" frameWidth="611" frameHeight="595"/>
+	<SubTexture name="red firework0004" x="42" y="0" width="53" height="58" frameX="-254" frameY="-277" frameWidth="611" frameHeight="595"/>
+	<SubTexture name="red firework0005" x="95" y="0" width="520" height="388" frameX="-33" frameY="0" frameWidth="611" frameHeight="595"/>
+	<SubTexture name="red firework0006" x="615" y="0" width="538" height="367" frameX="-28" frameY="-28" frameWidth="611" frameHeight="595"/>
+	<SubTexture name="red firework0007" x="1153" y="0" width="594" height="422" frameX="-17" frameY="-10" frameWidth="611" frameHeight="595"/>
+	<SubTexture name="red firework0008" x="0" y="422" width="583" height="408" frameX="0" frameY="-41" frameWidth="611" frameHeight="595"/>
+</TextureAtlas>

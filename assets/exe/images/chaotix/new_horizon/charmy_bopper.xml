@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="charmy_bopper.png">
+	<!-- Created with Adobe Animate version 21.0.7.42652 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="charmy bopper0000" x="100" y="100" width="524" height="647"/>
+	<SubTexture name="charmy bopper0001" x="100" y="100" width="524" height="647"/>
+	<SubTexture name="charmy bopper0002" x="724" y="100" width="524" height="647"/>
+	<SubTexture name="charmy bopper0003" x="724" y="100" width="524" height="647"/>
+	<SubTexture name="charmy bopper0004" x="1348" y="100" width="524" height="647"/>
+	<SubTexture name="charmy bopper0005" x="1348" y="100" width="524" height="647"/>
+	<SubTexture name="charmy bopper0006" x="100" y="847" width="524" height="647"/>
+	<SubTexture name="charmy bopper0007" x="100" y="847" width="524" height="647"/>
+	<SubTexture name="charmy bopper0008" x="724" y="847" width="524" height="647"/>
+	<SubTexture name="charmy bopper0009" x="724" y="847" width="524" height="647"/>
+	<SubTexture name="charmy bopper0010" x="1348" y="847" width="524" height="647"/>
+	<SubTexture name="charmy bopper0011" x="1348" y="847" width="524" height="647"/>
+	<SubTexture name="charmy bopper0012" x="724" y="847" width="524" height="647"/>
+	<SubTexture name="charmy bopper0013" x="1348" y="847" width="524" height="647"/>
+</TextureAtlas>

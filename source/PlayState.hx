@@ -290,16 +290,22 @@ class PlayState extends MusicBeatState
 	var fucklesTheHealthHog:Array<Float>;
 	var whiteFuck:FlxSprite;
 	//horizon but real
+
 	var horizonBg:FlxSprite;
 	var horizonFloor:FlxSprite;
 	var horizonTrees:FlxSprite;
 	var horizonTrees2:FlxSprite;
+
+	var horizonPurpur:FlxSprite;
+	var horizonYellow:FlxSprite;
+	var horizonRed:FlxSprite;
 	
 	var horizonAmy:FlxSprite;
 	var horizonKnuckles:FlxSprite;
 	var horizonEspio:FlxSprite;
+	var horizonMighty:FlxSprite;
 	var horizonCharmy:FlxSprite;
-	var hoirzonVector:FlxSprite;
+	var horizonVector:FlxSprite;
 	// aughhhhhhhhhhhhhhhh
 	var hellBg:FlxSprite;
 	// - healthbar based things for mechanic use (like my horizon lol)
@@ -626,63 +632,117 @@ class PlayState extends MusicBeatState
 
 				if (SONG.song.toLowerCase() == 'our-horizon')
 					{
+
 						horizonBg = new FlxSprite(-500, 285);
-						horizonBg.loadGraphic(Paths.image('chaotix/starline', 'exe'));
+						horizonBg.loadGraphic(Paths.image('chaotix/new_horizon/starline', 'exe'));
 						horizonBg.scrollFactor.set(1, 1);
 						horizonBg.scale.set(1.1, 1.1);
 						horizonBg.antialiasing = true;
-						horizonBg.visible = false;
 						add(horizonBg);
 
+						horizonPurpur = new FlxSprite(-150, 425);
+						horizonPurpur.frames = Paths.getSparrowAtlas('chaotix/firework/pink_firework', 'exe');
+						horizonPurpur.animation.addByPrefix('idle', 'red firework', 8);
+						horizonPurpur.scrollFactor.set(1, 1);
+						horizonPurpur.antialiasing = true;
+						add(horizonPurpur);
+
+						horizonRed = new FlxSprite(400, 425);
+						horizonRed.frames = Paths.getSparrowAtlas('chaotix/firework/red_firework', 'exe');
+						horizonRed.animation.addByPrefix('idle', 'red firework', 8);
+						horizonRed.scrollFactor.set(1, 1);
+						horizonRed.antialiasing = true;
+						add(horizonRed);
+
+						horizonYellow = new FlxSprite(800, 425);
+						horizonYellow.frames = Paths.getSparrowAtlas('chaotix/firework/yellow_firework', 'exe');
+						horizonYellow.animation.addByPrefix('idle', 'red firework', 8);
+						horizonYellow.scrollFactor.set(1, 1);
+						horizonYellow.antialiasing = true;
+						add(horizonYellow);
+
 						horizonFloor = new FlxSprite(-500, 285);
-						horizonFloor.loadGraphic(Paths.image('chaotix/floor', 'exe'));
+						horizonFloor.loadGraphic(Paths.image('chaotix/new_horizon/floor', 'exe'));
 						horizonFloor.scrollFactor.set(1, 1);
 						horizonFloor.scale.set(1.1, 1.1);
 						horizonFloor.antialiasing = true;
-						horizonFloor.visible = false;
 						add(horizonFloor);
 
 						horizonEspio = new FlxSprite(-300, 400);
-						horizonEspio.frames = Paths.getSparrowAtlas('chaotix/espio_bopper', 'exe');
+						horizonEspio.frames = Paths.getSparrowAtlas('chaotix/new_horizon/espio_bopper', 'exe');
 						horizonEspio.animation.addByPrefix('idle', 'espio bopper instance 1', 24);
 						horizonEspio.scrollFactor.set(1, 1);
 						horizonEspio.setGraphicSize(Std.int(horizonEspio.width * 0.5));
 						horizonEspio.antialiasing = true;
-						horizonEspio.visible = false;
 						add(horizonEspio);
 
 						horizonTrees = new FlxSprite(-400, 285);
-						horizonTrees.loadGraphic(Paths.image('chaotix/trees', 'exe'));
+						horizonTrees.loadGraphic(Paths.image('chaotix/new_horizon/trees', 'exe'));
 						horizonTrees.scrollFactor.set(1, 1);
 						horizonTrees.scale.set(1.1, 1.1);
 						horizonTrees.antialiasing = true;
-						horizonTrees.visible = false;
 						add(horizonTrees);
 
 						horizonAmy = new FlxSprite(800, 400);
-						horizonAmy.frames = Paths.getSparrowAtlas('chaotix/amy_bopper', 'exe');
+						horizonAmy.frames = Paths.getSparrowAtlas('chaotix/new_horizon/amy_bopper', 'exe');
 						horizonAmy.animation.addByPrefix('idle', 'amy bopper instance 1', 24);
 						horizonAmy.scrollFactor.set(1, 1);
 						horizonAmy.setGraphicSize(Std.int(horizonAmy.width * 0.5));
 						horizonAmy.antialiasing = true;
-						horizonAmy.visible = false;
 						add(horizonAmy);
 
+						horizonMighty = new FlxSprite(500, 400);
+						horizonMighty.frames = Paths.getSparrowAtlas('chaotix/new_horizon/mighty_bopper', 'exe');
+						horizonMighty.animation.addByPrefix('idle', 'mighty bopper', 24);
+						horizonMighty.scrollFactor.set(1, 1);
+						horizonMighty.setGraphicSize(Std.int(horizonMighty.width * 0.5));
+						horizonMighty.antialiasing = true;
+						add(horizonMighty);
+
+						horizonCharmy = new FlxSprite(675, 200);
+						horizonCharmy.frames = Paths.getSparrowAtlas('chaotix/new_horizon/charmy_bopper', 'exe');
+						horizonCharmy.animation.addByPrefix('idle', 'charmy bopper', 24);
+						horizonCharmy.scrollFactor.set(1, 1);
+						horizonCharmy.setGraphicSize(Std.int(horizonCharmy.width * 0.5));
+						horizonCharmy.antialiasing = true;
+						add(horizonCharmy);
+
 						horizonTrees2 = new FlxSprite(-500, 285);
-						horizonTrees2.loadGraphic(Paths.image('chaotix/trees2', 'exe'));
+						horizonTrees2.loadGraphic(Paths.image('chaotix/new_horizon/trees2', 'exe'));
 						horizonTrees2.scrollFactor.set(1, 1);
 						horizonTrees2.scale.set(1.1, 1.1);
 						horizonTrees2.antialiasing = true;
-						horizonTrees2.visible = false;
 						add(horizonTrees2);
 
 						horizonKnuckles = new FlxSprite(-750, 780);
-						horizonKnuckles.frames = Paths.getSparrowAtlas('chaotix/knuckles_bopper', 'exe');
+						horizonKnuckles.frames = Paths.getSparrowAtlas('chaotix/new_horizon/knuckles_bopper', 'exe');
 						horizonKnuckles.animation.addByPrefix('idle', 'knuckles bopper instance 1', 24);
 						horizonKnuckles.scrollFactor.set(0.9, 0.75);
 						horizonKnuckles.setGraphicSize(Std.int(horizonKnuckles.width * 0.85));
 						horizonKnuckles.antialiasing = true;
+
+						horizonVector = new FlxSprite(750, 700);
+						horizonVector.frames = Paths.getSparrowAtlas('chaotix/new_horizon/vector_bopper', 'exe');
+						horizonVector.animation.addByPrefix('idle', 'vector bopper', 24);
+						horizonVector.scrollFactor.set(0.9, 0.75);
+						horizonVector.setGraphicSize(Std.int(horizonVector.width * 0.85));
+						horizonVector.antialiasing = true;
+
+						horizonBg.visible = false;
+						horizonFloor.visible = false;
+						horizonTrees.visible = false;
+						horizonTrees2.visible = false;
+
+						horizonPurpur.visible = false;
+						horizonYellow.visible = false;
+						horizonRed.visible = false;
+
+						horizonAmy.visible = false;
+						horizonCharmy.visible = false;
+						horizonEspio.visible = false;
+						horizonMighty.visible = false;
 						horizonKnuckles.visible = false;
+						horizonVector.visible = false;
 						
 					}
 
@@ -933,6 +993,7 @@ class PlayState extends MusicBeatState
 				if (SONG.song.toLowerCase() == 'our-horizon')
 					{
 						add(horizonKnuckles);
+						add(horizonVector);
 					}
 			case 'founded':
 				dad.x -= 500;
@@ -2886,6 +2947,24 @@ class PlayState extends MusicBeatState
 		#end
 	}
 
+	function fireWorksDeluxe()
+		{
+
+			horizonRed.animation.play('idle');
+
+			new FlxTimer().start(2, function(tmr:FlxTimer) {
+				horizonPurpur.animation.play('idle');
+			});
+
+			new FlxTimer().start(0.5, function(tmr:FlxTimer) {
+				horizonYellow.animation.play('idle');
+			});
+
+
+
+			
+		}
+
 	public var isDead:Bool = false; //Don't mess with this on Lua!!!
 	function doDeathCheck(?skipHealthCheck:Bool = false) {
 		if (((skipHealthCheck && instakillOnMiss) || health <= 0) && !practiceMode && !isDead)
@@ -4387,6 +4466,16 @@ class PlayState extends MusicBeatState
 							boyfriend.setPosition(900, 950);
 							literallyOurHorizon();
 							removeShit(2);
+						case 2976:
+							FlxTween.tween(camHUD, {alpha: 0}, 2);
+						case 2992:
+							var fuckinCamShit:FlxObject;
+							fuckinCamShit = new FlxObject(700, 950, 1, 1);
+							FlxG.camera.follow(fuckinCamShit, LOCKON, 0.06 * (30 / (cast(Lib.current.getChildAt(0), Main)).getFPS()));
+							fireWorksDeluxe();
+						case 3104:
+							removeShit(3);
+							FlxG.camera.flash(FlxColor.WHITE, 2);
 					}
 				}
 
@@ -4454,6 +4543,7 @@ class PlayState extends MusicBeatState
 								if(curseStatic!=null)curseStatic.visible = true;
 								FlxTween.tween(curseStatic, {alpha: 1}, 2, {type: FlxTweenType.PINGPONG, ease: FlxEase.quadInOut, loopDelay: 0.1});
 							case 991:
+								FlxG.camera.flash(FlxColor.PURPLE, 1);
 								if(curseStatic!=null){
 									FlxTween.tween(curseStatic, {alpha: 0}, 0.5, {ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween)
 										{
@@ -4590,6 +4680,9 @@ class PlayState extends MusicBeatState
 						horizonAmy.animation.play('idle');
 						horizonEspio.animation.play('idle');
 						horizonKnuckles.animation.play('idle');
+						horizonCharmy.animation.play('idle');
+						horizonVector.animation.play('idle');
+						horizonMighty.animation.play('idle');
 					}
 		}
 
@@ -4676,14 +4769,22 @@ class PlayState extends MusicBeatState
 
 			fucklesBGPixel.visible = false;
 			fucklesFGPixel.visible = false;
+
 			horizonBg.visible = true;
 			horizonFloor.visible = true;
 			horizonTrees.visible = true;
 			horizonTrees2.visible = true;
 
-			horizonEspio.visible = true;
+			horizonPurpur.visible = true;
+			horizonYellow.visible = true;
+			horizonRed.visible = true;
+
 			horizonAmy.visible = true;
+			horizonCharmy.visible = true;
+			horizonEspio.visible = true;
+			horizonMighty.visible = true;
 			horizonKnuckles.visible = true;
+			horizonVector.visible = true;
 
 			opponentStrums.forEach(function(spr:FlxSprite)
 				{
@@ -4710,6 +4811,25 @@ class PlayState extends MusicBeatState
 								fucklesAmyBg.visible = false;
 								fucklesKnuxBg.visible = false;
 								fucklesVectorBg.visible = false;
+							case 3:
+								horizonBg.visible = false;
+								horizonFloor.visible = false;
+								horizonTrees.visible = false;
+								horizonTrees2.visible = false;
+
+								horizonPurpur.visible = false;
+								horizonYellow.visible = false;
+								horizonRed.visible = false;
+
+								horizonAmy.visible = false;
+								horizonCharmy.visible = false;
+								horizonEspio.visible = false;
+								horizonMighty.visible = false;
+								horizonKnuckles.visible = false;
+								horizonVector.visible = false;
+
+								dadGroup.visible = false;
+								boyfriendGroup.visible = false;
 						}
 			}
 
@@ -4952,8 +5072,6 @@ class PlayState extends MusicBeatState
 	var curLight:Int = 0;
 	var curLightEvent:Int = 0;
 }
-
-
 
 				/**%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%&&8BB#%%%%WW%BaLccccccvccccccccccccccwbW%8
 				   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%8%%@Wb%B%88M@BbcccccccXb&ccccccccccccczdd%o%

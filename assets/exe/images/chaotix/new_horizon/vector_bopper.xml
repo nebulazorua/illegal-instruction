@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="vector_bopper.png">
+	<!-- Created with Adobe Animate version 21.0.7.42652 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="vector bopper0000" x="100" y="100" width="1453" height="839"/>
+	<SubTexture name="vector bopper0001" x="100" y="100" width="1453" height="839"/>
+	<SubTexture name="vector bopper0002" x="1653" y="100" width="1453" height="839"/>
+	<SubTexture name="vector bopper0003" x="1653" y="100" width="1453" height="839"/>
+	<SubTexture name="vector bopper0004" x="100" y="1039" width="1453" height="839"/>
+	<SubTexture name="vector bopper0005" x="100" y="1039" width="1453" height="839"/>
+	<SubTexture name="vector bopper0006" x="1653" y="1039" width="1453" height="839"/>
+	<SubTexture name="vector bopper0007" x="1653" y="1039" width="1453" height="839"/>
+	<SubTexture name="vector bopper0008" x="100" y="1978" width="1453" height="839"/>
+	<SubTexture name="vector bopper0009" x="100" y="1978" width="1453" height="839"/>
+	<SubTexture name="vector bopper0010" x="100" y="1978" width="1453" height="839"/>
+	<SubTexture name="vector bopper0011" x="100" y="1978" width="1453" height="839"/>
+	<SubTexture name="vector bopper0012" x="100" y="1978" width="1453" height="839"/>
+	<SubTexture name="vector bopper0013" x="100" y="1978" width="1453" height="839"/>
+</TextureAtlas>

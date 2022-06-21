@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="mighty_bopper.png">
+	<!-- Created with Adobe Animate version 21.0.7.42652 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="mighty bopper0000" x="100" y="100" width="567" height="1019"/>
+	<SubTexture name="mighty bopper0001" x="100" y="100" width="567" height="1019"/>
+	<SubTexture name="mighty bopper0002" x="767" y="100" width="567" height="1019"/>
+	<SubTexture name="mighty bopper0003" x="767" y="100" width="567" height="1019"/>
+	<SubTexture name="mighty bopper0004" x="1434" y="100" width="567" height="1019"/>
+	<SubTexture name="mighty bopper0005" x="1434" y="100" width="567" height="1019"/>
+	<SubTexture name="mighty bopper0006" x="2101" y="100" width="567" height="1019"/>
+	<SubTexture name="mighty bopper0007" x="2101" y="100" width="567" height="1019"/>
+	<SubTexture name="mighty bopper0008" x="2768" y="100" width="567" height="1019"/>
+	<SubTexture name="mighty bopper0009" x="2768" y="100" width="567" height="1019"/>
+	<SubTexture name="mighty bopper0010" x="2768" y="100" width="567" height="1019"/>
+	<SubTexture name="mighty bopper0011" x="2768" y="100" width="567" height="1019"/>
+	<SubTexture name="mighty bopper0012" x="2768" y="100" width="567" height="1019"/>
+	<SubTexture name="mighty bopper0013" x="2768" y="100" width="567" height="1019"/>
+</TextureAtlas>
