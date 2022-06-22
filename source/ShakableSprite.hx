@@ -11,7 +11,7 @@ import flixel.util.FlxDestroyUtil;
 import flixel.tweens.FlxTween;
 import flixel.system.FlxAssets.FlxGraphicAsset;
 
-class WireSprite extends FlxSprite
+class ShakableSprite extends FlxSprite
 {
   public var tweens:Map<String,FlxTween> = [];
   public var extraInfo:Map<String, Any> = [];
@@ -47,9 +47,9 @@ class WireSprite extends FlxSprite
   }
 
 
-  override public function loadGraphic(Graphic:FlxGraphicAsset, Animated:Bool = false, Width:Int = 0, Height:Int = 0, Unique:Bool = false, ?Key:String):WireSprite
+  override public function loadGraphic(Graphic:FlxGraphicAsset, Animated:Bool = false, Width:Int = 0, Height:Int = 0, Unique:Bool = false, ?Key:String):ShakableSprite
   {
-    var sprite:WireSprite = cast super.loadGraphic(Graphic, Animated, Width, Height, Unique, Key);
+    var sprite:ShakableSprite = cast super.loadGraphic(Graphic, Animated, Width, Height, Unique, Key);
     return sprite;
   }
 

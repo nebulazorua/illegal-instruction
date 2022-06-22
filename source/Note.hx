@@ -93,6 +93,7 @@ class Note extends FlxSprite
 	}
 
 	private function set_noteType(value:String):String {
+		hitbox = Conductor.safeZoneOffset;
 		noteSplashTexture = PlayState.SONG.splashSkin;
 		colorSwap.hue = ClientPrefs.arrowHSV[noteData % 4][0] / 360;
 		colorSwap.saturation = ClientPrefs.arrowHSV[noteData % 4][1] / 100;
@@ -367,20 +368,20 @@ class Note extends FlxSprite
 		if (mustPress)
 		{
 			// ok river
-			if (strumTime > Conductor.songPosition - Conductor.safeZoneOffset
-				&& strumTime < Conductor.songPosition + (Conductor.safeZoneOffset * earlyHitMult))
+			if (strumTime > Conductor.songPosition - hitbox
+			&& strumTime < Conductor.songPosition + (hitbox * earlyHitMult))
 				canBeHit = true;
 			else
 				canBeHit = false;
 
-			if (strumTime < Conductor.songPosition - Conductor.safeZoneOffset && !wasGoodHit)
+			if (strumTime < Conductor.songPosition - hitbox && !wasGoodHit)
 				tooLate = true;
 		}
 		else
 		{
 			canBeHit = false;
 
-			if (strumTime < Conductor.songPosition + (Conductor.safeZoneOffset * earlyHitMult))
+			if (strumTime < Conductor.songPosition + (hitbox * earlyHitMult))
 			{
 				if((isSustainNote && prevNote.wasGoodHit) || strumTime <= Conductor.songPosition)
 					wasGoodHit = true;

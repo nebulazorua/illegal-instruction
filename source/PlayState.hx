@@ -330,7 +330,7 @@ class PlayState extends MusicBeatState
 	var hexTimer:Float = 0;
 	var hexes:Float = 0;
 	var fucklesSetHealth:Float = 0;
-	var barbedWires:FlxTypedGroup<WireSprite>;
+	var barbedWires:FlxTypedGroup<ShakableSprite>;
 	var wireVignette:FlxSprite;
 	//the fucking actual assets
 	var curseStatic:FlxSprite;
@@ -1078,10 +1078,10 @@ class PlayState extends MusicBeatState
 		opponentStrums = new FlxTypedGroup<StrumNote>();
 		playerStrums = new FlxTypedGroup<StrumNote>();
 
-		barbedWires = new FlxTypedGroup<WireSprite>();
+		barbedWires = new FlxTypedGroup<ShakableSprite>();
 		for(shit in 0...6){
 			var wow = shit+1;
-			var wire:WireSprite = new WireSprite().loadGraphic(Paths.image('barbedWire/' + wow));
+			var wire:ShakableSprite = new ShakableSprite().loadGraphic(Paths.image('barbedWire/' + wow));
 			wire.scrollFactor.set();
 			wire.antialiasing=true;
 			wire.setGraphicSize(FlxG.width, FlxG.height);
