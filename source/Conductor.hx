@@ -32,6 +32,28 @@ class Conductor
 	{
 	}
 
+	public static function getBPMFromStep(step:Float)
+	{
+		var lastChange:BPMChangeEvent = {
+			stepTime: 0,
+			songTime: 0,
+			bpm: bpm
+		}
+		for (i in 0...Conductor.bpmChangeMap.length)
+		{
+			if (Conductor.bpmChangeMap[i].stepTime <= step)
+				lastChange = Conductor.bpmChangeMap[i];
+		}
+
+		return lastChange;
+	}
+
+	public static function stepToSeconds(step:Float)
+	{
+		var lastChange = getBPMFromStep(step);
+		return step * (((60 / lastChange.bpm) * 1000) / 4); // TODO: make less shit and take BPM into account PROPERLY
+	}
+
 	public static function judgeNote(note:Note, diff:Float=0) //STOLEN FROM KADE ENGINE (bbpanzu) - I had to rewrite it later anyway after i added the custom hit windows lmao (Shadow Mario)
 	{
 		//tryna do MS based judgment due to popular demand

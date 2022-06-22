@@ -19,6 +19,10 @@ typedef EventNote = {
 
 class Note extends FlxSprite
 {
+	public var currentPrefix:String = "";
+	public var currentTexture:String = "";
+	public var currentSuffix:String = "";
+
 	public var strumTime:Float = 0;
 
 	public var mustPress:Bool = false;
@@ -248,7 +252,7 @@ class Note extends FlxSprite
 	var lastNoteOffsetXForPixelAutoAdjusting:Float = 0;
 	var lastNoteScaleToo:Float = 1;
 	public var originalHeightForCalcs:Float = 6;
-	function reloadNote(?prefix:String = '', ?texture:String = '', ?suffix:String = '') {
+	public function reloadNote(?prefix:String = '', ?texture:String = '', ?suffix:String = '') {
 		if(prefix == null) prefix = '';
 		if(texture == null) texture = '';
 		if(suffix == null) suffix = '';
@@ -260,6 +264,10 @@ class Note extends FlxSprite
 				skin = 'NOTE_assets';
 			}
 		}
+
+		currentPrefix = prefix;
+		currentTexture = texture;
+		currentSuffix = suffix;
 
 		var animName:String = null;
 		if(animation.curAnim != null) {

@@ -2120,7 +2120,11 @@ class PlayState extends MusicBeatState
 					oldNote = unspawnNotes[Std.int(unspawnNotes.length - 1)];
 				else
 					oldNote = null;
-
+			
+				var pixelStage = isPixelStage;
+				if(daStrumTime >= Conductor.stepToSeconds(1000) && SONG.song.toLowerCase()=='our-horizon')
+					isPixelStage = false;
+				
 				var swagNote:Note = new Note(daStrumTime, daNoteData, oldNote);
 				swagNote.mustPress = gottaHitNote;
 				swagNote.sustainLength = songNotes[2];
@@ -2179,6 +2183,7 @@ class PlayState extends MusicBeatState
 				if(!noteTypeMap.exists(swagNote.noteType)) {
 					noteTypeMap.set(swagNote.noteType, true);
 				}
+				isPixelStage = pixelStage;
 			}
 			daBeats += 1;
 		}
@@ -4450,7 +4455,6 @@ class PlayState extends MusicBeatState
 							FlxTween.tween(FlxG.camera, {zoom: FlxG.camera.zoom + 0.5}, 12, {ease: FlxEase.cubeInOut});
 						case 912:
 							FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom}, 1.5, {ease: FlxEase.cubeInOut});
-							//FlxTween.tween(camHUD, {alpha: 1}, 1.0);
 							iconP2.changeIcon(dad.healthIcon);
 						case 920:
 							FlxTween.tween(dad, {alpha: 0}, 0.5, {ease: FlxEase.cubeInOut});
@@ -4786,10 +4790,15 @@ class PlayState extends MusicBeatState
 			horizonKnuckles.visible = true;
 			horizonVector.visible = true;
 
+			playerStrums.forEach(function(spr:StrumNote)
+			{
+				spr.reloadNote();
+			});
+			
 			opponentStrums.forEach(function(spr:FlxSprite)
-				{
-					spr.x += 10000;
-				});
+			{
+				spr.x += 10000;
+			});
 		}
 
 		function removeShit(fuck:Int)

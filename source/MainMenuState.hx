@@ -71,15 +71,15 @@ class MainMenuState extends MusicBeatState
 		persistentUpdate = persistentDraw = true;
 
 		var yScroll:Float = Math.max(0.25 - (0.05 * (optionShit.length - 3)), 0.1);
-		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('chaotix/menu-bg'));
+		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('chaotixMenu/menu-bg'));
 		bg.scrollFactor.set(0, 0);
 		bg.setGraphicSize(Std.int(bg.width * 1.175));
 		bg.updateHitbox();
 		bg.screenCenter();
-		bg.antialiasing = ClientPrefs.globalAntialiasing;
+		bg.antialiasing = false;
 		add(bg);
 
-		var upperShit:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('chaotix/topThing'));
+		var upperShit:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('chaotixMenu/topThing'));
 		upperShit.scrollFactor.set(0, 0);
 		upperShit.scale.set(2, 2);
 		upperShit.updateHitbox();
@@ -87,7 +87,7 @@ class MainMenuState extends MusicBeatState
 		upperShit.antialiasing = false;
 		add(upperShit);
 
-		var circleShit:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('chaotix/circle'));
+		var circleShit:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('chaotixMenu/circle'));
 		circleShit.scrollFactor.set(0, 0);
 		circleShit.scale.set(4, 4);
 		circleShit.updateHitbox();
@@ -95,7 +95,7 @@ class MainMenuState extends MusicBeatState
 		circleShit.antialiasing = false;
 		add(circleShit);
 
-		var arrowOne:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('chaotix/arrow'));
+		var arrowOne:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('chaotixMenu/arrow'));
 		arrowOne.scrollFactor.set(0, 0);
 		arrowOne.scale.set(4, 4);
 		arrowOne.updateHitbox();
@@ -103,7 +103,7 @@ class MainMenuState extends MusicBeatState
 		arrowOne.antialiasing = false;
 		add(arrowOne);
 
-		var arrowTwo:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('chaotix/arrow'));
+		var arrowTwo:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('chaotixMenu/arrow'));
 		arrowTwo.scrollFactor.set(0, 0);
 		arrowTwo.scale.set(4, 4);
 		arrowTwo.updateHitbox();
@@ -137,13 +137,14 @@ class MainMenuState extends MusicBeatState
 			var menuItem:FlxSprite = new FlxSprite(0, (i * 140)  + offset);
 			menuItem.scale.x = scale;
 			menuItem.scale.y = scale;
+			menuItem.pixelPerfectRender = true;
 			menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[i]);
 			menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
 			menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
 			if (!ClientPrefs.beatDuke && optionShit[i] == 'collection') {
 				//menuItem.color = FlxColor.fromHSL(menuItem.color.hue, menuItem.color.saturation, 0.2, 1);
-				menuItem.animation.play('lock');
 				menuItem.animation.addByPrefix('idle', optionShit[i] + " locked", 24);
+				menuItem.animation.play('idle');
 			}
 			else
 			{
@@ -333,22 +334,14 @@ class MainMenuState extends MusicBeatState
 		menuItems.forEach(function(spr:FlxSprite)
 		{
 			var daChoice:String = optionShit[curSelected];
-			if(!ClientPrefs.beatDuke && daChoice == 'collection')
-				{
-					spr.animation.play('lock');
-				}
 
 			spr.animation.play('idle');
 			spr.updateHitbox();
 
 			if (spr.ID == curSelected)
 			{
-				if(!ClientPrefs.beatDuke && daChoice == 'collection')
-					{
-						spr.animation.play('lock');
-					}
-				else
-				spr.animation.play('selected');
+				if(ClientPrefs.beatDuke || daChoice != 'collection')
+					spr.animation.play('selected');
 				var add:Float = 0;
 				if(menuItems.length > 4) {
 					add = menuItems.length * 8;
