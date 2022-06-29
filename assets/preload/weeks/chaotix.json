@@ -1,0 +1,20 @@
+{
+	"songs": [
+		["My Horizon", "chaotix", [146, 113, 253]]
+	],
+
+	"weekCharacters": [
+		"chaotix",
+		"bf",
+		"gf"
+	],
+	"weekBackground": "stage",
+
+	"storyName": "Tails?",
+	"weekBefore": "tutorial",
+	"weekName": "Chaotix",
+	"startUnlocked": true,
+
+	"hideStoryMode": false,
+	"hideFreeplay": false
+}

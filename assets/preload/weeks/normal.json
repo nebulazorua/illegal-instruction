@@ -1,18 +1,18 @@
 {
 	"songs": [
-		["my-horizon", "dad", [146, 113, 253]]
+		["Found You", "normal", [146, 113, 253]]
 	],
 
 	"weekCharacters": [
-		"dad",
+		"normal",
 		"bf",
 		"gf"
 	],
 	"weekBackground": "stage",
 
-	"storyName": "augh",
-	"weekBefore": "tutorial",
-	"weekName": "Week 1",
+	"storyName": "Normal CD",
+	"weekBefore": "chaotix",
+	"weekName": "Normal CD",
 	"startUnlocked": true,
 
 	"hideStoryMode": false,

@@ -1,0 +1,20 @@
+{
+	"songs": [
+		["Breakout", "duke", [146, 113, 253]]
+	],
+
+	"weekCharacters": [
+		"duke",
+		"bf",
+		"gf"
+	],
+	"weekBackground": "stage",
+
+	"storyName": "So many souls..",
+	"weekBefore": "chaotix",
+	"weekName": "Duke",
+	"startUnlocked": true,
+
+	"hideStoryMode": false,
+	"hideFreeplay": false
+}

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="duke menu.png">
+	<!-- Created with Adobe Animate version 22.0.0.93 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Duke menu0000" x="0" y="0" width="45" height="55"/>
+	<SubTexture name="Duke menu0001" x="0" y="0" width="45" height="55"/>
+	<SubTexture name="Duke menu0002" x="0" y="0" width="45" height="55"/>
+	<SubTexture name="Duke menu0003" x="0" y="0" width="45" height="55"/>
+	<SubTexture name="Duke menu0004" x="0" y="0" width="45" height="55"/>
+	<SubTexture name="Duke menu0005" x="0" y="0" width="45" height="55"/>
+	<SubTexture name="Duke menu0006" x="0" y="0" width="45" height="55"/>
+	<SubTexture name="Duke menu0007" x="0" y="0" width="45" height="55"/>
+	<SubTexture name="Duke menu0008" x="0" y="0" width="45" height="55"/>
+	<SubTexture name="Duke menu0009" x="0" y="0" width="45" height="55"/>
+	<SubTexture name="Duke menu0010" x="0" y="0" width="45" height="55"/>
+	<SubTexture name="Duke menu0011" x="0" y="0" width="45" height="55"/>
+	<SubTexture name="Duke menu0012" x="0" y="0" width="45" height="55"/>
+	<SubTexture name="Duke menu0013" x="0" y="0" width="45" height="55"/>
+	<SubTexture name="Duke menu0014" x="0" y="0" width="45" height="55"/>
+	<SubTexture name="Duke menu0015" x="0" y="0" width="45" height="55"/>
+	<SubTexture name="Duke menu0016" x="0" y="0" width="45" height="55"/>
+	<SubTexture name="Duke menu0017" x="0" y="0" width="45" height="55"/>
+	<SubTexture name="Duke menu0018" x="0" y="0" width="45" height="55"/>
+	<SubTexture name="Duke menu0019" x="0" y="0" width="45" height="55"/>
+	<SubTexture name="Duke menu0020" x="0" y="0" width="45" height="55"/>
+	<SubTexture name="Duke menu0021" x="0" y="0" width="45" height="55"/>
+	<SubTexture name="Duke menu0022" x="0" y="0" width="45" height="55"/>
+	<SubTexture name="Duke menu0023" x="0" y="0" width="45" height="55"/>
+	<SubTexture name="Duke menu0024" x="0" y="0" width="45" height="55"/>
+	<SubTexture name="Duke menu0025" x="45" y="0" width="45" height="55"/>
+	<SubTexture name="Duke menu0026" x="45" y="0" width="45" height="55"/>
+	<SubTexture name="Duke menu0027" x="0" y="55" width="45" height="55"/>
+	<SubTexture name="Duke menu0028" x="0" y="55" width="45" height="55"/>
+	<SubTexture name="Duke menu0029" x="0" y="55" width="45" height="55"/>
+	<SubTexture name="Duke menu0030" x="0" y="55" width="45" height="55"/>
+	<SubTexture name="Duke menu0031" x="0" y="55" width="45" height="55"/>
+	<SubTexture name="Duke menu0032" x="0" y="55" width="45" height="55"/>
+	<SubTexture name="Duke menu0033" x="0" y="55" width="45" height="55"/>
+	<SubTexture name="Duke menu0034" x="0" y="55" width="45" height="55"/>
+	<SubTexture name="Duke menu0035" x="0" y="55" width="45" height="55"/>
+	<SubTexture name="Duke menu0036" x="0" y="55" width="45" height="55"/>
+	<SubTexture name="Duke menu0037" x="0" y="55" width="45" height="55"/>
+	<SubTexture name="Duke menu0038" x="0" y="55" width="45" height="55"/>
+	<SubTexture name="Duke menu0039" x="0" y="55" width="45" height="55"/>
+	<SubTexture name="Duke menu0040" x="0" y="55" width="45" height="55"/>
+	<SubTexture name="Duke menu0041" x="0" y="55" width="45" height="55"/>
+	<SubTexture name="Duke menu0042" x="0" y="55" width="45" height="55"/>
+	<SubTexture name="Duke menu0043" x="0" y="55" width="45" height="55"/>
+	<SubTexture name="Duke menu0044" x="0" y="55" width="45" height="55"/>
+	<SubTexture name="Duke menu0045" x="45" y="0" width="45" height="55"/>
+	<SubTexture name="Duke menu0046" x="45" y="0" width="45" height="55"/>
+</TextureAtlas>

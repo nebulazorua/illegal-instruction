@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="chaotix menu.png">
+	<!-- Created with Adobe Animate version 22.0.0.93 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Chaotix menu0000" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0001" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0002" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0003" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0004" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0005" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0006" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0007" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0008" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0009" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0010" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0011" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0012" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0013" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0014" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0015" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0016" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0017" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0018" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0019" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0020" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0021" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0022" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0023" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0024" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0025" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0026" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0027" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0028" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0029" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0030" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0031" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0032" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0033" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0034" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0035" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0036" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0037" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0038" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0039" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0040" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0041" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0042" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0043" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0044" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0045" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0046" x="0" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0047" x="32" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0048" x="32" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0049" x="64" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0050" x="64" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0051" x="96" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0052" x="96" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0053" x="96" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0054" x="96" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0055" x="64" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0056" x="64" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0057" x="32" y="0" width="32" height="41"/>
+	<SubTexture name="Chaotix menu0058" x="32" y="0" width="32" height="41"/>
+</TextureAtlas>

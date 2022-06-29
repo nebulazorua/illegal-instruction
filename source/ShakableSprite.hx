@@ -69,7 +69,7 @@ class ShakableSprite extends FlxSprite
 	override function drawComplex(camera:FlxCamera):Void
 	{
     _frame.prepareMatrix(_matrix, FlxFrameAngle.ANGLE_0, checkFlipX(), checkFlipY());
-		_matrix.translate(-origin.x - shakePoint.x, -origin.y - shakePoint.y);
+		_matrix.translate(-origin.x, -origin.y);
 		_matrix.scale(scale.x, scale.y);
 
 		if (bakedRotationAngle <= 0)
@@ -81,7 +81,6 @@ class ShakableSprite extends FlxSprite
 		}
 
 		_point.add(origin.x, origin.y);
-    _point.add(shakePoint.x, shakePoint.y);
 		_matrix.translate(_point.x, _point.y);
     _matrix.translate(shakePoint.x, shakePoint.y);
 

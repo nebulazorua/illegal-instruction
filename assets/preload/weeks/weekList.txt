@@ -1,1 +1,3 @@
-week1
+duke
+chaotix
+normal
