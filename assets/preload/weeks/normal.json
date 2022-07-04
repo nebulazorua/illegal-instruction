@@ -1,6 +1,10 @@
 {
 	"songs": [
-		["Found You", "normal", [146, 113, 253]]
+		[
+			"Found You",
+			"normal",
+			[ 146, 113, 253 ]
+		]
 	],
 
 	"weekCharacters": [

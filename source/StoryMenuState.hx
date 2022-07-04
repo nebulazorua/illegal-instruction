@@ -33,7 +33,7 @@ class StoryMenuState extends MusicBeatState
 	var scoreText:FlxText;
 
 	private static var lastDifficultyName:String = '';
-	var curDifficulty:Int = 1;
+	var curDifficulty:Int = 2;
 	var text:FlxSprite;
 
 	var bgSprite:FlxSprite;
@@ -78,7 +78,7 @@ class StoryMenuState extends MusicBeatState
 		bg.antialiasing = false;
 		add(bg);
 
-		var upperShit:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('chaotixMenu/topThing'));
+		var upperShit:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('chaotixMenu/playerSelect'));
 		upperShit.scrollFactor.set(0, 0);
 		upperShit.scale.set(2, 2);
 		upperShit.updateHitbox();
@@ -304,7 +304,7 @@ class StoryMenuState extends MusicBeatState
 	var tweenDifficulty:FlxTween;
 	function changeDifficulty(change:Int = 0):Void
 	{
-		curDifficulty = 1;
+		curDifficulty = 2;
 
 		WeekData.setDirectoryFromWeek(loadedWeeks[curWeek]);
 

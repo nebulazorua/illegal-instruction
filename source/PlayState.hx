@@ -268,6 +268,9 @@ class PlayState extends MusicBeatState
 	public var fucklesMode:Bool = false;
 	public var drainMisses:Float = 0; // EEE OOO EH OO EE AAAAAAAAA
 	// glad my comment above stayed lmao -neb
+	//general stuff (statics n shit...)
+	var theStatic:FlxSprite;  //THE FUNNY THE FUNNY!!!!
+
 	//duke shit
 	//entrance (ee oo ayy eh)
 	var entranceBG:FlxSprite;
@@ -984,6 +987,17 @@ class PlayState extends MusicBeatState
 		{
 			case 'entrance':
 				gfGroup.visible = false;
+
+				theStatic = new FlxSprite(0, 0);
+				theStatic.frames = Paths.getSparrowAtlas('staticc', 'exe');
+				theStatic.animation.addByPrefix('stat', "staticc", 24, true);
+				theStatic.animation.play('stat');
+				theStatic.cameras = [camOther];
+				theStatic.setGraphicSize(FlxG.width, FlxG.height);
+				theStatic.screenCenter();
+				theStatic.alpha = 0;
+				add(theStatic);
+
 			case 'horizon':
 				boyfriend.y += 68;
 				gf.x += 375;
@@ -1420,66 +1434,14 @@ class PlayState extends MusicBeatState
 		add(wireVignette);
 
 		var daSong:String = Paths.formatToSongPath(curSong);
-		if (isStoryMode && !seenCutscene)
-		{
-			switch (daSong)
+	
+		switch (daSong)
 			{
-				default:
-					startCountdown();
-			}
-			seenCutscene = true;
-		}
-		else
-		{	switch (daSong)
-			{
-				case 'my-horizon':
+				case 'my-horizon' | 'our-horizon' | 'breakout' | 'malediction' | 'long-sky':
 					add(blackFuck);
-					startCircle.loadGraphic(Paths.image('openings/my_horizon_title_card', 'exe'));
-					startCircle.frames = Paths.getSparrowAtlas('openings/my_horizon_title_card', 'exe');
-					startCircle.animation.addByPrefix('idle', 'my horizon title', 24, false);
-					//startCircle.setGraphicSize(Std.int(startCircle.width * 0.6));
-					startCircle.alpha = 0;
-					startCircle.screenCenter();
-					add(startCircle);
-
-					new FlxTimer().start(1, function(tmr:FlxTimer)
-						{
-							FlxTween.tween(startCircle, {alpha: 1}, 0.5, {ease: FlxEase.cubeInOut});
-						});
-
-					new FlxTimer().start(2.2, function(tmr:FlxTimer)
-						{
-							FlxTween.tween(blackFuck, {alpha: 0}, 2, {
-								onComplete: function(twn:FlxTween)
-								{
-									remove(blackFuck);
-									blackFuck.destroy();
-									startCircle.animation.play('idle');
-								}
-							});
-							/*FlxTween.tween(startCircle, {alpha: 1}, 3, {
-								onComplete: function(twn:FlxTween)
-								{
-									remove(startCircle);
-									startCircle.destroy();
-								}
-							});*/
-							startCircle.animation.finishCallback = function(anim:String){
-								if(anim=='idle'){
-									remove(startCircle);
-									startCircle.destroy();
-								}
-							}
-						});
-						new FlxTimer().start(0.3, function(tmr:FlxTimer)
-							{
-								startCountdown();
-							});
-				case 'our-horizon':
-					add(blackFuck);
-					startCircle.loadGraphic(Paths.image('openings/our_horizon_title_card', 'exe'));
-					startCircle.frames = Paths.getSparrowAtlas('openings/our_horizon_title_card', 'exe');
-					startCircle.animation.addByPrefix('idle', 'our horizon title', 24, false);
+					startCircle.loadGraphic(Paths.image('openings/' + daSong + '_title_card', 'exe'));
+					startCircle.frames = Paths.getSparrowAtlas('openings/' + daSong + '_title_card', 'exe');
+					startCircle.animation.addByPrefix('idle', daSong + '_title', 24, false);
 					//startCircle.setGraphicSize(Std.int(startCircle.width * 0.6));
 					startCircle.alpha = 0;
 					startCircle.screenCenter();
@@ -1524,7 +1486,7 @@ class PlayState extends MusicBeatState
 				default:
 					startCountdown();
 			}
-		}
+		
 		RecalculateRating();
 
 		//PRECACHING MISS SOUNDS BECAUSE I THINK THEY CAN LAG PEOPLE AND FUCK THEM UP IDK HOW HAXE WORKS
@@ -4377,7 +4339,10 @@ class PlayState extends MusicBeatState
 						case 522:
 							FlxTween.tween(camHUD, {alpha: 0}, 1.3, {ease: FlxEase.cubeInOut});
 							FlxTween.tween(FlxG.camera, {zoom: FlxG.camera.zoom + 0.25}, 4, {ease: FlxEase.cubeInOut});
+							FlxTween.tween(theStatic, {alpha: 0.6}, 6, {ease: FlxEase.quadInOut});
 						case 576:
+							FlxTween.cancelTweensOf(theStatic);
+							FlxTween.tween(theStatic, {alpha: 0}, 0.3, {ease: FlxEase.quadInOut});
 							FlxTween.tween(camHUD, {alpha: 1}, 0.5, {ease: FlxEase.cubeInOut});
 							camHUD.zoom += 2;
 							holyFuckStopZoomin = true;

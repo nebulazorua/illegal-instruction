@@ -1,6 +1,2 @@
-breakout
-my-horizon
 our-horizon
-found-you
 long-sky
-malediction

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="staticc.png">
+	<!-- Created with Adobe Animate version 21.0.7.42652 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="staticc0000" x="10" y="10" width="480" height="270"/>
+	<SubTexture name="staticc0001" x="490" y="10" width="480" height="270"/>
+	<SubTexture name="staticc0002" x="970" y="10" width="480" height="270"/>
+	<SubTexture name="staticc0003" x="1450" y="10" width="480" height="270"/>
+	<SubTexture name="staticc0004" x="1930" y="10" width="480" height="270"/>
+	<SubTexture name="staticc0005" x="2410" y="10" width="480" height="270"/>
+	<SubTexture name="staticc0006" x="2890" y="10" width="480" height="270"/>
+	<SubTexture name="staticc0007" x="3370" y="10" width="480" height="270"/>
+	<SubTexture name="staticc0008" x="10" y="280" width="480" height="270"/>
+	<SubTexture name="staticc0009" x="490" y="280" width="480" height="270"/>
+	<SubTexture name="staticc0010" x="970" y="280" width="480" height="270"/>
+	<SubTexture name="staticc0011" x="1450" y="280" width="480" height="270"/>
+	<SubTexture name="staticc0012" x="1930" y="280" width="480" height="270"/>
+	<SubTexture name="staticc0013" x="2410" y="280" width="480" height="270"/>
+	<SubTexture name="staticc0014" x="2890" y="280" width="480" height="270"/>
+	<SubTexture name="staticc0015" x="3370" y="280" width="480" height="270"/>
+	<SubTexture name="staticc0016" x="10" y="550" width="480" height="270"/>
+	<SubTexture name="staticc0017" x="490" y="550" width="480" height="270"/>
+	<SubTexture name="staticc0018" x="970" y="550" width="480" height="270"/>
+	<SubTexture name="staticc0019" x="1450" y="550" width="480" height="270"/>
+	<SubTexture name="staticc0020" x="1930" y="550" width="480" height="270"/>
+	<SubTexture name="staticc0021" x="2410" y="550" width="480" height="270"/>
+	<SubTexture name="staticc0022" x="2890" y="550" width="480" height="270"/>
+	<SubTexture name="staticc0023" x="3370" y="550" width="480" height="270"/>
+</TextureAtlas>

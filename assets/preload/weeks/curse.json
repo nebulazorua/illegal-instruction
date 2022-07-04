@@ -1,0 +1,31 @@
+{
+	"songs": [
+		[
+			"malediction",
+			"curse-happy",
+			[
+				0,
+				0,
+				55
+			]
+		]
+	],
+	"hiddenUntilUnlocked": false,
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"weekCharacters": [
+		"curse",
+		"bf",
+		"gf"
+	],
+	"storyName": "The Curse of X",
+	"weekName": "curse",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"hideStoryMode": false,
+	"weekBefore": "tutorial",
+	"startUnlocked": true
+}

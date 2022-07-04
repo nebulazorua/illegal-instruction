@@ -1,6 +1,10 @@
 {
 	"songs": [
-		["Breakout", "duke", [146, 113, 253]]
+		[
+			"Breakout",
+			"duke",
+			[ 146, 113, 253 ]
+		]
 	],
 
 	"weekCharacters": [

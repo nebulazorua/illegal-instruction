@@ -1,0 +1,31 @@
+{
+	"songs": [
+		[
+			"Long Sky",
+			"chotix",
+			[
+				255,
+				173,
+				253
+			]
+		]
+	],
+	"hiddenUntilUnlocked": false,
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"weekCharacters": [
+		"chaotix",
+		"bf",
+		"gf"
+	],
+	"storyName": "Acid Creature Deluxe",
+	"weekName": "Chotix",
+	"freeplayColor": [
+		255,
+		113,
+		115
+	],
+	"hideStoryMode": true,
+	"weekBefore": "tutorial",
+	"startUnlocked": true
+}
