@@ -1,101 +1,102 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				37,
 				-12
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "Amy_Nervous_DOWN"
+			"fps": 24,
+			"name": "Amy_Nervous_DOWN",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				93,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "Amy_Nervous_LEFT"
+			"fps": 24,
+			"name": "Amy_Nervous_LEFT",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				51,
 				68
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUP",
-			"indices": [],
-			"name": "Amy_Nervous_UP"
+			"fps": 24,
+			"name": "Amy_Nervous_UP",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				19,
 				-9
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "Amy_Nervous_RIGHT"
+			"fps": 24,
+			"name": "Amy_Nervous_RIGHT",
+			"indices": []
 		},
 		{
-			"loop": false,
 			"offsets": [
 				17,
 				-11
 			],
-			"anim": "singRIGHTmiss",
+			"loop": false,
 			"fps": 24,
-			"name": "Amy_MISS_RIGHT",
-			"indices": []
+			"anim": "singRIGHTmiss",
+			"indices": [],
+			"name": "Amy_MISS_RIGHT"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				24,
 				-14
 			],
-			"anim": "singDOWNmiss",
+			"loop": false,
 			"fps": 24,
-			"name": "Amy_MISS_DOWN",
-			"indices": []
+			"anim": "singDOWNmiss",
+			"indices": [],
+			"name": "Amy_MISS_DOWN"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				51,
 				54
 			],
-			"anim": "singUPmiss",
+			"loop": false,
 			"fps": 24,
-			"name": "Amy_MISS_UP",
-			"indices": []
+			"anim": "singUPmiss",
+			"indices": [],
+			"name": "Amy_MISS_UP"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				66,
 				3
 			],
-			"anim": "singLEFTmiss",
+			"loop": false,
 			"fps": 24,
-			"name": "Amy_MISS_LEFT",
-			"indices": []
+			"anim": "singLEFTmiss",
+			"indices": [],
+			"name": "Amy_MISS_LEFT"
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 36,
 			"anim": "danceRight",
+			"fps": 36,
+			"name": "Amy_Nervous_IDLE",
 			"indices": [
 				12,
 				13,
@@ -109,17 +110,17 @@
 				21,
 				22,
 				23
-			],
-			"name": "Amy_Nervous_IDLE"
+			]
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 36,
 			"anim": "danceLeft",
+			"fps": 36,
+			"name": "Amy_Nervous_IDLE",
 			"indices": [
 				24,
 				1,
@@ -133,8 +134,7 @@
 				9,
 				10,
 				11
-			],
-			"name": "Amy_Nervous_IDLE"
+			]
 		}
 	],
 	"no_antialiasing": false,
@@ -151,8 +151,8 @@
 		252
 	],
 	"camera_position": [
-		-340,
-		-80
+		-250,
+		-130
 	],
 	"sing_duration": 6.1,
 	"scale": 1.6

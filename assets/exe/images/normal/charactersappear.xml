@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="charactersappear.png">
+	<!-- Created with Adobe Animate version 22.0.3.179 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Chaotix Appears0000" x="0" y="0" width="212" height="284"/>
+	<SubTexture name="Chaotix Appears0001" x="0" y="0" width="212" height="284"/>
+	<SubTexture name="Chaotix Appears0002" x="0" y="0" width="212" height="284"/>
+	<SubTexture name="Chaotix Appears0003" x="0" y="0" width="212" height="284"/>
+	<SubTexture name="Chaotix Appears0004" x="0" y="0" width="212" height="284"/>
+	<SubTexture name="Chaotix Appears0005" x="0" y="0" width="212" height="284"/>
+	<SubTexture name="Chaotix Appears0006" x="0" y="0" width="212" height="284"/>
+	<SubTexture name="Chaotix Appears0007" x="0" y="0" width="212" height="284"/>
+	<SubTexture name="Chaotix Appears0008" x="0" y="0" width="212" height="284"/>
+	<SubTexture name="Chaotix Appears0009" x="0" y="0" width="212" height="284"/>
+	<SubTexture name="Curse Appears0000" x="212" y="0" width="242" height="320"/>
+	<SubTexture name="Curse Appears0001" x="212" y="0" width="242" height="320"/>
+	<SubTexture name="Curse Appears0002" x="212" y="0" width="242" height="320"/>
+	<SubTexture name="Curse Appears0003" x="212" y="0" width="242" height="320"/>
+	<SubTexture name="Curse Appears0004" x="212" y="0" width="242" height="320"/>
+	<SubTexture name="Curse Appears0005" x="212" y="0" width="242" height="320"/>
+	<SubTexture name="Curse Appears0006" x="212" y="0" width="242" height="320"/>
+	<SubTexture name="Curse Appears0007" x="212" y="0" width="242" height="320"/>
+	<SubTexture name="Curse Appears0008" x="212" y="0" width="242" height="320"/>
+	<SubTexture name="Curse Appears0009" x="212" y="0" width="242" height="320"/>
+	<SubTexture name="Revived Appears0000" x="454" y="0" width="294" height="368"/>
+	<SubTexture name="Revived Appears0001" x="454" y="0" width="294" height="368"/>
+	<SubTexture name="Revived Appears0002" x="454" y="0" width="294" height="368"/>
+	<SubTexture name="Revived Appears0003" x="454" y="0" width="294" height="368"/>
+	<SubTexture name="Revived Appears0004" x="454" y="0" width="294" height="368"/>
+	<SubTexture name="Revived Appears0005" x="454" y="0" width="294" height="368"/>
+	<SubTexture name="Revived Appears0006" x="454" y="0" width="294" height="368"/>
+	<SubTexture name="Revived Appears0007" x="454" y="0" width="294" height="368"/>
+	<SubTexture name="Revived Appears0008" x="454" y="0" width="294" height="368"/>
+	<SubTexture name="Revived Appears0009" x="454" y="0" width="294" height="368"/>
+	<SubTexture name="Rodent Appears0000" x="748" y="0" width="240" height="296"/>
+	<SubTexture name="Rodent Appears0001" x="748" y="0" width="240" height="296"/>
+	<SubTexture name="Rodent Appears0002" x="748" y="0" width="240" height="296"/>
+	<SubTexture name="Rodent Appears0003" x="748" y="0" width="240" height="296"/>
+	<SubTexture name="Rodent Appears0004" x="748" y="0" width="240" height="296"/>
+	<SubTexture name="Rodent Appears0005" x="748" y="0" width="240" height="296"/>
+	<SubTexture name="Rodent Appears0006" x="748" y="0" width="240" height="296"/>
+	<SubTexture name="Rodent Appears0007" x="748" y="0" width="240" height="296"/>
+	<SubTexture name="Rodent Appears0008" x="748" y="0" width="240" height="296"/>
+	<SubTexture name="Rodent Appears0009" x="748" y="0" width="240" height="296"/>
+	<SubTexture name="Spoiled Appears0000" x="0" y="368" width="259" height="299"/>
+	<SubTexture name="Spoiled Appears0001" x="0" y="368" width="259" height="299"/>
+	<SubTexture name="Spoiled Appears0002" x="0" y="368" width="259" height="299"/>
+	<SubTexture name="Spoiled Appears0003" x="0" y="368" width="259" height="299"/>
+	<SubTexture name="Spoiled Appears0004" x="0" y="368" width="259" height="299"/>
+	<SubTexture name="Spoiled Appears0005" x="0" y="368" width="259" height="299"/>
+	<SubTexture name="Spoiled Appears0006" x="0" y="368" width="259" height="299"/>
+	<SubTexture name="Spoiled Appears0007" x="0" y="368" width="259" height="299"/>
+	<SubTexture name="Spoiled Appears0008" x="0" y="368" width="259" height="299"/>
+	<SubTexture name="Spoiled Appears0009" x="0" y="368" width="259" height="299"/>
+</TextureAtlas>

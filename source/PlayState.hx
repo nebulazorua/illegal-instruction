@@ -329,6 +329,18 @@ class PlayState extends MusicBeatState
 	private var amyTrail:FlxTrail;
 	private var normalTrail:FlxTrail;
 	var soulGlassTime:Bool = false;
+	var normalBg:FlxSprite;
+	var normalFg:FlxSprite;
+	var normalTv:FlxSprite;
+	var normalVg:FlxSprite;
+	var normalShadow:FlxSprite;
+	var normalDoor:FlxSprite;
+	var normalScreen:FlxSprite;
+	var normalChars:FlxSprite;
+
+	public var normalCharShit:Int;
+	public var normalBool:Bool = false;
+
 	//curse shit (just admit it!!!!)
 	var hexTimer:Float = 0;
 	var hexes:Float = 0;
@@ -764,30 +776,72 @@ class PlayState extends MusicBeatState
 
 			case 'founded':
 				isPixelHUD = false;
+				defaultCamZoom = 0.95;
 
-				var bg:BGSprite = new BGSprite('stageback', -600, -200, 0.9, 0.9);
-				add(bg);
+				normalBg = new FlxSprite(-150, -200);
+				normalBg.loadGraphic(Paths.image('normal/bg', 'exe'));
+				normalBg.scrollFactor.set(1, 1);
+				normalBg.antialiasing = true;
+				normalBg.scale.set(1.2, 1.2);
+				add(normalBg);
 
-				var stageFront:BGSprite = new BGSprite('stagefront', -650, 600, 0.9, 0.9);
-				stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
-				stageFront.updateHitbox();
-				add(stageFront);
-				if(!ClientPrefs.lowQuality) {
-					var stageLight:BGSprite = new BGSprite('stage_light', -125, -100, 0.9, 0.9);
-					stageLight.setGraphicSize(Std.int(stageLight.width * 1.1));
-					stageLight.updateHitbox();
-					add(stageLight);
-					var stageLight:BGSprite = new BGSprite('stage_light', 1225, -100, 0.9, 0.9);
-					stageLight.setGraphicSize(Std.int(stageLight.width * 1.1));
-					stageLight.updateHitbox();
-					stageLight.flipX = true;
-					add(stageLight);
+				normalDoor = new FlxSprite(-245, -760);
+				normalDoor.frames = Paths.getSparrowAtlas('normal/doorbangin', 'exe');
+				normalDoor.animation.addByPrefix('idle', 'doorbangin', 24, false);
+				normalDoor.scrollFactor.set(1, 1);
+				normalDoor.antialiasing = true;
+				normalDoor.scale.set(1.2, 1.2);
 
-					var stageCurtains:BGSprite = new BGSprite('stagecurtains', -500, -300, 1.3, 1.3);
-					stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
-					stageCurtains.updateHitbox();
-					add(stageCurtains);
-				}
+				normalScreen = new FlxSprite(1600, 150);
+				normalScreen.frames = Paths.getSparrowAtlas('normal/bigscreen', 'exe');
+				normalScreen.animation.addByPrefix('idle', 'bigscreenstaticfinal', 24, true);
+				normalScreen.animation.play('idle');
+				normalScreen.scrollFactor.set(1, 1);
+				normalScreen.antialiasing = true;
+				normalScreen.alpha = 0.5;
+				normalScreen.scale.set(1.2, 1.2);
+				
+
+				normalChars = new FlxSprite(1650, 200);
+				normalChars.frames = Paths.getSparrowAtlas('normal/charactersappear', 'exe');
+				normalChars.animation.addByPrefix('chaotix', 'Chaotix Appears', 24, false);
+				normalChars.animation.addByPrefix('curse', 'Curse Appears', 24, false);
+				normalChars.animation.addByPrefix('rex', 'Revived Appears', 24, false);
+				normalChars.animation.addByPrefix('rodent', 'Rodent Appears', 24, false);
+				normalChars.animation.addByPrefix('spoiled', 'Spoiled Appears', 24, false);
+				normalChars.scrollFactor.set(1, 1);
+				normalChars.antialiasing = true;
+				normalChars.scale.set(1.2, 1.2);
+				add(normalChars);
+				add(normalScreen);
+
+				normalTv = new FlxSprite(-150, -200);
+				normalTv.loadGraphic(Paths.image('normal/tv', 'exe'));
+				normalTv.scrollFactor.set(1, 1);
+				normalTv.antialiasing = true;
+				normalTv.scale.set(1.2, 1.2);
+				add(normalTv);
+
+				normalShadow = new FlxSprite(-150, -220);
+				normalShadow.loadGraphic(Paths.image('normal/shadow', 'exe'));
+				normalShadow.scrollFactor.set(1, 1);
+				normalShadow.antialiasing = true;
+				normalShadow.scale.set(1.2, 1.2);
+				normalShadow.alpha = 0.8;
+				add(normalShadow);
+
+				normalVg = new FlxSprite(-150, -200);
+				normalVg.loadGraphic(Paths.image('normal/vignette', 'exe'));
+				normalVg.scrollFactor.set(1, 1);
+				normalVg.antialiasing = true;
+				normalVg.scale.set(1.2, 1.2);
+
+				normalFg = new FlxSprite(-150, -200);
+				normalFg.loadGraphic(Paths.image('normal/front', 'exe'));
+				normalFg.scrollFactor.set(1.1, 1);
+				normalFg.antialiasing = true;
+				normalFg.scale.set(1.2, 1.2);
+
 
 				case 'curse':
 					//THE CURSE OF X SEETHES AND MALDS
@@ -1010,7 +1064,11 @@ class PlayState extends MusicBeatState
 						add(horizonVector);
 					}
 			case 'founded':
+				dad.visible = false;
 				dad.x -= 500;
+				add(normalDoor);
+				add(normalFg);
+				add(normalVg);
 			case 'chotix':
 				gf.visible = false;
 				dad.setPosition(-500, 350);
@@ -4452,18 +4510,29 @@ class PlayState extends MusicBeatState
 				{
 					switch (curStep)
 					{
-						case 1, 25, 48, 56:
+						case 1: // do it jiggle?
+							normalDoor.animation.play('idle');
+						case 25, 48, 56:
 							FlxG.camera.zoom += 0.15;
+						case 2:
+							defaultCamZoom = 1.35; //1.35
+							FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom}, 1, {ease: FlxEase.quadInOut});
 						case 64, 72:
 							FlxG.camera.zoom += 0.05;
 						case 76:
 							FlxTween.tween(FlxG.camera, {zoom: FlxG.camera.zoom + 0.3}, 2, {ease: FlxEase.cubeInOut});
 						case 93:
+							dad.visible = true;
 							camGame.shake(0.01, 1);
+							defaultCamZoom = 1.35;
+							FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom}, 1, {ease: FlxEase.quadInOut});
+						case 94:
 							FlxTween.tween(dad, {x: 100}, 0.5, {ease: FlxEase.quadOut});
 						case 113:
+							defaultCamZoom = 0.85;
 							FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom}, 0.35, {ease: FlxEase.quadOut});
 						case 160:
+							normalBool = true; 
 							FlxG.camera.focusOn(dad.getPosition());
 							camHUD.visible = true;
 							camHUD.zoom += 2;
@@ -4551,6 +4620,26 @@ class PlayState extends MusicBeatState
 				fcLabel.animation.curAnim.curFrame = frame;
 			}
 		}
+
+		if (curBeat % 16 == 0 && normalBool)
+			{
+				var prevInt:Int = normalCharShit;
+	
+				normalCharShit = FlxG.random.int(1, 5, [normalCharShit]);
+	
+				switch(normalCharShit){
+					case 1:
+						normalChars.animation.play('chaotix');
+					case 2:
+						normalChars.animation.play('curse');
+					case 3:
+						normalChars.animation.play('rex');
+					case 4:
+						normalChars.animation.play('rodent');
+					case 5:
+						normalChars.animation.play('spoiled');
+				}
+			}
 
 		if(lastBeatHit >= curBeat) {
 			//trace('BEAT HIT: ' + curBeat + ', LAST HIT: ' + lastBeatHit);
