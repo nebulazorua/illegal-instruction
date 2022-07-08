@@ -1,0 +1,29 @@
+{
+	"song": {
+		"speed": 2.9,
+		"stage": "hog",
+		"player1": "bf",
+		"player2": "hog",
+		"player3": null,
+		"events": [
+			[
+				85464.3576318969,
+				[
+					[
+						"Change Character",
+						"dad",
+						"scorched"
+					]
+				]
+			]
+		],
+		"notes": [],
+		"splashSkin": null,
+		"validScore": false,
+		"gfVersion": "gf",
+		"bpm": 130,
+		"arrowSkin": null,
+		"needsVoices": true,
+		"song": "manual-blast"
+	}
+}
