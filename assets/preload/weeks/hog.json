@@ -1,0 +1,41 @@
+{
+	"songs": [
+		[
+			"hedge",
+			"hog",
+			[
+				0,
+				0,
+				113
+			]
+		],
+		[
+			"manual-blast",
+			"scorched",
+			[
+				6,
+				0,
+				35
+			]
+		]
+	],
+	"hiddenUntilUnlocked": false,
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"difficulties": "",
+	"weekCharacters": [
+		"hog",
+		"bf",
+		"gf"
+	],
+	"storyName": "Hyog",
+	"weekName": "Hog",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"hideStoryMode": false,
+	"weekBefore": "tutorial",
+	"startUnlocked": true
+}
