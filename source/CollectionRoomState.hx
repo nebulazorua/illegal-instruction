@@ -11,6 +11,7 @@ import flixel.tweens.FlxTween;
 import flixel.tweens.FlxEase;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.addons.transition.FlxTransitionableState;
+import flixel.addons.display.FlxBackdrop;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.util.FlxTimer;
 import flixel.math.FlxMath;
@@ -28,9 +29,12 @@ class CollectionRoomState extends MusicBeatState
     var characterList:Array<String> = ['duke', 'chaotix', 'chotix', 'normalcd', 'curse'];
     var bgShits:FlxTypedGroup<FlxSprite>;
     var characterShit:FlxSprite;
+    var charBio:FlxText;
+    var charText:String;
     var descShit:FlxSprite;
     var disableInput:Bool = true;
-    
+    var sprSprite:FlxBackdrop;
+    //ill add the scrolling later
     private static var curSelected:Int = 0;
     override function create()
         {
@@ -40,21 +44,22 @@ class CollectionRoomState extends MusicBeatState
             transIn = FlxTransitionableState.defaultTransIn;
             transOut = FlxTransitionableState.defaultTransOut;
             //IM SO GOOD AT CODING HOLY FUCKLES
+            //TRANS?!??!??!?!?!?!?! just like curse......
 
             bgShits = new FlxTypedGroup<FlxSprite>();
 
             for (i in 0...characterList.length)
                 {
-                    var spr:FlxSprite = new FlxSprite(0, 0);
-                    spr.loadGraphic(Paths.image('collection/bg/' + characterList[i]));
-                    spr.ID = i;
-                    if (spr.ID != curSelected)
+                    sprSprite = new FlxBackdrop(0, 0);
+                    sprSprite.loadGraphic(Paths.image('collection/bg/' + characterList[i]));
+                    sprSprite.ID = i;
+                    if (sprSprite.ID != curSelected)
                         {
-                            spr.alpha = 0;
+                            sprSprite.alpha = 0;
                         }
-                    spr.antialiasing = ClientPrefs.globalAntialiasing;
-                    spr.screenCenter();
-                    bgShits.add(spr);
+                    sprSprite.antialiasing = ClientPrefs.globalAntialiasing;
+                    sprSprite.screenCenter();
+                    bgShits.add(sprSprite);
                 }
             add(bgShits);
 
@@ -67,8 +72,7 @@ class CollectionRoomState extends MusicBeatState
             descShit.antialiasing = ClientPrefs.globalAntialiasing;
             descShit.screenCenter();
             descShit.x += 350;
-            add(descShit);
-
+            // add(descShit);
             
             fixTheFunny();
 
@@ -81,6 +85,16 @@ class CollectionRoomState extends MusicBeatState
                 }); 
 
             super.create();
+
+            charBio = new FlxText();
+            charBio.setFormat(Paths.font("knuckles-chaotix-nova.ttf"), 32, FlxColor.RED, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.RED);
+            charBio.screenCenter();
+            charBio.visible = true;
+            charBio.color = FlxColor.YELLOW;
+            charBio.borderSize = 1.25;
+            charBio.scale.x = 0.6;
+            charBio.scale.y = 0.6;
+            add(charBio);
         }
 
     var movedBack:Bool = false;
@@ -112,6 +126,8 @@ class CollectionRoomState extends MusicBeatState
                     changeCharacter(-1);
                     doTheFunnyThing(characterShit);
                 }
+
+            charBio.text = charText;
 
             super.update(elapsed);
         }
@@ -145,6 +161,7 @@ class CollectionRoomState extends MusicBeatState
                 });
             
             //god i LOVE TWEENS!!!
+            //i hate you too <3 -jackie
         }
 
     function changeCharacter(change:Int = 0)
@@ -159,12 +176,19 @@ class CollectionRoomState extends MusicBeatState
             bgShit();
             fixTheFunny();
             reloadTheFunny();
+            reloadText();
         }
+
+    function reloadText() {
+        charText = Assets.getText(Paths.txt('bio-text/' + characterList[curSelected]));
+    }
+
     function reloadTheFunny()
         {
             characterShit.loadGraphic(Paths.image('collection/characters/' + characterList[curSelected]));
             descShit.loadGraphic(Paths.image('collection/desc/' + characterList[curSelected]));
         }
+
     function fixTheFunny()
         {
             switch (characterList[curSelected])
@@ -175,6 +199,11 @@ class CollectionRoomState extends MusicBeatState
                 case 'chaotix':
                     characterShit.x = 200;
                     characterShit.y = 180;
+                    charBio.scale.x = 0.6;
+                    charBio.scale.y = 0.6;
+                    charBio.updateHitbox();
+                    charBio.x = 455;
+                    charBio.y = 109;
                 case 'chotix':
                     characterShit.x = 150;
                     characterShit.y = 300;
@@ -184,6 +213,11 @@ class CollectionRoomState extends MusicBeatState
                 case 'curse':
                     characterShit.x = -120;
                     characterShit.y = -600;
+                    charBio.scale.x = 0.5;
+                    charBio.scale.y = 0.5;
+                    charBio.updateHitbox();
+                    charBio.x = 50;
+                    charBio.y = 100;
             }
 
             if (characterList[curSelected] == 'normalcd' || characterList[curSelected] == 'curse')
