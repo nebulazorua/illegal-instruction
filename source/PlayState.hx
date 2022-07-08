@@ -364,6 +364,16 @@ class PlayState extends MusicBeatState
 	var hogTrees:BGSprite;
 	var hogRocks:BGSprite;
 	var hogOverlay:BGSprite;
+	//manual blast
+	var scorchedBg:BGSprite;
+	var scorchedMotain:BGSprite;
+	var scorchedWaterFalls:FlxSprite;
+	var scorchedFloor:FlxSprite;
+	var scorchedMonitor:FlxSprite;
+	var scorchedHills:FlxSprite;
+	var scorchedTrees:BGSprite;
+	var scorchedRocks:BGSprite;
+
 
 	override public function create()
 	{
@@ -812,7 +822,7 @@ class PlayState extends MusicBeatState
 				normalScreen.scale.set(1.2, 1.2);
 				
 
-				normalChars = new FlxSprite(1650, 200);
+				normalChars = new FlxSprite(1650, 235);
 				normalChars.frames = Paths.getSparrowAtlas('normal/charactersappear', 'exe');
 				normalChars.animation.addByPrefix('chaotix', 'Chaotix Appears', 24, false);
 				normalChars.animation.addByPrefix('curse', 'Curse Appears', 24, false);
@@ -994,9 +1004,9 @@ class PlayState extends MusicBeatState
 				**/
 			
 				defaultCamZoom = 0.68;
-                hogBg = new BGSprite('hog/bg', 0, 0, 1.1, 0.9);
-                hogBg.scale.x = 1.5;
-                hogBg.scale.y = 1.5;
+                hogBg = new BGSprite('hog/bg', 0, -300, 1.1, 0.9);
+                hogBg.scale.x = 2;
+                hogBg.scale.y = 2;
                 add(hogBg);
 
 				hogMotain = new BGSprite('hog/motains', 0, 0, 1.1, 0.9);
@@ -1033,6 +1043,65 @@ class PlayState extends MusicBeatState
 				hogOverlay = new BGSprite('hog/overlay', -800, -300, 1.1, 0.9);
                 hogOverlay.scale.x = 1.25;
                 hogOverlay.scale.y = 1.25;
+
+				if (SONG.song.toLowerCase() == 'manual-blast')
+					{
+						scorchedBg = new BGSprite('hog/blast/Sunset', -200, 0, 1.1, 0.9);
+						scorchedBg.scale.x = 1.75;
+						scorchedBg.scale.y = 1.75;
+						add(scorchedBg);
+		
+						scorchedMotain = new BGSprite('hog/blast/Mountains', 0, 0, 1.1, 0.9);
+						scorchedMotain.scale.x = 1.5;
+						scorchedMotain.scale.y = 1.5;
+						add(scorchedMotain);
+		
+						scorchedWaterFalls = new FlxSprite(-1000, 200);
+						scorchedWaterFalls.frames = Paths.getSparrowAtlas('hog/blast/Waterfalls', 'exe');
+						scorchedWaterFalls.animation.addByPrefix('water', 'British instance 1', 24);
+						scorchedWaterFalls.animation.play('water');
+						scorchedWaterFalls.scale.x = 1.1;
+						scorchedWaterFalls.scale.y = 1.1;
+						scorchedWaterFalls.scrollFactor.set(1, 1);
+						add(scorchedWaterFalls);
+
+						scorchedHills = new BGSprite('hog/blast/Hills', -100, 230, 1, 0.9);
+						add(scorchedHills);
+		
+						scorchedMonitor = new FlxSprite(1100, 265);
+						scorchedMonitor.frames = Paths.getSparrowAtlas('hog/blast/Monitor', 'exe');
+						scorchedMonitor.animation.addByPrefix('idle', 'Monitor', 12);
+						scorchedMonitor.animation.addByPrefix('fatal', 'Fatalerror', 12);
+						scorchedMonitor.animation.addByPrefix('nmi', 'NMI', 12);
+						scorchedMonitor.animation.addByPrefix('needle', 'Needlemouse', 12);
+						scorchedMonitor.animation.addByPrefix('starved', 'Storved', 12);
+						scorchedMonitor.animation.play('idle');
+						scorchedMonitor.scrollFactor.set(1, 0.9);
+						add(scorchedMonitor);
+						
+		
+						scorchedTrees = new BGSprite('hog/blast/Plants', -400, -50, 1, 0.9);
+						add(scorchedTrees);
+		
+						scorchedFloor = new BGSprite('hog/blast/Floor', -400, 780, 1, 0.9);
+						scorchedFloor.scale.x = 1.25;
+						scorchedFloor.scale.y = 1.25;
+						add(scorchedFloor);
+		
+						scorchedRocks = new BGSprite('hog/blast/Rocks', -500, 600, 1.1, 0.9);
+						scorchedRocks.scale.x = 1.25;
+						scorchedRocks.scale.y = 1.25;
+
+						scorchedBg.visible = false;
+						scorchedMotain.visible = false;
+						scorchedWaterFalls.visible = false;
+						scorchedHills.visible = false;
+						scorchedMonitor.visible = false;
+						scorchedTrees.visible = false;
+						scorchedFloor.visible = false;
+						scorchedRocks.visible = false;
+
+					}
 
 			default: //lol
 				var bg:BGSprite = new BGSprite('stageback', -600, -200, 0.9, 0.9);
@@ -1214,6 +1283,10 @@ class PlayState extends MusicBeatState
 				gfGroup.visible = false;
 				add(hogRocks);
 				add(hogOverlay);
+				if (SONG.song.toLowerCase() == 'manual-blast')
+					{
+						add(scorchedRocks);
+					}
 				hogOverlay.blend = LIGHTEN;
 		}
 
@@ -4732,6 +4805,51 @@ class PlayState extends MusicBeatState
 								FlxTween.tween(camHUD, {alpha: 0}, 1,{ease: FlxEase.cubeInOut});
 						}
 				}
+			if (SONG.song.toLowerCase() == 'manual-blast')
+				{
+					switch (curStep)
+						{
+							case 512:
+								colorTweenHog();
+								FlxTween.tween(camHUD, {alpha: 0}, 2, {ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween)
+									{
+										camHUD.visible = false;
+										camHUD.alpha = 1;
+									}
+								});
+								blackFuck = new FlxSprite().makeGraphic(FlxG.width * 3, FlxG.height * 3, FlxColor.BLACK);
+								blackFuck.alpha = 0;
+								blackFuck.cameras = [camOther];
+								add(blackFuck);
+
+								FlxTween.tween(blackFuck, {alpha: 1}, 1.5, {ease: FlxEase.cubeInOut});
+
+							case 576, 582, 640, 646, 672, 678, 704, 710, 736, 742, 768, 774, 800, 806, 832, 838:
+								FlxTween.tween(blackFuck, {alpha: 0}, 0.01, {ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween)
+									{
+										FlxTween.tween(blackFuck, {alpha: 1}, 0.4, {ease: FlxEase.cubeInOut});
+									}
+								});
+							case 559:
+								camZooming = false;
+							case 848:
+								FlxG.camera.flash(FlxColor.BLACK, 1);
+								camZooming = true;
+								hogOverlay.visible = false;
+								FlxTween.tween(blackFuck, {alpha: 1}, 0.1, {ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween)
+									{
+										remove(blackFuck);
+										blackFuck.destroy();
+									}
+								});
+							case 864:
+								FlxG.camera.flash(FlxColor.BLACK, 2.5);
+								hyogStuff();
+								camHUD.visible = true;
+								camHUD.zoom += 2;
+							
+						}
+				}
 
 		if(curStep == lastStepHit) {
 			return;
@@ -4760,7 +4878,7 @@ class PlayState extends MusicBeatState
 			}
 		}
 
-		if (curBeat % 16 == 0 && normalBool)
+		if (curBeat % 64 == 0 && normalBool)
 			{
 				var prevInt:Int = normalCharShit;
 	
@@ -4888,6 +5006,39 @@ class PlayState extends MusicBeatState
 		setOnLuas('curBeat', curBeat); //DAWGG?????
 		callOnLuas('onBeatHit', []);
 	}
+
+	function hyogStuff() 
+		{
+			hogBg.visible = false;
+			hogMotain.visible = false;
+			hogWaterFalls.visible = false;
+			hogLoops.visible = false;
+			hogTrees.visible = false;
+			hogFloor.visible = false;
+			hogRocks.visible = false;
+
+		
+			scorchedBg.visible = true;
+			scorchedMotain.visible = true;
+			scorchedWaterFalls.visible = true;
+			scorchedHills.visible = true;
+			scorchedMonitor.visible = true;
+			scorchedTrees.visible = true;
+			scorchedFloor.visible = true;
+			scorchedRocks.visible = true;
+		}
+
+	function colorTweenHog()
+		{	//blammed lights but its not shit lol.
+			FlxTween.color(hogBg, 15, FlxColor.WHITE, 0xFF1f1f1f);
+			FlxTween.color(hogMotain, 15, FlxColor.WHITE, 0xFF1f1f1f);
+			FlxTween.color(hogWaterFalls, 15, FlxColor.WHITE, 0xFF1f1f1f);
+			FlxTween.color(hogLoops, 15, FlxColor.WHITE, 0xFF1f1f1f);
+			FlxTween.color(hogTrees, 15, FlxColor.WHITE, 0xFF1f1f1f);
+			FlxTween.color(hogFloor, 15, FlxColor.WHITE, 0xFF1f1f1f);
+			FlxTween.color(hogRocks, 15, FlxColor.WHITE, 0xFF1f1f1f);  
+			FlxTween.color(hogOverlay, 15, FlxColor.WHITE, 0xFF1f1f1f);
+		}
 
 	function chaotixGlass(ass:Int)
 		{
