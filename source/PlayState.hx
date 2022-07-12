@@ -18,6 +18,7 @@ import flixel.FlxSubState;
 import flixel.addons.display.FlxGridOverlay;
 import flixel.addons.effects.FlxTrail;
 import flixel.addons.effects.FlxTrailArea;
+import flixel.effects.FlxFlicker;
 import flixel.addons.effects.chainable.FlxEffectSprite;
 import flixel.addons.effects.chainable.FlxWaveEffect;
 import flixel.addons.transition.FlxTransitionableState;
@@ -4847,7 +4848,36 @@ class PlayState extends MusicBeatState
 								hyogStuff();
 								camHUD.visible = true;
 								camHUD.zoom += 2;
-							
+							case 4672:
+								FlxFlicker.flicker(scorchedMotain, 1.5, 0.04, false, false, function(flick:FlxFlicker)
+									{
+										remove(scorchedMotain);
+										scorchedMotain.destroy();
+									});
+							case 4704:
+								FlxFlicker.flicker(scorchedWaterFalls, 1.5, 0.04, false, false, function(flick:FlxFlicker)
+									{
+										remove(scorchedWaterFalls);
+										scorchedWaterFalls.destroy();
+									});
+							case 4736:
+								FlxFlicker.flicker(scorchedHills, 1.5, 0.04, false, false, function(flick:FlxFlicker)
+									{
+										remove(scorchedHills);
+										scorchedHills.destroy();
+									});
+								FlxFlicker.flicker(scorchedMonitor, 1.5, 0.04, false, false, function(flick:FlxFlicker)
+									{
+										remove(scorchedMonitor);
+										scorchedMonitor.destroy();
+									});
+							case 4800:
+								
+								
+								
+								
+								
+								
 						}
 				}
 

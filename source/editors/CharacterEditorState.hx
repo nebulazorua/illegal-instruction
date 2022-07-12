@@ -56,6 +56,7 @@ class CharacterEditorState extends MusicBeatState
 	var daAnim:String = 'spooky';
 	var goToPlayState:Bool = true;
 	var camFollow:FlxObject;
+	var whiteFuck:FlxSprite;
 
 	public function new(daAnim:String = 'spooky', goToPlayState:Bool = true)
 	{
@@ -261,17 +262,14 @@ class CharacterEditorState extends MusicBeatState
 			bgStreet.updateHitbox();
 			bgTrees.updateHitbox();
 			changeBGbutton.text = "Regular BG";
-		} else {
-			var bg:BGSprite = new BGSprite('stageback', -600 + OFFSET_X - playerXDifference, -300, 0.9, 0.9);
-			bgLayer.add(bg);
-
-			var stageFront:BGSprite = new BGSprite('stagefront', -650 + OFFSET_X - playerXDifference, 500, 0.9, 0.9);
-			stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
-			stageFront.updateHitbox();
-			bgLayer.add(stageFront);
-			changeBGbutton.text = "Pixel BG";
+		} 
+		else 
+			{
+				whiteFuck = new FlxSprite(-1200,-1200).makeGraphic(FlxG.width * 6, FlxG.height * 6, FlxColor.YELLOW);
+				bgLayer.add(whiteFuck);
+				changeBGbutton.text = "Pixel BG";
+			}
 		}
-	}
 
 	/*var animationInputText:FlxUIInputText;
 	function addOffsetsUI() {

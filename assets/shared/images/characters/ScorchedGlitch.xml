@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="ScorchedGlitch.png">
+	<!-- Created with Adobe Animate version 22.0.5.191 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Down Glitch instance 10000" x="73" y="73" width="574" height="445"/>
+	<SubTexture name="Down Glitch instance 10001" x="665" y="73" width="574" height="445"/>
+	<SubTexture name="Down Glitch instance 10002" x="1257" y="73" width="574" height="445"/>
+	<SubTexture name="Down Glitch instance 10003" x="1849" y="73" width="574" height="445"/>
+	<SubTexture name="Down Glitch instance 10004" x="2441" y="73" width="574" height="445"/>
+	<SubTexture name="Down Glitch instance 10005" x="3033" y="73" width="574" height="445"/>
+	<SubTexture name="Down Glitch instance 10006" x="3625" y="73" width="574" height="445"/>
+	<SubTexture name="Down Glitch instance 10007" x="4217" y="73" width="574" height="445"/>
+	<SubTexture name="Down Glitch instance 10008" x="4809" y="73" width="574" height="445"/>
+	<SubTexture name="Down Glitch instance 10009" x="4809" y="73" width="574" height="445"/>
+	<SubTexture name="Down Glitch instance 10010" x="4809" y="73" width="574" height="445"/>
+	<SubTexture name="Down Glitch instance 10011" x="4809" y="73" width="574" height="445"/>
+	<SubTexture name="Down Glitch instance 10012" x="4809" y="73" width="574" height="445"/>
+	<SubTexture name="Down Glitch instance 10013" x="4809" y="73" width="574" height="445"/>
+	<SubTexture name="Down Glitch instance 10014" x="4809" y="73" width="574" height="445"/>
+	<SubTexture name="Idle instance 10000" x="5401" y="73" width="470" height="626"/>
+	<SubTexture name="Idle instance 10001" x="5889" y="73" width="470" height="626"/>
+	<SubTexture name="Idle instance 10002" x="6377" y="73" width="470" height="626"/>
+	<SubTexture name="Idle instance 10003" x="6865" y="73" width="470" height="626"/>
+	<SubTexture name="Idle instance 10004" x="7353" y="73" width="470" height="626"/>
+	<SubTexture name="Idle instance 10005" x="73" y="717" width="470" height="626"/>
+	<SubTexture name="Idle instance 10006" x="561" y="717" width="470" height="626"/>
+	<SubTexture name="Idle instance 10007" x="1049" y="717" width="470" height="626"/>
+	<SubTexture name="Idle instance 10008" x="1537" y="717" width="470" height="626"/>
+	<SubTexture name="Idle instance 10009" x="2025" y="717" width="470" height="626"/>
+	<SubTexture name="Idle instance 10010" x="2513" y="717" width="470" height="626"/>
+	<SubTexture name="Idle instance 10011" x="3001" y="717" width="470" height="626"/>
+	<SubTexture name="Idle instance 10012" x="3489" y="717" width="470" height="626"/>
+	<SubTexture name="Idle instance 10013" x="3977" y="717" width="470" height="626"/>
+	<SubTexture name="Idle instance 10014" x="4465" y="717" width="470" height="626"/>
+	<SubTexture name="Idle instance 10015" x="4953" y="717" width="470" height="626"/>
+	<SubTexture name="Idle instance 10016" x="5441" y="717" width="470" height="626"/>
+	<SubTexture name="Idle instance 10017" x="5929" y="717" width="470" height="626"/>
+	<SubTexture name="Idle instance 10018" x="6417" y="717" width="470" height="626"/>
+	<SubTexture name="Idle instance 10019" x="6905" y="717" width="470" height="626"/>
+	<SubTexture name="Left Glitch instance 10000" x="7393" y="717" width="596" height="634"/>
+	<SubTexture name="Left Glitch instance 10001" x="73" y="1369" width="596" height="634"/>
+	<SubTexture name="Left Glitch instance 10002" x="687" y="1369" width="596" height="634"/>
+	<SubTexture name="Left Glitch instance 10003" x="1301" y="1369" width="596" height="634"/>
+	<SubTexture name="Left Glitch instance 10004" x="1915" y="1369" width="596" height="634"/>
+	<SubTexture name="Left Glitch instance 10005" x="2529" y="1369" width="596" height="634"/>
+	<SubTexture name="Left Glitch instance 10006" x="3143" y="1369" width="596" height="634"/>
+	<SubTexture name="Left Glitch instance 10007" x="3143" y="1369" width="596" height="634"/>
+	<SubTexture name="Left Glitch instance 10008" x="3757" y="1369" width="596" height="634"/>
+	<SubTexture name="Left Glitch instance 10009" x="3757" y="1369" width="596" height="634"/>
+	<SubTexture name="Left Glitch instance 10010" x="3757" y="1369" width="596" height="634"/>
+	<SubTexture name="Left Glitch instance 10011" x="3757" y="1369" width="596" height="634"/>
+	<SubTexture name="Left Glitch instance 10012" x="3757" y="1369" width="596" height="634"/>
+	<SubTexture name="Left Glitch instance 10013" x="3757" y="1369" width="596" height="634"/>
+	<SubTexture name="Left Glitch instance 10014" x="3757" y="1369" width="596" height="634"/>
+	<SubTexture name="Left Glitch instance 10015" x="3757" y="1369" width="596" height="634"/>
+	<SubTexture name="Left Glitch instance 10016" x="3757" y="1369" width="596" height="634"/>
+	<SubTexture name="Left Glitch instance 10017" x="3757" y="1369" width="596" height="634"/>
+	<SubTexture name="Left Glitch instance 10018" x="3757" y="1369" width="596" height="634"/>
+	<SubTexture name="Left Glitch instance 10019" x="3757" y="1369" width="596" height="634"/>
+	<SubTexture name="Right Glitch instance 10000" x="4371" y="1369" width="782" height="490"/>
+	<SubTexture name="Right Glitch instance 10001" x="5171" y="1369" width="782" height="490"/>
+	<SubTexture name="Right Glitch instance 10002" x="5971" y="1369" width="782" height="490"/>
+	<SubTexture name="Right Glitch instance 10003" x="6771" y="1369" width="782" height="490"/>
+	<SubTexture name="Right Glitch instance 10004" x="73" y="2021" width="782" height="490"/>
+	<SubTexture name="Right Glitch instance 10005" x="873" y="2021" width="782" height="490"/>
+	<SubTexture name="Right Glitch instance 10006" x="1673" y="2021" width="782" height="490"/>
+	<SubTexture name="Right Glitch instance 10007" x="2473" y="2021" width="782" height="490"/>
+	<SubTexture name="Right Glitch instance 10008" x="3273" y="2021" width="782" height="490"/>
+	<SubTexture name="Right Glitch instance 10009" x="3273" y="2021" width="782" height="490"/>
+	<SubTexture name="Right Glitch instance 10010" x="3273" y="2021" width="782" height="490"/>
+	<SubTexture name="Right Glitch instance 10011" x="3273" y="2021" width="782" height="490"/>
+	<SubTexture name="Right Glitch instance 10012" x="3273" y="2021" width="782" height="490"/>
+	<SubTexture name="Right Glitch instance 10013" x="3273" y="2021" width="782" height="490"/>
+	<SubTexture name="Right Glitch instance 10014" x="3273" y="2021" width="782" height="490"/>
+	<SubTexture name="Up Glitch instance 10000" x="4073" y="2021" width="551" height="687"/>
+	<SubTexture name="Up Glitch instance 10001" x="4642" y="2021" width="551" height="687"/>
+	<SubTexture name="Up Glitch instance 10002" x="5211" y="2021" width="551" height="687"/>
+	<SubTexture name="Up Glitch instance 10003" x="5780" y="2021" width="551" height="687"/>
+	<SubTexture name="Up Glitch instance 10004" x="6349" y="2021" width="551" height="687"/>
+	<SubTexture name="Up Glitch instance 10005" x="6918" y="2021" width="551" height="687"/>
+	<SubTexture name="Up Glitch instance 10006" x="7487" y="2021" width="551" height="687"/>
+	<SubTexture name="Up Glitch instance 10007" x="73" y="2726" width="551" height="687"/>
+	<SubTexture name="Up Glitch instance 10008" x="642" y="2726" width="551" height="687"/>
+	<SubTexture name="Up Glitch instance 10009" x="642" y="2726" width="551" height="687"/>
+	<SubTexture name="Up Glitch instance 10010" x="642" y="2726" width="551" height="687"/>
+	<SubTexture name="Up Glitch instance 10011" x="642" y="2726" width="551" height="687"/>
+	<SubTexture name="Up Glitch instance 10012" x="642" y="2726" width="551" height="687"/>
+	<SubTexture name="Up Glitch instance 10013" x="642" y="2726" width="551" height="687"/>
+	<SubTexture name="Up Glitch instance 10014" x="642" y="2726" width="551" height="687"/>
+	<SubTexture name="Up Glitch instance 10015" x="642" y="2726" width="551" height="687"/>
+</TextureAtlas>
