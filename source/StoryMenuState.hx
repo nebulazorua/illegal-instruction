@@ -49,6 +49,8 @@ class StoryMenuState extends MusicBeatState
 
 	var difficultySelectors:FlxGroup;
 
+	var weekThing:ListSprite;
+
 	var loadedWeeks:Array<WeekData> = [];
 
 	override function create()
@@ -131,11 +133,15 @@ class StoryMenuState extends MusicBeatState
 			{
 				loadedWeeks.push(weekFile);
 				WeekData.setDirectoryFromWeek(weekFile);
-				var weekThing:ListSprite = new ListSprite(0, 0);
+				weekThing = new ListSprite(0, 0);
 				var char = weekFile.weekCharacters[0];
 				var animChar = char.substring(0, 1).toUpperCase() + char.substr(1);
 				weekThing.frames = Paths.getSparrowAtlas('scenarioMenu/characters/${char.toLowerCase()}_menu');
 				weekThing.animation.addByPrefix("idle", animChar + " menu", 12, true);
+					if (char == 'hog')
+						{
+							weekThing.animation.addByPrefix("transform", animChar + " Transform", 48, true);
+						}
 				weekThing.animation.play("idle");
 				weekThing.scale.set(4, 4);
 				weekThing.targetY = i;
@@ -269,6 +275,10 @@ class StoryMenuState extends MusicBeatState
 			if (stopspamming == false)
 			{
 				FlxG.sound.play(Paths.sound('confirmMenu'));
+				if (curWeek == 4)
+					{
+						weekThing.animation.play("transform");
+					}
 				stopspamming = true;
 			}
 

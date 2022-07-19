@@ -7,12 +7,27 @@
 		"player3": null,
 		"events": [
 			[
-				90000,
+				66000,
+				[
+					[
+						"Play Animation",
+						"uhoh",
+						"dad"
+					]
+				]
+			],
+			[
+				88528.125,
 				[
 					[
 						"Change Character",
 						"dad",
 						"curse_pissbaby"
+					],
+					[
+						"Play Animation",
+						"admit",
+						"dad"
 					]
 				]
 			],
@@ -23,6 +38,16 @@
 						"Change Character",
 						"dad",
 						"curse_happy"
+					]
+				]
+			],
+			[
+				148000,
+				[
+					[
+						"Play Animation",
+						"ok",
+						"dad"
 					]
 				]
 			],

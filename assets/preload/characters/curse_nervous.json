@@ -1,63 +1,74 @@
 {
 	"animations": [
 		{
+			"loop": true,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": true,
-			"fps": 24,
 			"anim": "idle",
-			"indices": [],
-			"name": "Idle"
+			"fps": 24,
+			"name": "Idle",
+			"indices": []
 		},
 		{
-			"offsets": [
-				36,
-				7
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [
+				76,
+				-3
+			],
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "Left"
+			"fps": 24,
+			"name": "Left",
+			"indices": []
 		},
 		{
-			"offsets": [
-				-24,
-				-97
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [
+				-4,
+				-107
+			],
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "Down"
+			"fps": 24,
+			"name": "Down",
+			"indices": []
 		},
 		{
-			"offsets": [
-				42,
-				40
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [
+				43,
+				17
+			],
 			"anim": "singUP",
-			"indices": [],
-			"name": "Up"
+			"fps": 24,
+			"name": "Up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-16,
+				-55
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "Right",
+			"indices": []
 		},
 		{
 			"offsets": [
-				-93,
-				-47
+				38,
+				-20
 			],
-			"loop": false,
-			"fps": 24,
-			"anim": "singRIGHT",
 			"indices": [],
-			"name": "Right"
+			"fps": 24,
+			"anim": "uhoh",
+			"loop": false,
+			"name": "Something's wrong"
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/curse_nervous",
+	"image": "characters/curse",
 	"position": [
 		0,
 		-60

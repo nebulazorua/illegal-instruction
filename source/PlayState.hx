@@ -4610,17 +4610,27 @@ class PlayState extends MusicBeatState
 						case 522:
 							FlxTween.tween(camHUD, {alpha: 0}, 1.3, {ease: FlxEase.cubeInOut});
 							FlxTween.tween(FlxG.camera, {zoom: FlxG.camera.zoom + 0.25}, 4, {ease: FlxEase.cubeInOut});
-							FlxTween.tween(theStatic, {alpha: 0.6}, 6, {ease: FlxEase.quadInOut});
+						case 560:
+							FlxTween.tween(theStatic, {alpha: 0.9}, 1.5, {ease: FlxEase.quadInOut});
+						case 816:
+							theStatic.alpha = 0;
+							theStatic.visible = true;	
+							FlxTween.tween(theStatic, {alpha: 0.9}, 1.5, {ease: FlxEase.quadInOut});
+						case 569, 826:
+							FlxFlicker.flicker(theStatic, 0.5, 0.02, true, false);
+							new FlxTimer().start(0.5, function(tmr:FlxTimer) 
+								{				
+									theStatic.visible = false;		
+									theStatic.alpha = 0;
+								});
 						case 576:
-							FlxTween.cancelTweensOf(theStatic);
-							FlxTween.tween(theStatic, {alpha: 0}, 0.3, {ease: FlxEase.quadInOut});
 							FlxTween.tween(camHUD, {alpha: 1}, 0.5, {ease: FlxEase.cubeInOut});
 							camHUD.zoom += 2;
 							holyFuckStopZoomin = true;
 							camZooming = true;
 						case 832:
 							holyFuckStopZoomin = false;
-							FlxTween.tween(camHUD, {alpha: 0.5}, 0.5, {ease: FlxEase.cubeInOut});
+							FlxTween.tween(camHUD, {alpha: 0.75}, 0.5, {ease: FlxEase.cubeInOut});
 						case 928:
 							FlxTween.tween(camHUD, {alpha: 1}, 0.5, {ease: FlxEase.cubeInOut});
 							holyFuckStopZoomin = true;

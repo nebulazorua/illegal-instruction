@@ -1,66 +1,66 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "idle",
-			"indices": [],
-			"name": "idle"
-		},
-		{
-			"offsets": [
-				12,
-				-9
-			],
-			"loop": false,
 			"fps": 24,
-			"anim": "singLEFT",
-			"indices": [],
-			"name": "left"
+			"name": "IdleDuke",
+			"indices": []
 		},
 		{
+			"loop": false,
+			"offsets": [
+				-2,
+				-24
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "DownDuke",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				34,
+				11
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "LeftDuke",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-1,
+				-1
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "RightDuke",
+			"indices": []
+		},
+		{
+			"loop": false,
 			"offsets": [
 				0,
-				29
+				33
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUP",
-			"indices": [],
-			"name": "up"
-		},
-		{
-			"offsets": [
-				-3,
-				6
-			],
-			"loop": false,
 			"fps": 24,
-			"anim": "singRIGHT",
-			"indices": [],
-			"name": "right"
-		},
-		{
-			"offsets": [
-				2,
-				7
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "singDOWN",
-			"indices": [],
-			"name": "down"
+			"name": "UpDuke",
+			"indices": []
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/duke",
+	"image": "characters/DukePhase1",
 	"position": [
-		0,
-		50
+		20,
+		80
 	],
 	"healthicon": "duke",
 	"flip_x": false,
@@ -71,8 +71,8 @@
 	],
 	"camera_position": [
 		0,
-		50
+		40
 	],
 	"sing_duration": 6.1,
-	"scale": 0.8
+	"scale": 0.9
 }

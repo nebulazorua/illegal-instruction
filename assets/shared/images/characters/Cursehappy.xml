@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Cursehappy.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Down0000" x="0" y="0" width="484" height="768" frameX="-2" frameY="-40" frameWidth="488" frameHeight="809"/>
+	<SubTexture name="Down0001" x="0" y="0" width="484" height="768" frameX="-2" frameY="-40" frameWidth="488" frameHeight="809"/>
+	<SubTexture name="Down0002" x="510" y="0" width="480" height="784" frameX="-8" frameY="-25" frameWidth="488" frameHeight="809"/>
+	<SubTexture name="Down0003" x="510" y="0" width="480" height="784" frameX="-8" frameY="-25" frameWidth="488" frameHeight="809"/>
+	<SubTexture name="Down0004" x="1016" y="0" width="472" height="794" frameX="-7" frameY="-15" frameWidth="488" frameHeight="809"/>
+	<SubTexture name="Down0005" x="1016" y="0" width="472" height="794" frameX="-7" frameY="-15" frameWidth="488" frameHeight="809"/>
+	<SubTexture name="Down0006" x="1514" y="0" width="451" height="799" frameX="-7" frameY="-10" frameWidth="488" frameHeight="809"/>
+	<SubTexture name="Down0007" x="1514" y="0" width="451" height="799" frameX="-7" frameY="-10" frameWidth="488" frameHeight="809"/>
+	<SubTexture name="Down0008" x="1991" y="0" width="466" height="808" frameX="0" frameY="0" frameWidth="488" frameHeight="809"/>
+	<SubTexture name="Down0009" x="1991" y="0" width="466" height="808" frameX="0" frameY="0" frameWidth="488" frameHeight="809"/>
+	<SubTexture name="Down0010" x="1991" y="0" width="466" height="808" frameX="0" frameY="0" frameWidth="488" frameHeight="809"/>
+	<SubTexture name="Down0011" x="1991" y="0" width="466" height="808" frameX="0" frameY="0" frameWidth="488" frameHeight="809"/>
+	<SubTexture name="Down0012" x="1991" y="0" width="466" height="808" frameX="0" frameY="0" frameWidth="488" frameHeight="809"/>
+	<SubTexture name="Down0013" x="1991" y="0" width="466" height="808" frameX="0" frameY="0" frameWidth="488" frameHeight="809"/>
+	<SubTexture name="Down0014" x="1991" y="0" width="466" height="808" frameX="0" frameY="0" frameWidth="488" frameHeight="809"/>
+	<SubTexture name="Down0015" x="1991" y="0" width="466" height="808" frameX="0" frameY="0" frameWidth="488" frameHeight="809"/>
+	<SubTexture name="Down0016" x="1991" y="0" width="466" height="808" frameX="0" frameY="0" frameWidth="488" frameHeight="809"/>
+	<SubTexture name="Down0017" x="1991" y="0" width="466" height="808" frameX="0" frameY="0" frameWidth="488" frameHeight="809"/>
+	<SubTexture name="Down0018" x="1991" y="0" width="466" height="808" frameX="0" frameY="0" frameWidth="488" frameHeight="809"/>
+	<SubTexture name="Down0019" x="1991" y="0" width="466" height="808" frameX="0" frameY="0" frameWidth="488" frameHeight="809"/>
+	<SubTexture name="Idle0000" x="2483" y="0" width="436" height="959" frameX="-41" frameY="0" frameWidth="477" frameHeight="959"/>
+	<SubTexture name="Idle0001" x="2483" y="0" width="436" height="959" frameX="-41" frameY="0" frameWidth="477" frameHeight="959"/>
+	<SubTexture name="Idle0002" x="2945" y="0" width="435" height="935" frameX="-42" frameY="-24" frameWidth="477" frameHeight="959"/>
+	<SubTexture name="Idle0003" x="2945" y="0" width="435" height="935" frameX="-42" frameY="-24" frameWidth="477" frameHeight="959"/>
+	<SubTexture name="Idle0004" x="3406" y="0" width="445" height="930" frameX="-28" frameY="-29" frameWidth="477" frameHeight="959"/>
+	<SubTexture name="Idle0005" x="3406" y="0" width="445" height="930" frameX="-28" frameY="-29" frameWidth="477" frameHeight="959"/>
+	<SubTexture name="Idle0006" x="3877" y="0" width="461" height="930" frameX="-13" frameY="-29" frameWidth="477" frameHeight="959"/>
+	<SubTexture name="Idle0007" x="3877" y="0" width="461" height="930" frameX="-13" frameY="-29" frameWidth="477" frameHeight="959"/>
+	<SubTexture name="Idle0008" x="4364" y="0" width="473" height="935" frameX="-4" frameY="-24" frameWidth="477" frameHeight="959"/>
+	<SubTexture name="Idle0009" x="4364" y="0" width="473" height="935" frameX="-4" frameY="-24" frameWidth="477" frameHeight="959"/>
+	<SubTexture name="Idle0010" x="4863" y="0" width="477" height="941" frameX="0" frameY="-17" frameWidth="477" frameHeight="959"/>
+	<SubTexture name="Idle0011" x="4863" y="0" width="477" height="941" frameX="0" frameY="-17" frameWidth="477" frameHeight="959"/>
+	<SubTexture name="Idle0012" x="4863" y="0" width="477" height="941" frameX="0" frameY="-17" frameWidth="477" frameHeight="959"/>
+	<SubTexture name="Idle0013" x="4863" y="0" width="477" height="941" frameX="0" frameY="-17" frameWidth="477" frameHeight="959"/>
+	<SubTexture name="Idle0014" x="4863" y="0" width="477" height="941" frameX="0" frameY="-17" frameWidth="477" frameHeight="959"/>
+	<SubTexture name="Idle0015" x="4863" y="0" width="477" height="941" frameX="0" frameY="-17" frameWidth="477" frameHeight="959"/>
+	<SubTexture name="Idle0016" x="4863" y="0" width="477" height="941" frameX="0" frameY="-17" frameWidth="477" frameHeight="959"/>
+	<SubTexture name="Idle0017" x="4863" y="0" width="477" height="941" frameX="0" frameY="-17" frameWidth="477" frameHeight="959"/>
+	<SubTexture name="Idle0018" x="4863" y="0" width="477" height="941" frameX="0" frameY="-17" frameWidth="477" frameHeight="959"/>
+	<SubTexture name="Idle0019" x="4863" y="0" width="477" height="941" frameX="0" frameY="-17" frameWidth="477" frameHeight="959"/>
+	<SubTexture name="Idle0020" x="4863" y="0" width="477" height="941" frameX="0" frameY="-17" frameWidth="477" frameHeight="959"/>
+	<SubTexture name="Left0000" x="5366" y="0" width="489" height="933" frameX="0" frameY="-8" frameWidth="534" frameHeight="941"/>
+	<SubTexture name="Left0001" x="5366" y="0" width="489" height="933" frameX="0" frameY="-8" frameWidth="534" frameHeight="941"/>
+	<SubTexture name="Left0002" x="5881" y="0" width="497" height="928" frameX="-11" frameY="-13" frameWidth="534" frameHeight="941"/>
+	<SubTexture name="Left0003" x="5881" y="0" width="497" height="928" frameX="-11" frameY="-13" frameWidth="534" frameHeight="941"/>
+	<SubTexture name="Left0004" x="6404" y="0" width="491" height="931" frameX="-29" frameY="-10" frameWidth="534" frameHeight="941"/>
+	<SubTexture name="Left0005" x="6404" y="0" width="491" height="931" frameX="-29" frameY="-10" frameWidth="534" frameHeight="941"/>
+	<SubTexture name="Left0006" x="6921" y="0" width="483" height="934" frameX="-48" frameY="-7" frameWidth="534" frameHeight="941"/>
+	<SubTexture name="Left0007" x="6921" y="0" width="483" height="934" frameX="-48" frameY="-7" frameWidth="534" frameHeight="941"/>
+	<SubTexture name="Left0008" x="7430" y="0" width="464" height="941" frameX="-70" frameY="0" frameWidth="534" frameHeight="941"/>
+	<SubTexture name="Left0009" x="7430" y="0" width="464" height="941" frameX="-70" frameY="0" frameWidth="534" frameHeight="941"/>
+	<SubTexture name="Left0010" x="7430" y="0" width="464" height="941" frameX="-70" frameY="0" frameWidth="534" frameHeight="941"/>
+	<SubTexture name="Left0011" x="7430" y="0" width="464" height="941" frameX="-70" frameY="0" frameWidth="534" frameHeight="941"/>
+	<SubTexture name="Left0012" x="7430" y="0" width="464" height="941" frameX="-70" frameY="0" frameWidth="534" frameHeight="941"/>
+	<SubTexture name="Left0013" x="7430" y="0" width="464" height="941" frameX="-70" frameY="0" frameWidth="534" frameHeight="941"/>
+	<SubTexture name="Left0014" x="7430" y="0" width="464" height="941" frameX="-70" frameY="0" frameWidth="534" frameHeight="941"/>
+	<SubTexture name="Left0015" x="7430" y="0" width="464" height="941" frameX="-70" frameY="0" frameWidth="534" frameHeight="941"/>
+	<SubTexture name="Left0016" x="7430" y="0" width="464" height="941" frameX="-70" frameY="0" frameWidth="534" frameHeight="941"/>
+	<SubTexture name="Left0017" x="7430" y="0" width="464" height="941" frameX="-70" frameY="0" frameWidth="534" frameHeight="941"/>
+	<SubTexture name="Left0018" x="7430" y="0" width="464" height="941" frameX="-70" frameY="0" frameWidth="534" frameHeight="941"/>
+	<SubTexture name="Left0019" x="7430" y="0" width="464" height="941" frameX="-70" frameY="0" frameWidth="534" frameHeight="941"/>
+	<SubTexture name="Right0000" x="0" y="985" width="522" height="859" frameX="-3" frameY="-18" frameWidth="525" frameHeight="877"/>
+	<SubTexture name="Right0001" x="0" y="985" width="522" height="859" frameX="-3" frameY="-18" frameWidth="525" frameHeight="877"/>
+	<SubTexture name="Right0002" x="548" y="985" width="521" height="869" frameX="-2" frameY="-8" frameWidth="525" frameHeight="877"/>
+	<SubTexture name="Right0003" x="548" y="985" width="521" height="869" frameX="-2" frameY="-8" frameWidth="525" frameHeight="877"/>
+	<SubTexture name="Right0004" x="1095" y="985" width="516" height="876" frameX="-1" frameY="-1" frameWidth="525" frameHeight="877"/>
+	<SubTexture name="Right0005" x="1095" y="985" width="516" height="876" frameX="-1" frameY="-1" frameWidth="525" frameHeight="877"/>
+	<SubTexture name="Right0006" x="1637" y="985" width="507" height="877" frameX="0" frameY="0" frameWidth="525" frameHeight="877"/>
+	<SubTexture name="Right0007" x="1637" y="985" width="507" height="877" frameX="0" frameY="0" frameWidth="525" frameHeight="877"/>
+	<SubTexture name="Right0008" x="2170" y="985" width="496" height="877" frameX="0" frameY="0" frameWidth="525" frameHeight="877"/>
+	<SubTexture name="Right0009" x="2170" y="985" width="496" height="877" frameX="0" frameY="0" frameWidth="525" frameHeight="877"/>
+	<SubTexture name="Right0010" x="2170" y="985" width="496" height="877" frameX="0" frameY="0" frameWidth="525" frameHeight="877"/>
+	<SubTexture name="Right0011" x="2170" y="985" width="496" height="877" frameX="0" frameY="0" frameWidth="525" frameHeight="877"/>
+	<SubTexture name="Right0012" x="2170" y="985" width="496" height="877" frameX="0" frameY="0" frameWidth="525" frameHeight="877"/>
+	<SubTexture name="Right0013" x="2170" y="985" width="496" height="877" frameX="0" frameY="0" frameWidth="525" frameHeight="877"/>
+	<SubTexture name="Right0014" x="2170" y="985" width="496" height="877" frameX="0" frameY="0" frameWidth="525" frameHeight="877"/>
+	<SubTexture name="Right0015" x="2170" y="985" width="496" height="877" frameX="0" frameY="0" frameWidth="525" frameHeight="877"/>
+	<SubTexture name="Right0016" x="2170" y="985" width="496" height="877" frameX="0" frameY="0" frameWidth="525" frameHeight="877"/>
+	<SubTexture name="Right0017" x="2170" y="985" width="496" height="877" frameX="0" frameY="0" frameWidth="525" frameHeight="877"/>
+	<SubTexture name="Right0018" x="2170" y="985" width="496" height="877" frameX="0" frameY="0" frameWidth="525" frameHeight="877"/>
+	<SubTexture name="Right0019" x="2170" y="985" width="496" height="877" frameX="0" frameY="0" frameWidth="525" frameHeight="877"/>
+	<SubTexture name="Things are ok0000" x="2692" y="985" width="518" height="941" frameX="-77" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0001" x="2692" y="985" width="518" height="941" frameX="-77" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0002" x="2692" y="985" width="518" height="941" frameX="-77" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0003" x="2692" y="985" width="518" height="941" frameX="-77" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0004" x="2692" y="985" width="518" height="941" frameX="-77" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0005" x="2692" y="985" width="518" height="941" frameX="-77" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0006" x="2692" y="985" width="518" height="941" frameX="-77" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0007" x="3236" y="985" width="519" height="941" frameX="-74" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0008" x="3236" y="985" width="519" height="941" frameX="-74" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0009" x="3781" y="985" width="518" height="941" frameX="-67" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0010" x="3781" y="985" width="518" height="941" frameX="-67" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0011" x="4325" y="985" width="558" height="947" frameX="-24" frameY="-2" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0012" x="4325" y="985" width="558" height="947" frameX="-24" frameY="-2" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0013" x="4909" y="985" width="541" height="942" frameX="-28" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0014" x="4909" y="985" width="541" height="942" frameX="-28" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0015" x="5476" y="985" width="537" height="942" frameX="-28" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0016" x="5476" y="985" width="537" height="942" frameX="-28" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0017" x="5476" y="985" width="537" height="942" frameX="-28" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0018" x="5476" y="985" width="537" height="942" frameX="-28" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0019" x="5476" y="985" width="537" height="942" frameX="-28" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0020" x="6039" y="985" width="537" height="942" frameX="-28" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0021" x="6039" y="985" width="537" height="942" frameX="-28" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0022" x="6039" y="985" width="537" height="942" frameX="-28" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0023" x="6602" y="985" width="537" height="942" frameX="-28" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0024" x="6602" y="985" width="537" height="942" frameX="-28" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0025" x="7165" y="985" width="537" height="942" frameX="-28" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0026" x="7165" y="985" width="537" height="942" frameX="-28" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0027" x="7165" y="985" width="537" height="942" frameX="-28" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0028" x="7165" y="985" width="537" height="942" frameX="-28" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0029" x="7165" y="985" width="537" height="942" frameX="-28" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0030" x="7165" y="985" width="537" height="942" frameX="-28" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0031" x="7165" y="985" width="537" height="942" frameX="-28" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0032" x="7165" y="985" width="537" height="942" frameX="-28" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0033" x="7165" y="985" width="537" height="942" frameX="-28" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0034" x="7165" y="985" width="537" height="942" frameX="-28" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0035" x="6602" y="985" width="537" height="942" frameX="-28" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0036" x="5476" y="985" width="537" height="942" frameX="-28" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0037" x="5476" y="985" width="537" height="942" frameX="-28" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0038" x="5476" y="985" width="537" height="942" frameX="-28" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0039" x="5476" y="985" width="537" height="942" frameX="-28" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0040" x="5476" y="985" width="537" height="942" frameX="-28" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0041" x="6602" y="985" width="537" height="942" frameX="-28" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0042" x="6602" y="985" width="537" height="942" frameX="-28" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0043" x="6602" y="985" width="537" height="942" frameX="-28" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0044" x="0" y="1958" width="534" height="942" frameX="-30" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0045" x="0" y="1958" width="534" height="942" frameX="-30" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0046" x="0" y="1958" width="534" height="942" frameX="-30" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0047" x="560" y="1958" width="534" height="942" frameX="-32" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0048" x="1120" y="1958" width="534" height="942" frameX="-32" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0049" x="1120" y="1958" width="534" height="942" frameX="-32" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0050" x="1680" y="1958" width="527" height="939" frameX="-38" frameY="-10" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0051" x="1680" y="1958" width="527" height="939" frameX="-38" frameY="-10" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0052" x="1680" y="1958" width="527" height="939" frameX="-38" frameY="-10" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0053" x="2233" y="1958" width="520" height="939" frameX="-72" frameY="-10" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0054" x="2233" y="1958" width="520" height="939" frameX="-72" frameY="-10" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0055" x="2779" y="1958" width="520" height="939" frameX="-75" frameY="-10" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0056" x="3325" y="1958" width="520" height="939" frameX="-75" frameY="-10" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0057" x="3325" y="1958" width="520" height="939" frameX="-75" frameY="-10" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0058" x="3325" y="1958" width="520" height="939" frameX="-75" frameY="-10" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0059" x="3325" y="1958" width="520" height="939" frameX="-75" frameY="-10" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0060" x="3325" y="1958" width="520" height="939" frameX="-75" frameY="-10" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0061" x="3325" y="1958" width="520" height="939" frameX="-75" frameY="-10" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0062" x="3325" y="1958" width="520" height="939" frameX="-75" frameY="-10" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0063" x="3325" y="1958" width="520" height="939" frameX="-75" frameY="-10" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0064" x="3325" y="1958" width="520" height="939" frameX="-75" frameY="-10" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0065" x="3325" y="1958" width="520" height="939" frameX="-75" frameY="-10" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0066" x="3325" y="1958" width="520" height="939" frameX="-75" frameY="-10" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0067" x="3325" y="1958" width="520" height="939" frameX="-75" frameY="-10" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0068" x="3325" y="1958" width="520" height="939" frameX="-75" frameY="-10" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0069" x="3325" y="1958" width="520" height="939" frameX="-75" frameY="-10" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0070" x="3325" y="1958" width="520" height="939" frameX="-75" frameY="-10" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0071" x="3325" y="1958" width="520" height="939" frameX="-75" frameY="-10" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0072" x="3325" y="1958" width="520" height="939" frameX="-75" frameY="-10" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0073" x="3325" y="1958" width="520" height="939" frameX="-75" frameY="-10" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0074" x="3325" y="1958" width="520" height="939" frameX="-75" frameY="-10" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0075" x="3325" y="1958" width="520" height="939" frameX="-75" frameY="-10" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0076" x="3325" y="1958" width="520" height="939" frameX="-75" frameY="-10" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0077" x="3325" y="1958" width="520" height="939" frameX="-75" frameY="-10" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0078" x="3325" y="1958" width="520" height="939" frameX="-75" frameY="-10" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0079" x="3325" y="1958" width="520" height="939" frameX="-75" frameY="-10" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0080" x="3325" y="1958" width="520" height="939" frameX="-75" frameY="-10" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0081" x="3325" y="1958" width="520" height="939" frameX="-75" frameY="-10" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0082" x="3325" y="1958" width="520" height="939" frameX="-75" frameY="-10" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0083" x="3325" y="1958" width="520" height="939" frameX="-75" frameY="-10" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0084" x="3325" y="1958" width="520" height="939" frameX="-75" frameY="-10" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0085" x="3325" y="1958" width="520" height="939" frameX="-75" frameY="-10" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0086" x="3325" y="1958" width="520" height="939" frameX="-75" frameY="-10" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0087" x="3325" y="1958" width="520" height="939" frameX="-75" frameY="-10" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0088" x="3325" y="1958" width="520" height="939" frameX="-75" frameY="-10" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0089" x="3325" y="1958" width="520" height="939" frameX="-75" frameY="-10" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0090" x="3325" y="1958" width="520" height="939" frameX="-75" frameY="-10" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0091" x="3871" y="1958" width="520" height="939" frameX="-75" frameY="-10" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0092" x="4417" y="1958" width="509" height="938" frameX="-55" frameY="-11" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0093" x="4417" y="1958" width="509" height="938" frameX="-55" frameY="-11" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0094" x="4952" y="1958" width="503" height="942" frameX="0" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0095" x="4952" y="1958" width="503" height="942" frameX="0" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0096" x="5481" y="1958" width="503" height="942" frameX="-5" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0097" x="5481" y="1958" width="503" height="942" frameX="-5" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0098" x="5481" y="1958" width="503" height="942" frameX="-5" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0099" x="6010" y="1958" width="503" height="942" frameX="-5" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0100" x="6010" y="1958" width="503" height="942" frameX="-5" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0101" x="6539" y="1958" width="503" height="942" frameX="-5" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0102" x="6539" y="1958" width="503" height="942" frameX="-5" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0103" x="6539" y="1958" width="503" height="942" frameX="-5" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0104" x="6539" y="1958" width="503" height="942" frameX="-5" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0105" x="6539" y="1958" width="503" height="942" frameX="-5" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0106" x="6539" y="1958" width="503" height="942" frameX="-5" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0107" x="6539" y="1958" width="503" height="942" frameX="-5" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0108" x="6539" y="1958" width="503" height="942" frameX="-5" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0109" x="6539" y="1958" width="503" height="942" frameX="-5" frameY="-7" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0110" x="7068" y="1958" width="529" height="941" frameX="-44" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0111" x="7623" y="1958" width="529" height="941" frameX="-44" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0112" x="0" y="2926" width="540" height="941" frameX="-43" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0113" x="0" y="2926" width="540" height="941" frameX="-43" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0114" x="566" y="2926" width="540" height="941" frameX="-43" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0115" x="566" y="2926" width="540" height="941" frameX="-43" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0116" x="1132" y="2926" width="540" height="941" frameX="-43" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0117" x="1132" y="2926" width="540" height="941" frameX="-43" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0118" x="1132" y="2926" width="540" height="941" frameX="-43" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0119" x="1132" y="2926" width="540" height="941" frameX="-43" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0120" x="1132" y="2926" width="540" height="941" frameX="-43" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0121" x="1132" y="2926" width="540" height="941" frameX="-43" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0122" x="1132" y="2926" width="540" height="941" frameX="-43" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0123" x="1132" y="2926" width="540" height="941" frameX="-43" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0124" x="1132" y="2926" width="540" height="941" frameX="-43" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0125" x="1132" y="2926" width="540" height="941" frameX="-43" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0126" x="1132" y="2926" width="540" height="941" frameX="-43" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0127" x="1132" y="2926" width="540" height="941" frameX="-43" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0128" x="1132" y="2926" width="540" height="941" frameX="-43" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0129" x="1132" y="2926" width="540" height="941" frameX="-43" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0130" x="1132" y="2926" width="540" height="941" frameX="-43" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0131" x="1132" y="2926" width="540" height="941" frameX="-43" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0132" x="1132" y="2926" width="540" height="941" frameX="-43" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0133" x="1132" y="2926" width="540" height="941" frameX="-43" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0134" x="1132" y="2926" width="540" height="941" frameX="-43" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0135" x="566" y="2926" width="540" height="941" frameX="-43" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0136" x="566" y="2926" width="540" height="941" frameX="-43" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0137" x="566" y="2926" width="540" height="941" frameX="-43" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0138" x="1698" y="2926" width="540" height="941" frameX="-43" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0139" x="1698" y="2926" width="540" height="941" frameX="-43" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0140" x="1698" y="2926" width="540" height="941" frameX="-43" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0141" x="566" y="2926" width="540" height="941" frameX="-43" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0142" x="0" y="2926" width="540" height="941" frameX="-43" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0143" x="0" y="2926" width="540" height="941" frameX="-43" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0144" x="1698" y="2926" width="540" height="941" frameX="-43" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0145" x="1698" y="2926" width="540" height="941" frameX="-43" frameY="-8" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0146" x="2264" y="2926" width="518" height="949" frameX="-71" frameY="0" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0147" x="2264" y="2926" width="518" height="949" frameX="-71" frameY="0" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0148" x="2808" y="2926" width="529" height="936" frameX="-75" frameY="-13" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0149" x="3363" y="2926" width="529" height="936" frameX="-75" frameY="-13" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0150" x="3918" y="2926" width="533" height="934" frameX="-76" frameY="-15" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0151" x="4477" y="2926" width="533" height="934" frameX="-76" frameY="-15" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0152" x="5036" y="2926" width="533" height="934" frameX="-76" frameY="-15" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0153" x="5036" y="2926" width="533" height="934" frameX="-76" frameY="-15" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0154" x="5036" y="2926" width="533" height="934" frameX="-76" frameY="-15" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0155" x="5036" y="2926" width="533" height="934" frameX="-76" frameY="-15" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0156" x="5036" y="2926" width="533" height="934" frameX="-76" frameY="-15" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0157" x="5595" y="2926" width="533" height="934" frameX="-76" frameY="-15" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0158" x="5595" y="2926" width="533" height="934" frameX="-76" frameY="-15" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0159" x="5595" y="2926" width="533" height="934" frameX="-76" frameY="-15" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0160" x="5595" y="2926" width="533" height="934" frameX="-76" frameY="-15" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0161" x="5595" y="2926" width="533" height="934" frameX="-76" frameY="-15" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0162" x="5595" y="2926" width="533" height="934" frameX="-76" frameY="-15" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0163" x="5595" y="2926" width="533" height="934" frameX="-76" frameY="-15" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0164" x="5595" y="2926" width="533" height="934" frameX="-76" frameY="-15" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0165" x="5595" y="2926" width="533" height="934" frameX="-76" frameY="-15" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0166" x="5595" y="2926" width="533" height="934" frameX="-76" frameY="-15" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0167" x="5595" y="2926" width="533" height="934" frameX="-76" frameY="-15" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0168" x="5595" y="2926" width="533" height="934" frameX="-76" frameY="-15" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0169" x="5595" y="2926" width="533" height="934" frameX="-76" frameY="-15" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0170" x="5595" y="2926" width="533" height="934" frameX="-76" frameY="-15" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0171" x="5595" y="2926" width="533" height="934" frameX="-76" frameY="-15" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0172" x="5595" y="2926" width="533" height="934" frameX="-76" frameY="-15" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Things are ok0173" x="5595" y="2926" width="533" height="934" frameX="-76" frameY="-15" frameWidth="609" frameHeight="949"/>
+	<SubTexture name="Up0000" x="6154" y="2926" width="516" height="987" frameX="-33" frameY="0" frameWidth="553" frameHeight="987"/>
+	<SubTexture name="Up0001" x="6154" y="2926" width="516" height="987" frameX="-33" frameY="0" frameWidth="553" frameHeight="987"/>
+	<SubTexture name="Up0002" x="6696" y="2926" width="541" height="985" frameX="-7" frameY="-2" frameWidth="553" frameHeight="987"/>
+	<SubTexture name="Up0003" x="6696" y="2926" width="541" height="985" frameX="-7" frameY="-2" frameWidth="553" frameHeight="987"/>
+	<SubTexture name="Up0004" x="7263" y="2926" width="545" height="975" frameX="0" frameY="-12" frameWidth="553" frameHeight="987"/>
+	<SubTexture name="Up0005" x="7263" y="2926" width="545" height="975" frameX="0" frameY="-12" frameWidth="553" frameHeight="987"/>
+	<SubTexture name="Up0006" x="0" y="3939" width="542" height="970" frameX="-9" frameY="-17" frameWidth="553" frameHeight="987"/>
+	<SubTexture name="Up0007" x="0" y="3939" width="542" height="970" frameX="-9" frameY="-17" frameWidth="553" frameHeight="987"/>
+	<SubTexture name="Up0008" x="568" y="3939" width="521" height="962" frameX="-32" frameY="-25" frameWidth="553" frameHeight="987"/>
+	<SubTexture name="Up0009" x="568" y="3939" width="521" height="962" frameX="-32" frameY="-25" frameWidth="553" frameHeight="987"/>
+	<SubTexture name="Up0010" x="568" y="3939" width="521" height="962" frameX="-32" frameY="-25" frameWidth="553" frameHeight="987"/>
+	<SubTexture name="Up0011" x="568" y="3939" width="521" height="962" frameX="-32" frameY="-25" frameWidth="553" frameHeight="987"/>
+	<SubTexture name="Up0012" x="568" y="3939" width="521" height="962" frameX="-32" frameY="-25" frameWidth="553" frameHeight="987"/>
+	<SubTexture name="Up0013" x="568" y="3939" width="521" height="962" frameX="-32" frameY="-25" frameWidth="553" frameHeight="987"/>
+	<SubTexture name="Up0014" x="568" y="3939" width="521" height="962" frameX="-32" frameY="-25" frameWidth="553" frameHeight="987"/>
+	<SubTexture name="Up0015" x="568" y="3939" width="521" height="962" frameX="-32" frameY="-25" frameWidth="553" frameHeight="987"/>
+	<SubTexture name="Up0016" x="568" y="3939" width="521" height="962" frameX="-32" frameY="-25" frameWidth="553" frameHeight="987"/>
+	<SubTexture name="Up0017" x="568" y="3939" width="521" height="962" frameX="-32" frameY="-25" frameWidth="553" frameHeight="987"/>
+	<SubTexture name="Up0018" x="568" y="3939" width="521" height="962" frameX="-32" frameY="-25" frameWidth="553" frameHeight="987"/>
+	<SubTexture name="Up0019" x="568" y="3939" width="521" height="962" frameX="-32" frameY="-25" frameWidth="553" frameHeight="987"/>
+</TextureAtlas>
