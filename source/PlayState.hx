@@ -49,6 +49,7 @@ import openfl.display.BlendMode;
 import openfl.display.StageQuality;
 import openfl.filters.BitmapFilter;
 import openfl.utils.Assets as OpenFlAssets;
+import openfl.filters.ShaderFilter;
 import editors.ChartingState;
 import editors.CharacterEditorState;
 import flixel.group.FlxSpriteGroup;
@@ -369,6 +370,9 @@ class PlayState extends MusicBeatState
 	var curseFountain:FlxSprite;
 
 	//hjog shit dlskafj;lsa
+	var staticlol:StaticShader;
+	private var staticAlpha:Float = 1;
+
 	var hogBg:BGSprite;
 	var hogMotain:BGSprite;
 	var hogWaterFalls:FlxSprite;
@@ -1066,7 +1070,16 @@ class PlayState extends MusicBeatState
 
 						camFuckShader = new Fuck();
 						camFuckFilter = new ShaderFilter(camFuckShader);
-						
+
+						staticlol = new StaticShader();
+						camHUD.setFilters([new ShaderFilter(staticlol)]);
+						camGame.setFilters([new ShaderFilter(staticlol)]);
+						staticlol.iTime.value = [0];
+						staticlol.iResolution.value = [FlxG.width, FlxG.height];
+						staticlol.alpha.value = [staticAlpha];
+						camHUD.filtersEnabled = true;
+						camGame.filtersEnabled = true;
+
 						scorchedBg = new BGSprite('hog/blast/Sunset', -200, 0, 1.1, 0.9);
 						scorchedBg.scale.x = 1.75;
 						scorchedBg.scale.y = 1.75;
@@ -1810,6 +1823,36 @@ class PlayState extends MusicBeatState
 
 		Paths.clearUnusedMemory();
 		CustomFadeTransition.nextCamera = camOther;
+	}
+
+	function glitchFreeze()
+	{
+
+
+		var screencap:FlxSprite;
+		screencap = new FlxSprite(0, 0, FlxScreenGrab.grab().bitmapData);
+		screencap.cameras = [camHUD];
+
+		switch(FlxG.random.int(1, 2)){
+			case 1:
+				var glitchEffect = new FlxGlitchEffect(30,8,0.4,FlxGlitchDirection.HORIZONTAL);
+				var glitchSprite = new FlxEffectSprite(screencap, [glitchEffect]);
+				glitchSprite.scrollFactor.set(0,0);
+				glitchSprite.cameras = [camHUD];
+				glitchSprite.width = FlxG.width;
+				glitchSprite.height = FlxG.height;
+				add(glitchSprite);
+				new FlxTimer().start(0.2, function(byebye:FlxTimer) {
+					remove(glitchSprite);
+				});
+			case 2:
+				camHUD.filtersEnabled = true;
+				camGame.filtersEnabled = true;
+				new FlxTimer().start(0.45, function(byebye:FlxTimer) {
+					camHUD.filtersEnabled = false;
+					camGame.filtersEnabled = false;
+				});
+		}
 	}
 
 	function set_songSpeed(value:Float):Float
@@ -2834,6 +2877,11 @@ class PlayState extends MusicBeatState
 			} else {
 				boyfriendIdleTime = 0;
 			}
+		}
+
+		if(staticlol!=null){
+			staticlol.iTime.value[0] = Conductor.songPosition / 1000;
+			staticlol.alpha.value = [staticAlpha];
 		}
 
 		super.update(elapsed);
