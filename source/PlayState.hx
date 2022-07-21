@@ -1,5 +1,7 @@
 package;
 
+import GlitchShader.Fuck;
+import openfl.filters.ShaderFilter;
 import flixel.graphics.FlxGraphic;
 #if desktop
 import Discord.DiscordClient;
@@ -58,6 +60,8 @@ import Achievements;
 import StageData;
 import FunkinLua;
 import DialogueBoxPsych;
+import GlitchShader.GlitchShaderA;
+import GlitchShader.GlitchShaderB;
 #if sys
 import sys.FileSystem;
 #end
@@ -67,6 +71,10 @@ using StringTools;
 
 class PlayState extends MusicBeatState
 {
+	var camGlitchShader:GlitchShaderB;
+	var camFuckShader:Fuck;
+	var camGlitchFilter:BitmapFilter;
+	var camFuckFilter:BitmapFilter;
 	public static var STRUM_X = 42;
 	public static var STRUM_X_MIDDLESCROLL = -278;
 
@@ -82,6 +90,8 @@ class PlayState extends MusicBeatState
 		['Sick!', 1], //From 90% to 99%
 		['Perfect!!', 1] //The value on this one isn't used actually, since Perfect is always "1"
 	];
+
+	public var piss:Array<FlxTween> = [];
 	public var modchartTweens:Map<String, FlxTween> = new Map<String, FlxTween>();
 	public var modchartSprites:Map<String, ModchartSprite> = new Map<String, ModchartSprite>();
 	public var modchartTimers:Map<String, FlxTimer> = new Map<String, FlxTimer>();
@@ -427,7 +437,6 @@ class PlayState extends MusicBeatState
 		FlxG.cameras.add(camHUD);
 		FlxG.cameras.add(camOther);
 		grpNoteSplashes = new FlxTypedGroup<NoteSplash>();
-
 		FlxCamera.defaultCameras = [camGame];
 		CustomFadeTransition.nextCamera = camOther;
 		//FlxG.cameras.setDefaultDrawTarget(camGame, true);
@@ -1051,6 +1060,13 @@ class PlayState extends MusicBeatState
 
 				if (SONG.song.toLowerCase() == 'manual-blast')
 					{
+						camGlitchShader = new GlitchShaderB();
+						camGlitchShader.iResolution.value = [FlxG.width, FlxG.height];
+						camGlitchFilter = new ShaderFilter(camGlitchShader);
+
+						camFuckShader = new Fuck();
+						camFuckFilter = new ShaderFilter(camFuckShader);
+						
 						scorchedBg = new BGSprite('hog/blast/Sunset', -200, 0, 1.1, 0.9);
 						scorchedBg.scale.x = 1.75;
 						scorchedBg.scale.y = 1.75;
@@ -1063,7 +1079,7 @@ class PlayState extends MusicBeatState
 		
 						scorchedWaterFalls = new FlxSprite(-1000, 200);
 						scorchedWaterFalls.frames = Paths.getSparrowAtlas('hog/blast/Waterfalls', 'exe');
-						scorchedWaterFalls.animation.addByPrefix('water', 'British instance 1', 24);
+						scorchedWaterFalls.animation.addByPrefix('water', 'British instance 1', 12);
 						scorchedWaterFalls.animation.play('water');
 						scorchedWaterFalls.scale.x = 1.1;
 						scorchedWaterFalls.scale.y = 1.1;
@@ -1794,40 +1810,6 @@ class PlayState extends MusicBeatState
 
 		Paths.clearUnusedMemory();
 		CustomFadeTransition.nextCamera = camOther;
-	}
-
-	function glitchFreeze()
-	{
-
-
-		var screencap:FlxSprite;
-		screencap = new FlxSprite(0, 0, FlxScreenGrab.grab().bitmapData);
-		screencap.cameras = [camHUD];
-
-		// var funnySprite:FlxSprite;
-		// funnySprite = new FlxSprite(0, 0);
-		// switch(FlxG.random.int(1, 4)){
-		// 	case 1:
-		// 		funnySprite = screencap;
-		// 	case 2:
-		// 		funnySprite = scorchedWaterFalls;
-		// 	case 3:
-		// 		funnySprite = scorchedHills;
-		// 	case 4:
-		// 		funnySprite = scorchedFloor;
-		// }
-		//this sucks so i commented it
-
-		var glitchEffect = new FlxGlitchEffect(30,8,0.4,FlxGlitchDirection.HORIZONTAL);
-		var glitchSprite = new FlxEffectSprite(screencap, [glitchEffect]);
-		glitchSprite.scrollFactor.set(0,0);
-		glitchSprite.cameras = [camHUD];
-		glitchSprite.width = FlxG.width;
-		glitchSprite.height = FlxG.height;
-		add(glitchSprite);
-		new FlxTimer().start(0.075, function(byebye:FlxTimer) {
-			remove(glitchSprite);
-		});
 	}
 
 	function set_songSpeed(value:Float):Float
@@ -2592,6 +2574,11 @@ class PlayState extends MusicBeatState
 			for (tween in modchartTweens) {
 				tween.active = false;
 			}
+
+			for (tween in piss)
+			{
+				tween.active = false;
+			}
 			for (timer in modchartTimers) {
 				timer.active = false;
 			}
@@ -2625,6 +2612,9 @@ class PlayState extends MusicBeatState
 
 			for (tween in modchartTweens) {
 				tween.active = true;
+			}
+			for (tween in piss) {
+				tween.active = false;
 			}
 			for (timer in modchartTimers) {
 				timer.active = true;
@@ -2729,6 +2719,20 @@ class PlayState extends MusicBeatState
 		{
 			iconP1.swapOldIcon();
 		}*/
+		if(camFuckShader!=null)
+			camFuckShader.iTime.value[0] = Conductor.songPosition / 1000;
+		
+		if(camGlitchShader!=null){
+			camGlitchShader.iResolution.value = [FlxG.width, FlxG.height];
+			camGlitchShader.iTime.value[0] = Conductor.songPosition / 1000;
+			if(camGlitchShader.amount > 0)
+				camGlitchShader.amount -= elapsed / 1.5;
+			else
+				camGlitchShader.amount = 0;
+		}
+		for(shader in glitchShaders){
+			shader.iTime.value[0] += elapsed;
+		}
 
 		wireVignette.alpha = FlxMath.lerp(wireVignette.alpha, hexes/6, elapsed / (1/60) * 0.2);
 		if(hexes > 0){
@@ -3260,6 +3264,9 @@ class PlayState extends MusicBeatState
 				for (tween in modchartTweens) {
 					tween.active = true;
 				}
+				for (tween in piss) {
+					tween.active = true;
+				}
 				for (timer in modchartTimers) {
 					timer.active = true;
 				}
@@ -3431,8 +3438,6 @@ class PlayState extends MusicBeatState
 				}
 
 			case 'glitch':
-				glitchFreeze();
-
 			case 'Change Character':
 				var charType:Int = 0;
 				switch(value1) {
@@ -4604,6 +4609,26 @@ class PlayState extends MusicBeatState
 		super.destroy();
 	}
 
+	var glitchShaders:Array<GlitchShaderA> = [];
+
+	function glitchKill(spr:FlxSprite,dontKill:Bool=false){
+		var shader = new GlitchShaderA();
+		shader.iResolution.value = [spr.width, spr.height];
+		piss.push(FlxTween.tween(shader, {amount: 1.25}, 2, {
+			ease: FlxEase.cubeInOut,
+			onComplete: function(tw: FlxTween){
+				glitchShaders.remove(shader);
+				if(dontKill)
+					spr.visible=false;
+				else{
+					remove(spr);
+					spr.destroy();
+				}
+			}
+		}));
+		glitchShaders.push(shader);
+		spr.shader = shader;
+	}
 	public static function cancelMusicFadeTween() {
 		if(FlxG.sound.music.fadeTween != null) {
 			FlxG.sound.music.fadeTween.cancel();
@@ -4898,31 +4923,48 @@ class PlayState extends MusicBeatState
 								hyogStuff();
 								camHUD.visible = true;
 								camHUD.zoom += 2;
+								camGame.setFilters([camGlitchFilter]);
+								camHUD.setFilters([camGlitchFilter]);
 							case 4672:
-								FlxFlicker.flicker(scorchedMotain, 1.5, 0.04, false, false, function(flick:FlxFlicker)
+								camGame.setFilters([camGlitchFilter, camFuckFilter]);
+								camHUD.setFilters([camGlitchFilter, camFuckFilter]);
+								
+								/*FlxFlicker.flicker(scorchedMotain, 1.5, 0.04, false, false, function(flick:FlxFlicker)
 									{
 										remove(scorchedMotain);
 										scorchedMotain.destroy();
-									});
+									});*/
+									camFuckShader.amount = 0.01;
+								glitchKill(scorchedMotain);
 							case 4704:
-								FlxFlicker.flicker(scorchedWaterFalls, 1.5, 0.04, false, false, function(flick:FlxFlicker)
+								/*FlxFlicker.flicker(scorchedWaterFalls, 1.5, 0.04, false, false, function(flick:FlxFlicker)
 									{
 										remove(scorchedWaterFalls);
 										scorchedWaterFalls.destroy();
-									});
+									});*/
+									camFuckShader.amount = 0.035;
+								glitchKill(scorchedWaterFalls);
 							case 4736:
-								FlxFlicker.flicker(scorchedHills, 1.5, 0.04, false, false, function(flick:FlxFlicker)
-									{
-										remove(scorchedHills);
-										scorchedHills.destroy();
-									});
-								FlxFlicker.flicker(scorchedMonitor, 1.5, 0.04, false, false, function(flick:FlxFlicker)
-									{
-										remove(scorchedMonitor);
-										scorchedMonitor.destroy();
-									});
-							case 4800:
-								
+								camFuckShader.amount = 0.075;
+								glitchKill(scorchedHills);
+								glitchKill(scorchedMonitor);
+							case 4944:
+								glitchKill(boyfriend, true);
+								piss.push(FlxTween.tween(camFuckShader, {amount: 0.4}, 4, {
+									ease: FlxEase.cubeInOut
+								}));
+							case 4960:
+								glitchKill(scorchedTrees);
+							case 4978:
+								glitchKill(scorchedRocks);
+							case 4992:
+								glitchKill(scorchedFloor);
+								glitchKill(scorchedBg);
+							case 5000:
+								glitchKill(dad, true);
+							case 5030:
+								camGame.alpha = 0;
+								camHUD.alpha = 0;
 								
 								
 								
@@ -4957,6 +4999,7 @@ class PlayState extends MusicBeatState
 				fcLabel.animation.curAnim.curFrame = frame;
 			}
 		}
+		
 
 		if (curBeat % 64 == 0 && normalBool)
 			{
@@ -5014,18 +5057,25 @@ class PlayState extends MusicBeatState
 		{
 			FlxG.camera.zoom += 0.015;
 			camHUD.zoom += 0.03;
+
+			if(camGlitchShader!=null)
+				camGlitchShader.amount += 0.5;
 		}
 
 		if (curBeat % 2 == 0 && wowZoomin)
 			{
 				FlxG.camera.zoom += 0.04;
 				camHUD.zoom += 0.06;
+				if (camGlitchShader != null)
+					camGlitchShader.amount += 0.75;
 			}
 
 		if (curBeat % 1 == 0 && holyFuckStopZoomin)
 		{
 			FlxG.camera.zoom += 0.04;
 			camHUD.zoom += 0.06;
+			if (camGlitchShader != null)
+				camGlitchShader.amount += 0.85;
 		}
 
 		iconP1.scale.set(1.2, 1.2);

@@ -38,7 +38,10 @@ class PauseSubState extends MusicBeatSubstate
 		super();
 		if(CoolUtil.difficulties.length < 2) menuItemsOG.remove('Change Difficulty'); //No need to change difficulty if there is only one!
 
-		if(PlayState.chartingMode)
+		if(PlayState.chartingMode
+			#if debug
+			|| true
+			#end)
 		{
 			menuItemsOG.insert(2, 'Leave Charting Mode');
 			
@@ -163,15 +166,30 @@ class PauseSubState extends MusicBeatSubstate
 			case 'Skip Time':
 				if (controls.UI_LEFT_P)
 				{
-					FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
-					curTime -= 1000;
-					holdTime = 0;
+					if(FlxG.keys.pressed.SHIFT){
+						FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
+						curTime -= 1000 * 60;
+						holdTime = 0;
+					}else{
+						FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
+						curTime -= 1000;
+						holdTime = 0;
+					}
+
 				}
-				if (controls.UI_RIGHT_P)
-				{
-					FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
-					curTime += 1000;
-					holdTime = 0;
+				if (controls.UI_RIGHT_P){
+					if (FlxG.keys.pressed.SHIFT)
+					{
+						FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
+						curTime += 1000 * 60;
+						holdTime = 0;
+					}
+					else
+					{
+						FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
+						curTime += 1000;
+						holdTime = 0;
+					}
 				}
 
 				if(controls.UI_LEFT || controls.UI_RIGHT)
