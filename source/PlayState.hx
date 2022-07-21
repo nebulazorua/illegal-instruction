@@ -4923,11 +4923,16 @@ class PlayState extends MusicBeatState
 								hyogStuff();
 								camHUD.visible = true;
 								camHUD.zoom += 2;
-								camGame.setFilters([camGlitchFilter]);
-								camHUD.setFilters([camGlitchFilter]);
+								if(ClientPrefs.flashing){
+									camGame.setFilters([camGlitchFilter]);
+									camHUD.setFilters([camGlitchFilter]);
+								}
+
 							case 4672:
-								camGame.setFilters([camGlitchFilter, camFuckFilter]);
-								camHUD.setFilters([camGlitchFilter, camFuckFilter]);
+								if(ClientPrefs.flashing){
+									camGame.setFilters([camGlitchFilter, camFuckFilter]);
+									camHUD.setFilters([camGlitchFilter, camFuckFilter]);
+								}
 								
 								/*FlxFlicker.flicker(scorchedMotain, 1.5, 0.04, false, false, function(flick:FlxFlicker)
 									{
