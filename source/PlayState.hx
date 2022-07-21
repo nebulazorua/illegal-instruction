@@ -2725,10 +2725,9 @@ class PlayState extends MusicBeatState
 		if(camGlitchShader!=null){
 			camGlitchShader.iResolution.value = [FlxG.width, FlxG.height];
 			camGlitchShader.iTime.value[0] = Conductor.songPosition / 1000;
-			if(camGlitchShader.amount > 0)
-				camGlitchShader.amount -= elapsed / 1.5;
-			else
-				camGlitchShader.amount = 0;
+			if(camGlitchShader.amount>=1)camGlitchShader.amount=1;
+			camGlitchShader.amount = FlxMath.lerp(0, camGlitchShader.amount, CoolUtil.boundTo(1 - (elapsed * 3.125), 0, 1));
+			
 		}
 		for(shader in glitchShaders){
 			shader.iTime.value[0] += elapsed;
@@ -4402,20 +4401,26 @@ class PlayState extends MusicBeatState
 			{
 				char.playAnim(animToPlay, true);
 				char.holdTimer = 0;
+				switch (char.curCharacter.toLowerCase())
+				{
+					case 'normal':
+						if (soulGlassTime)
+						{
+							health -= 0.018;
+							if (health <= 0.01)
+							{
+								health = 0.01;
+							}
+						}
+				}
+
+				if(!note.isSustainNote){
+					if (camGlitchShader != null && char.curCharacter.startsWith('scorchedglitch'))
+						camGlitchShader.amount += 0.075;
+				}
 			}
 
-			switch (SONG.player2)
-			{
-				case 'Normal':
-					if (soulGlassTime)
-						{
-							health -= 0.018;	
-								if (health <= 0.01)
-								{
-									health = 0.01;
-								}
-						}
-			}
+
 		}
 
 		if (SONG.needsVoices)
@@ -5063,24 +5068,24 @@ class PlayState extends MusicBeatState
 			FlxG.camera.zoom += 0.015;
 			camHUD.zoom += 0.03;
 
-			if(camGlitchShader!=null)
-				camGlitchShader.amount += 0.5;
+			if(camGlitchShader!=null && dad.curCharacter.startsWith('scorchedglitch'))
+				camGlitchShader.amount += 0.2;
 		}
 
 		if (curBeat % 2 == 0 && wowZoomin)
 			{
 				FlxG.camera.zoom += 0.04;
 				camHUD.zoom += 0.06;
-				if (camGlitchShader != null)
-					camGlitchShader.amount += 0.75;
+				if (camGlitchShader != null && dad.curCharacter.startsWith('scorchedglitch'))
+					camGlitchShader.amount += 0.3;
 			}
 
 		if (curBeat % 1 == 0 && holyFuckStopZoomin)
 		{
 			FlxG.camera.zoom += 0.04;
 			camHUD.zoom += 0.06;
-			if (camGlitchShader != null)
-				camGlitchShader.amount += 0.85;
+			if (camGlitchShader != null && dad.curCharacter.startsWith('scorchedglitch'))
+				camGlitchShader.amount += 0.3;
 		}
 
 		iconP1.scale.set(1.2, 1.2);
