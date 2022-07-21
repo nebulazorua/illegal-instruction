@@ -21,6 +21,8 @@ import flixel.addons.effects.FlxTrailArea;
 import flixel.effects.FlxFlicker;
 import flixel.addons.effects.chainable.FlxEffectSprite;
 import flixel.addons.effects.chainable.FlxWaveEffect;
+import flixel.addons.effects.chainable.FlxGlitchEffect;
+import flixel.addons.plugin.screengrab.FlxScreenGrab;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.graphics.atlas.FlxAtlas;
 import flixel.graphics.frames.FlxAtlasFrames;
@@ -1002,6 +1004,8 @@ class PlayState extends MusicBeatState
 				@@B@@@@@@$$@@$@@@@@@$@@@@@@@@@@@@@@a$@$@@@@@$%z{$$@@@@$@@@$@@@@@@@@@@@@@@@B@@@@@@@@@@@$$@@@@@@B@@$$@@@@@@
 				cdXmbZvYM$$|O/0*cJYp#/cZ&U)vLma/)cZ1mfuL||XC(bW@$%d*bXOYQmo*o0u0kwawwtkwOLjLkk(whntzXo$@azk8qwwbcBU/fm&c/
 				WWMW8Mo#@$$#MoWBMooWB*aMB&#o#MB#oo*h&ooao*8&#8B$$BWWWoMa*W88&%WWWWW%%*&#%%**8%aMWo#Ma@$$BM8B&W88MB%WMM@8*
+
+				avery why is this here
 				**/
 			
 				defaultCamZoom = 0.68;
@@ -1790,6 +1794,40 @@ class PlayState extends MusicBeatState
 
 		Paths.clearUnusedMemory();
 		CustomFadeTransition.nextCamera = camOther;
+	}
+
+	function glitchFreeze()
+	{
+
+
+		var screencap:FlxSprite;
+		screencap = new FlxSprite(0, 0, FlxScreenGrab.grab().bitmapData);
+		screencap.cameras = [camHUD];
+
+		// var funnySprite:FlxSprite;
+		// funnySprite = new FlxSprite(0, 0);
+		// switch(FlxG.random.int(1, 4)){
+		// 	case 1:
+		// 		funnySprite = screencap;
+		// 	case 2:
+		// 		funnySprite = scorchedWaterFalls;
+		// 	case 3:
+		// 		funnySprite = scorchedHills;
+		// 	case 4:
+		// 		funnySprite = scorchedFloor;
+		// }
+		//this sucks so i commented it
+
+		var glitchEffect = new FlxGlitchEffect(30,8,0.4,FlxGlitchDirection.HORIZONTAL);
+		var glitchSprite = new FlxEffectSprite(screencap, [glitchEffect]);
+		glitchSprite.scrollFactor.set(0,0);
+		glitchSprite.cameras = [camHUD];
+		glitchSprite.width = FlxG.width;
+		glitchSprite.height = FlxG.height;
+		add(glitchSprite);
+		new FlxTimer().start(0.075, function(byebye:FlxTimer) {
+			remove(glitchSprite);
+		});
 	}
 
 	function set_songSpeed(value:Float):Float
@@ -3392,6 +3430,8 @@ class PlayState extends MusicBeatState
 					}
 				}
 
+			case 'glitch':
+				glitchFreeze();
 
 			case 'Change Character':
 				var charType:Int = 0;
