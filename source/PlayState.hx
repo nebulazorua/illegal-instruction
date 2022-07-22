@@ -391,6 +391,7 @@ class PlayState extends MusicBeatState
 	var scorchedTrees:BGSprite;
 	var scorchedRocks:BGSprite;
 
+	var scoreRandom:Bool = false;
 
 	override public function create()
 	{
@@ -1072,13 +1073,11 @@ class PlayState extends MusicBeatState
 						camFuckFilter = new ShaderFilter(camFuckShader);
 
 						staticlol = new StaticShader();
-						camHUD.setFilters([new ShaderFilter(staticlol)]);
 						camGame.setFilters([new ShaderFilter(staticlol)]);
 						staticlol.iTime.value = [0];
 						staticlol.iResolution.value = [FlxG.width, FlxG.height];
 						staticlol.alpha.value = [staticAlpha];
-						camHUD.filtersEnabled = true;
-						camGame.filtersEnabled = true;
+						camGame.filtersEnabled = false;
 
 						scorchedBg = new BGSprite('hog/blast/Sunset', -200, 0, 1.1, 0.9);
 						scorchedBg.scale.x = 1.75;
@@ -1827,12 +1826,11 @@ class PlayState extends MusicBeatState
 
 	function glitchFreeze()
 	{
-
-
 		var screencap:FlxSprite;
 		screencap = new FlxSprite(0, 0, FlxScreenGrab.grab().bitmapData);
+		FlxScreenGrab.defineCaptureRegion(0, 0, Std.int(FlxG.width / 2), Std.int(FlxG.height));
 		screencap.cameras = [camHUD];
-
+		scoreRandom = true;
 		switch(FlxG.random.int(1, 2)){
 			case 1:
 				var glitchEffect = new FlxGlitchEffect(30,8,0.4,FlxGlitchDirection.HORIZONTAL);
@@ -1842,18 +1840,48 @@ class PlayState extends MusicBeatState
 				glitchSprite.width = FlxG.width;
 				glitchSprite.height = FlxG.height;
 				add(glitchSprite);
-				new FlxTimer().start(0.2, function(byebye:FlxTimer) {
-					remove(glitchSprite);
-				});
+					new FlxTimer().start(0.2, function(byebye:FlxTimer) {
+						remove(glitchSprite);
+					});
 			case 2:
-				camHUD.filtersEnabled = true;
 				camGame.filtersEnabled = true;
 				new FlxTimer().start(0.45, function(byebye:FlxTimer) {
-					camHUD.filtersEnabled = false;
 					camGame.filtersEnabled = false;
 				});
 		}
-	}
+		// this is all commented for now
+		// switch(FlxG.random.int(1, 8)){
+		// 	case 1:
+		// 		iconP1.changeIcon('dad');
+		// 		iconP2.changeIcon('normal');
+		// 	case 2:
+		// 		iconP1.changeIcon('bf-chaotix');
+		// 		iconP2.changeIcon('curse-pissbaby');
+		// 	case 3:
+		// 		iconP1.changeIcon('duke');
+		// 		iconP2.changeIcon('gf');
+		// 	case 4:
+		// 		iconP1.changeIcon('hog');
+		// 		iconP2.changeIcon('metal');
+		// 	case 5:
+		// 		iconP1.changeIcon('amy');
+		// 		iconP2.changeIcon('chaotix-beast-pixel');
+		// 	case 6:
+		// 		iconP1.changeIcon('scorched');
+		// 		iconP2.changeIcon('dad');
+		// 	case 7:
+		// 		iconP1.changeIcon('normal');
+		// 		iconP2.changeIcon('chaotix-pixel');
+		// 	case 8:
+		// 		iconP1.changeIcon('duo');
+		// 		iconP2.changeIcon('amy');
+		// 	}
+		// 	new FlxTimer().start(0.85, function(byebye:FlxTimer) {
+		// 		iconP1.changeIcon(boyfriend.healthIcon);
+		// 		iconP2.changeIcon(dad.healthIcon);
+		// 		reloadHealthBarColors();
+		// 	});
+	}	
 
 	function set_songSpeed(value:Float):Float
 	{
@@ -2869,12 +2897,28 @@ class PlayState extends MusicBeatState
 		}
 
 		super.update(elapsed);
-
 		if(ratingName == '?') {
 			scoreTxt.text = 'Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingName;
 		} else {
 			scoreTxt.text = 'Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingName + ' (' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%)' + ' - ' + ratingFC;//peeps wanted no integer rating
 		}
+		new FlxTimer().start(0.2, function(byebye:FlxTimer) {
+		if(scoreRandom){
+			switch(FlxG.random.int(1, 6)) {
+				case 1:
+					scoreTxt.text = 'sC0r3: ' + songScore + ' | m11ses: ' + songMisses + ' | R4t3ng: ' + ratingName + ' (' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%)' + ' - ' + ratingFC;//peeps wanted no integer rating
+				case 2:
+					scoreTxt.text = 'mIsees: ' + songScore + ' | raITNtg: ' + songMisses + ' | socRec: ' + ratingName + ' (' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%)' + ' - ' + ratingFC;//peeps wanted no integer rating
+				case 3:
+					scoreTxt.text = 'Ra11utNg: ' + songScore + ' | scIrh4: ' + songMisses + ' | Moosiies: ' + ratingName + ' (' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%)' + ' - ' + ratingFC;//peeps wanted no integer rating
+				case 4:
+					scoreTxt.text = '342hj1: ' + songScore + ' | 5436yu: ' + songMisses + ' | 876rygu: ' + ratingName + ' (' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%)' + ' - ' + ratingFC;//peeps wanted no integer rating
+				case 5:
+					scoreTxt.text = 'agehjk3: ' + songScore + ' | 4uihja: ' + songMisses + ' | 8ubnmb1: ' + ratingName + ' (' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%)' + ' - ' + ratingFC;//peeps wanted no integer rating
+				case 6:
+					scoreTxt.text = '4276uihj: ' + songScore + ' | a7d5h: ' + songMisses + ' | z7dyguhj: ' + ratingName + ' (' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%)' + ' - ' + ratingFC;//peeps wanted no integer rating
+			}
+		}});
 
 		if(botplayTxt.visible) {
 			botplaySine += 180 * elapsed;
@@ -3469,6 +3513,7 @@ class PlayState extends MusicBeatState
 				}
 
 			case 'glitch':
+				glitchFreeze();
 			case 'Change Character':
 				var charType:Int = 0;
 				switch(value1) {
