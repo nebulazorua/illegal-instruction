@@ -2738,24 +2738,6 @@ class PlayState extends MusicBeatState
 	var canPause:Bool = true;
 	var lastSection:Int = 0;
 
-	public function getXPosition(diff:Float, direction:Int, player:Int):Float
-		{
-			var x:Float = (FlxG.width / 2) - Note.swagWidth - 54 + Note.swagWidth * direction;
-			if (!ClientPrefs.middleScroll)
-			{
-				switch (player)
-				{
-					case 0:
-						x += FlxG.width / 2 - Note.swagWidth * 2 - 100;
-					case 1:
-						x -= FlxG.width / 2 - Note.swagWidth * 2 - 100;
-				}
-			}
-			x -= 56;
-
-			return x;
-		}
-
 	override public function update(elapsed:Float)
 	{
 		/*if (FlxG.keys.justPressed.NINE)
@@ -2769,8 +2751,10 @@ class PlayState extends MusicBeatState
 			camGlitchShader.iResolution.value = [FlxG.width, FlxG.height];
 			camGlitchShader.iTime.value[0] = Conductor.songPosition / 1000;
 			if(camGlitchShader.amount>=1)camGlitchShader.amount=1;
-			camGlitchShader.amount = FlxMath.lerp(0, camGlitchShader.amount, CoolUtil.boundTo(1 - (elapsed * 3.125), 0, 1));
-			
+			if(dad.curCharacter.startsWith("scorchedglitch"))
+				camGlitchShader.amount = FlxMath.lerp(0.1, camGlitchShader.amount, CoolUtil.boundTo(1 - (elapsed * 3.125), 0, 1));
+			else
+				camGlitchShader.amount = FlxMath.lerp(0, camGlitchShader.amount, CoolUtil.boundTo(1 - (elapsed * 3.125), 0, 1));
 		}
 		for(shader in glitchShaders){
 			shader.iTime.value[0] += elapsed;
@@ -5008,7 +4992,7 @@ class PlayState extends MusicBeatState
 								glitchKill(scorchedMonitor);
 							case 4944:
 								glitchKill(boyfriend, true);
-								piss.push(FlxTween.tween(camFuckShader, {amount: 0.4}, 4, {
+								piss.push(FlxTween.tween(camFuckShader, {amount: 0.3}, 4, {
 									ease: FlxEase.cubeInOut
 								}));
 							case 4960:
