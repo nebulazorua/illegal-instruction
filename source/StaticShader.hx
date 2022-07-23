@@ -19,6 +19,7 @@ class StaticShader extends FlxShader // https://www.shadertoy.com/view/ldjGzV an
   uniform bool distortionOn;
   uniform bool scanlinesOn;
   uniform bool vignetteMoving;
+  uniform bool enabled;
   uniform sampler2D noiseTex;
   uniform float glitchModifier;
   uniform vec3 iResolution;
@@ -105,44 +106,48 @@ class StaticShader extends FlxShader // https://www.shadertoy.com/view/ldjGzV an
 
   void main()
   {
-
     vec2 uv =  openfl_TextureCoordv.xy;
 
-    float jerkOffset = (1.0-step(snoise(vec2(iTime*1.3,5.0)),0.8))*0.05;
+    if(!enabled){
+      gl_FragColor = flixel_texture2D(bitmap, uv);
+      }else{
 
-    float fuzzOffset = snoise(vec2(iTime*15.0,uv.y*80.0))*0.003;
-    float largeFuzzOffset = snoise(vec2(iTime*1.0,uv.y*25.0))*0.004;
+float jerkOffset = (1.0-step(snoise(vec2(iTime*1.3,5.0)),0.8))*0.05;
 
-      float vertMovementOn = (1.0-step(snoise(vec2(iTime*0.2,8.0)),0.4))*vertMovementOpt;
-      float vertJerk = (1.0-step(snoise(vec2(iTime*1.5,5.0)),0.6))*vertJerkOpt;
-      float vertJerk2 = (1.0-step(snoise(vec2(iTime*5.5,5.0)),0.2))*vertJerkOpt;
-      float yOffset = abs(sin(iTime)*4.0)*vertMovementOn+vertJerk*vertJerk2*0.3;
-      float y = mod(uv.y+yOffset,1.0);
+float fuzzOffset = snoise(vec2(iTime*15.0,uv.y*80.0))*0.003;
+float largeFuzzOffset = snoise(vec2(iTime*1.0,uv.y*25.0))*0.004;
+
+  float vertMovementOn = (1.0-step(snoise(vec2(iTime*0.2,8.0)),0.4))*vertMovementOpt;
+  float vertJerk = (1.0-step(snoise(vec2(iTime*1.5,5.0)),0.6))*vertJerkOpt;
+  float vertJerk2 = (1.0-step(snoise(vec2(iTime*5.5,5.0)),0.2))*vertJerkOpt;
+  float yOffset = abs(sin(iTime)*4.0)*vertMovementOn+vertJerk*vertJerk2*0.3;
+  float y = mod(uv.y+yOffset,1.0);
 
 
-    float xOffset = (fuzzOffset + largeFuzzOffset) * horzFuzzOpt;
+float xOffset = (fuzzOffset + largeFuzzOffset) * horzFuzzOpt;
 
-      float staticVal = 0.0;
+  float staticVal = 0.0;
 
-      for (float y = -1.0; y <= 1.0; y += 1.0) {
-          float maxDist = 5.0/200.0;
-          float dist = y/200.0;
-        staticVal += staticV(vec2(uv.x,uv.y+dist))*(maxDist-abs(dist))*1.5;
-      }
-
-      staticVal *= bottomStaticOpt;
-
-    float red 	=   flixel_texture2D(	bitmap, 	vec2(uv.x + xOffset -0.01*rgbOffsetOpt,y)).r+staticVal;
-    float green = 	flixel_texture2D(	bitmap, 	vec2(uv.x + xOffset,	  y)).g+staticVal;
-    float blue 	=	flixel_texture2D(	bitmap, 	vec2(uv.x + xOffset +0.01*rgbOffsetOpt,y)).b+staticVal;
-
-    vec3 color = vec3(red,green,blue);
-    float scanline = sin(uv.y*800.0)*0.04*scalinesOpt;
-    color -= scanline;
-
-    vec4 baseColor = flixel_texture2D(bitmap,uv);
-    gl_FragColor = mix(vec4(color,1.0), baseColor, alpha) * baseColor.a;
+  for (float y = -1.0; y <= 1.0; y += 1.0) {
+      float maxDist = 5.0/200.0;
+      float dist = y/200.0;
+    staticVal += staticV(vec2(uv.x,uv.y+dist))*(maxDist-abs(dist))*1.5;
   }
+
+  staticVal *= bottomStaticOpt;
+
+float red 	=   flixel_texture2D(	bitmap, 	vec2(uv.x + xOffset -0.01*rgbOffsetOpt,y)).r+staticVal;
+float green = 	flixel_texture2D(	bitmap, 	vec2(uv.x + xOffset,	  y)).g+staticVal;
+float blue 	=	flixel_texture2D(	bitmap, 	vec2(uv.x + xOffset +0.01*rgbOffsetOpt,y)).b+staticVal;
+
+vec3 color = vec3(red,green,blue);
+float scanline = sin(uv.y*800.0)*0.04*scalinesOpt;
+color -= scanline;
+
+vec4 baseColor = flixel_texture2D(bitmap,uv);
+gl_FragColor = mix(vec4(color,1.0), baseColor, alpha) * baseColor.a;
+}
+}
 
 
     ')

@@ -371,6 +371,7 @@ class PlayState extends MusicBeatState
 
 	//hjog shit dlskafj;lsa
 	var staticlol:StaticShader;
+	var staticOverlay:ShaderFilter;
 	private var staticAlpha:Float = 1;
 
 	var hogBg:BGSprite;
@@ -1073,11 +1074,12 @@ class PlayState extends MusicBeatState
 						camFuckFilter = new ShaderFilter(camFuckShader);
 
 						staticlol = new StaticShader();
-						camGame.setFilters([new ShaderFilter(staticlol)]);
+						staticOverlay = new ShaderFilter(staticlol);
+						// camGame.setFilters([new ShaderFilter(staticlol)]);
 						staticlol.iTime.value = [0];
 						staticlol.iResolution.value = [FlxG.width, FlxG.height];
 						staticlol.alpha.value = [staticAlpha];
-						camGame.filtersEnabled = false;
+						staticlol.enabled.value = [false];
 
 						scorchedBg = new BGSprite('hog/blast/Sunset', -200, 0, 1.1, 0.9);
 						scorchedBg.scale.x = 1.75;
@@ -1826,29 +1828,11 @@ class PlayState extends MusicBeatState
 
 	function glitchFreeze()
 	{
-		var screencap:FlxSprite;
-		screencap = new FlxSprite(0, 0, FlxScreenGrab.grab().bitmapData);
-		FlxScreenGrab.defineCaptureRegion(0, 0, Std.int(FlxG.width / 2), Std.int(FlxG.height));
-		screencap.cameras = [camHUD];
-		scoreRandom = true;
-		switch(FlxG.random.int(1, 2)){
-			case 1:
-				var glitchEffect = new FlxGlitchEffect(30,8,0.4,FlxGlitchDirection.HORIZONTAL);
-				var glitchSprite = new FlxEffectSprite(screencap, [glitchEffect]);
-				glitchSprite.scrollFactor.set(0,0);
-				glitchSprite.cameras = [camHUD];
-				glitchSprite.width = FlxG.width;
-				glitchSprite.height = FlxG.height;
-				add(glitchSprite);
-					new FlxTimer().start(0.2, function(byebye:FlxTimer) {
-						remove(glitchSprite);
-					});
-			case 2:
-				camGame.filtersEnabled = true;
+
+			staticlol.enabled.value = [true];
 				new FlxTimer().start(0.45, function(byebye:FlxTimer) {
-					camGame.filtersEnabled = false;
+					staticlol.enabled.value = [false];
 				});
-		}
 		// this is all commented for now
 		// switch(FlxG.random.int(1, 8)){
 		// 	case 1:
@@ -2772,6 +2756,11 @@ class PlayState extends MusicBeatState
 		{
 			iconP1.swapOldIcon();
 		}*/
+		if(staticlol!=null){
+			staticlol.iTime.value[0] = Conductor.songPosition / 1000;
+			staticlol.alpha.value = [staticAlpha];
+		}
+
 		if(camFuckShader!=null)
 			camFuckShader.iTime.value[0] = Conductor.songPosition / 1000;
 		
@@ -2889,11 +2878,6 @@ class PlayState extends MusicBeatState
 			} else {
 				boyfriendIdleTime = 0;
 			}
-		}
-
-		if(staticlol!=null){
-			staticlol.iTime.value[0] = Conductor.songPosition / 1000;
-			staticlol.alpha.value = [staticAlpha];
 		}
 
 		super.update(elapsed);
@@ -5006,13 +4990,13 @@ class PlayState extends MusicBeatState
 								camHUD.visible = true;
 								camHUD.zoom += 2;
 								if(ClientPrefs.flashing){
-									camGame.setFilters([camGlitchFilter]);
+									camGame.setFilters([camGlitchFilter, staticOverlay]);
 									camHUD.setFilters([camGlitchFilter]);
 								}
 
 							case 4672:
 								if(ClientPrefs.flashing){
-									camGame.setFilters([camGlitchFilter, camFuckFilter]);
+									camGame.setFilters([camGlitchFilter, camFuckFilter, staticOverlay]);
 									camHUD.setFilters([camGlitchFilter, camFuckFilter]);
 								}
 								
