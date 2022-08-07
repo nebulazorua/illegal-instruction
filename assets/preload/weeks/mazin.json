@@ -1,0 +1,32 @@
+{
+	"songs": [
+		[
+			"endless",
+			"mazin",
+			[
+				0,
+				0,
+				93
+			]
+		]
+	],
+	"hiddenUntilUnlocked": false,
+	"hideFreeplay": false,
+	"weekBackground": "majin",
+	"difficulties": "",
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"storyName": "Endless Desires!",
+	"weekName": "mazin",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"hideStoryMode": true,
+	"weekBefore": "tutorial",
+	"startUnlocked": true
+}

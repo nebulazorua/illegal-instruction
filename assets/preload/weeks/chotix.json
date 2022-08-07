@@ -14,7 +14,7 @@
 	"hideFreeplay": false,
 	"weekBackground": "stage",
 	"weekCharacters": [
-		"chaotix",
+		"chotix",
 		"bf",
 		"gf"
 	],
@@ -25,7 +25,7 @@
 		113,
 		115
 	],
-	"hideStoryMode": true,
+	"hideStoryMode": false,
 	"weekBefore": "tutorial",
 	"startUnlocked": true
 }

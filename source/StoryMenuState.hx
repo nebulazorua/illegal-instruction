@@ -29,7 +29,8 @@ class StoryMenuState extends MusicBeatState
 		"chaotix",
 		"normal",
 		"curse",
-		"hog"
+		"hog",
+		"chotix"
 	];
 	var scoreText:FlxText;
 
@@ -137,7 +138,7 @@ class StoryMenuState extends MusicBeatState
 				var char = weekFile.weekCharacters[0];
 				var animChar = char.substring(0, 1).toUpperCase() + char.substr(1);
 				weekThing.frames = Paths.getSparrowAtlas('scenarioMenu/characters/${char.toLowerCase()}_menu');
-				weekThing.animation.addByPrefix("idle", animChar + " menu", 12, true);
+				weekThing.animation.addByPrefix("idle", animChar + " menu", 16, true);
 					if (char == 'hog')
 						{
 							weekThing.animation.addByPrefix("transform", animChar + " Transform", 48, true);

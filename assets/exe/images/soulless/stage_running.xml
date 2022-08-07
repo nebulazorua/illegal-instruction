@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="stage_running.png">
+	<!-- Created with Adobe Animate version 22.0.0.93 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="stage0000" x="0" y="0" width="564" height="348"/>
+	<SubTexture name="stage0001" x="564" y="0" width="564" height="348"/>
+	<SubTexture name="stage0002" x="1128" y="0" width="564" height="348"/>
+	<SubTexture name="stage0003" x="1692" y="0" width="564" height="348"/>
+	<SubTexture name="stage0004" x="2256" y="0" width="564" height="348"/>
+	<SubTexture name="stage0005" x="2820" y="0" width="564" height="348"/>
+	<SubTexture name="stage0006" x="3384" y="0" width="564" height="348"/>
+	<SubTexture name="stage0007" x="0" y="348" width="564" height="348"/>
+	<SubTexture name="stage0008" x="564" y="348" width="564" height="348"/>
+	<SubTexture name="stage0009" x="1128" y="348" width="564" height="348"/>
+	<SubTexture name="stage0010" x="1692" y="348" width="564" height="348"/>
+	<SubTexture name="stage0011" x="2256" y="348" width="564" height="348"/>
+	<SubTexture name="stage0012" x="2820" y="348" width="564" height="348"/>
+	<SubTexture name="stage0013" x="3384" y="348" width="564" height="348"/>
+	<SubTexture name="stage0014" x="0" y="696" width="564" height="348"/>
+	<SubTexture name="stage0015" x="564" y="696" width="564" height="348"/>
+	<SubTexture name="stage0016" x="1128" y="696" width="564" height="348"/>
+	<SubTexture name="stage0017" x="1692" y="696" width="564" height="348"/>
+	<SubTexture name="stage0018" x="2256" y="696" width="564" height="348"/>
+	<SubTexture name="stage0019" x="2820" y="696" width="564" height="348"/>
+	<SubTexture name="stage0020" x="3384" y="696" width="564" height="348"/>
+	<SubTexture name="stage0021" x="0" y="1044" width="564" height="348"/>
+	<SubTexture name="stage0022" x="564" y="1044" width="564" height="348"/>
+</TextureAtlas>

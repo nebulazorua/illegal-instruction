@@ -265,7 +265,7 @@ class PlayState extends MusicBeatState
 	var hudStyle:Map<String, String> = [
 		"my-horizon" => "chaotix",
 		"our-horizon" => "chaotix",
-		"long sky" => "chotix"
+		"long-sky" => "chotix"
 	];
 	// for the time counter
 	var hudMinute:SonicNumber;
@@ -292,6 +292,13 @@ class PlayState extends MusicBeatState
 	var entranceClock:FlxSprite;
 	var entranceFloor:FlxSprite;
 	var entrancePointers:FlxSprite;
+	//soulless endevors (ee oo ayy eh)
+	var soulBg:FlxSprite;
+	var soulFog:FlxSprite;
+	var soulGround:FlxSprite;
+	var soulSpirits:FlxSprite;
+	var soulPixelBg:FlxSprite;
+	var soulPixelBgBg:FlxSprite;
 
 	// horizon
 	var fucklesBGPixel:FlxSprite;
@@ -574,6 +581,54 @@ class PlayState extends MusicBeatState
 				entrancePointers.scale.set(1.2, 1.2);
 				entrancePointers.antialiasing = true;
 				add(entrancePointers);
+
+			case 'soulless':
+				defaultCamZoom = 0.75;
+				isPixelHUD = false;
+
+				soulBg = new FlxSprite(-300, 0);
+				soulBg.loadGraphic(Paths.image('soulless/bg', 'exe'));
+				soulBg.scrollFactor.set(0.9, 1);
+				soulBg.scale.set(1.4, 1.4);
+				soulBg.antialiasing = true;
+				add(soulBg);
+
+				soulFog = new FlxSprite(-300, -100);
+				soulFog.loadGraphic(Paths.image('soulless/fog', 'exe'));
+				soulFog.scrollFactor.set(0.9, 1);
+				soulFog.scale.set(1.2, 1.2);
+				soulFog.antialiasing = true;
+				add(soulFog);
+
+				soulGround = new FlxSprite(-200, 150);
+				soulGround.loadGraphic(Paths.image('soulless/ground', 'exe'));
+				soulGround.scrollFactor.set(1, 1);
+				soulGround.scale.set(1.3, 1.3);
+				soulGround.antialiasing = true;
+				add(soulGround);
+
+				//the actual bg
+				soulPixelBgBg = new FlxSprite(300, 150);
+				soulPixelBgBg.loadGraphic(Paths.image('soulless/pixelbg', 'exe'));
+				soulPixelBgBg.scrollFactor.set(1, 1);
+				soulPixelBgBg.antialiasing = false;
+				soulPixelBgBg.scale.set(4, 4);
+				soulPixelBgBg.visible = false;
+				add(soulPixelBgBg);
+
+				//THE FUNNY!!! THE FU
+				soulPixelBg = new FlxSprite(300, 150);
+				soulPixelBg.frames = Paths.getSparrowAtlas('soulless/stage_running', 'exe');
+				soulPixelBg.animation.addByPrefix('idle', 'stage', 24, true);
+				soulPixelBg.animation.play('idle');
+				soulPixelBg.scrollFactor.set(1, 1);
+				soulPixelBg.antialiasing = false;
+				soulPixelBg.scale.set(4, 4);
+				soulPixelBg.visible = false;
+				add(soulPixelBg);
+
+
+
 
 			case 'horizon':
 
@@ -1289,6 +1344,21 @@ class PlayState extends MusicBeatState
 				theStatic.screenCenter();
 				theStatic.alpha = 0;
 				add(theStatic);
+			case 'soulless':
+				gfGroup.visible = false;
+				dad.x -= 60;
+				boyfriend.x += 100;
+
+				theStatic = new FlxSprite(0, 0);
+				theStatic.frames = Paths.getSparrowAtlas('staticc', 'exe');
+				theStatic.animation.addByPrefix('stat', "staticc", 24, true);
+				theStatic.animation.play('stat');
+				theStatic.cameras = [camOther];
+				theStatic.setGraphicSize(FlxG.width, FlxG.height);
+				theStatic.screenCenter();
+				theStatic.visible = false;
+				add(theStatic);
+
 
 			case 'horizon':
 				boyfriend.y += 68;
@@ -4748,7 +4818,7 @@ class PlayState extends MusicBeatState
 							theStatic.visible = true;	
 							FlxTween.tween(theStatic, {alpha: 0.9}, 1.5, {ease: FlxEase.quadInOut});
 						case 569, 826:
-							FlxFlicker.flicker(theStatic, 0.5, 0.02, true, false);
+							FlxFlicker.flicker(theStatic, 0.5, 0.02, false, false);
 							new FlxTimer().start(0.5, function(tmr:FlxTimer) 
 								{				
 									theStatic.visible = false;		
@@ -4770,6 +4840,37 @@ class PlayState extends MusicBeatState
 							FlxTween.tween(camHUD, {alpha: 0}, 3, {ease: FlxEase.cubeInOut});
 					}
 				}
+
+				if (SONG.song.toLowerCase() == 'soulless-endevors')
+					{
+						switch (curStep)
+						{
+							case 526:
+								theStatic.visible = true;
+							case 528:
+								soulFog.visible = false;
+								soulBg.visible = false;
+								soulGround.visible = false;
+								soulPixelBgBg.visible = true;
+								soulPixelBg.visible = true;
+								theStatic.visible = false;
+								isPixelStage = true;
+								reloadTheNotesPls();
+							case 783:
+								theStatic.visible = true;
+							case 784:
+								soulFog.visible = true;
+								soulBg.visible = true;
+								soulGround.visible = true;
+								soulPixelBgBg.visible = false;
+								soulPixelBg.visible = false;
+								boyfriend.x += 100;
+								isPixelStage = false;
+								reloadTheNotesPls();
+							case 787:
+								theStatic.visible = false;
+						}
+					}
 
 		if (SONG.song.toLowerCase() == 'my-horizon')
 			{
@@ -5345,6 +5446,23 @@ class PlayState extends MusicBeatState
 				spr.x += 10000;
 			});
 		}
+
+		function reloadTheNotesPls()
+			{
+				playerStrums.forEach(function(spr:StrumNote)
+					{
+						spr.reloadNote();
+					});
+				opponentStrums.forEach(function(spr:StrumNote)
+					{
+						spr.reloadNote();
+					});
+				notes.forEach(function(spr:Note)
+					{
+						spr.reloadNote();
+					});
+
+			}
 
 		function removeShit(fuck:Int)
 			{
