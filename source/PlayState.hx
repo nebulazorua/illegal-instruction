@@ -1812,7 +1812,7 @@ class PlayState extends MusicBeatState
 	
 		switch (daSong)
 			{
-				case 'my-horizon' | 'our-horizon' | 'breakout' | 'malediction' | 'long-sky':
+				case  'breakout' | 'soulless-endeavors' | 'my-horizon' | 'our-horizon' | 'malediction' | 'long-sky':
 					add(blackFuck);
 					startCircle.loadGraphic(Paths.image('openings/' + daSong + '_title_card', 'exe'));
 					startCircle.frames = Paths.getSparrowAtlas('openings/' + daSong + '_title_card', 'exe');
@@ -4841,7 +4841,7 @@ class PlayState extends MusicBeatState
 					}
 				}
 
-				if (SONG.song.toLowerCase() == 'soulless-endevors')
+				if (SONG.song.toLowerCase() == 'soulless-endeavors')
 					{
 						switch (curStep)
 						{
