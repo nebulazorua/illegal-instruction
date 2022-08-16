@@ -27,5 +27,5 @@
 	],
 	"hideStoryMode": false,
 	"weekBefore": "tutorial",
-	"startUnlocked": true
+	"startUnlocked": false
 }

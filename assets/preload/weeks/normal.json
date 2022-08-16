@@ -17,7 +17,7 @@
 	"storyName": "Normal CD",
 	"weekBefore": "chaotix",
 	"weekName": "Normal CD",
-	"startUnlocked": true,
+	"startUnlocked": false,
 
 	"hideStoryMode": false,
 	"hideFreeplay": false
