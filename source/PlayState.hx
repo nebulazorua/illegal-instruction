@@ -401,6 +401,20 @@ class PlayState extends MusicBeatState
 	var scorchedTrees:BGSprite;
 	var scorchedRocks:BGSprite;
 
+	//mazin (THE FUN IS INFINITE)
+
+	var mazinBg:BGSprite;
+	var mazinTrees:BGSprite;
+	var mazinPlatform:BGSprite;
+	var mazinPlatformBushes:BGSprite;
+	var mazinLeftPlatform:BGSprite;
+	var mazinRightPlatform:BGSprite;
+	var mazinBushes:BGSprite;
+	var mazinOverlay:BGSprite;
+
+	var funIsInfinite:Bool = false;
+	var funIsForever:Bool = false;
+
 	var scoreRandom:Bool = false;
 
 	override public function create()
@@ -601,6 +615,16 @@ class PlayState extends MusicBeatState
 				soulFog.scale.set(1.2, 1.2);
 				soulFog.antialiasing = true;
 				add(soulFog);
+
+				soulSpirits = new FlxSprite(-200, -150);
+				soulSpirits.frames = Paths.getSparrowAtlas('soulless/Spirits', 'exe');
+				soulSpirits.animation.addByPrefix('idle', 'SpiritWavingthing', 24, true);
+				soulSpirits.animation.play('idle');
+				soulSpirits.scrollFactor.set(0.9, 1);
+				soulSpirits.scale.set(1.2, 1.2);
+				soulSpirits.antialiasing = true;
+				soulSpirits.visible = false;
+				add(soulSpirits);
 
 				soulGround = new FlxSprite(-200, 150);
 				soulGround.loadGraphic(Paths.image('soulless/ground', 'exe'));
@@ -1200,6 +1224,44 @@ class PlayState extends MusicBeatState
 						scorchedRocks.visible = false;
 
 					}
+			
+			case 'infinity':
+				defaultCamZoom = 0.6;
+
+				mazinBg = new BGSprite('mazin/infinitefun', -600, -120, 1, 0.9);
+				mazinBg.scale.x = 1.75;
+				mazinBg.scale.y = 1.75;
+				mazinBg.antialiasing = false;
+                add(mazinBg);
+
+				mazinTrees = new BGSprite('mazin/trees', -600, -120, 1, 0.9);
+				mazinTrees.scale.x = 1.75;
+				mazinTrees.scale.y = 1.75;
+                add(mazinTrees);
+
+				mazinBushes = new BGSprite('mazin/bushes', -600, -120, 1, 0.9);
+				mazinBushes.scale.x = 1.75;
+				mazinBushes.scale.y = 1.75;
+                add(mazinBushes);
+
+				mazinPlatform = new BGSprite('mazin/centermotain', -500, -120, 1, 0.9);
+				mazinPlatform.scale.x = 1.75;
+				mazinPlatform.scale.y = 1.75;
+                add(mazinPlatform);
+					
+				mazinRightPlatform = new BGSprite('mazin/rightmotain', -400, -50, 1.1, 0.9);
+				mazinRightPlatform.scale.x = 1.45;
+				mazinRightPlatform.scale.y = 1.45;
+                add(mazinRightPlatform);
+
+				mazinLeftPlatform = new BGSprite('mazin/leftmotain', -700, -50, 1.1, 0.9);
+				mazinLeftPlatform.scale.x = 1.45;
+				mazinLeftPlatform.scale.y = 1.45;
+				add(mazinLeftPlatform);
+
+				mazinOverlay = new BGSprite('mazin/overlaybush', -600, -120, 1, 0.9);
+				mazinOverlay.scale.x = 1.75;
+				mazinOverlay.scale.y = 1.75;
 
 			default: //lol
 				var bg:BGSprite = new BGSprite('stageback', -600, -200, 0.9, 0.9);
@@ -1367,7 +1429,6 @@ class PlayState extends MusicBeatState
 				theStatic.visible = false;
 				add(theStatic);
 
-
 			case 'horizon':
 				boyfriend.y += 68;
 				gf.x += 375;
@@ -1401,6 +1462,15 @@ class PlayState extends MusicBeatState
 						add(scorchedRocks);
 					}
 				hogOverlay.blend = LIGHTEN;
+
+			case 'infinity':
+			add(mazinOverlay);
+			boyfriend.x -= 140;
+			boyfriend.y -= 175;
+			dad.x -= 70;
+			dad.y -= 175;
+
+			gfGroup.visible = false;
 		}
 
 		var file:String = Paths.json(songName + '/dialogue'); //Checks for json/Psych Engine dialogue
@@ -1820,7 +1890,7 @@ class PlayState extends MusicBeatState
 	
 		switch (daSong)
 			{
-				case 'my-horizon' | 'our-horizon' | 'breakout' | 'malediction' | 'long-sky':
+				case  'breakout' | 'soulless-endeavors' | 'my-horizon' | 'our-horizon' | 'malediction' | 'long-sky':
 					add(blackFuck);
 					startCircle.loadGraphic(Paths.image('openings/' + daSong + '_title_card', 'exe'));
 					startCircle.frames = Paths.getSparrowAtlas('openings/' + daSong + '_title_card', 'exe');
@@ -4861,13 +4931,14 @@ class PlayState extends MusicBeatState
 					}
 				}
 
-				if (SONG.song.toLowerCase() == 'soulless-endevors')
+				if (SONG.song.toLowerCase() == 'soulless-endeavors')
 					{
 						switch (curStep)
 						{
-							case 526:
+							case 640:
 								theStatic.visible = true;
-							case 528:
+							case 641:
+								health = 1;
 								soulFog.visible = false;
 								soulBg.visible = false;
 								soulGround.visible = false;
@@ -4876,19 +4947,39 @@ class PlayState extends MusicBeatState
 								theStatic.visible = false;
 								isPixelStage = true;
 								reloadTheNotesPls();
-							case 783:
+							case 1152:
 								theStatic.visible = true;
-							case 784:
+							case 1153:
+								health = 1;
 								soulFog.visible = true;
 								soulBg.visible = true;
 								soulGround.visible = true;
 								soulPixelBgBg.visible = false;
 								soulPixelBg.visible = false;
+								soulSpirits.visible = true;
 								boyfriend.x += 100;
 								isPixelStage = false;
 								reloadTheNotesPls();
-							case 787:
+							case 1154:
 								theStatic.visible = false;
+
+								//bop shit lolololol
+							case 64, 256, 639:
+								wowZoomin = true;
+								holyFuckStopZoomin = false;
+							case 128, 272, 1280:
+								wowZoomin = false;
+								holyFuckStopZoomin = true;
+							case 1281:
+								defaultCamZoom = 0.75;
+							case 1150:
+								wowZoomin = false;
+								holyFuckStopZoomin = false;
+								defaultCamZoom = 0.9;
+							case 1792:
+								wowZoomin = false;
+								holyFuckStopZoomin = false;
+								FlxTween.tween(camHUD, {alpha: 0}, 1.75, {ease: FlxEase.cubeInOut});
 						}
 					}
 
@@ -5157,13 +5248,63 @@ class PlayState extends MusicBeatState
 							case 5030:
 								camGame.alpha = 0;
 								camHUD.alpha = 0;
-								
-								
-								
-								
-								
 						}
 				}
+			if (SONG.song.toLowerCase() == 'endless')
+			{
+				switch (curStep)
+				{
+					case 272, 912, 1172:
+						funIsInfinite = true;
+					case 528, 1039, 1423:
+						funIsInfinite = false;
+					case 685, 1040, 1424:
+						funIsForever = true;
+					case 894, 1152, 1680:
+						funIsForever = false;
+					case 895:
+						inCutscene = true;
+						camFollow.set(FlxG.width / 2 + 50, FlxG.height / 4 * 3 + 280);
+						FlxTween.tween(camHUD, {alpha: 0}, 0.5);
+						var fuckinCamShit:FlxObject;
+						fuckinCamShit = new FlxObject(500, 400, 1, 1);
+						FlxG.camera.follow(fuckinCamShit, LOCKON, 0.06 * (30 / (cast(Lib.current.getChildAt(0), Main)).getFPS()));
+					case 896:
+						FlxTween.tween(FlxG.camera, {zoom: FlxG.camera.zoom + 0.3}, 0.7, {ease: FlxEase.cubeInOut});
+						majinSaysFuck(4);
+					case 900:
+						FlxTween.tween(FlxG.camera, {zoom: FlxG.camera.zoom + 0.3}, 0.7, {ease: FlxEase.cubeInOut});
+						majinSaysFuck(3);
+					case 904:
+						FlxTween.tween(FlxG.camera, {zoom: FlxG.camera.zoom + 0.3}, 0.7, {ease: FlxEase.cubeInOut});
+						majinSaysFuck(2);
+					case 908:
+						wowZoomin = true;
+						inCutscene = false;
+						FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom}, 0.7, {ease: FlxEase.cubeInOut});
+						FlxTween.tween(camHUD, {alpha: 1}, 1);
+						majinSaysFuck(1);
+					case 1040:
+						wowZoomin = false;
+						holyFuckStopZoomin = true;
+						defaultCamZoom = 0.8;
+					case 1153:
+						defaultCamZoom = 0.6;
+						holyFuckStopZoomin = false;
+						FlxG.camera.flash(FlxColor.CYAN, 1);
+						FlxG.camera.follow(camFollowPos, LOCKON, 1 * (30 / (cast(Lib.current.getChildAt(0), Main)).getFPS()));
+					case 1425:
+						defaultCamZoom = 0.8;
+						FlxG.camera.flash(FlxColor.CYAN, 1);
+						holyFuckStopZoomin = true;
+						var fuckinCamShit:FlxObject;
+						fuckinCamShit = new FlxObject(500, 400, 1, 1);
+						FlxG.camera.follow(fuckinCamShit, LOCKON, 0.06 * (30 / (cast(Lib.current.getChildAt(0), Main)).getFPS()));
+					case 1681:
+						defaultCamZoom = 0.6;
+						holyFuckStopZoomin = false;
+				}
+			}
 
 		if(curStep == lastStepHit) {
 			return;
@@ -5191,6 +5332,21 @@ class PlayState extends MusicBeatState
 				fcLabel.animation.curAnim.curFrame = frame;
 			}
 		}
+
+		if (curBeat % 8 == 0 && funIsInfinite)
+			{
+				strumLineNotes.forEach(function(tospin:FlxSprite)
+					{
+						FlxTween.angle(tospin, 0, 360, 1.2, {ease: FlxEase.quartOut});
+					});
+			}
+		if (curBeat % 4 == 0 && funIsForever)
+			{
+				strumLineNotes.forEach(function(tospin:FlxSprite)
+					{
+						FlxTween.angle(tospin, 0, 360, 1.2, {ease: FlxEase.quartOut});
+					});
+			}
 		
 
 		if (curBeat % 64 == 0 && normalBool)
@@ -5394,6 +5550,74 @@ class PlayState extends MusicBeatState
 					}
 			}
 		}
+
+		function majinSaysFuck(numb:Int):Void
+			{
+				switch(numb)
+				{
+					case 4:
+						var three:FlxSprite = new FlxSprite().loadGraphic(Paths.image('mazin/three', 'exe'));
+						three.scrollFactor.set();
+						three.updateHitbox();
+						three.screenCenter();
+						three.y -= 100;
+						three.alpha = 1;
+						three.cameras = [camOther];
+						add(three);
+						FlxTween.tween(three, {y: three.y + 100, alpha: 0, "scale.x": 1.05, "scale.y": 1.05}, Conductor.crochet / 1000, {
+							ease: FlxEase.cubeOut,
+							onComplete: function(twn:FlxTween)
+							{
+								three.destroy();
+							}
+						});
+					case 3:
+						var two:FlxSprite = new FlxSprite().loadGraphic(Paths.image('mazin/two', 'exe'));
+						two.scrollFactor.set();
+						two.screenCenter();
+						two.y -= 100;
+						two.alpha = 1;
+						two.cameras = [camOther];
+						add(two);
+						FlxTween.tween(two, {y: two.y + 100, alpha: 0, "scale.x": 1.05, "scale.y": 1.05}, Conductor.crochet / 1000, {
+							ease: FlxEase.cubeOut,
+							onComplete: function(twn:FlxTween)
+							{
+								two.destroy();
+							}
+						});
+					case 2:
+						var one:FlxSprite = new FlxSprite().loadGraphic(Paths.image('mazin/one', 'exe'));
+						one.scrollFactor.set();
+						one.screenCenter();
+						one.y -= 100;
+						one.alpha = 1;
+						one.cameras = [camOther];
+						add(one);
+						FlxTween.tween(one, {y: one.y + 100, alpha: 0, "scale.x": 1.05, "scale.y": 1.05}, Conductor.crochet / 1000, {
+							ease: FlxEase.cubeOut,
+							onComplete: function(twn:FlxTween)
+							{
+								one.destroy();
+							}
+						});
+					case 1:
+						var gofun:FlxSprite = new FlxSprite().loadGraphic(Paths.image('mazin/hitit', 'exe'));
+						gofun.scrollFactor.set();
+						gofun.updateHitbox();
+						gofun.screenCenter();
+						gofun.y -= 100;
+						gofun.alpha = 1;
+						add(gofun);
+						FlxTween.tween(gofun, {y: gofun.y + 100, alpha: 0, "scale.x": 1.05, "scale.y": 1.05}, Conductor.crochet / 1000, {
+							ease: FlxEase.cubeInOut,
+							onComplete: function(twn:FlxTween)
+							{
+								gofun.destroy();
+							}
+						});
+				}
+			}
 		
 	function literallyMyHorizon()
 		{

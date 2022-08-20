@@ -1,66 +1,66 @@
 {
 	"animations": [
 		{
-			"loop": true,
 			"offsets": [
 				-20,
 				-3
 			],
-			"anim": "idle",
+			"loop": true,
 			"fps": 24,
-			"name": "Majin_IDLE",
-			"indices": []
+			"anim": "idle",
+			"indices": [],
+			"name": "Majin_IDLE"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				9,
 				95
 			],
-			"anim": "singUP",
+			"loop": false,
 			"fps": 32,
-			"name": "Majin_UP",
-			"indices": []
+			"anim": "singUP",
+			"indices": [],
+			"name": "Majin_UP"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				24,
 				-73
 			],
-			"anim": "singDOWN",
+			"loop": false,
 			"fps": 32,
-			"name": "Majin_DOWN",
-			"indices": []
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "Majin_DOWN"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				262,
 				13
 			],
-			"anim": "singLEFT",
+			"loop": false,
 			"fps": 32,
-			"name": "Majin_LEFT",
-			"indices": []
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "Majin_LEFT"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				60,
 				-33
 			],
-			"anim": "singRIGHT",
+			"loop": false,
 			"fps": 32,
-			"name": "Majin_RIGHT",
-			"indices": []
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "Majin_RIGHT"
 		}
 	],
 	"no_antialiasing": false,
 	"image": "characters/MajinOG",
 	"position": [
 		0,
-		360
+		200
 	],
 	"healthicon": "mazin",
 	"flip_x": false,

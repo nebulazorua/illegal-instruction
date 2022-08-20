@@ -73,7 +73,7 @@ class StoryMenuState extends MusicBeatState
 		rankText.size = scoreText.size;
 		rankText.screenCenter(X);
 
-		var ui_tex = Paths.getSparrowAtlas('campaign_menu_UI_assets');
+		var ui_tex:FlxSprite = new FlxSprite();
 		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('chaotixMenu/menu-bg'));
 		bg.scrollFactor.set(0, 0);
 		bg.setGraphicSize(Std.int(bg.width * 1.175));
@@ -158,12 +158,10 @@ class StoryMenuState extends MusicBeatState
 				// Needs an offset thingie
 				if (isLocked)
 				{
-					var lock:FlxSprite = new FlxSprite(weekThing.width + 10 + weekThing.x);
-					lock.frames = ui_tex;
-					lock.animation.addByPrefix('lock', 'lock');
-					lock.animation.play('lock');
+					var lock:FlxSprite = new FlxSprite(text.width - 630 + text.x).loadGraphic(Paths.image('lock'));
 					lock.ID = i;
-					lock.antialiasing = ClientPrefs.globalAntialiasing;
+					lock.scale.set(4, 4);
+					lock.antialiasing = false;
 					grpLocks.add(lock);
 				}
 				num++;
@@ -260,8 +258,11 @@ class StoryMenuState extends MusicBeatState
 
 		grpLocks.forEach(function(lock:FlxSprite)
 		{
-			lock.y = grpWeekText.members[lock.ID].y;
-			lock.visible = (lock.y > FlxG.height / 2);
+			lock.y = grpWeekText.members[lock.ID].y + 25;
+			if (weekIsLocked(WeekData.weeksList[lock.ID]))
+				lock.visible = true;
+			else
+				lock.visible = false;
 		});
 	}
 
@@ -276,7 +277,7 @@ class StoryMenuState extends MusicBeatState
 			if (stopspamming == false)
 			{
 				FlxG.sound.play(Paths.sound('confirmMenu'));
-				if (curWeek == 4)
+				if (curWeek == 6)
 					{
 						weekThing.animation.play("transform");
 					}
@@ -308,7 +309,12 @@ class StoryMenuState extends MusicBeatState
 				LoadingState.loadAndSwitchState(new PlayState(), true);
 				FreeplayState.destroyFreeplayVocals();
 			});
-		} else {
+		} 
+		else if (weekIsLocked)
+			{
+				FlxG.sound.play(Paths.sound('nope'));
+			}
+		else {
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 		}
 	}

@@ -1,0 +1,49 @@
+{
+	"song": {
+		"speed": 3.2,
+		"stage": "soulless",
+		"player1": "bf",
+		"player2": "dukep2",
+		"player3": null,
+		"events": [
+			[
+				68571.4285714286,
+				[
+					[
+						"Change Character",
+						"dad",
+						"dukepixel"
+					],
+					[
+						"Change Character",
+						"bf",
+						"bf-running"
+					]
+				]
+			],
+			[
+				123428.571428571,
+				[
+					[
+						"Change Character",
+						"bf",
+						"bf"
+					],
+					[
+						"Change Character",
+						"dad",
+						"dukep2"
+					]
+				]
+			]
+		],
+		"notes": [],
+		"splashSkin": null,
+		"validScore": false,
+		"gfVersion": "gf",
+		"bpm": 140,
+		"arrowSkin": null,
+		"needsVoices": true,
+		"song": "soulless-endeavors"
+	}
+}

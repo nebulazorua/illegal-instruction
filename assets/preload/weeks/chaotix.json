@@ -3,7 +3,7 @@
 	"hideFreeplay": false,
 	"weekBackground": "stage",
 	"weekBefore": "tutorial",
-	"startUnlocked": true,
+	"startUnlocked": false,
 	"weekCharacters": [
 		"chaotix",
 		"bf",
