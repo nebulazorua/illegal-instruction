@@ -379,6 +379,8 @@ class PlayState extends MusicBeatState
 	//hjog shit dlskafj;lsa
 	var staticlol:StaticShader;
 	var staticOverlay:ShaderFilter;
+	var glitchThingy:DistortGlitchShader;
+	var glitchOverlay:ShaderFilter;
 	private var staticAlpha:Float = 1;
 
 	var hogBg:BGSprite;
@@ -1135,6 +1137,12 @@ class PlayState extends MusicBeatState
 						staticlol.iResolution.value = [FlxG.width, FlxG.height];
 						staticlol.alpha.value = [staticAlpha];
 						staticlol.enabled.value = [false];
+
+						glitchThingy = new DistortGlitchShader();
+						glitchOverlay = new ShaderFilter(glitchThingy);
+						glitchThingy.iTime.value = [0];
+						glitchThingy.iResolution.value = [FlxG.width, FlxG.height];
+						glitchThingy.enabled.value = [false];
 
 						scorchedBg = new BGSprite('hog/blast/Sunset', -200, 0, 1.1, 0.9);
 						scorchedBg.scale.x = 1.75;
@@ -1899,10 +1907,19 @@ class PlayState extends MusicBeatState
 	function glitchFreeze()
 	{
 
-			staticlol.enabled.value = [true];
+		switch(FlxG.random.int(1,2)){
+			case 1:
+				staticlol.enabled.value = [true];
 				new FlxTimer().start(0.45, function(byebye:FlxTimer) {
 					staticlol.enabled.value = [false];
 				});
+			case 2:
+				glitchThingy.enabled.value = [true];
+				new FlxTimer().start(0.45, function(byebye:FlxTimer) {
+					glitchThingy.enabled.value = [false];
+				});
+		}
+
 		// this is all commented for now
 		// switch(FlxG.random.int(1, 8)){
 		// 	case 1:
@@ -2829,6 +2846,9 @@ class PlayState extends MusicBeatState
 		if(staticlol!=null){
 			staticlol.iTime.value[0] = Conductor.songPosition / 1000;
 			staticlol.alpha.value = [staticAlpha];
+		}
+		if(glitchThingy!=null){
+			glitchThingy.iTime.value[0] = Conductor.songPosition / 1000;
 		}
 
 		if(camFuckShader!=null)
@@ -5091,13 +5111,13 @@ class PlayState extends MusicBeatState
 								camHUD.visible = true;
 								camHUD.zoom += 2;
 								if(ClientPrefs.flashing){
-									camGame.setFilters([camGlitchFilter, staticOverlay]);
+									camGame.setFilters([camGlitchFilter, staticOverlay, glitchOverlay]);
 									camHUD.setFilters([camGlitchFilter]);
 								}
 
 							case 4672:
 								if(ClientPrefs.flashing){
-									camGame.setFilters([camGlitchFilter, camFuckFilter, staticOverlay]);
+									camGame.setFilters([camGlitchFilter, camFuckFilter, staticOverlay, glitchOverlay]);
 									camHUD.setFilters([camGlitchFilter, camFuckFilter]);
 								}
 								
