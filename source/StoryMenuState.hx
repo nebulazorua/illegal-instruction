@@ -310,10 +310,6 @@ class StoryMenuState extends MusicBeatState
 				FreeplayState.destroyFreeplayVocals();
 			});
 		} 
-		else if (weekIsLocked)
-			{
-				FlxG.sound.play(Paths.sound('nope'));
-			}
 		else {
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 		}
