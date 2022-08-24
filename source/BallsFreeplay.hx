@@ -45,7 +45,11 @@ class BallsFreeplay extends MusicBeatState
             if(songs[i] == 'manual-blast' || songs[i] == 'hedge'){
                 imageName = 'freeplay/placeholder';
             }
-            selectorSprite = new MenuItemAgainFuckYou(800 * i, 0, imageName);
+
+            selectorSprite = new MenuItemAgainFuckYou(1300 * i, 0, imageName);
+            //selectorSprite.x += ((selectorSprite.x + 1500) * i); //eh????
+            selectorSprite.newX = i;
+            selectorSprite.screenCenter();
             selectorSprite.ID = i;
             grpImages.add(selectorSprite);
         }
@@ -57,7 +61,7 @@ class BallsFreeplay extends MusicBeatState
 		var accepted = controls.ACCEPT;
 		var space = FlxG.keys.justPressed.SPACE;
 
-        selectorSprite.updateAgain(elapsed);
+        selectorSprite.update(elapsed);
 
         if(controls.UI_RIGHT_P)
             changeSelection(1);
@@ -71,6 +75,7 @@ class BallsFreeplay extends MusicBeatState
 
             LoadingState.loadAndSwitchState(new PlayState());
         }
+        super.update(elapsed);
     }
     function changeSelection(change:Int){
         curSelected += change;
@@ -84,17 +89,12 @@ class BallsFreeplay extends MusicBeatState
 
         for (item in grpImages.members)
             {
-                item.ID = bullShit - curSelected;
-                bullShit++;
-    
-                item.alpha = 0.6;
-                item.newX = 800;
-                if (item.ID == 0)
-                {
+                item.newX = bullShit - curSelected;
+                if (item.ID == curSelected)
                     item.alpha = 1;
-                    item.newX = 0;
-                    trace("BALLS");
-                }
+                else
+                    item.alpha = 0.5;
+                bullShit++;
             }
     }
 }
