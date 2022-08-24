@@ -12,8 +12,11 @@ import flixel.addons.transition.FlxTransitionableState;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxMath;
 import flixel.text.FlxText;
-import flixel.util.FlxColor;
 import flixel.tweens.FlxTween;
+import flixel.tweens.FlxEase;
+import flixel.effects.FlxFlicker;
+import flixel.util.FlxColor;
+import flixel.util.FlxTimer;
 import lime.utils.Assets;
 import flixel.system.FlxSound;
 import openfl.utils.Assets as OpenFlAssets;
@@ -28,7 +31,7 @@ class BallsFreeplay extends MusicBeatState
     var songs:Array<String> = ['breakout', 'soulless-endeavors', 'final-frontier', 'my-horizon', 'our-horizon', 'found-you', 'malediction', 'long-sky', 'hedge', 'manual-blast', 'endless',];
     private var curSelected:Int = 0;
     private var grpImages:FlxTypedGroup<MenuItemAgainFuckYou>;
-
+    var bg:FlxSprite;
     var selectorSprite:MenuItemAgainFuckYou;
     var imageName:String;
 
@@ -36,6 +39,25 @@ class BallsFreeplay extends MusicBeatState
     {
         Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
+
+        PlayState.isStoryMode = false;
+
+        transIn = FlxTransitionableState.defaultTransIn;
+		transOut = FlxTransitionableState.defaultTransOut;
+
+        #if desktop
+		// Updating Discord Rich Presence
+		DiscordClient.changePresence("Choosing their destiny.", null);
+		#end
+
+        bg = new FlxSprite(-80).loadGraphic(Paths.image('chaotixMenu/menu-bg'));
+		bg.scrollFactor.set(0, 0);
+		bg.setGraphicSize(Std.int(bg.width * 1.175));
+        bg.alpha = 0.5;
+		bg.updateHitbox();
+		bg.screenCenter();
+		bg.antialiasing = false;
+		add(bg);
 
         grpImages = new FlxTypedGroup<MenuItemAgainFuckYou>();
 		add(grpImages);
@@ -50,6 +72,7 @@ class BallsFreeplay extends MusicBeatState
             //selectorSprite.x += ((selectorSprite.x + 1500) * i); //eh????
             selectorSprite.newX = i;
             selectorSprite.screenCenter();
+            selectorSprite.updateHitbox();
             selectorSprite.ID = i;
             grpImages.add(selectorSprite);
         }
@@ -69,12 +92,24 @@ class BallsFreeplay extends MusicBeatState
             changeSelection(-1);
         if(accepted){
             var songLowercase:String = Paths.formatToSongPath(songs[curSelected]);
-
+            FlxG.sound.play(Paths.sound('confirmMenu'));
             PlayState.SONG = Song.loadFromJson(songLowercase + '-hard', songLowercase);
 			PlayState.isStoryMode = false;
-
-            LoadingState.loadAndSwitchState(new PlayState());
+            /* im sad this doesn't work :(((((
+            FlxTween.tween(selectorSprite, {"scale.x": selectorSprite.scale.x + 1, "scale.y": selectorSprite.scale.y + 1}, 1, {ease: FlxEase.cubeInOut});
+            FlxTween.tween(selectorSprite, {alpha: 0}, 1, {ease: FlxEase.cubeInOut});
+            */
+            FlxTween.tween(bg, {alpha: 0}, 1, {ease: FlxEase.cubeInOut});
+            new FlxTimer().start(1, function(tmr:FlxTimer)
+                {
+                    LoadingState.loadAndSwitchState(new PlayState());
+                });
         }
+        if (controls.BACK)
+            {
+                FlxG.sound.play(Paths.sound('cancelMenu'));
+                MusicBeatState.switchState(new MainMenuState());
+            }
         super.update(elapsed);
     }
     function changeSelection(change:Int){
