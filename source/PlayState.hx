@@ -299,6 +299,15 @@ class PlayState extends MusicBeatState
 	var soulSpirits:FlxSprite;
 	var soulPixelBg:FlxSprite;
 	var soulPixelBgBg:FlxSprite;
+	//final frontier
+
+	var frontierBg:BGSprite;
+	var frontierGround:BGSprite;
+	var frontierMasterEmerald:BGSprite;
+	var frontierEmeralds:BGSprite;
+	//typed group my behatred
+	var frontierDebris:FlxTypedGroup<FlxSprite>;
+
 
 	// horizon
 	var fucklesBGPixel:FlxSprite;
@@ -609,12 +618,12 @@ class PlayState extends MusicBeatState
 				soulBg.antialiasing = true;
 				add(soulBg);
 
-				soulFog = new FlxSprite(-300, -100);
+				soulFog = new FlxSprite(-300, -300);
 				soulFog.loadGraphic(Paths.image('soulless/fog', 'exe'));
 				soulFog.scrollFactor.set(0.9, 1);
 				soulFog.scale.set(1.2, 1.2);
 				soulFog.antialiasing = true;
-				add(soulFog);
+
 
 				soulSpirits = new FlxSprite(-200, -150);
 				soulSpirits.frames = Paths.getSparrowAtlas('soulless/Spirits', 'exe');
@@ -626,7 +635,7 @@ class PlayState extends MusicBeatState
 				soulSpirits.visible = false;
 				add(soulSpirits);
 
-				soulGround = new FlxSprite(-200, 150);
+				soulGround = new FlxSprite(-200, -400);
 				soulGround.loadGraphic(Paths.image('soulless/ground', 'exe'));
 				soulGround.scrollFactor.set(1, 1);
 				soulGround.scale.set(1.3, 1.3);
@@ -1263,6 +1272,19 @@ class PlayState extends MusicBeatState
 				mazinOverlay.scale.x = 1.75;
 				mazinOverlay.scale.y = 1.75;
 
+			case 'frontier':
+				frontierBg = new BGSprite('frontier/sky', -600, -120, 1, 0.9);
+				frontierBg.scale.x = 1.25;
+				frontierBg.scale.y = 1.25;
+				add(frontierBg);
+
+				frontierGround = new BGSprite('frontier/fgground', -600, -120, 1, 0.9);
+				frontierGround.scale.x = 1.25;
+				frontierGround.scale.y = 1.25;
+				add(frontierGround);
+
+				
+
 			default: //lol
 				var bg:BGSprite = new BGSprite('stageback', -600, -200, 0.9, 0.9);
 				add(bg);
@@ -1415,6 +1437,7 @@ class PlayState extends MusicBeatState
 				theStatic.alpha = 0;
 				add(theStatic);
 			case 'soulless':
+				add(soulFog);
 				gfGroup.visible = false;
 				dad.x -= 60;
 				boyfriend.x += 100;
@@ -4008,7 +4031,7 @@ class PlayState extends MusicBeatState
 				if(FlxTransitionableState.skipNextTransIn) {
 					CustomFadeTransition.nextCamera = null;
 				}
-				MusicBeatState.switchState(new FreeplayState());
+				MusicBeatState.switchState(new BallsFreeplay());
 				FlxG.sound.playMusic(Paths.music('freakyMenu'));
 				changedDifficulty = false;
 			}
