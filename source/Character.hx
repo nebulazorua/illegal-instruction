@@ -334,7 +334,7 @@ class Character extends FlxSprite
 
 	override function draw(){
 		for(ghost in animGhosts){
-			if(!ghost.visible)
+			if(ghost.visible)
 				ghost.draw();
 		}
 		
