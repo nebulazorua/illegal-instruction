@@ -1,0 +1,789 @@
+{
+	"song": {
+		"speed": 3,
+		"stage": "founded",
+		"player1": "bf-metal",
+		"player2": "Normal",
+		"player3": null,
+		"events": [
+			[
+				90666.6666666666,
+				[
+					[
+						"NormalCD Harmonization",
+						"dad",
+						"singLEFT"
+					]
+				]
+			],
+			[
+				91333.3333333333,
+				[
+					[
+						"NormalCD Harmonization",
+						"dad",
+						"singDOWN"
+					]
+				]
+			],
+			[
+				92000,
+				[
+					[
+						"NormalCD Harmonization",
+						"dad",
+						"singUP"
+					]
+				]
+			],
+			[
+				92333.3333333333,
+				[
+					[
+						"NormalCD Harmonization",
+						"dad",
+						"singDOWN"
+					]
+				]
+			],
+			[
+				92666.6666666666,
+				[
+					[
+						"NormalCD Harmonization",
+						"dad",
+						"singUP"
+					]
+				]
+			],
+			[
+				93000,
+				[
+					[
+						"NormalCD Harmonization",
+						"dad",
+						"singRIGHT"
+					]
+				]
+			],
+			[
+				93333.3333333333,
+				[
+					[
+						"NormalCD Harmonization",
+						"dad",
+						"singLEFT"
+					]
+				]
+			],
+			[
+				94666.6666666666,
+				[
+					[
+						"NormalCD Harmonization",
+						"dad",
+						"singDOWN"
+					]
+				]
+			],
+			[
+				94999.9999999999,
+				[
+					[
+						"NormalCD Harmonization",
+						"dad",
+						"singLEFT"
+					]
+				]
+			],
+			[
+				95333.3333333333,
+				[
+					[
+						"NormalCD Harmonization",
+						"dad",
+						"singDOWN"
+					]
+				]
+			],
+			[
+				95666.6666666666,
+				[
+					[
+						"NormalCD Harmonization",
+						"dad",
+						"singLEFT"
+					]
+				]
+			],
+			[
+				95999.9999999999,
+				[
+					[
+						"NormalCD Harmonization",
+						"dad",
+						"singDOWN"
+					]
+				]
+			],
+			[
+				96666.6666666666,
+				[
+					[
+						"NormalCD Harmonization",
+						"dad",
+						"singLEFT"
+					]
+				]
+			],
+			[
+				97333.3333333333,
+				[
+					[
+						"NormalCD Harmonization",
+						"dad",
+						"singUP"
+					]
+				]
+			],
+			[
+				97999.9999999999,
+				[
+					[
+						"NormalCD Harmonization",
+						"dad",
+						"singLEFT"
+					]
+				]
+			],
+			[
+				98666.6666666666,
+				[
+					[
+						"NormalCD Harmonization",
+						"bf",
+						"singLEFT"
+					]
+				]
+			],
+			[
+				99333.3333333333,
+				[
+					[
+						"NormalCD Harmonization",
+						"bf",
+						"singDOWN"
+					]
+				]
+			],
+			[
+				99999.9999999999,
+				[
+					[
+						"NormalCD Harmonization",
+						"bf",
+						"singLEFT"
+					]
+				]
+			],
+			[
+				100666.666666667,
+				[
+					[
+						"NormalCD Harmonization",
+						"bf",
+						"singUP"
+					]
+				]
+			],
+			[
+				101333.333333333,
+				[
+					[
+						"NormalCD Harmonization",
+						"bf",
+						"singLEFT"
+					]
+				]
+			],
+			[
+				102000,
+				[
+					[
+						"NormalCD Harmonization",
+						"bf",
+						"singDOWN"
+					]
+				]
+			],
+			[
+				102666.666666667,
+				[
+					[
+						"NormalCD Harmonization",
+						"bf",
+						"singUP"
+					]
+				]
+			],
+			[
+				103000,
+				[
+					[
+						"NormalCD Harmonization",
+						"bf",
+						"singLEFT"
+					]
+				]
+			],
+			[
+				103333.333333333,
+				[
+					[
+						"NormalCD Harmonization",
+						"bf",
+						"singDOWN"
+					]
+				]
+			],
+			[
+				103666.666666667,
+				[
+					[
+						"NormalCD Harmonization",
+						"bf",
+						"singUP"
+					]
+				]
+			],
+			[
+				104000,
+				[
+					[
+						"NormalCD Harmonization",
+						"bf",
+						"singLEFT"
+					]
+				]
+			],
+			[
+				104666.666666667,
+				[
+					[
+						"NormalCD Harmonization",
+						"bf",
+						"singUP"
+					]
+				]
+			],
+			[
+				105333.333333333,
+				[
+					[
+						"NormalCD Harmonization",
+						"bf",
+						"singDOWN"
+					]
+				]
+			],
+			[
+				105666.666666667,
+				[
+					[
+						"NormalCD Harmonization",
+						"bf",
+						"singLEFT"
+					]
+				]
+			],
+			[
+				106000,
+				[
+					[
+						"NormalCD Harmonization",
+						"bf",
+						"singDOWN"
+					]
+				]
+			],
+			[
+				106333.333333333,
+				[
+					[
+						"NormalCD Harmonization",
+						"bf",
+						"singLEFT"
+					]
+				]
+			],
+			[
+				106666.666666667,
+				[
+					[
+						"NormalCD Harmonization",
+						"bf",
+						"singDOWN"
+					]
+				]
+			],
+			[
+				107333.333333333,
+				[
+					[
+						"NormalCD Harmonization",
+						"bf",
+						"singLEFT"
+					]
+				]
+			],
+			[
+				108000,
+				[
+					[
+						"NormalCD Harmonization",
+						"bf",
+						"singUP"
+					]
+				]
+			],
+			[
+				108666.666666667,
+				[
+					[
+						"NormalCD Harmonization",
+						"bf",
+						"singLEFT"
+					]
+				]
+			],
+			[
+				109333.333333333,
+				[
+					[
+						"NormalCD Harmonization",
+						"dad",
+						"singLEFT"
+					]
+				]
+			],
+			[
+				110000,
+				[
+					[
+						"NormalCD Harmonization",
+						"dad",
+						"singDOWN"
+					]
+				]
+			],
+			[
+				110666.666666667,
+				[
+					[
+						"NormalCD Harmonization",
+						"dad",
+						"singLEFT"
+					]
+				]
+			],
+			[
+				111333.333333333,
+				[
+					[
+						"NormalCD Harmonization",
+						"dad",
+						"singUP"
+					]
+				]
+			],
+			[
+				112000,
+				[
+					[
+						"NormalCD Harmonization",
+						"dad",
+						"singLEFT"
+					]
+				]
+			],
+			[
+				112666.666666667,
+				[
+					[
+						"NormalCD Harmonization",
+						"dad",
+						"singDOWN"
+					]
+				]
+			],
+			[
+				113333.333333333,
+				[
+					[
+						"NormalCD Harmonization",
+						"dad",
+						"singUP"
+					]
+				]
+			],
+			[
+				113666.666666667,
+				[
+					[
+						"NormalCD Harmonization",
+						"dad",
+						"singLEFT"
+					]
+				]
+			],
+			[
+				114000,
+				[
+					[
+						"NormalCD Harmonization",
+						"dad",
+						"singDOWN"
+					]
+				]
+			],
+			[
+				114333.333333333,
+				[
+					[
+						"NormalCD Harmonization",
+						"dad",
+						"singRIGHT"
+					]
+				]
+			],
+			[
+				114666.666666667,
+				[
+					[
+						"NormalCD Harmonization",
+						"dad",
+						"singLEFT"
+					]
+				]
+			],
+			[
+				115333.333333333,
+				[
+					[
+						"NormalCD Harmonization",
+						"dad",
+						"singUP"
+					]
+				]
+			],
+			[
+				116000,
+				[
+					[
+						"NormalCD Harmonization",
+						"dad",
+						"singDOWN"
+					]
+				]
+			],
+			[
+				116333.333333333,
+				[
+					[
+						"NormalCD Harmonization",
+						"dad",
+						"singLEFT"
+					]
+				]
+			],
+			[
+				116666.666666667,
+				[
+					[
+						"NormalCD Harmonization",
+						"dad",
+						"singDOWN"
+					]
+				]
+			],
+			[
+				117000,
+				[
+					[
+						"NormalCD Harmonization",
+						"dad",
+						"singLEFT"
+					]
+				]
+			],
+			[
+				117333.333333333,
+				[
+					[
+						"NormalCD Harmonization",
+						"dad",
+						"singDOWN"
+					]
+				]
+			],
+			[
+				118000,
+				[
+					[
+						"NormalCD Harmonization",
+						"dad",
+						"singLEFT"
+					]
+				]
+			],
+			[
+				118666.666666667,
+				[
+					[
+						"NormalCD Harmonization",
+						"dad",
+						"singUP"
+					]
+				]
+			],
+			[
+				119333.333333333,
+				[
+					[
+						"NormalCD Harmonization",
+						"dad",
+						"singLEFT"
+					]
+				]
+			],
+			[
+				120000,
+				[
+					[
+						"NormalCD Harmonization",
+						"bf",
+						"singLEFT"
+					]
+				]
+			],
+			[
+				120666.666666667,
+				[
+					[
+						"NormalCD Harmonization",
+						"bf",
+						"singDOWN"
+					]
+				]
+			],
+			[
+				121333.333333333,
+				[
+					[
+						"NormalCD Harmonization",
+						"bf",
+						"singLEFT"
+					]
+				]
+			],
+			[
+				122000,
+				[
+					[
+						"NormalCD Harmonization",
+						"bf",
+						"singUP"
+					]
+				]
+			],
+			[
+				122666.666666667,
+				[
+					[
+						"NormalCD Harmonization",
+						"bf",
+						"singLEFT"
+					]
+				]
+			],
+			[
+				123333.333333333,
+				[
+					[
+						"NormalCD Harmonization",
+						"bf",
+						"singDOWN"
+					]
+				]
+			],
+			[
+				124000,
+				[
+					[
+						"NormalCD Harmonization",
+						"bf",
+						"singUP"
+					]
+				]
+			],
+			[
+				124333.333333333,
+				[
+					[
+						"NormalCD Harmonization",
+						"bf",
+						"singLEFT"
+					]
+				]
+			],
+			[
+				124666.666666667,
+				[
+					[
+						"NormalCD Harmonization",
+						"bf",
+						"singDOWN"
+					]
+				]
+			],
+			[
+				125000,
+				[
+					[
+						"NormalCD Harmonization",
+						"bf",
+						"singUP"
+					]
+				]
+			],
+			[
+				125333.333333333,
+				[
+					[
+						"NormalCD Harmonization",
+						"bf",
+						"singLEFT"
+					]
+				]
+			],
+			[
+				126000,
+				[
+					[
+						"NormalCD Harmonization",
+						"bf",
+						"singUP"
+					]
+				]
+			],
+			[
+				126666.666666666,
+				[
+					[
+						"NormalCD Harmonization",
+						"bf",
+						"singDOWN"
+					]
+				]
+			],
+			[
+				127000,
+				[
+					[
+						"NormalCD Harmonization",
+						"bf",
+						"singLEFT"
+					]
+				]
+			],
+			[
+				127333.333333333,
+				[
+					[
+						"NormalCD Harmonization",
+						"bf",
+						"singDOWN"
+					]
+				]
+			],
+			[
+				127666.666666666,
+				[
+					[
+						"NormalCD Harmonization",
+						"bf",
+						"singLEFT"
+					]
+				]
+			],
+			[
+				128000,
+				[
+					[
+						"NormalCD Harmonization",
+						"bf",
+						"singDOWN"
+					]
+				]
+			],
+			[
+				128666.666666666,
+				[
+					[
+						"NormalCD Harmonization",
+						"bf",
+						"singLEFT"
+					]
+				]
+			],
+			[
+				129333.333333333,
+				[
+					[
+						"NormalCD Harmonization",
+						"bf",
+						"singUP"
+					]
+				]
+			],
+			[
+				129666.666666666,
+				[
+					[
+						"NormalCD Harmonization",
+						"bf",
+						"singLEFT"
+					]
+				]
+			],
+			[
+				130000,
+				[
+					[
+						"NormalCD Harmonization",
+						"bf",
+						"singUP"
+					]
+				]
+			],
+			[
+				130333.333333333,
+				[
+					[
+						"NormalCD Harmonization",
+						"bf",
+						"singLEFT"
+					]
+				]
+			]
+		],
+		"notes": [],
+		"splashSkin": null,
+		"validScore": false,
+		"gfVersion": "AmyNervous",
+		"bpm": 180,
+		"arrowSkin": null,
+		"needsVoices": true,
+		"song": "Found you"
+	}
+}

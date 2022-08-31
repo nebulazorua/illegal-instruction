@@ -70,6 +70,23 @@ import SonicNumber.SonicNumberDisplay;
 import flixel.tweens.FlxTween.FlxTweenManager;
 using StringTools;
 
+// used to save checkpoint data in songs w/ checkpoints!!
+// this is so when you die, it goes back to the checkpoint and I dont have 50 different variables for checkpoint stuff, just 1 typedef!
+typedef CheckpointData = {
+	var time:Float;
+	var score:Int;
+	var combo:Int;
+	var hits:Int;
+	var totalPlayed:Int;
+	var misses:Int;
+	var sicks:Int;
+	var goods:Int;
+	var bads:Int;
+	var shits:Int;
+	var health:Float;
+
+}
+
 class PlayState extends MusicBeatState
 {
 	var camGlitchShader:GlitchShaderB;
@@ -135,7 +152,11 @@ class PlayState extends MusicBeatState
 	public static var storyDifficulty:Int = 1;
 
 	public var vocals:FlxSound;
-
+	
+	public var dadGhostTween:FlxTween = null;
+	public var bfGhostTween:FlxTween = null;
+	public var dadGhost:FlxSprite = null; // Come out come out wherever you are!
+	public var bfGhost:FlxSprite = null; // Just kidding, I already found you!
 	public var dad:Character = null;
 	public var gf:Character = null;
 	public var boyfriend:Boyfriend = null;
@@ -1315,7 +1336,16 @@ class PlayState extends MusicBeatState
 			introSoundsSuffix = '-pixel';
 		}
 
+		dadGhost = new FlxSprite();
+
+
+		bfGhost = new FlxSprite();
+
+
 		add(gfGroup); //Needed for blammed lights
+
+		add(bfGhost);
+		add(dadGhost);
 
 		add(dadGroup);
 		add(boyfriendGroup);
@@ -1409,6 +1439,17 @@ class PlayState extends MusicBeatState
 		boyfriendGroup.add(boyfriend);
 		startCharacterLua(boyfriend.curCharacter);
 
+
+		dadGhost.visible = false;
+		dadGhost.antialiasing = true;
+		dadGhost.alpha = 0.6;
+		dadGhost.scale.copyFrom(dad.scale);
+		dadGhost.updateHitbox();
+		bfGhost.visible = false;
+		bfGhost.antialiasing = true;
+		bfGhost.alpha = 0.6;
+		bfGhost.scale.copyFrom(boyfriend.scale);
+		bfGhost.updateHitbox();
 		var camPos:FlxPoint = new FlxPoint(girlfriendCameraOffset[0], girlfriendCameraOffset[1]);
 		if(gf != null)
 		{
@@ -2612,6 +2653,8 @@ class PlayState extends MusicBeatState
 				var pixelStage = isPixelStage;
 				if(daStrumTime >= Conductor.stepToSeconds(1000) && SONG.song.toLowerCase()=='our-horizon')
 					isPixelStage = false;
+				if(daStrumTime >= Conductor.stepToSeconds(640) && daStrumTime <= Conductor.stepToSeconds(1151) && SONG.song.toLowerCase()=='soulless-endeavours')
+					isPixelStage=true;
 				
 				var swagNote:Note = new Note(daStrumTime, daNoteData, oldNote);
 				swagNote.mustPress = gottaHitNote;
@@ -3062,6 +3105,7 @@ class PlayState extends MusicBeatState
 				boyfriendIdleTime = 0;
 			}
 		}
+
 
 		super.update(elapsed);
 		if(ratingName == '?') {
@@ -3555,6 +3599,56 @@ class PlayState extends MusicBeatState
 
 	public function triggerEventNote(eventName:String, value1:String, value2:String) {
 		switch(eventName) {
+			case 'NormalCD Harmonization':
+				var ghost:FlxSprite = dadGhost;
+				var player:Character = dad;
+
+				switch(value1.toLowerCase().trim()){
+					case 'bf' | 'boyfriend' | '0':
+						ghost = bfGhost;
+						player = boyfriend;
+					case 'dad' | 'opponent' | '1':
+						ghost = dadGhost;
+						player = dad;
+				}
+
+										
+				ghost.frames = player.frames;
+				ghost.animation.copyFrom(player.animation);
+				ghost.x = player.x;
+				ghost.y = player.y;
+				ghost.animation.play(value2, true);
+				ghost.offset.set(player.animOffsets.get(value2)[0], player.animOffsets.get(value2)[1]);
+				ghost.flipX = player.flipX;
+				ghost.flipY = player.flipY;
+				ghost.alpha = 0.6;
+				ghost.visible = true;
+
+				switch (value1.toLowerCase().trim())
+				{
+					case 'bf' | 'boyfriend' | '0':
+												if (bfGhostTween != null)
+							bfGhostTween.cancel();
+						bfGhostTween = FlxTween.tween(bfGhost, {alpha: 0}, 0.75, {
+							ease: FlxEase.linear,
+							onComplete: function(twn:FlxTween)
+							{
+								bfGhostTween = null;
+							}
+						});
+
+					case 'dad' | 'opponent' | '1':
+						if (dadGhostTween != null)
+							dadGhostTween.cancel();
+						dadGhostTween = FlxTween.tween(dadGhost, {alpha: 0}, 0.75, {
+							ease: FlxEase.linear,
+							onComplete: function(twn:FlxTween)
+							{
+								dadGhostTween = null;
+							}
+						});
+				}
+
 			case 'Hey!':
 				var value:Int = 2;
 				switch(value1.toLowerCase().trim()) {
