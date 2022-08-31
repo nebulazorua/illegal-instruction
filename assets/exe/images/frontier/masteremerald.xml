@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="masteremerald.png">
+	<!-- Created with Adobe Animate version 22.0.7.214 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="emeraldglow0000" x="14" y="14" width="1117" height="869" frameX="-202" frameY="-156" frameWidth="1520" frameHeight="1183"/>
+	<SubTexture name="emeraldglow0001" x="14" y="14" width="1117" height="869" frameX="-202" frameY="-156" frameWidth="1520" frameHeight="1183"/>
+	<SubTexture name="emeraldglow0002" x="1143" y="14" width="1363" height="1060" frameX="-79" frameY="-61" frameWidth="1520" frameHeight="1183"/>
+	<SubTexture name="emeraldglow0003" x="1143" y="14" width="1363" height="1060" frameX="-79" frameY="-61" frameWidth="1520" frameHeight="1183"/>
+	<SubTexture name="emeraldglow0004" x="2518" y="14" width="1080" height="840" frameX="-220" frameY="-171" frameWidth="1520" frameHeight="1183"/>
+	<SubTexture name="emeraldglow0005" x="2518" y="14" width="1080" height="840" frameX="-220" frameY="-171" frameWidth="1520" frameHeight="1183"/>
+	<SubTexture name="emeraldglow0006" x="14" y="1086" width="1520" height="1183"/>
+	<SubTexture name="emeraldglow0007" x="14" y="1086" width="1520" height="1183"/>
+	<SubTexture name="emeraldglow0008" x="1546" y="1086" width="970" height="754" frameX="-275" frameY="-214" frameWidth="1520" frameHeight="1183"/>
+	<SubTexture name="emeraldglow0009" x="1546" y="1086" width="970" height="754" frameX="-275" frameY="-214" frameWidth="1520" frameHeight="1183"/>
+	<SubTexture name="emeraldglow0010" x="2528" y="1086" width="1439" height="1120" frameX="-40" frameY="-31" frameWidth="1520" frameHeight="1183"/>
+	<SubTexture name="emeraldglow0011" x="2528" y="1086" width="1439" height="1120" frameX="-40" frameY="-31" frameWidth="1520" frameHeight="1183"/>
+	<SubTexture name="emeraldglow0012" x="14" y="2281" width="1485" height="1155" frameX="-18" frameY="-14" frameWidth="1520" frameHeight="1183"/>
+	<SubTexture name="emeraldglow0013" x="14" y="2281" width="1485" height="1155" frameX="-18" frameY="-14" frameWidth="1520" frameHeight="1183"/>
+</TextureAtlas>

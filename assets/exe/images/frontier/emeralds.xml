@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="emeralds.png">
+	<!-- Created with Adobe Animate version 22.0.7.214 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="emeraldsBOP0000" x="14" y="14" width="1658" height="918" frameX="-220" frameY="-48" frameWidth="2061" frameHeight="1069"/>
+	<SubTexture name="emeraldsBOP0001" x="14" y="14" width="1658" height="918" frameX="-220" frameY="-48" frameWidth="2061" frameHeight="1069"/>
+	<SubTexture name="emeraldsBOP0002" x="1684" y="14" width="1881" height="1046" frameX="-92" frameY="0" frameWidth="2061" frameHeight="1069"/>
+	<SubTexture name="emeraldsBOP0003" x="1684" y="14" width="1881" height="1046" frameX="-92" frameY="0" frameWidth="2061" frameHeight="1069"/>
+	<SubTexture name="emeraldsBOP0004" x="3577" y="14" width="1625" height="898" frameX="-217" frameY="-23" frameWidth="2061" frameHeight="1069"/>
+	<SubTexture name="emeraldsBOP0005" x="3577" y="14" width="1625" height="898" frameX="-217" frameY="-23" frameWidth="2061" frameHeight="1069"/>
+	<SubTexture name="emeraldsBOP0006" x="5214" y="14" width="1926" height="1000" frameX="-54" frameY="-19" frameWidth="2061" frameHeight="1069"/>
+	<SubTexture name="emeraldsBOP0007" x="5214" y="14" width="1926" height="1000" frameX="-54" frameY="-19" frameWidth="2061" frameHeight="1069"/>
+	<SubTexture name="emeraldsBOP0008" x="14" y="1072" width="1707" height="888" frameX="-175" frameY="-37" frameWidth="2061" frameHeight="1069"/>
+	<SubTexture name="emeraldsBOP0009" x="14" y="1072" width="1707" height="888" frameX="-175" frameY="-37" frameWidth="2061" frameHeight="1069"/>
+	<SubTexture name="emeraldsBOP0010" x="1733" y="1072" width="1873" height="945" frameX="-108" frameY="-60" frameWidth="2061" frameHeight="1069"/>
+	<SubTexture name="emeraldsBOP0011" x="1733" y="1072" width="1873" height="945" frameX="-108" frameY="-60" frameWidth="2061" frameHeight="1069"/>
+	<SubTexture name="emeraldsBOP0012" x="3618" y="1072" width="2061" height="1064" frameX="0" frameY="-5" frameWidth="2061" frameHeight="1069"/>
+	<SubTexture name="emeraldsBOP0013" x="3618" y="1072" width="2061" height="1064" frameX="0" frameY="-5" frameWidth="2061" frameHeight="1069"/>
+</TextureAtlas>

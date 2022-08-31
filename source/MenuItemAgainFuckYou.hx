@@ -30,10 +30,13 @@ class MenuItemAgainFuckYou extends FlxSprite
     public function new(x:Float, y:Float, yeah:String){
         super(x, y);
         loadGraphic(Paths.image(yeah));
+        antialiasing = ClientPrefs.globalAntialiasing;
     }
 
-    public function updateAgain(elapsed:Float) // FOR SOME REASON NORMAL UPDATE BROKE SO IDFKKKKK
+    override function update(elapsed:Float) // FOR SOME REASON NORMAL UPDATE BROKE SO IDFKKKKK
+    //lol 'public function updateAgain' moment
     {
-        x = FlxMath.lerp(x, newX, CoolUtil.boundTo(elapsed * 10.2, 0, 1));
+        x = FlxMath.lerp(x, (newX * 1300), CoolUtil.boundTo(elapsed * 10.2, 0, 1));
+        super.update(elapsed);
     }
 }
