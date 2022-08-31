@@ -5202,13 +5202,13 @@ class PlayState extends MusicBeatState
 								camHUD.visible = true;
 								camHUD.zoom += 2;
 								if(ClientPrefs.flashing){
-									camGame.setFilters([camGlitchFilter, staticOverlay, glitchOverlay]);
+									camGame.setFilters([camGlitchFilter, staticOverlay]);
 									camHUD.setFilters([camGlitchFilter]);
 								}
 
 							case 4672:
 								if(ClientPrefs.flashing){
-									camGame.setFilters([camGlitchFilter, camFuckFilter, staticOverlay, glitchOverlay]);
+									camGame.setFilters([camGlitchFilter, camFuckFilter, staticOverlay]);
 									camHUD.setFilters([camGlitchFilter, camFuckFilter]);
 								}
 								
