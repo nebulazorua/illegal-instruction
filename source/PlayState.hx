@@ -89,6 +89,8 @@ typedef CheckpointData = {
 
 class PlayState extends MusicBeatState
 {
+	var noteRows:Array<Array<Array<Note>>> = [[],[]];
+
 	var camGlitchShader:GlitchShaderB;
 	var camFuckShader:Fuck;
 	var camGlitchFilter:BitmapFilter;
@@ -2657,6 +2659,10 @@ class PlayState extends MusicBeatState
 					isPixelStage=true;
 				
 				var swagNote:Note = new Note(daStrumTime, daNoteData, oldNote);
+				swagNote.row = Conductor.secsToRow(daStrumTime);
+				if(noteRows[gottaHitNote?0:1][swagNote.row]==null)
+					noteRows[gottaHitNote?0:1][swagNote.row]=[];
+				noteRows[gottaHitNote ? 0 : 1][swagNote.row].push(swagNote);
 				swagNote.mustPress = gottaHitNote;
 				swagNote.sustainLength = songNotes[2];
 				swagNote.gfNote = (section.gfSection && (songNotes[1]<4));
@@ -3600,7 +3606,7 @@ class PlayState extends MusicBeatState
 	public function triggerEventNote(eventName:String, value1:String, value2:String) {
 		switch(eventName) {
 			case 'NormalCD Harmonization':
-				var ghost:FlxSprite = dadGhost;
+				/*var ghost:FlxSprite = dadGhost;
 				var player:Character = dad;
 
 				switch(value1.toLowerCase().trim()){
@@ -3633,6 +3639,7 @@ class PlayState extends MusicBeatState
 							ease: FlxEase.linear,
 							onComplete: function(twn:FlxTween)
 							{
+								bfGhost.visible=false;
 								bfGhostTween = null;
 							}
 						});
@@ -3644,10 +3651,11 @@ class PlayState extends MusicBeatState
 							ease: FlxEase.linear,
 							onComplete: function(twn:FlxTween)
 							{
+								dadGhost.visible = false;
 								dadGhostTween = null;
 							}
 						});
-				}
+				}*/
 
 			case 'Hey!':
 				var value:Int = 2;
@@ -4737,8 +4745,26 @@ class PlayState extends MusicBeatState
 
 			if(char != null)
 			{
-				char.playAnim(animToPlay, true);
 				char.holdTimer = 0;
+				if (!note.isSustainNote && noteRows[note.mustPress?0:1][note.row].length > 1)
+				{
+					// potentially have jump anims?
+					var chord = noteRows[note.mustPress?0:1][note.row];
+					var animNote = chord[0];
+					var realAnim = singAnimations[Std.int(Math.abs(animNote.noteData))] + altAnim;
+					if (char.mostRecentRow != note.row)
+					{
+						char.playAnim(realAnim, true);
+					}
+
+					if (note != animNote)
+						char.playGhostAnim(chord.indexOf(note)-1, animToPlay, true);
+
+					char.mostRecentRow = note.row;
+				}
+				else
+					char.playAnim(animToPlay, true);
+
 				switch (char.curCharacter.toLowerCase())
 				{
 					case 'normal':
@@ -4844,21 +4870,36 @@ class PlayState extends MusicBeatState
 				var daAlt = '';
 				if(note.noteType == 'Alt Animation') daAlt = '-alt';
 
-				var animToPlay:String = singAnimations[Std.int(Math.abs(note.noteData))];
+				var animToPlay:String = singAnimations[Std.int(Math.abs(note.noteData))] + daAlt;
 
+				var char:Character = boyfriend;
 				if(note.gfNote)
 				{
 					if(gf != null)
+						char = gf;
+					
+				}
+
+				char.holdTimer = 0;
+				if (!note.isSustainNote && noteRows[note.mustPress ? 0 : 1][note.row].length > 1)
+				{
+					// potentially have jump anims?
+					var chord = noteRows[note.mustPress ? 0 : 1][note.row];
+					var animNote = chord[0];
+					var realAnim = singAnimations[Std.int(Math.abs(animNote.noteData))] + daAlt;
+					if (char.mostRecentRow != note.row)
 					{
-						gf.playAnim(animToPlay + daAlt, true);
-						gf.holdTimer = 0;
+						char.playAnim(realAnim, true);
 					}
+
+					if (note != animNote)
+						char.playGhostAnim(chord.indexOf(note) - 1, animToPlay, true);
+
+					char.mostRecentRow = note.row;
 				}
 				else
-				{
-					boyfriend.playAnim(animToPlay + daAlt, true);
-					boyfriend.holdTimer = 0;
-				}
+					char.playAnim(animToPlay, true);
+				
 
 				if(note.noteType == 'Hey!') {
 					if(boyfriend.animOffsets.exists('hey')) {

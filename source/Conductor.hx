@@ -23,6 +23,20 @@ class Conductor
 	public static var lastSongPos:Float;
 	public static var offset:Float = 0;
 
+	public static var ROWS_PER_BEAT = 48; // from Stepmania
+	public static var BEATS_PER_MEASURE = 4; // TODO: time sigs
+	public static var ROWS_PER_MEASURE = ROWS_PER_BEAT * BEATS_PER_MEASURE; // from Stepmania
+	public static var MAX_NOTE_ROW = 1 << 30; // from Stepmania
+
+	public inline static function beatToRow(beat:Float):Int
+		return Math.round(beat * ROWS_PER_BEAT);
+
+	public inline static function rowToBeat(row:Int):Float
+		return row / ROWS_PER_BEAT;
+
+	public inline static function secsToRow(sex:Float):Int
+		return Math.round(getBeat(sex) * ROWS_PER_BEAT);
+	
 	//public static var safeFrames:Int = 10;
 	public static var safeZoneOffset:Float = (ClientPrefs.safeFrames / 60) * 1000; // is calculated in create(), is safeFrames in milliseconds
 
@@ -47,11 +61,54 @@ class Conductor
 
 		return lastChange;
 	}
+	
+	public static function getBPMFromSeconds(time:Float)
+	{
+		var lastChange:BPMChangeEvent = {
+			stepTime: 0,
+			songTime: 0,
+			bpm: bpm
+		}
+		for (i in 0...Conductor.bpmChangeMap.length)
+		{
+			if (time >= Conductor.bpmChangeMap[i].songTime)
+				lastChange = Conductor.bpmChangeMap[i];
+		}
 
+		return lastChange;
+	}
+
+	
 	public static function stepToSeconds(step:Float)
 	{
 		var lastChange = getBPMFromStep(step);
 		return step * (((60 / lastChange.bpm) * 1000) / 4); // TODO: make less shit and take BPM into account PROPERLY
+	}
+
+	public static function beatToSeconds(beat:Float)
+	{
+		var step = beat * 4;
+		var lastChange = getBPMFromStep(step);
+		return lastChange.songTime
+			+
+			((step - lastChange.stepTime) / (lastChange.bpm / 60) / 4) * 1000; // step * (lastChange.stepCrochet*4); // TODO: make less shit and take BPM into account PROPERLY
+	}
+
+	public static function getStep(time:Float)
+	{
+		var lastChange = getBPMFromSeconds(time);
+		return lastChange.stepTime + (time - lastChange.songTime) / (((60 / lastChange.bpm) * 1000) / 4);
+	}
+
+	public static function getStepRounded(time:Float)
+	{
+		var lastChange = getBPMFromSeconds(time);
+		return lastChange.stepTime + Math.floor(time - lastChange.songTime) / (((60 / lastChange.bpm) * 1000) / 4);
+	}
+
+	public static function getBeat(time:Float)
+	{
+		return getStep(time) / 4;
 	}
 
 	public static function judgeNote(note:Note, diff:Float=0) //STOLEN FROM KADE ENGINE (bbpanzu) - I had to rewrite it later anyway after i added the custom hit windows lmao (Shadow Mario)

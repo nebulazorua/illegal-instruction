@@ -19,6 +19,9 @@ typedef EventNote = {
 
 class Note extends FlxSprite
 {
+	public var row:Int = 0;
+
+
 	public var currentPrefix:String = "";
 	public var currentTexture:String = "";
 	public var currentSuffix:String = "";
