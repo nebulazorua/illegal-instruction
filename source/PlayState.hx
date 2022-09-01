@@ -5781,12 +5781,12 @@ class PlayState extends MusicBeatState
 		{
 			dad.specialAnim = false;
 			FlxG.camera.flash(FlxColor.BLACK, 1);
-			dadGroup.remove(dad);
+			/*dadGroup.remove(dad);
 			var olddx = dad.x - 230;
 			var olddy = dad.y - 170;
 			dad = new Character(olddx, olddy, 'beast_chaotix');
 			iconP2.changeIcon(dad.healthIcon);
-			dadGroup.add(dad);
+			dadGroup.add(dad);*/
 			camZooming = true;
 			FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom}, 1.5, {ease: FlxEase.cubeInOut});
 			FlxTween.tween(camHUD, {alpha: 1}, 1.0);

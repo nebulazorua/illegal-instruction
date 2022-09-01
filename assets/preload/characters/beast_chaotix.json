@@ -8,7 +8,7 @@
 			],
 			"anim": "idle",
 			"fps": 24,
-			"name": "Beast idle",
+			"name": "idle",
 			"indices": []
 		},
 		{
@@ -19,7 +19,7 @@
 			],
 			"anim": "singUP",
 			"fps": 24,
-			"name": "Beast up",
+			"name": "up",
 			"indices": []
 		},
 		{
@@ -30,7 +30,7 @@
 			],
 			"anim": "singRIGHT",
 			"fps": 24,
-			"name": "Beast right",
+			"name": "right",
 			"indices": []
 		},
 		{
@@ -41,7 +41,7 @@
 			],
 			"anim": "singDOWN",
 			"fps": 24,
-			"name": "Beast down",
+			"name": "down",
 			"indices": []
 		},
 		{
@@ -52,7 +52,7 @@
 			],
 			"anim": "singUP-loop",
 			"fps": 24,
-			"name": "Beast up",
+			"name": "up",
 			"indices": [
 				3,
 				4,
@@ -71,7 +71,7 @@
 			],
 			"anim": "singRIGHT-loop",
 			"fps": 24,
-			"name": "Beast right",
+			"name": "right",
 			"indices": [
 				3,
 				4,
@@ -90,7 +90,7 @@
 			],
 			"anim": "singLEFT-loop",
 			"fps": 24,
-			"name": "Beast left",
+			"name": "left",
 			"indices": [
 				3,
 				4,
@@ -109,7 +109,7 @@
 			],
 			"anim": "singLEFT",
 			"fps": 24,
-			"name": "Beast left",
+			"name": "left",
 			"indices": []
 		},
 		{
@@ -120,7 +120,7 @@
 			],
 			"anim": "singDOWN-loop",
 			"fps": 24,
-			"name": "Beast down",
+			"name": "down",
 			"indices": [
 				3,
 				4,
@@ -139,7 +139,7 @@
 			],
 			"anim": "idle-loop",
 			"fps": 24,
-			"name": "Beast idle",
+			"name": "idle",
 			"indices": [
 				11,
 				12,
@@ -153,10 +153,10 @@
 		}
 	],
 	"no_antialiasing": true,
-	"image": "characters/Beast_Chaotix_sheet",
+	"image": "characters/updated_Beast",
 	"position": [
-		150,
-		360
+		50,
+		540
 	],
 	"healthicon": "chaotix-beast-pixel",
 	"flip_x": false,
@@ -166,8 +166,8 @@
 		51
 	],
 	"camera_position": [
-		-490,
-		-390
+		-520,
+		-330
 	],
 	"sing_duration": 4,
 	"scale": 6
