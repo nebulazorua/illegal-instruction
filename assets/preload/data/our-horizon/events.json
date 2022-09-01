@@ -17,7 +17,37 @@
 					[
 						"Change Character",
 						"bf",
-						"bf"
+						"bf-holding-gf"
+					]
+				]
+			],
+			[
+				224161.577067237,
+				[
+					[
+						"Change Character",
+						"bf",
+						"chaotix_bf"
+					],
+					[
+						"Change Character",
+						"dad",
+						"beast_chaotix"
+					]
+				]
+			],
+			[
+				273392.346298006,
+				[
+					[
+						"Change Character",
+						"bf",
+						"bf-holding-gf"
+					],
+					[
+						"Change Character",
+						"dad",
+						"chaotix"
 					]
 				]
 			]
@@ -27,7 +57,7 @@
 		"validScore": false,
 		"gfVersion": "chaotix_gf",
 		"bpm": 156,
-		"arrowSkin": null,
+		"arrowSkin": "",
 		"needsVoices": true,
 		"song": "our-horizon"
 	}

@@ -89,7 +89,7 @@ typedef CheckpointData = {
 
 class PlayState extends MusicBeatState
 {
-	var noteRows:Array<Array<Array<Note>>> = [[],[]];
+	var noteRows:Array<Array<Array<Note>>> = [[],[],[]];
 
 	var camGlitchShader:GlitchShaderB;
 	var camFuckShader:Fuck;
@@ -2653,20 +2653,26 @@ class PlayState extends MusicBeatState
 					oldNote = null;
 			
 				var pixelStage = isPixelStage;
-				if(daStrumTime >= Conductor.stepToSeconds(1000) && SONG.song.toLowerCase()=='our-horizon')
-					isPixelStage = false;
+
+				if(SONG.song.toLowerCase()=='our-horizon'){
+					if (daStrumTime >= Conductor.stepToSeconds(2336) && daStrumTime <= Conductor.stepToSeconds(2848))
+						isPixelStage = true;
+					else if(daStrumTime >= Conductor.stepToSeconds(1000))
+						isPixelStage = false;
+
+				}
 
 				if(daStrumTime >= Conductor.stepToSeconds(640) && daStrumTime <= 123000 && SONG.song.toLowerCase()=='soulless-endeavors')
 					isPixelStage = true;
-				
+				var gfNote = (section.gfSection && (songNotes[1]<4));
 				var swagNote:Note = new Note(daStrumTime, daNoteData, oldNote);
 				swagNote.row = Conductor.secsToRow(daStrumTime);
-				if(noteRows[gottaHitNote?0:1][swagNote.row]==null)
-					noteRows[gottaHitNote?0:1][swagNote.row]=[];
-				noteRows[gottaHitNote ? 0 : 1][swagNote.row].push(swagNote);
+				if(noteRows[gfNote?2:gottaHitNote?0:1][swagNote.row]==null)
+					noteRows[gfNote?2:gottaHitNote?0:1][swagNote.row]=[];
+				noteRows[gfNote ? 2 :gottaHitNote ? 0 : 1][swagNote.row].push(swagNote);
 				swagNote.mustPress = gottaHitNote;
 				swagNote.sustainLength = songNotes[2];
-				swagNote.gfNote = (section.gfSection && (songNotes[1]<4));
+				swagNote.gfNote = gfNote;
 				swagNote.noteType = songNotes[3];
 				if(!Std.isOfType(songNotes[3], String)) swagNote.noteType = editors.ChartingState.noteTypeList[songNotes[3]]; //Backward compatibility + compatibility with Week 7 charts
 
@@ -4747,10 +4753,10 @@ class PlayState extends MusicBeatState
 			if(char != null)
 			{
 				char.holdTimer = 0;
-				if (!note.isSustainNote && noteRows[note.mustPress?0:1][note.row].length > 1)
+				if (!note.isSustainNote && noteRows[note.gfNote ? 2 :note.mustPress?0:1][note.row].length > 1)
 				{
 					// potentially have jump anims?
-					var chord = noteRows[note.mustPress?0:1][note.row];
+					var chord = noteRows[note.gfNote?2: note.mustPress?0:1][note.row];
 					var animNote = chord[0];
 					var realAnim = singAnimations[Std.int(Math.abs(animNote.noteData))] + altAnim;
 					if (char.mostRecentRow != note.row)
@@ -4882,10 +4888,10 @@ class PlayState extends MusicBeatState
 				}
 
 				char.holdTimer = 0;
-				if (!note.isSustainNote && noteRows[note.mustPress ? 0 : 1][note.row].length > 1)
+				if (!note.isSustainNote && noteRows[note.gfNote ? 2: note.mustPress ? 0 : 1][note.row].length > 1)
 				{
 					// potentially have jump anims?
-					var chord = noteRows[note.mustPress ? 0 : 1][note.row];
+					var chord = noteRows[note.gfNote? 2: note.mustPress ? 0 : 1][note.row];
 					var animNote = chord[0];
 					var realAnim = singAnimations[Std.int(Math.abs(animNote.noteData))] + daAlt;
 					if (char.mostRecentRow != note.row)
@@ -5218,6 +5224,112 @@ class PlayState extends MusicBeatState
 							boyfriend.setPosition(900, 950);
 							literallyOurHorizon();
 							removeShit(2);
+						case 2848:
+							isPixelStage = false;
+							camZooming = true;
+							FlxG.camera.zoom = defaultCamZoom;
+							GameOverSubstate.characterName = 'bf-holding-gf-dead';
+							gf.alpha = 0;
+							snapCamFollowToPos(700, 900);
+							defaultCamZoom = 0.7;
+							dad.setPosition(200, 700);
+							boyfriend.setPosition(900, 950);
+
+							fucklesBGPixel.visible = false;
+							fucklesFGPixel.visible = false;
+
+							horizonBg.visible = true;
+							horizonFloor.visible = true;
+							horizonTrees.visible = true;
+							horizonTrees2.visible = true;
+
+							horizonPurpur.visible = true;
+							horizonYellow.visible = true;
+							horizonRed.visible = true;
+
+							horizonAmy.visible = true;
+							horizonCharmy.visible = true;
+							horizonEspio.visible = true;
+							horizonMighty.visible = true;
+							horizonKnuckles.visible = true;
+							horizonVector.visible = true;
+
+							playerStrums.forEach(function(spr:StrumNote)
+							{
+								spr.reloadNote();
+							});
+
+							opponentStrums.forEach(function(spr:FlxSprite)
+							{
+								spr.x += 10000;
+							});
+							FlxG.camera.flash(FlxColor.WHITE, 2);
+
+							removeShit(2);
+						case 2336:
+							snapCamFollowToPos(BF_X, BF_Y + 400);
+							defaultCamZoom = 0.7;
+							dad.setPosition(DAD_X, DAD_Y);
+							boyfriend.setPosition(BF_X, BF_Y);
+							startCharacterPos(dad, true);
+							startCharacterPos(boyfriend);
+
+							boyfriend.y += 68;
+
+							isPixelStage = true;
+							GameOverSubstate.deathSoundName = 'chaotix-death';
+							GameOverSubstate.loopSoundName = 'chaotix-loop';
+							GameOverSubstate.endSoundName = 'chaotix-retry';
+							GameOverSubstate.characterName = 'bf-chaotix-death';
+
+							defaultCamZoom = 0.87;
+							camZooming = true;
+							FlxG.camera.zoom = defaultCamZoom;
+							camHUD.alpha = 1;
+							dad.alpha = 1;
+							boyfriend.alpha = 1;
+							gf.alpha = 1;
+
+							fucklesEspioBg.animation.resume();
+							fucklesMightyBg.animation.resume();
+							fucklesCharmyBg.animation.resume();
+							fucklesAmyBg.animation.resume();
+							fucklesKnuxBg.animation.resume();
+							fucklesVectorBg.animation.resume();
+							fucklesEspioBg.visible = true;
+							fucklesMightyBg.visible = true;
+							fucklesCharmyBg.visible = true;
+							fucklesAmyBg.visible = true;
+							fucklesKnuxBg.visible = true;
+							fucklesVectorBg.visible = true;
+
+							fucklesBGPixel.visible = true;
+							fucklesFGPixel.visible = true;
+
+							horizonBg.visible = false;
+							horizonFloor.visible = false;
+							horizonTrees.visible = false;
+							horizonTrees2.visible = false;
+
+							horizonPurpur.visible = false;
+							horizonYellow.visible = false;
+							horizonRed.visible = false;
+
+							horizonAmy.visible = false;
+							horizonCharmy.visible = false;
+							horizonEspio.visible = false;
+							horizonMighty.visible = false;
+							horizonKnuckles.visible = false;
+							horizonVector.visible = false;
+
+							playerStrums.forEach(function(spr:StrumNote)
+							{
+								spr.reloadNote();
+							});
+
+					FlxG.camera.flash(FlxColor.WHITE, 2);
+
+
 						case 2976:
 							FlxTween.tween(camHUD, {alpha: 0}, 2);
 						case 2992:
