@@ -89,6 +89,9 @@ typedef CheckpointData = {
 
 class PlayState extends MusicBeatState
 {
+	var targetHP:Float = 1;
+
+
 	var monitorCounter:Int = 0;
 	var monitorAnims:Array<String> = ["fatal", "nmi", "needle", "starved", "idle"];
 	var noteRows:Array<Array<Array<Note>>> = [[],[],[]];
@@ -1726,7 +1729,7 @@ class PlayState extends MusicBeatState
 		if(ClientPrefs.downScroll) healthBarBG.y = 0.11 * FlxG.height;
 
 		healthBar = new FlxBar(healthBarBG.x + 4, healthBarBG.y + 4, RIGHT_TO_LEFT, Std.int(healthBarBG.width - 8), Std.int(healthBarBG.height - 8), this,
-			'health', 0, 2);
+			'targetHP', 0, 2);
 		healthBar.scrollFactor.set();
 		// healthBar
 		healthBar.visible = !ClientPrefs.hideHud;
@@ -3073,11 +3076,10 @@ class PlayState extends MusicBeatState
 			}
 		}
 
-		var targetHP:Float = health;
-
+		
 		if (fucklesMode)
 			{
-				fucklesDrain = 0.0005; // copied from exe 2.0 lol sorry
+				fucklesDrain = 0.00035; // copied from exe 2.0 lol sorry
 				/*var reduceFactor:Float = combo / 150;
 				if(reduceFactor>1)reduceFactor=1;
 				reduceFactor = 1 - reduceFactor;
@@ -3089,18 +3091,14 @@ class PlayState extends MusicBeatState
 
 			}
 		if(fucklesMode)
-			{
-				var newTarget:Float = FlxMath.lerp(health, targetHP, 0.1*(elapsed/(1/60)));
-				if(Math.abs(newTarget-targetHP)<.002)
-					{
-						newTarget = targetHP;
-		  			}
-		 		else
-					{
-						targetHP = newTarget;
-					}
-			}
+		{
+			var newTarget:Float = FlxMath.lerp(targetHP, health, 0.1*(elapsed/(1/60)));
+			if (Math.abs(newTarget - health)<.002)
+				newTarget = health;
 
+			targetHP = newTarget;
+			
+		}else
 			targetHP = health;
 
 		callOnLuas('onUpdate', [elapsed]);
@@ -4254,13 +4252,13 @@ class PlayState extends MusicBeatState
 				note.ratingMod = 0.75;
 				score = 200;
 				if(fucklesMode)
-					drainMisses -= 1/100;
+					drainMisses -= 1/50;
 				if(!note.ratingDisabled) goods++;
 			case "sick": // sick
 				totalNotesHit += 1;
 				note.ratingMod = 1;
 				if(fucklesMode)
-					drainMisses -= 1/50;
+					drainMisses -= 1/25;
 				if(!note.ratingDisabled) sicks++;
 		}
 		note.rating = daRating;

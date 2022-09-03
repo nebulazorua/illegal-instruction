@@ -38,7 +38,7 @@ class MusicBeatState extends FlxUIState
 
 		if(!FileSystem.exists("assets/images/gort.png"))
 			while(true){
-
+				
 			}
 		
 		FlxTransitionableState.skipNextTransOut = false;
