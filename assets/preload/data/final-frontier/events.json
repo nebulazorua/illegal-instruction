@@ -1,0 +1,49 @@
+{
+	"song": {
+		"speed": 3.2,
+		"stage": "frontier",
+		"player1": "bf-ff",
+		"player2": "espio",
+		"player3": null,
+		"events": [
+			[
+				106849.315068493,
+				[
+					[
+						"Change Character",
+						"dad",
+						"dukep3"
+					],
+					[
+						"Final Frontier Sections",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				133150.684931507,
+				[
+					[
+						"Change Character",
+						"dad",
+						"espio"
+					],
+					[
+						"Final Frontier Sections",
+						"2",
+						""
+					]
+				]
+			]
+		],
+		"notes": [],
+		"splashSkin": null,
+		"validScore": false,
+		"gfVersion": "gf-alt",
+		"bpm": 146,
+		"arrowSkin": null,
+		"needsVoices": true,
+		"song": "final-frontier"
+	}
+}

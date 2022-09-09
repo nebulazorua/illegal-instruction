@@ -5,10 +5,10 @@
 				0,
 				0
 			],
-			"indices": [],
+			"loop": true,
 			"fps": 24,
 			"anim": "idle",
-			"loop": true,
+			"indices": [],
 			"name": "Idle"
 		},
 		{
@@ -16,10 +16,10 @@
 				120,
 				-150
 			],
-			"indices": [],
+			"loop": false,
 			"fps": 24,
 			"anim": "singLEFT",
-			"loop": false,
+			"indices": [],
 			"name": "Left"
 		},
 		{
@@ -27,10 +27,10 @@
 				-47,
 				-214
 			],
-			"indices": [],
+			"loop": false,
 			"fps": 24,
 			"anim": "singDOWN",
-			"loop": false,
+			"indices": [],
 			"name": "Down"
 		},
 		{
@@ -38,10 +38,10 @@
 				0,
 				0
 			],
-			"indices": [],
+			"loop": false,
 			"fps": 24,
 			"anim": "singUP",
-			"loop": false,
+			"indices": [],
 			"name": "Up"
 		},
 		{
@@ -49,18 +49,18 @@
 				-10,
 				-160
 			],
-			"indices": [],
+			"loop": false,
 			"fps": 24,
 			"anim": "singRIGHT",
-			"loop": false,
+			"indices": [],
 			"name": "Right"
 		}
 	],
 	"no_antialiasing": false,
 	"image": "characters/Espio",
 	"position": [
-		0,
-		0
+		-1000,
+		10
 	],
 	"healthicon": "espio",
 	"flip_x": false,
@@ -70,8 +70,8 @@
 		43
 	],
 	"camera_position": [
-		0,
-		0
+		30,
+		130
 	],
 	"sing_duration": 6.1,
 	"scale": 1

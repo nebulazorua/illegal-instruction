@@ -336,8 +336,18 @@ class PlayState extends MusicBeatState
 
 	var frontierBg:BGSprite;
 	var frontierGround:BGSprite;
-	var frontierMasterEmerald:BGSprite;
-	var frontierEmeralds:BGSprite;
+	var frontierMasterEmerald:FlxSprite;
+	var frontierEmeralds:FlxSprite;
+	
+	//GRRRR I HATE MATH I HA
+	var dadFly:Character;
+	var itemFly:FlxSprite;
+	var itemFly2:FlxSprite;
+	
+	var emeraldTween:Float = 0; 
+	var masterEmeraldTween:Float = 0;
+	var dukeTween:Float = 0;
+
 	//typed group my behatred
 	var frontierDebris:FlxTypedGroup<FlxSprite>;
 
@@ -1303,14 +1313,36 @@ class PlayState extends MusicBeatState
 				mazinOverlay.scale.y = 1.75;
 
 			case 'frontier':
+				defaultCamZoom = 0.6;
+
 				frontierBg = new BGSprite('frontier/sky', -600, -120, 1, 0.9);
-				frontierBg.scale.x = 1.25;
-				frontierBg.scale.y = 1.25;
+				frontierBg.scale.x = 2.0;
+				frontierBg.scale.y = 2.0;
 				add(frontierBg);
 
+				frontierEmeralds = new FlxSprite(-900, -160);
+				frontierEmeralds.frames = Paths.getSparrowAtlas('frontier/emeralds', 'exe');
+				frontierEmeralds.animation.addByPrefix('FUCK', 'emeraldsBOP', 24);
+				frontierEmeralds.animation.play('FUCK');
+				frontierEmeralds.scale.x = 1.4;
+				frontierEmeralds.scale.y = 1.4;
+				frontierEmeralds.scrollFactor.set(1, 1);
+
+				add(frontierEmeralds);
+
+				frontierMasterEmerald = new FlxSprite(-600, -160);
+				frontierMasterEmerald.frames = Paths.getSparrowAtlas('frontier/masteremerald', 'exe');
+				frontierMasterEmerald.animation.addByPrefix('FUCK', 'emeraldglow', 24);
+				frontierMasterEmerald.animation.play('FUCK');
+				frontierMasterEmerald.scale.x = 1.4;
+				frontierMasterEmerald.scale.y = 1.4;
+				frontierMasterEmerald.scrollFactor.set(1, 1);
+				frontierMasterEmerald.visible = false;	
+				add(frontierMasterEmerald);
+
 				frontierGround = new BGSprite('frontier/fgground', -600, -120, 1, 0.9);
-				frontierGround.scale.x = 1.25;
-				frontierGround.scale.y = 1.25;
+				frontierGround.scale.x = 2.0;
+				frontierGround.scale.y = 2.0;
 				add(frontierGround);
 
 				
@@ -1443,6 +1475,8 @@ class PlayState extends MusicBeatState
 		dadGroup.add(dad);
 		startCharacterLua(dad.curCharacter);
 
+		dadFly = dad;
+
 		boyfriend = new Boyfriend(0, 0, SONG.player1);
 		startCharacterPos(boyfriend);
 		boyfriendGroup.add(boyfriend);
@@ -1502,6 +1536,11 @@ class PlayState extends MusicBeatState
 				theStatic.visible = false;
 				add(theStatic);
 
+			case 'frontier':
+				itemFly = frontierEmeralds;
+				itemFly2 = frontierMasterEmerald;
+				// kms.
+
 			case 'horizon':
 				boyfriend.y += 68;
 				gf.x += 375;
@@ -1537,13 +1576,13 @@ class PlayState extends MusicBeatState
 				hogOverlay.blend = LIGHTEN;
 
 			case 'infinity':
-			add(mazinOverlay);
-			boyfriend.x -= 140;
-			boyfriend.y -= 175;
-			dad.x -= 70;
-			dad.y -= 175;
+				add(mazinOverlay);
+				boyfriend.x -= 140;
+				boyfriend.y -= 175;
+				dad.x -= 70;
+				dad.y -= 175;
 
-			gfGroup.visible = false;
+				gfGroup.visible = false;
 		}
 
 		var file:String = Paths.json(songName + '/dialogue'); //Checks for json/Psych Engine dialogue
@@ -3017,6 +3056,7 @@ class PlayState extends MusicBeatState
 	var startedCountdown:Bool = false;
 	var canPause:Bool = true;
 	var lastSection:Int = 0;
+	var forFucksSake:Bool = false;
 
 	override public function update(elapsed:Float)
 	{
@@ -3064,6 +3104,31 @@ class PlayState extends MusicBeatState
 			if(newHP > hpCap)
 				health -= loss;
 		}
+
+		emeraldTween += 0.01;
+		//fjdslfdsakfkda;f;dajfdsajl;aa;jd AUUUUGHHHHH
+		masterEmeraldTween += 0.02;
+		dukeTween += 0.02;
+
+		if (curStage == 'frontier')
+			{
+				itemFly.y += Math.sin(emeraldTween) * 0.5;
+			}
+
+		
+		if (dad.curCharacter == 'dukep3')
+			{
+				if (forFucksSake)
+				{
+					dadFly.y += Math.sin(dukeTween) * 1.5;
+					itemFly2.y += Math.sin(masterEmeraldTween) * 1.5;
+				}
+				else
+				{		
+					dadFly.y += Math.sin(dukeTween) * 0;
+					itemFly2.y += Math.sin(masterEmeraldTween) * 0;
+				}
+			}
 
 		if(hexes>0)
 		{
@@ -3357,6 +3422,8 @@ class PlayState extends MusicBeatState
 			{
 				case "beast_chaotix":
 					FlxG.camera.zoom = FlxMath.lerp(1.2, FlxG.camera.zoom, CoolUtil.boundTo(1 - (elapsed * 3.125), 0, 1));
+				case "dukep3":
+					FlxG.camera.zoom = FlxMath.lerp(0.9, FlxG.camera.zoom, CoolUtil.boundTo(1 - (elapsed * 3.125), 0, 1));
 				default:
 					FlxG.camera.zoom = FlxMath.lerp(defaultCamZoom, FlxG.camera.zoom, CoolUtil.boundTo(1 - (elapsed * 3.125), 0, 1));
 			}
@@ -3909,6 +3976,24 @@ class PlayState extends MusicBeatState
 						}
 					});
 				}
+			case 'Final Frontier Sections':
+				var value:Int = Std.parseInt(value1);
+				if (Math.isNaN(value))
+					value = 0;
+				switch (value)
+				{
+					case 1:
+						frontierGround.visible = false;
+						frontierEmeralds.visible = false;
+						frontierMasterEmerald.visible = true;
+						forFucksSake = true;
+					case 2:
+						frontierGround.visible = true;
+						frontierEmeralds.visible = true;
+						frontierMasterEmerald.visible = false;
+						forFucksSake = false;
+	
+				}
 		}
 		callOnLuas('onEvent', [eventName, value1, value2]);
 	}
@@ -3954,6 +4039,7 @@ class PlayState extends MusicBeatState
 				case "beast_chaotix":
 					camFollow.x -= 30;
 					camFollow.y -= 50;
+
 				default:
 
 			}

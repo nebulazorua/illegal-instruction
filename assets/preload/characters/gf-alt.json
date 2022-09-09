@@ -1,132 +1,132 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "danceLeft",
-			"indices": [],
-			"name": "GF_FF_Idle"
+			"fps": 24,
+			"name": "GF_FF_Idle",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "danceRight",
-			"indices": [],
-			"name": "GF_FF_Idle"
+			"fps": 24,
+			"name": "GF_FF_Idle",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				74,
 				23
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "GF_FF_Left"
+			"fps": 24,
+			"name": "GF_FF_Left",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-52,
 				-45
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "GF_FF_Right"
+			"fps": 24,
+			"name": "GF_FF_Right",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-16,
 				-77
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "GF_FF_Down"
+			"fps": 24,
+			"name": "GF_FF_Down",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-24,
 				24
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUP",
-			"indices": [],
-			"name": "GF_FF_Up"
+			"fps": 24,
+			"name": "GF_FF_Up",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				67,
 				24
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFTmiss",
-			"indices": [],
-			"name": "GF_FF LEFT NOTE MISS"
+			"fps": 24,
+			"name": "GF_FF LEFT NOTE MISS",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-56,
 				-46
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singRIGHTmiss",
-			"indices": [],
-			"name": "GF_FF RIGHT NOTE MISS"
+			"fps": 24,
+			"name": "GF_FF RIGHT NOTE MISS",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-25,
 				-80
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singDOWNmiss",
-			"indices": [],
-			"name": "GF_FF DOWN NOTE MISS"
+			"fps": 24,
+			"name": "GF_FF DOWN NOTE MISS",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-28,
 				16
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUPmiss",
-			"indices": [],
-			"name": "GF_FF UP NOTE MISS"
+			"fps": 24,
+			"name": "GF_FF UP NOTE MISS",
+			"indices": []
 		}
 	],
 	"no_antialiasing": false,
 	"image": "characters/FinalFrontierGF_Assets",
 	"position": [
-		60,
-		50
+		20,
+		-60
 	],
-	"healthicon": "FFgf",
-	"flip_x": true,
+	"healthicon": "gf2",
+	"flip_x": false,
 	"healthbar_colors": [
 		103,
 		0,
 		30
 	],
 	"camera_position": [
-		30,
-		150
+		-310,
+		130
 	],
 	"sing_duration": 4,
 	"scale": 0.8
