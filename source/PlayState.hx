@@ -349,7 +349,7 @@ class PlayState extends MusicBeatState
 	var dukeTween:Float = 0;
 
 	//typed group my behatred
-	var frontierDebris:FlxTypedGroup<FlxSprite>;
+	var frontierDebris:FlxTypedGroup<BGSprite>;
 
 
 	// horizon
@@ -1320,6 +1320,49 @@ class PlayState extends MusicBeatState
 				frontierBg.scale.y = 2.0;
 				add(frontierBg);
 
+				frontierDebris = new FlxTypedGroup<BGSprite>();
+				add(frontierDebris);
+
+				var debris1:BGSprite = new BGSprite('frontier/1', 1100, 0, 1, 0.9);
+				debris1.scale.y = 1.1;
+				debris1.scale.x = 1.1;
+				frontierDebris.add(debris1);
+
+				var debris2:BGSprite = new BGSprite('frontier/2', 900, -250, 1, 0.9);
+				debris2.scale.y = 1.1;
+				debris2.scale.x = 1.1;
+				frontierDebris.add(debris2);
+
+				var debris3:BGSprite = new BGSprite('frontier/3', -1000, 150, 1, 0.9);
+				debris3.scale.y = 1.3;
+				debris3.scale.x = 1.3;
+				frontierDebris.add(debris3);
+
+				var debris4:BGSprite = new BGSprite('frontier/4', -1500, -70, 1, 0.9);
+				debris4.scale.y = 1.3;
+				debris4.scale.x = 1.3;
+				frontierDebris.add(debris4);
+
+				var debris5:BGSprite = new BGSprite('frontier/5', -1500, -80, 1, 0.9);
+				debris5.scale.y = 1.2;
+				debris5.scale.x = 1.2;
+				frontierDebris.add(debris5);
+
+				var debris6:BGSprite = new BGSprite('frontier/6', 1500, 400, 1, 0.9);
+				debris6.scale.y = 1.5;
+				debris6.scale.x = 1.5;
+				frontierDebris.add(debris6);
+
+				var debris7:BGSprite = new BGSprite('frontier/7', 1650, 500, 1, 0.9);
+				debris7.scale.y = 1.5;
+				debris7.scale.x = 1.5;
+				frontierDebris.add(debris7);
+
+				var debris8:BGSprite = new BGSprite('frontier/8', 1700, 550, 1, 0.9);
+				debris8.scale.y = 1.5;
+				debris8.scale.x = 1.5;
+				frontierDebris.add(debris8);
+
 				frontierEmeralds = new FlxSprite(-900, -160);
 				frontierEmeralds.frames = Paths.getSparrowAtlas('frontier/emeralds', 'exe');
 				frontierEmeralds.animation.addByPrefix('FUCK', 'emeraldsBOP', 24);
@@ -1343,7 +1386,7 @@ class PlayState extends MusicBeatState
 				frontierGround = new BGSprite('frontier/fgground', -600, -120, 1, 0.9);
 				frontierGround.scale.x = 2.0;
 				frontierGround.scale.y = 2.0;
-				add(frontierGround);
+				add(frontierGround)	;
 
 				
 
@@ -1537,6 +1580,17 @@ class PlayState extends MusicBeatState
 				add(theStatic);
 
 			case 'frontier':
+				theStatic = new FlxSprite(0, 0);
+				theStatic.frames = Paths.getSparrowAtlas('staticc', 'exe');
+				theStatic.animation.addByPrefix('stat', "staticc", 24, true);
+				theStatic.animation.play('stat');
+				theStatic.cameras = [camOther];
+				theStatic.setGraphicSize(FlxG.width, FlxG.height);
+				theStatic.screenCenter();
+				theStatic.alpha = 0;
+
+				add(theStatic);
+
 				itemFly = frontierEmeralds;
 				itemFly2 = frontierMasterEmerald;
 				// kms.
@@ -3116,7 +3170,7 @@ class PlayState extends MusicBeatState
 			}
 
 		
-		if (dad.curCharacter == 'dukep3')
+		/*if (dad.curCharacter == 'dukep3') dis shit only work for the master emerald
 			{
 				if (forFucksSake)
 				{
@@ -3128,7 +3182,7 @@ class PlayState extends MusicBeatState
 					dadFly.y += Math.sin(dukeTween) * 0;
 					itemFly2.y += Math.sin(masterEmeraldTween) * 0;
 				}
-			}
+			}*/
 
 		if(hexes>0)
 		{
@@ -3993,6 +4047,17 @@ class PlayState extends MusicBeatState
 						frontierMasterEmerald.visible = false;
 						forFucksSake = false;
 	
+				}
+			case 'FF Static':
+				var value:Int = Std.parseInt(value1);
+				if (Math.isNaN(value))
+					value = 0;
+				switch (value)
+				{
+					case 1:
+						staticEvent();
+					case 2:
+						theStatic.visible = true;
 				}
 		}
 		callOnLuas('onEvent', [eventName, value1, value2]);
@@ -5202,10 +5267,6 @@ class PlayState extends MusicBeatState
 									camGame.setFilters([]);
 									camHUD.setFilters([]);
 								}});
-						case 816:
-							theStatic.alpha = 0;
-							theStatic.visible = true;	
-							FlxTween.tween(theStatic, {alpha: 0.9}, 1.5, {ease: FlxEase.quadInOut});
 						case 951:
 							camGame.setFilters([barrelDistortionFilter]);
 							camHUD.setFilters([barrelDistortionFilter]);
@@ -5220,7 +5281,7 @@ class PlayState extends MusicBeatState
 									camHUD.setFilters([]);
 								}
 							});
-						case 569, 826:
+						case 569:
 							FlxFlicker.flicker(theStatic, 0.5, 0.02, false, false);
 							new FlxTimer().start(0.5, function(tmr:FlxTimer) 
 								{				
@@ -5955,6 +6016,22 @@ class PlayState extends MusicBeatState
 			FlxTween.color(hogFloor, 15, FlxColor.WHITE, 0xFF1f1f1f);
 			FlxTween.color(hogRocks, 15, FlxColor.WHITE, 0xFF1f1f1f);  
 			FlxTween.color(hogOverlay, 15, FlxColor.WHITE, 0xFF1f1f1f);
+		}
+
+	function staticEvent()
+		{
+			FlxTween.tween(theStatic, {alpha: 0.9}, 1.5, {ease: FlxEase.quadInOut});
+
+			new FlxTimer().start(0.9, function(tmr:FlxTimer) 
+				{				
+					FlxFlicker.flicker(theStatic, 0.5, 0.02, false, false);
+				});
+			new FlxTimer().start(1.5, function(tmr:FlxTimer) 
+				{				
+					FlxG.camera.flash(0xFF0edc7c, 1);
+					theStatic.visible = false;
+					theStatic.alpha = 0;
+				});
 		}
 
 	function chaotixGlass(ass:Int)

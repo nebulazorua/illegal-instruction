@@ -89,6 +89,7 @@ class ChartingState extends MusicBeatState
 		['Change Scroll Speed', "Value 1: Scroll Speed Multiplier (1 is default)\nValue 2: Time it takes to change fully in seconds."],
 		["NormalCD Harmonization", "Value 1: Character to have their 'ghost', dad or bf\nValue 2: Anim name that the ghost should play"],
 		["Final Frontier Sections", "Value 1: Duke Section of Final Frontier.\nValue 2: Soul Section of Final Frontier."],
+		["FF Static", "Value 1: Put 1 in to use for statics, Only for Final Frontier! \nValue 2: Reset the Static."],
 		['glitch']
 	];
 

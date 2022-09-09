@@ -1,11 +1,21 @@
 {
 	"song": {
-		"speed": 3.2,
+		"speed": 2.8,
 		"stage": "frontier",
 		"player1": "bf-ff",
 		"player2": "espio",
 		"player3": null,
 		"events": [
+			[
+				105205.479452055,
+				[
+					[
+						"FF Static",
+						"1",
+						""
+					]
+				]
+			],
 			[
 				106849.315068493,
 				[
