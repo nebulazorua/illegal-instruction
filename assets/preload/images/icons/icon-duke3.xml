@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="icon-duke3.png">
+	<!-- Created with Adobe Animate version 22.0.7.214 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="guh0000" x="14" y="14" width="239" height="239" frameX="-21" frameY="-48" frameWidth="285" frameHeight="287"/>
+	<SubTexture name="guh0001" x="14" y="14" width="239" height="239" frameX="-21" frameY="-48" frameWidth="285" frameHeight="287"/>
+	<SubTexture name="guh0002" x="265" y="14" width="213" height="213" frameX="-42" frameY="-55" frameWidth="285" frameHeight="287"/>
+	<SubTexture name="guh0003" x="265" y="14" width="213" height="213" frameX="-42" frameY="-55" frameWidth="285" frameHeight="287"/>
+	<SubTexture name="guh0004" x="490" y="14" width="219" height="206" frameX="-32" frameY="-65" frameWidth="285" frameHeight="287"/>
+	<SubTexture name="guh0005" x="490" y="14" width="219" height="206" frameX="-32" frameY="-65" frameWidth="285" frameHeight="287"/>
+	<SubTexture name="guh0006" x="721" y="14" width="228" height="219" frameX="-19" frameY="-48" frameWidth="285" frameHeight="287"/>
+	<SubTexture name="guh0007" x="721" y="14" width="228" height="219" frameX="-19" frameY="-48" frameWidth="285" frameHeight="287"/>
+	<SubTexture name="guh0008" x="14" y="265" width="236" height="236" frameX="-20" frameY="-43" frameWidth="285" frameHeight="287"/>
+	<SubTexture name="guh0009" x="14" y="265" width="236" height="236" frameX="-20" frameY="-43" frameWidth="285" frameHeight="287"/>
+	<SubTexture name="guh0010" x="262" y="265" width="238" height="236" frameX="-5" frameY="-34" frameWidth="285" frameHeight="287"/>
+	<SubTexture name="guh0011" x="262" y="265" width="238" height="236" frameX="-5" frameY="-34" frameWidth="285" frameHeight="287"/>
+	<SubTexture name="guh0012" x="512" y="265" width="285" height="285" frameX="0" frameY="0" frameWidth="285" frameHeight="287"/>
+	<SubTexture name="guh0013" x="512" y="265" width="285" height="285" frameX="0" frameY="0" frameWidth="285" frameHeight="287"/>
+	<SubTexture name="neutralbozo0000" x="809" y="265" width="156" height="150" frameX="0" frameY="0" frameWidth="166" frameHeight="150"/>
+	<SubTexture name="neutralbozo0001" x="809" y="265" width="156" height="150" frameX="0" frameY="0" frameWidth="166" frameHeight="150"/>
+	<SubTexture name="neutralbozo0002" x="14" y="562" width="166" height="150"/>
+	<SubTexture name="neutralbozo0003" x="14" y="562" width="166" height="150"/>
+</TextureAtlas>
