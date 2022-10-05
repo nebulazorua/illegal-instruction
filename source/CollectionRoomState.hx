@@ -129,6 +129,8 @@ class CollectionRoomState extends MusicBeatState
 
             charBio.text = charText;
 
+            reloadText();
+            fixTheFunny();
             super.update(elapsed);
         }
 
@@ -196,6 +198,7 @@ class CollectionRoomState extends MusicBeatState
                 case 'duke':
                     characterShit.x = 150;
                     characterShit.y = 150;
+                    characterShit.setGraphicSize(Std.int(characterShit.width * 1));
                 case 'chaotix':
                     characterShit.x = 200;
                     characterShit.y = 180;
@@ -204,30 +207,25 @@ class CollectionRoomState extends MusicBeatState
                     charBio.updateHitbox();
                     charBio.x = 455;
                     charBio.y = 109;
+                    characterShit.setGraphicSize(Std.int(characterShit.width * 1));
                 case 'chotix':
                     characterShit.x = 150;
                     characterShit.y = 300;
+                    characterShit.setGraphicSize(Std.int(characterShit.width * 1));
                 case 'normalcd':
                     characterShit.x = -600;
                     characterShit.y = -550; 
+                    characterShit.setGraphicSize(Std.int(characterShit.width * 0.3));
                 case 'curse':
-                    characterShit.x = -120;
+                    characterShit.x = -160;
                     characterShit.y = -600;
                     charBio.scale.x = 0.5;
                     charBio.scale.y = 0.5;
                     charBio.updateHitbox();
-                    charBio.x = 50;
-                    charBio.y = 100;
+                    charBio.x = 410;
+                    charBio.y = 250;
+                    characterShit.setGraphicSize(Std.int(characterShit.width * 0.3));
             }
-
-            if (characterList[curSelected] == 'normalcd' || characterList[curSelected] == 'curse')
-                {
-                     characterShit.setGraphicSize(Std.int(characterShit.width * 0.3));
-                }
-            else
-                {
-                    characterShit.setGraphicSize(Std.int(characterShit.width * 1));
-               }
         }
 
 }
