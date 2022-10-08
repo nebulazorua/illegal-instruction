@@ -62,7 +62,7 @@
 		-10,
 		-220
 	],
-	"healthicon": "scorched",
+	"healthicon": "scorched-glitch",
 	"flip_x": false,
 	"healthbar_colors": [
 		52,

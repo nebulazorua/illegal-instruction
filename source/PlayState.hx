@@ -2160,9 +2160,12 @@ class PlayState extends MusicBeatState
 		CustomFadeTransition.nextCamera = camOther;
 	}
 
+
+	var newIcon:String;
+
 	function glitchFreeze()
 	{
-
+		scoreRandom = true;
 		switch(FlxG.random.int(1,2)){
 			case 1:
 				staticlol.enabled.value = [true];
@@ -2175,6 +2178,29 @@ class PlayState extends MusicBeatState
 					glitchThingy.enabled.value = [false];
 				});
 		}
+
+		switch(FlxG.random.int(1,9)){
+			case 1:
+				newIcon = "sonic";
+			case 2:
+				newIcon = "shadow";
+			case 3:
+				newIcon = "beta";
+			case 4:
+				newIcon = "sexe";
+			case 5:
+				newIcon = "fatal";
+			case 6:
+				newIcon = "lordx";
+			case 7:
+				newIcon = "sarah";
+			case 8:
+				newIcon = "satanos";
+			case 9:
+				newIcon = "scorched-glitch";
+		}
+		trace(newIcon);
+		iconP2.changeIcon(newIcon);
 
 		// this is all commented for now
 		// switch(FlxG.random.int(1, 8)){
@@ -3265,14 +3291,7 @@ class PlayState extends MusicBeatState
 			}
 		}
 
-
 		super.update(elapsed);
-		if(ratingName == '?') {
-			scoreTxt.text = 'Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingName;
-		} else {
-			scoreTxt.text = 'Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingName + ' (' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%)' + ' - ' + ratingFC;//peeps wanted no integer rating
-		}
-		new FlxTimer().start(0.2, function(byebye:FlxTimer) {
 		if(scoreRandom){
 			switch(FlxG.random.int(1, 6)) {
 				case 1:
@@ -3288,7 +3307,14 @@ class PlayState extends MusicBeatState
 				case 6:
 					scoreTxt.text = '4276uihj: ' + songScore + ' | a7d5h: ' + songMisses + ' | z7dyguhj: ' + ratingName + ' (' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%)' + ' - ' + ratingFC;//peeps wanted no integer rating
 			}
-		}});
+		}else{
+			if(ratingName == '?') {
+				scoreTxt.text = 'Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingName;
+			} else {
+				scoreTxt.text = 'Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingName + ' (' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%)' + ' - ' + ratingFC;//peeps wanted no integer rating
+			}
+		}
+
 
 		if(botplayTxt.visible) {
 			botplaySine += 180 * elapsed;
@@ -5730,6 +5756,8 @@ class PlayState extends MusicBeatState
 								camFuckShader.amount = 0.075;
 								glitchKill(scorchedHills);
 								glitchKill(scorchedMonitor);
+							case 4920:
+								glitchKill(scorchedBg);
 							case 4944:
 								glitchKill(boyfriend, true);
 								piss.push(FlxTween.tween(camFuckShader, {amount: 0.3}, 4, {
@@ -5741,12 +5769,10 @@ class PlayState extends MusicBeatState
 								glitchKill(scorchedRocks);
 							case 4992:
 								glitchKill(scorchedFloor);
-								glitchKill(scorchedBg);
 							case 5000:
 								glitchKill(dad, true);
-							case 5030:
-								camGame.alpha = 0;
-								camHUD.alpha = 0;
+								FlxTween.tween(camGame, {alpha: 0});
+								FlxTween.tween(camHUD, {alpha: 0});
 						}
 				}
 			case 'endless':

@@ -1,70 +1,106 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				-57,
 				-464
 			],
-			"anim": "singDOWN",
+			"loop": false,
 			"fps": 24,
-			"name": "HogDown",
-			"indices": []
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "HogDown"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-7,
 				-420
 			],
-			"anim": "singLEFT",
+			"loop": false,
 			"fps": 24,
-			"name": "HogLeft",
-			"indices": []
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "HogLeft"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-87,
 				-319
 			],
-			"anim": "singUP",
+			"loop": false,
 			"fps": 24,
-			"name": "HogUp",
-			"indices": []
+			"anim": "singUP",
+			"indices": [],
+			"name": "HogUp"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-99,
 				-420
 			],
-			"anim": "singRIGHT",
-			"fps": 24,
-			"name": "HogRight",
-			"indices": []
-		},
-		{
-			"offsets": [
-				33,
-				-111
-			],
-			"indices": [],
-			"fps": 24,
-			"anim": "getfuckedlol",
 			"loop": false,
-			"name": "Getfucked"
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "HogRight"
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-130,
 				-410
 			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "HogIdle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				30,
+				-130
+			],
+			"anim": "charge",
+			"fps": 24,
+			"name": "GetReady",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-50,
+				-120
+			],
+			"anim": "jump",
+			"fps": 24,
+			"name": "Jump",
+			"indices": []
+		},
+		{
+			"offsets": [
+				140,
+				-169
+			],
 			"indices": [],
 			"fps": 24,
-			"anim": "idle",
+			"anim": "zoom",
 			"loop": false,
-			"name": "HogIdle"
+			"name": "Zoom"
+		},
+		{
+			"offsets": [
+				30,
+				-130
+			],
+			"indices": [
+				18,
+				19
+			],
+			"fps": 24,
+			"anim": "chargestat",
+			"loop": true,
+			"name": "GetReady"
 		}
 	],
 	"no_antialiasing": false,
