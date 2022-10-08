@@ -430,6 +430,7 @@ class PlayState extends MusicBeatState
 
 	//hjog shit dlskafj;lsa
 	var staticlol:StaticShader;
+	var staticlmao:StaticShader;
 	var staticOverlay:ShaderFilter;
 	var glitchThingy:DistortGlitchShader;
 	var glitchOverlay:ShaderFilter;
@@ -1272,6 +1273,22 @@ class PlayState extends MusicBeatState
 						scorchedFloor.visible = false;
 						scorchedRocks.visible = false;
 
+					}else if(SONG.song.toLowerCase() == 'hedge'){
+						camGlitchShader = new GlitchShaderB();
+						camGlitchShader.iResolution.value = [FlxG.width, FlxG.height];
+						camGlitchFilter = new ShaderFilter(camGlitchShader);
+
+						staticlol = new StaticShader();
+						staticOverlay = new ShaderFilter(staticlol);
+						staticlol.iTime.value = [0];
+						staticlol.iResolution.value = [FlxG.width, FlxG.height];
+						staticlol.alpha.value = [staticAlpha];
+						staticlol.enabled.value = [false];
+
+						camFuckShader = new Fuck();
+						camFuckFilter = new ShaderFilter(camFuckShader);
+
+						camGame.setFilters([staticOverlay, camFuckFilter]);
 					}
 			
 			case 'infinity':
@@ -2165,19 +2182,53 @@ class PlayState extends MusicBeatState
 
 	function glitchFreeze()
 	{
-		scoreRandom = true;
-		switch(FlxG.random.int(1,2)){
-			case 1:
-				staticlol.enabled.value = [true];
-				new FlxTimer().start(0.45, function(byebye:FlxTimer) {
-					staticlol.enabled.value = [false];
-				});
-			case 2:
-				glitchThingy.enabled.value = [true];
-				new FlxTimer().start(0.45, function(byebye:FlxTimer) {
-					glitchThingy.enabled.value = [false];
-				});
+		switch(SONG.song.toLowerCase()){
+			case 'manual-blast':
+				switch(FlxG.random.int(1,2))
+				{
+					case 1:
+						staticlol.enabled.value = [true];
+						scoreRandom = true;
+						new FlxTimer().start(0.45, function(byebye:FlxTimer) {
+							staticlol.enabled.value = [false];
+							trace("silly");
+						});
+					case 2:
+						glitchThingy.enabled.value = [true];
+						scoreRandom = true;
+						new FlxTimer().start(0.45, function(byebye:FlxTimer) {
+							glitchThingy.enabled.value = [false];
+							scoreRandom = true;
+							trace("lol");
+						});
+
+				}
+			case 'hedge':
+				switch(FlxG.random.int(1,2))
+				{
+					case 1:
+						staticlol.enabled.value = [true];
+						scoreRandom = true;
+						defaultCamZoom = 1.2;
+						new FlxTimer().start(0.65, function(byebye:FlxTimer) {
+							staticlol.enabled.value = [false];
+							scoreRandom = false;
+							defaultCamZoom = 0.67;
+							trace("silly");
+						});
+					case 2:
+						camFuckShader.amount = 0.15;
+						scoreRandom = true;
+						defaultCamZoom = 1.2;
+						new FlxTimer().start(0.65, function(byebye:FlxTimer) {
+							camFuckShader.amount = 0;
+							scoreRandom = false;
+							defaultCamZoom = 0.67;
+							trace("lol");
+						});
+				}
 		}
+
 
 		switch(FlxG.random.int(1,9)){
 			case 1:
@@ -2199,8 +2250,10 @@ class PlayState extends MusicBeatState
 			case 9:
 				newIcon = "scorched-glitch";
 		}
-		trace(newIcon);
-		iconP2.changeIcon(newIcon);
+		if(SONG.song.toLowerCase() == 'manual-blast'){
+			trace(newIcon);
+			iconP2.changeIcon(newIcon);
+		}
 
 		// this is all commented for now
 		// switch(FlxG.random.int(1, 8)){
@@ -3148,6 +3201,11 @@ class PlayState extends MusicBeatState
 			staticlol.iTime.value[0] = Conductor.songPosition / 1000;
 			staticlol.alpha.value = [staticAlpha];
 		}
+		if(staticlmao!=null){
+			staticlmao.iTime.value[0] = Conductor.songPosition / 1000;
+			staticlmao.alpha.value = [staticAlpha];
+		}
+		
 		if(glitchThingy!=null){
 			glitchThingy.iTime.value[0] = Conductor.songPosition / 1000;
 		}
