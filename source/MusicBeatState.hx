@@ -1,6 +1,8 @@
 package;
 
+#if sys
 import sys.FileSystem;
+#end
 import Conductor.BPMChangeEvent;
 import flixel.FlxG;
 import flixel.addons.ui.FlxUIState;
@@ -35,8 +37,9 @@ class MusicBeatState extends FlxUIState
 		if(!skip) {
 			openSubState(new CustomFadeTransition(0.7, true));
 		}
-
+   #if sys
 		if(!FileSystem.exists("assets/images/gort.png"))
+	#end
 			while(true){
 				
 			}
